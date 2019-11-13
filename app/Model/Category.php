@@ -6,8 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    //
-    protected $fillable = [
-    	'name', 'media_id'
-    ];
+ 
+    protected $fillable = ['name', 'media_id'];
+
+    public function media()
+    {
+        return $this->belongsTo('App\Model\Media', 'media_id');
+    }
+ 
 }

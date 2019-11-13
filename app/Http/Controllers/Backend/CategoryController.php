@@ -17,7 +17,6 @@ class CategoryController extends Controller
      */
     public function index(Request $request)
     {
-        //
         $categories = Category::orderBy('id', 'DESC')->paginate(25);
         if($request->all()){
             $data = $request->all();
@@ -33,7 +32,6 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
         return view('admin.category.create');
     }
 
@@ -45,16 +43,18 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+ 
         $data = $request->all();
-        if($request->hasFile('image_media')){
-            $media = saveSingleMedia($request,'image');
-            if(TRUE != $media['status']){
+        // dd($data);
+        if ($request->hasFile('image_media')) {
+            $media = saveSingleMedia($request, 'image');
+            if (TRUE != $media['status']) {
                 Flash::error($media['message']);
                 return redirect(route('category.index'));
             }
             $data['media_id'] = $media['media_id'];
         }
+ 
         Category::create($data);
         Flash::success('Successfully created category');
         return redirect(route('category.index'));
@@ -79,7 +79,14 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+ 
+        $category = Category::find($id);
+        if (empty($category)) {
+            Flash::error('Category not found!');
+            return redirect(route('category.index'));
+        }
+        return view('admin.category.edit', compact('category'));
+ 
     }
 
     /**
@@ -91,7 +98,28 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+ 
+
+        $category = Category::find($id);
+        if (empty($category)) {
+            Flash::error('Category not found!');
+            return redirect(route('category.index'));
+        }
+
+        $data = $request->all();
+        if ($request->hasFile('image_media')) {
+            $media = saveSingleMedia($request, 'image');
+            if (TRUE != $media['status']) {
+                Flash::error($media['message']);
+                return redirect(route('category.index'));
+            }
+            $data['media_id'] = $media['media_id'];
+        }
+
+        Category::find($id)->update($data);
+        Flash::success('Successfully update category');
+        return redirect(route('category.index'));
+ 
     }
 
     /**
@@ -102,6 +130,11 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+ 
+        Category::find($id)->delete();
+        Flash::success('Successfully delete category');
+        return redirect(route('category.index'));
+
+ 
     }
 }
