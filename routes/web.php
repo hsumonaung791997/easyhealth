@@ -32,6 +32,7 @@ Route::group(['prefix'=>'admin'],function(){
 		Route::resource('category', 'CategoryController');
 		Route::delete('media/{id}', 'MediaController@destroy');
 		Route::resource('blog', 'BlogController');
+		Route::resource('service','ServiceController');
 	});
  
 });

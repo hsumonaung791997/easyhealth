@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Backend;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Service;
+use File;
+use Flash;
 
 class ServiceController extends Controller
 {
@@ -13,9 +15,16 @@ class ServiceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
+        $services = Service::orderBy('id', 'DESC')->paginate(25);
+        if($request->all()) {
+            $data = $request->all();
+            $services = Service::where('title', 'like', $data['title'])->paginate(25);
+        }
+
+        return view('admin.service.index', compact('services'));
         
     }
 
@@ -27,6 +36,7 @@ class ServiceController extends Controller
     public function create()
     {
         //
+        return view('admin.service.create');
     }
 
     /**
@@ -38,6 +48,19 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         //
+        $data = $request->all();
+        //dd($data);
+        if($request->hasFile('image_media')){
+           $media = saveSingleMedia($request, 'image');
+            if (TRUE != $media['status']) {
+                Flash::error($media['message']);
+                return redirect(route('service.index'));
+            }
+            $data['media_id'] = $media['media_id'];
+        }
+        Service::create($data);
+        Flash::success('Successfully created service');
+        return redirect(route('service.index'));
     }
 
     /**
@@ -60,6 +83,12 @@ class ServiceController extends Controller
     public function edit($id)
     {
         //
+        $services = Service::find($id);
+        if(empty($services)){
+            Flash::error('Service not founf');
+            return redirect(route('service.index'));
+        }
+        return view('admin.service.edit',compact('services'));
     }
 
     /**
@@ -72,6 +101,23 @@ class ServiceController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $services = Service::find($id);
+        if(empty($services)){
+            Flash::error('Service not found');
+            return redirect(route('service.index'));
+        }
+        $data = $request->all();
+        if ($request->hasFile('image_media')) {
+            $media = saveSingleMedia($request, 'image');
+            if (TRUE != $media['status']) {
+                Flash::error($media['message']);
+                return redirect(route('service.index'));
+            }
+            $data['media_id'] = $media['media_id'];
+        } 
+        Service::find($id)->update($data);
+        Flash::success('Successfully service update');
+        return redirect(route('service.index'));
     }
 
     /**
@@ -83,5 +129,8 @@ class ServiceController extends Controller
     public function destroy($id)
     {
         //
+        Service::find($id)->delete();
+        Flash::success('Successfully service delete');
+        return redirect(route('service.index'));
     }
 }
