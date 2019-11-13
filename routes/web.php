@@ -18,3 +18,17 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('/service','ServiceController');
+Route::group(['prefix'=>'admin'],function(){
+	Route::get('/', function () {
+		return redirect('admin/login');
+	});
+});
+
+Route::group(['namespace' => 'Backend'],function(){
+	Route::resource('service','ServiceController');
+});
+
+Route::group(['namespace' => 'Backend'],function(){
+	Route::resource('category','CategoryController');
+});
