@@ -33,6 +33,7 @@ Route::group(['prefix'=>'admin'],function(){
 		Route::delete('media/{id}', 'MediaController@destroy');
 		Route::resource('blog', 'BlogController');
 		Route::resource('service','ServiceController');
+		Route::resource('location', 'LocationController');
 	});
  
 });
