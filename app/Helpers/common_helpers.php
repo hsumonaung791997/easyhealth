@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use App\Model\Media;
+use App\Model\Category;
 
 function saveSingleMedia(Request $request, $upload_type)
 {
@@ -72,3 +73,10 @@ function showPrettyStatus($status) {
 
     return '<span class="label label-danger"><i class="glyphicon glyphicon-remove"></i></span>';
 }
+
+function getCategory($id){
+    $category = Category::find($id);
+    return $category;
+}
+
+ 
