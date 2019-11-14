@@ -25,23 +25,24 @@
                        @endif
                     </div>
 
-                    <!-- <div class="form-group col-sm-6 mmtext pull-right">
-                      {!! Form::label('content', 'Content:') !!} <span class="text-danger">*</span>
-                      {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
-                      @if ($errors->has('content'))
-                        <span class="text-danger">
-                          <strong>{{ $errors->first('content') }}</strong>
-                        </span>
-                      @endif
-                    </div> -->
+                    <div class="col-md-6" data-select2-id="29">
+                      <div class="form-group">
+                        
+                        {!! Form::label('category', 'Category:') !!}<span class="text-danger">*</span><br>
+                        
+                        <select name="category_id" id="category_id" class="form-control">
+                          @foreach($categories as $category)
+                          <option value="{{ $category->id }}" selected="selected">{{ $category->name }}</option>
+                          @endforeach
+                        </select>
+
+                        </div>                     
+                    </div>
 
                     <div class="form-group col-sm-6 mmtext pull-right">
                       {!! Form::label('content', 'Description:') !!} <span class="text-danger">*</span>
-                      <textarea id="content" class="form-control" name="description" rows="10" cols="50"></textarea>
+                      <textarea id="description" class="form-control" name="description" rows="10" cols="50"></textarea>
                     </div>
-
-                    
-
 
                    <div class="form-group col-sm-6 mmtext">
                        {!! Form::label('file', 'Upload Product Photo :') !!} <span class="text-danger">*</span>
@@ -57,8 +58,8 @@
 
                   <div class="form-group col-sm-6 mmtext">
                     {!! Form::label('status', 'Status:') !!} <span class="text-danger">*</span><br>
-                    Active &nbsp; &nbsp; {{ Form::radio('status', '1') }} <br>
-                    Inactive &nbsp; &nbsp; {{ Form::radio('status', '0') }}
+                    Active &nbsp; &nbsp; {{ Form::radio('status', STATUS_ACTIVE) }} <br>
+                    Inactive &nbsp; &nbsp; {{ Form::radio('status', STATUS_INACTIVE) }}
                   </div>
 
                    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.1/css/fileinput.min.css" media="all"

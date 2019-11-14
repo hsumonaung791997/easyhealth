@@ -14,4 +14,9 @@ class Category extends Model
         return $this->belongsTo('App\Model\Media', 'media_id');
     }
  
+ 	public function service()
+ 	{
+ 		return $this->hasMany('App\Model\Service');
+ 	}
+
 }

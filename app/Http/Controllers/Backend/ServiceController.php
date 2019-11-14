@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Model\Service;
 use File;
 use Flash;
+use App\Model\Category;
 
 class ServiceController extends Controller
 {
@@ -17,8 +18,7 @@ class ServiceController extends Controller
      */
     public function index(Request $request)
     {
-        //
-        $services = Service::orderBy('id', 'DESC')->paginate(25);
+        $services = Service::with('category')->orderBy('id', 'DESC')->paginate(25);
         if($request->all()) {
             $data = $request->all();
             $services = Service::where('title', 'like', $data['title'])->paginate(25);
@@ -35,8 +35,8 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
-        return view('admin.service.create');
+       $categories = Category::all();
+        return view('admin.service.create', compact('categories'));
     }
 
     /**
