@@ -24,24 +24,10 @@
                             </span>
                        @endif
                     </div>
-
-                    <!-- <div class="form-group col-sm-6 mmtext pull-right">
-                      {!! Form::label('content', 'Content:') !!} <span class="text-danger">*</span>
-                      {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
-                      @if ($errors->has('content'))
-                        <span class="text-danger">
-                          <strong>{{ $errors->first('content') }}</strong>
-                        </span>
-                      @endif
-                    </div> -->
-
                     <div class="form-group col-sm-6 mmtext pull-right">
                       {!! Form::label('content', 'Content:') !!} <span class="text-danger">*</span>
                       <textarea id="content" class="form-control" name="content" rows="10" cols="50"></textarea>
                     </div>
-
-                    
-
 
                    <div class="form-group col-sm-6 mmtext">
                        {!! Form::label('file', 'Upload Product Photo :') !!} <span class="text-danger">*</span>
@@ -85,19 +71,7 @@
                         allowedFileExtensions: ["jpg", "png", "gif", "jpeg"]
                     });
                    </script>
-
-                    <!-- <script src="{{asset('assets/ckeditor/ckeditor.js')}}"></script> -->
-
                     <script src="//cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
-
-                    <!-- <script>
-                       var content = document.getElementById("content");
-                         CKEDITOR.replace(content,{
-                         language:'en-gb'
-                       });
-                       CKEDITOR.config.allowedContent = true;
-                    </script> -->
-
                     <script>
                       CKEDITOR.replace( 'content' );
                     </script>

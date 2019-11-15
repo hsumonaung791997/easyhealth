@@ -8,6 +8,7 @@ use App\Model\Service;
 use File;
 use Flash;
 use App\Model\Category;
+use App\Http\Requests\Admin\ServiceRequest;
 
 class ServiceController extends Controller
 {
@@ -45,7 +46,7 @@ class ServiceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ServiceRequest $request)
     {
         //
         $data = $request->all();
@@ -83,12 +84,13 @@ class ServiceController extends Controller
     public function edit($id)
     {
         //
-        $services = Service::find($id);
-        if(empty($services)){
-            Flash::error('Service not founf');
+        $categories = Category::all();
+        $service = Service::with('category')->find($id);
+        if(empty($service)){
+            Flash::error('Service not found');
             return redirect(route('service.index'));
         }
-        return view('admin.service.edit',compact('services'));
+        return view('admin.service.edit',compact('service','categories'));
     }
 
     /**
@@ -101,6 +103,7 @@ class ServiceController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $category = Category::all();
         $services = Service::find($id);
         if(empty($services)){
             Flash::error('Service not found');

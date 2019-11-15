@@ -46,14 +46,6 @@ class CategoryController extends Controller
  
         $data = $request->all();
         // dd($data);
-        if ($request->hasFile('image_media')) {
-            $media = saveSingleMedia($request, 'image');
-            if (TRUE != $media['status']) {
-                Flash::error($media['message']);
-                return redirect(route('category.index'));
-            }
-            $data['media_id'] = $media['media_id'];
-        }
  
         Category::create($data);
         Flash::success('Successfully created category');
@@ -107,15 +99,6 @@ class CategoryController extends Controller
         }
 
         $data = $request->all();
-        if ($request->hasFile('image_media')) {
-            $media = saveSingleMedia($request, 'image');
-            if (TRUE != $media['status']) {
-                Flash::error($media['message']);
-                return redirect(route('category.index'));
-            }
-            $data['media_id'] = $media['media_id'];
-        }
-
         Category::find($id)->update($data);
         Flash::success('Successfully update category');
         return redirect(route('category.index'));

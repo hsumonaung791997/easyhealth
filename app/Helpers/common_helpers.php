@@ -74,9 +74,6 @@ function showPrettyStatus($status) {
     return '<span class="label label-danger"><i class="glyphicon glyphicon-remove"></i></span>';
 }
 
-function getCategory($id){
-    $category = Category::find($id);
-    return $category;
-}
+ 
 
  
