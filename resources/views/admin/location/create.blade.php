@@ -37,7 +37,7 @@
 
                     <div class="form-group col-sm-6 mmtext">
                         {!! Form::label('latitude', 'Latitude:') !!} <span class="text-danger">*</span>
-                        {!! Form::number('latitude', null, ['class' => 'form-control']) !!}
+                        {!! Form::text('latitude', null, ['class' => 'form-control']) !!}
                         @if ($errors->has('latitude'))
                             <span class="text-danger">
                                 <strong>{{ $errors->first('latitude') }}</strong>
@@ -47,7 +47,7 @@
 
                     <div class="form-group col-sm-6 mmtext">
                         {!! Form::label('longitude', 'Longitude:') !!} <span class="text-danger">*</span>
-                        {!! Form::number('longitude', null, ['class' => 'form-control']) !!}
+                        {!! Form::text('longitude', null, ['class' => 'form-control']) !!}
                         @if ($errors->has('longitude'))
                             <span class="text-danger">
                                 <strong>{{ $errors->first('longitude') }}</strong>

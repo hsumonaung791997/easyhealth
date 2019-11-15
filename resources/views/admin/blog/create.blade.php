@@ -25,23 +25,10 @@
                        @endif
                     </div>
 
-                    <!-- <div class="form-group col-sm-6 mmtext pull-right">
-                      {!! Form::label('content', 'Content:') !!} <span class="text-danger">*</span>
-                      {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
-                      @if ($errors->has('content'))
-                        <span class="text-danger">
-                          <strong>{{ $errors->first('content') }}</strong>
-                        </span>
-                      @endif
-                    </div> -->
-
                     <div class="form-group col-sm-6 mmtext pull-right">
                       {!! Form::label('content', 'Content:') !!} <span class="text-danger">*</span>
                       <textarea id="content" class="form-control" name="content" rows="10" cols="50"></textarea>
                     </div>
-
-                    
-
 
                    <div class="form-group col-sm-6 mmtext">
                        {!! Form::label('file', 'Upload Product Photo :') !!} <span class="text-danger">*</span>
@@ -57,8 +44,8 @@
 
                   <div class="form-group col-sm-6 mmtext">
                     {!! Form::label('status', 'Status:') !!} <span class="text-danger">*</span><br>
-                    Active &nbsp; &nbsp; {{ Form::radio('status', '1') }} <br>
-                    Inactive &nbsp; &nbsp; {{ Form::radio('status', '0') }}
+                    Active &nbsp; &nbsp; {{ Form::radio('status', STATUS_ACTIVE) }} <br>
+                    Inactive &nbsp; &nbsp; {{ Form::radio('status', STATUS_INACTIVE) }}
                   </div>
 
                    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.1/css/fileinput.min.css" media="all"
@@ -85,23 +72,7 @@
                         allowedFileExtensions: ["jpg", "png", "gif", "jpeg"]
                     });
                    </script>
-
-                    <!-- <script src="{{asset('assets/ckeditor/ckeditor.js')}}"></script> -->
-
-                    <script src="//cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
-
-                    <!-- <script>
-                       var content = document.getElementById("content");
-                         CKEDITOR.replace(content,{
-                         language:'en-gb'
-                       });
-                       CKEDITOR.config.allowedContent = true;
-                    </script> -->
-
-                    <script>
-                      CKEDITOR.replace( 'content' );
-                    </script>
-
+        
                     <div class="form-group col-sm-12">
                        {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
                        <a href="{!! route('blog.index') !!}" class="btn btn-default">Cancel</a>

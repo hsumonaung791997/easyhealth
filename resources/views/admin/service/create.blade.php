@@ -32,7 +32,9 @@
                         
                         <select name="category_id" id="category_id" class="form-control">
                           @foreach($categories as $category)
-                          <option value="{{ $category->id }}" selected="selected">{{ $category->name }}</option>
+                            <option value="{{ $category->id }}" selected="selected">
+                              {{ $category->name }}
+                            </option>
                           @endforeach
                         </select>
 
@@ -41,7 +43,7 @@
 
                     <div class="form-group col-sm-6 mmtext pull-right">
                       {!! Form::label('content', 'Description:') !!} <span class="text-danger">*</span>
-                      <textarea id="description" class="form-control" name="description" rows="10" cols="50"></textarea>
+                      <textarea id="content" class="form-control" name="content" rows="10" cols="50"></textarea>
                     </div>
 
                    <div class="form-group col-sm-6 mmtext">
@@ -86,23 +88,6 @@
                         allowedFileExtensions: ["jpg", "png", "gif", "jpeg"]
                     });
                    </script>
-
-                    <!-- <script src="{{asset('assets/ckeditor/ckeditor.js')}}"></script> -->
-
-                    <script src="//cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
-
-                    <!-- <script>
-                       var content = document.getElementById("content");
-                         CKEDITOR.replace(content,{
-                         language:'en-gb'
-                       });
-                       CKEDITOR.config.allowedContent = true;
-                    </script> -->
-
-                    <script>
-                      CKEDITOR.replace( 'content' );
-                    </script>
-
                     <div class="form-group col-sm-12">
                        {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
                        <a href="{!! route('service.index') !!}" class="btn btn-default">Cancel</a>

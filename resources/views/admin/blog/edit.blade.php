@@ -24,7 +24,7 @@
                             @endif
                         </div>
 
-                        <div class="form-group col-sm-6 mmtext">
+                        <div class="form-group col-sm-6 mmtext pull-right">
                             {!! Form::label('content', 'Content:') !!} <span class="text-danger">*</span>
                             {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
                             @if ($errors->has('content'))
@@ -32,12 +32,6 @@
                                     <strong>{{ $errors->first('content') }}</strong>
                                 </span>
                             @endif
-                        </div>
-
-                        <div class="form-group col-sm-6 mmtext">
-                            {!! Form::label('status', 'Status:') !!} <span class="text-danger">*</span>
-                            Active &nbsp; &nbsp; {{ Form::radio('status', '1') }} <br>
-                            Inactive &nbsp; &nbsp; {{ Form::radio('status', '0') }}
                         </div>
 
                         <div class="form-group col-sm-6 mmtext">
@@ -51,16 +45,17 @@
                             </div>
                             <div id="kv-avatar-errors-1" class="center-block" style="display:none"></div>
                         </div>
+
+                        <div class="form-group col-sm-6 mmtext">
+                            {!! Form::label('status', 'Status:') !!} <span class="text-danger">*</span>
+                            Active &nbsp; &nbsp; {{ Form::radio('status', STATUS_ACTIVE) }} <br>
+                            Inactive &nbsp; &nbsp; {{ Form::radio('status', STATUS_INACTIVE) }}
+                        </div>
+
                         <div class="form-group col-sm-12">
                             {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
                             <a href="{!! route('blog.index') !!}" class="btn btn-default">Cancel</a>
                         </div>
-
-                        <script src="//cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
-
-                        <script>
-                            CKEDITOR.replace( 'content' );
-                        </script>
 
                    {!! Form::close() !!}
                </div>

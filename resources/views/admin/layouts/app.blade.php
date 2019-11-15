@@ -177,6 +177,7 @@
     <script src="{{ asset('bower_components/admin-lte/app.js')}}"></script>
     <script src="{{ asset('bower_components/select2/dist/js/select2.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('frontend/intl-tel-input/build/js/intlTelInput.js')}}"></script>
+    <script src="//cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
     
     <script>
 
@@ -199,12 +200,10 @@
             })
 
             $('#category_id').select2();
-
+            CKEDITOR.replace('content');
         });
-        
-
-    
     </script>
+
     <script type="text/javascript" src="{{ asset('js/custom.js') }}"></script>
     @yield('scripts')
 </body>
