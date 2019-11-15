@@ -200,8 +200,14 @@
             })
 
             $('#category_id').select2();
+
             CKEDITOR.replace('content');
+
+
+            CKEDITOR.replace('description');
+
         });
+        
     </script>
 
     <script type="text/javascript" src="{{ asset('js/custom.js') }}"></script>

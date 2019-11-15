@@ -24,19 +24,6 @@
                             </span>
                        @endif
                     </div>
-
-                   <div class="form-group col-sm-6 mmtext">
-                       {!! Form::label('file', 'Upload Product Photo :') !!} <span class="text-danger">*</span>
-                       {{ Form::hidden('media_path', CATEGORY_MEDIA_UPLOAD) }}
-                           <div class="file-loading">
-                               <input type="file" id="image_media" name="image_media" accept="image/*">
-                           </div>
-                       <div class="kv-avatar-hint">
-                           <small>Select file < 1500 KB</small>
-                       </div>
-                       <div id="kv-avatar-errors-1" class="center-block" style="width:800px;display:none"></div>
-                   </div>
-
                    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.1/css/fileinput.min.css" media="all"
                          rel="stylesheet" type="text/css"/>
                    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.1/js/fileinput.min.js"></script>

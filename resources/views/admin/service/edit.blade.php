@@ -12,7 +12,7 @@
        <div class="box box-primary">
            <div class="box-body">
                <div class="row">
-                   {!! Form::model($services, ['route' => ['service.update', $services->id], 'method' => 'patch', 'files' => 'true']) !!}
+                   {!! Form::model($service, ['route' => ['service.update', $service->id], 'method' => 'patch', 'files' => 'true']) !!}
 
                         <div class="form-group col-sm-6 mmtext">
                             {!! Form::label('title', 'Title:') !!} <span class="text-danger">*</span>
@@ -27,6 +27,24 @@
                         <div class="form-group col-sm-6 mmtext pull-right">
                             {!! Form::label('content', 'Description:') !!} <span class="text-danger">*</span>
                             {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
+
+                        <div class="col-md-6" data-select2-id="29">
+                            <div class="form-group">                      
+                            {!! Form::label('category', 'Category:') !!}<span class="text-danger">*</span><br>                       
+                             <select name="category_id" id="category_id" class="form-control">
+                                <option value="{{ $service->category->id }}">{{$service->category->name}}</option>                                                @foreach($categories as $category)
+                                    @if($category->id != $service->category->id)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endif
+                                 @endforeach
+                            </select>
+                            </div>                     
+                        </div>
+
+                        <div class="form-group col-sm-6 mmtext">
+                            {!! Form::label('description', 'Description:') !!} <span class="text-danger">*</span>
+                            {!! Form::textarea('description', null, ['class' => 'form-control']) !!}
+
                             @if ($errors->has('description'))
                                 <span class="text-danger">
                                     <strong>{{ $errors->first('description') }}</strong>
@@ -44,6 +62,7 @@
                                 <small>Select file < 1500 KB</small>
                             </div>
                             <div id="kv-avatar-errors-1" class="center-block" style="display:none"></div>
+                            
                         </div>
 
                         <div class="form-group col-sm-6 mmtext">
@@ -68,10 +87,10 @@
    <script>
         $(function () {
             var preview_image = "<?php echo url('images/default_preview.png') ?>";
-            var initPreview = "<?php echo null != $services->media ? url($services->media->file_path . $services->media->file_name) : url('images/default_preview.png') ?>";
-            var initPreviewAlt = "<?php echo null != $services->media ? $services->media->file_caption : '' ?>";
-            var dataId = "<?php echo null != $services->media ? $services->media->id : '' ?>";
-            var dataUrl = "<?php echo null != $services->media ? url('admin/media/' . $services->media->id) : '' ?>";
+            var initPreview = "<?php echo null != $service->media ? url($service->media->file_path . $service->media->file_name) : url('images/default_preview.png') ?>";
+            var initPreviewAlt = "<?php echo null != $service->media ? $service->media->file_caption : '' ?>";
+            var dataId = "<?php echo null != $service->media ? $service->media->id : '' ?>";
+            var dataUrl = "<?php echo null != $service->media ? url('admin/media/' . $service->media->id) : '' ?>";
             $("#media_upload").fileinput({
                 overwriteInitial: true,
                 maxFileSize: 1500,
@@ -88,7 +107,7 @@
                 msgErrorClass: 'alert alert-block alert-danger',
                 // for image files
                 initialPreview: [
-                    @if(isset($services->media))
+                    @if(isset($service->media))
                         '<img src="' + initPreview + '" class="file-preview-image" alt="' + initPreviewAlt + '" title="' + initPreviewAlt + '" style="width:200px;height:200px">'
                     @endif
                 ],
