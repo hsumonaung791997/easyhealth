@@ -34,7 +34,7 @@ class ServiceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
        $categories = Category::all();
         return view('admin.service.create', compact('categories'));
@@ -103,7 +103,7 @@ class ServiceController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $category = Category::all();
+        //$category = Category::all();
         $services = Service::find($id);
         if(empty($services)){
             Flash::error('Service not found');

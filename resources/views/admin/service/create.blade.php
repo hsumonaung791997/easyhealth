@@ -42,11 +42,9 @@
                     </div>
 
                     <div class="form-group col-sm-6 mmtext pull-right">
-                      {!! Form::label('content', 'Description:') !!} <span class="text-danger">*</span>
+                      {!! Form::label('description', 'Description:') !!} <span class="text-danger">*</span>
 
-                      <textarea id="content" class="form-control" name="content" rows="10" cols="50"></textarea>
-
-                      <textarea id="description" class="form-control" name="description" rows="10" cols="50"></textarea>
+                      <textarea id="description" class="editor" name="description" rows="10" cols="50"></textarea>
                        @if ($errors->has('description'))
                            <span class="text-danger">
                                <strong>{{ $errors->first('description') }}</strong>
@@ -74,13 +72,8 @@
 
                   <div class="form-group col-sm-6 mmtext">
                     {!! Form::label('status', 'Status:') !!} <span class="text-danger">*</span><br>
-                    Active &nbsp; &nbsp; {{ Form::radio('status', STATUS_ACTIVE) }} <br>
+                    Active &nbsp; &nbsp; {{ Form::radio('status', STATUS_ACTIVE ,['checked' => 'checked']) }} <br>
                     Inactive &nbsp; &nbsp; {{ Form::radio('status', STATUS_INACTIVE) }}
-                    @if ($errors->has('status'))
-                            <span class="text-danger">
-                                <strong>{{ $errors->first('status') }}</strong>
-                            </span>
-                       @endif
                   </div>
 
                    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.1/css/fileinput.min.css" media="all"

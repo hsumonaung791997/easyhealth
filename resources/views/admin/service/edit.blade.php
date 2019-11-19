@@ -23,16 +23,13 @@
                                 </span>
                             @endif
                         </div>
-
-                        <div class="form-group col-sm-6 mmtext pull-right">
-                            {!! Form::label('content', 'Description:') !!} <span class="text-danger">*</span>
-                            {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
+ 
 
                         <div class="col-md-6" data-select2-id="29">
                             <div class="form-group">                      
                             {!! Form::label('category', 'Category:') !!}<span class="text-danger">*</span><br>                       
                              <select name="category_id" id="category_id" class="form-control">
-                                <option value="{{ $service->category->id }}">{{$service->category->name}}</option>                                                @foreach($categories as $category)
+                                <option value="{{ $service->category->id }}">{{ $service->category->name }}</option>                                                @foreach($categories as $category)
                                     @if($category->id != $service->category->id)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                                     @endif
@@ -41,9 +38,13 @@
                             </div>                     
                         </div>
 
+
+
+
+
                         <div class="form-group col-sm-6 mmtext">
                             {!! Form::label('description', 'Description:') !!} <span class="text-danger">*</span>
-                            {!! Form::textarea('description', null, ['class' => 'form-control']) !!}
+                            {!! Form::textarea('description', null, ['class' => 'editor']) !!}
 
                             @if ($errors->has('description'))
                                 <span class="text-danger">
@@ -66,7 +67,7 @@
                         </div>
 
                         <div class="form-group col-sm-6 mmtext">
-                            {!! Form::label('status', 'Status:') !!} <span class="text-danger">*</span>
+                            {!! Form::label('status', 'Status:') !!} <span class="text-danger">*</span><br>
                             Active &nbsp; &nbsp; {{ Form::radio('status', STATUS_ACTIVE) }} <br>
                             Inactive &nbsp; &nbsp; {{ Form::radio('status', STATUS_INACTIVE) }}
                         </div>
@@ -113,8 +114,10 @@
                 ],
                 defaultPreviewContent: '<img src="' + preview_image + '" alt="Your Avatar" class="img-rounded" style="width:250px">',
                 layoutTemplates: {main2: '{preview} ' + ' {remove} {browse}'},
-                allowedFileExtensions: ["jpg", "png", "gif"]
+                allowedFileExtensions: ["jpg", "png", "gif", "jpeg"]
             });
+
+
             $('.kv-file-remove').attr('data-target', '#deleteMediaModal');
             $('.kv-file-remove').attr('data-id', dataId);
             $('.kv-file-remove').attr('data-url', dataUrl);

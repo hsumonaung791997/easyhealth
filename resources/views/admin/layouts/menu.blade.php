@@ -13,3 +13,7 @@
 <li class="{{ Request::is('location*') ? 'active' : '' }}">
     <a href="{{ route('location.index') }}"><i class="fa fa-edit"></i><span>Location</span></a>
 </li>
+
+<li class="{{ Request::is('doctor*') ? 'active' : '' }}">
+    <a href="{{ route('doctor.index') }}"><i class="fa fa-edit"></i><span>Doctor</span></a>
+</li>

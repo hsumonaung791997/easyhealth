@@ -201,10 +201,9 @@
 
             $('#category_id').select2();
 
-            CKEDITOR.replace('content');
-
-
-            CKEDITOR.replace('description');
+            $('textarea.editor').each(function() {
+                CKEDITOR.replace($(this).attr('id'));
+            });
 
         });
         

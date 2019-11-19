@@ -27,7 +27,7 @@
 
                     <div class="form-group col-sm-6 mmtext pull-right">
                       {!! Form::label('content', 'Content:') !!} <span class="text-danger">*</span>
-                      <textarea id="content" class="form-control" name="content" rows="10" cols="50"></textarea>
+                      <textarea id="content" class="editor" name="content" rows="10" cols="50"></textarea>
                     </div>
 
                    <div class="form-group col-sm-6 mmtext">
@@ -72,11 +72,6 @@
                         allowedFileExtensions: ["jpg", "png", "gif", "jpeg"]
                     });
                    </script>
-
-                    <script src="//cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
-                    <script>
-                      CKEDITOR.replace( 'content' );
-                    </script>
 
                     <div class="form-group col-sm-12">
                        {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}

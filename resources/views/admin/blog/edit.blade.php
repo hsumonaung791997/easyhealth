@@ -26,7 +26,7 @@
 
                         <div class="form-group col-sm-6 mmtext pull-right">
                             {!! Form::label('content', 'Content:') !!} <span class="text-danger">*</span>
-                            {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
+                            {!! Form::textarea('content', null, ['class' => 'editor']) !!}
                             @if ($errors->has('content'))
                                 <span class="text-danger">
                                     <strong>{{ $errors->first('content') }}</strong>
@@ -94,7 +94,7 @@
                 ],
                 defaultPreviewContent: '<img src="' + preview_image + '" alt="Your Avatar" class="img-rounded" style="width:250px">',
                 layoutTemplates: {main2: '{preview} ' + ' {remove} {browse}'},
-                allowedFileExtensions: ["jpg", "png", "gif"]
+                allowedFileExtensions: ["jpg", "png", "gif", "jpeg"]
             });
             $('.kv-file-remove').attr('data-target', '#deleteMediaModal');
             $('.kv-file-remove').attr('data-id', dataId);
