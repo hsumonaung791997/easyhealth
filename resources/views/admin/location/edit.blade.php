@@ -54,6 +54,19 @@
                             @endif
                         </div>
 
+
+                        <div class="form-group col-sm-12 mmtext">
+                            {!! Form::label('file', 'Upload Product Photo :') !!} <span class="text-danger">*</span>
+                            {{ Form::hidden('media_path', CATEGORY_MEDIA_UPLOAD) }}
+                                <div class="file-loading">
+                                    <input type="file" id="media_upload" name="image_media" accept="image/*">
+                                </div>
+                            <div class="kv-avatar-hint">
+                                <small>Select file < 1500 KB</small>
+                            </div>
+                            <div id="kv-avatar-errors-1" class="center-block" style="display:none"></div>
+                        </div>
+
                         <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.1/css/fileinput.min.css" media="all"
                              rel="stylesheet" type="text/css"/>
                        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.1/js/fileinput.min.js"></script>
@@ -68,4 +81,46 @@
            </div>
        </div>
    </div>
+
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.1/css/fileinput.min.css" media="all"
+         rel="stylesheet" type="text/css"/>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.1/js/fileinput.min.js"></script>
+   <script>
+        $(function () {
+            var preview_image = "<?php echo url('images/default_preview.png') ?>";
+            var initPreview = "<?php echo null != $location->media ? url($location->media->file_path . $location->media->file_name) : url('images/default_preview.png') ?>";
+            var initPreviewAlt = "<?php echo null != $location->media ? $location->media->file_caption : '' ?>";
+            var dataId = "<?php echo null != $location->media ? $location->media->id : '' ?>";
+            var dataUrl = "<?php echo null != $location->media ? url('admin/media/' . $location->media->id) : '' ?>";
+            $("#media_upload").fileinput({
+                overwriteInitial: true,
+                maxFileSize: 1500,
+                showRemove: false,
+                showClose: false,
+                showCaption: true,
+                showUpload: false,
+                browseLabel: 'Browse Logo',
+                removeLabel: 'Remove Logo',
+                browseIcon: '<i class="fa fa-cloud-upload"></i>',
+                removeIcon: '<i class="fa fa-trash-o">',
+                removeTitle: 'Cancel or reset changes',
+                elErrorContainer: '#kv-avatar-errors-1',
+                msgErrorClass: 'alert alert-block alert-danger',
+                // for image files
+                initialPreview: [
+                    @if(isset($location->media))
+                        '<img src="' + initPreview + '" class="file-preview-image" alt="' + initPreviewAlt + '" title="' + initPreviewAlt + '" style="width:200px;height:200px">'
+                    @endif
+                ],
+                defaultPreviewContent: '<img src="' + preview_image + '" alt="Your Avatar" class="img-rounded" style="width:250px">',
+                layoutTemplates: {main2: '{preview} ' + ' {remove} {browse}'},
+                allowedFileExtensions: ["jpg", "png", "gif", "jpeg"]
+            });
+            $('.kv-file-remove').attr('data-target', '#deleteMediaModal');
+            $('.kv-file-remove').attr('data-id', dataId);
+            $('.kv-file-remove').attr('data-url', dataUrl);
+            $('.kv-file-remove').attr('data-toggle', 'modal');
+        })
+   </script>
+
 @endsection

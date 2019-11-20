@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Location;
+use File;
 use Flash;
 use App\Http\Requests\Admin\LocationRequest;
 
@@ -21,7 +22,7 @@ class LocationController extends Controller
         $locations = Location::orderBy('id', 'DESC')->paginate(25);
         if($request->all()) {
             $data = $request->all();
-            $locations = Location::where('name', 'like', $data['name'])->paginate(25);
+            $locations = Location::where('title', 'like', $data['title'])->paginate(25);
         }
 
         return view('admin.location.index', compact('locations'));
@@ -46,9 +47,20 @@ class LocationController extends Controller
     public function store(LocationRequest $request)
     {
         $data = $request->all();
+        // dd($data);
+        // $radio = $request->get('status');
+
+        if ($request->hasFile('image_media')) {
+            $media = saveSingleMedia($request, 'image');
+            if (TRUE != $media['status']) {
+                Flash::error($media['message']);
+                return redirect(route('blog.index'));
+            }
+            $data['media_id'] = $media['media_id'];
+        }
 
         Location::create($data);
-        Flash::success('Successfully created location');
+        Flash::success('Successfully created loction');
         return redirect(route('location.index'));
     }
 
@@ -96,6 +108,15 @@ class LocationController extends Controller
         }
 
         $data = $request->all();
+        if ($request->hasFile('image_media')) {
+            $media = saveSingleMedia($request, 'image');
+            if (TRUE != $media['status']) {
+                Flash::error($media['message']);
+                return redirect(route('blog.index'));
+            }
+            $data['media_id'] = $media['media_id'];
+        }
+
         Location::find($id)->update($data);
         Flash::success('Successfully update location');
         return redirect(route('location.index'));

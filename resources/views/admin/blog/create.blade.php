@@ -44,7 +44,7 @@
 
                   <div class="form-group col-sm-6 mmtext">
                     {!! Form::label('status', 'Status:') !!} <span class="text-danger">*</span><br>
-                    Active &nbsp; &nbsp; {{ Form::radio('status', STATUS_ACTIVE) }} <br>
+                    Active &nbsp; &nbsp; {{ Form::radio('status', STATUS_ACTIVE ,['checked' => 'checked']) }} <br>
                     Inactive &nbsp; &nbsp; {{ Form::radio('status', STATUS_INACTIVE) }}
                   </div>
 
