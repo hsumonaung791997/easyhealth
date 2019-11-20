@@ -28,12 +28,13 @@
                     <div class="col-md-6" data-select2-id="29">
                       <div class="form-group">
                         
-                        {!! Form::label('category', 'Category:') !!}<span class="text-danger">*</span><br>
+                        {!! Form::label('parent', 'Parent:') !!}<span class="text-danger">*</span><br>
                         
-                        <select name="category_id" id="category_id" class="form-control">
-                          @foreach($categories as $category)
-                            <option value="{{ $category->id }}" selected="selected">
-                              {{ $category->name }}
+                        <select name="parent" id="parent_id" class="form-control">
+                          <option selected="selected">
+                          @foreach($parents as $parent)
+                            <option value="{{ $parent->id }}">
+                              {{ $parent->title }}
                             </option>
                           @endforeach
                         </select>
@@ -55,7 +56,7 @@
 
                    <div class="form-group col-sm-6 mmtext">
                        {!! Form::label('file', 'Upload Product Photo :') !!} <span class="text-danger">*</span>
-                       {{ Form::hidden('media_path', CATEGORY_MEDIA_UPLOAD) }}
+                       {{ Form::hidden('media_path', SERVICE_MEDIA_UPLOAD) }}
                            <div class="file-loading">
                                <input type="file" id="image_media" name="image_media" accept="image/*">
                            </div>
@@ -72,7 +73,7 @@
 
                   <div class="form-group col-sm-6 mmtext">
                     {!! Form::label('status', 'Status:') !!} <span class="text-danger">*</span><br>
-                    Active &nbsp; &nbsp; {{ Form::radio('status', STATUS_ACTIVE ,['checked' => 'checked']) }} <br>
+                    Active &nbsp; &nbsp; {{ Form::radio('status', STATUS_ACTIVE) }} <br>
                     Inactive &nbsp; &nbsp; {{ Form::radio('status', STATUS_INACTIVE) }}
                   </div>
 

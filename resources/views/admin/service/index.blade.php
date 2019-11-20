@@ -33,7 +33,6 @@
                         <th>No.</th>
                         <th>Title</th>
                         <th>Description</th>
-                        <th>Category Name</th>
                         <th>Status</th>
                         <th colspan="3">Action</th>
                     </thead>
@@ -44,7 +43,6 @@
                             <td>{{ $index++ }}</td>
                             <td>{{ $service->title }}</td>
                             <td>{!! $service->description !!}</td>
-                            <td>{{ $service->category->name}}</td>
                             <td>{!! showPrettyStatus($service->status) !!}</td>
                             <td>
                             <a href="{!! route('service.edit', [$service->id]) !!}"

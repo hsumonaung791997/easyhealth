@@ -12,7 +12,7 @@ define("FEMALE", 0);
 define('DB_DATE', 'Y-m-d H:i:s');
 
 // Media File Upload
-define('CATEGORY_MEDIA_UPLOAD', 16);
+define('SERVICE_MEDIA_UPLOAD', 16);
 
 define('PAGINATE', 25);
 

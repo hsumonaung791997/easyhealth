@@ -406,6 +406,7 @@ class ComposerStaticInitac622c552661650c61b03bbfc11dca34
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Http\\Requests\\Admin\\DoctorRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Admin/DoctorRequest.php',
         'App\\Http\\Requests\\Admin\\LocationRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Admin/LocationRequest.php',
         'App\\Http\\Requests\\Admin\\ServiceRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Admin/ServiceRequest.php',
         'App\\Model\\Blog' => __DIR__ . '/../..' . '/app/Model/Blog.php',

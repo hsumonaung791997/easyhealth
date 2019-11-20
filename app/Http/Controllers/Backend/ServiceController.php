@@ -19,7 +19,7 @@ class ServiceController extends Controller
      */
     public function index(Request $request)
     {
-        $services = Service::with('category')->orderBy('id', 'DESC')->paginate(25);
+        $services = Service::orderBy('id', 'DESC')->paginate(25);
         if($request->all()) {
             $data = $request->all();
             $services = Service::where('title', 'like', $data['title'])->paginate(25);
@@ -36,8 +36,8 @@ class ServiceController extends Controller
      */
     public function create(Request $request)
     {
-       $categories = Category::all();
-        return view('admin.service.create', compact('categories'));
+        $parents = Service::where('parent', NULL)->get(); 
+        return view('admin.service.create', compact('parents'));
     }
 
     /**
@@ -49,8 +49,7 @@ class ServiceController extends Controller
     public function store(ServiceRequest $request)
     {
         //
-        $data = $request->all();
-        //dd($data);
+        $data = $request->all();;
         if($request->hasFile('image_media')){
            $media = saveSingleMedia($request, 'image');
             if (TRUE != $media['status']) {
@@ -83,14 +82,14 @@ class ServiceController extends Controller
      */
     public function edit($id)
     {
-        //
-        $categories = Category::all();
-        $service = Service::with('category')->find($id);
+        $service = Service::find($id);
+        $parents = Service::where('parent', NULL)->get(); 
+        $selected = Service::where('id', $service->parent)->pluck('id');
         if(empty($service)){
             Flash::error('Service not found');
             return redirect(route('service.index'));
         }
-        return view('admin.service.edit',compact('service','categories'));
+        return view('admin.service.edit',compact('service', 'selected', 'parents'));
     }
 
     /**
