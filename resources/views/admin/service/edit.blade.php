@@ -38,10 +38,6 @@
                             </div>                     
                         </div>
 
-
-
-
-
                         <div class="form-group col-sm-6 mmtext">
                             {!! Form::label('description', 'Description:') !!} <span class="text-danger">*</span>
                             {!! Form::textarea('description', null, ['class' => 'editor']) !!}
