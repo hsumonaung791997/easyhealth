@@ -24,21 +24,39 @@
                             @endif
                         </div>
  
-
                         <div class="col-md-6" data-select2-id="29">
-                          <div class="form-group">
-                            
+                          <div class="form-group">                          
                             {!! Form::label('parent', 'Parent:') !!}<span class="text-danger">*</span><br>
-                            
+                            <?php
+                                $ids = [];
+                                foreach($all_services as $all_service) {
+                                    $ids[] = $all_service->id;
+                                }
+                            ?>
                             <select name="parent" id="parent_id" class="form-control">
-                              <option selected="selected">
-                              @foreach($parents as $parent)
-                                    <option value="{{ $parent->id }}">
-                                        {{ $parent->title }}
+                                @if($service->parent != null)
+                                    @if(in_array($service->parent, $ids))
+                                        @foreach ($all_services as $all_service)
+                                            @if ($all_service->id == $service->parent) 
+                                                <option value="{{ $all_service->id }}" selected="selected">
+                                                    {{ $all_service->title }}
+                                                </option>                                                
+                                            @endif
+                                        @endforeach
+                                    @endif
+                                @else
+                                    <option value="" selected="selected">                         
                                     </option>
-                              @endforeach
-                            </select>
+                                @endif                              
 
+                                @foreach($parents as $parent)
+                                    @if($service->parent != $parent->id)
+                                        <option value="{{ $parent->id }}">
+                                            {{ $parent->title }}
+                                        </option> 
+                                    @endif
+                                @endforeach
+                            </select>
                             </div>                     
                         </div>
 

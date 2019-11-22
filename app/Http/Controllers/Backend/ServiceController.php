@@ -82,14 +82,15 @@ class ServiceController extends Controller
      */
     public function edit($id)
     {
+        $all_services = Service::all();
         $service = Service::find($id);
         $parents = Service::where('parent', NULL)->get(); 
-        $selected = Service::where('id', $service->parent)->pluck('id');
+        //$selected = Service::where('id', $service->parent)->pluck('id');
         if(empty($service)){
             Flash::error('Service not found');
             return redirect(route('service.index'));
         }
-        return view('admin.service.edit',compact('service', 'selected', 'parents'));
+        return view('admin.service.edit',compact('all_services', 'service', 'parents'));
     }
 
     /**
