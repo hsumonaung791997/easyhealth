@@ -95,7 +95,7 @@ class WhyusController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(WhyusRequest $request, $id)
+    public function update(Request $request, $id)
     {
 
         $whyus = Whyus::find($id);
