@@ -4,12 +4,12 @@ namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Model\Blog;
+use App\Model\Whyus;
 use File;
 use Flash;
-use App\Http\Requests\Admin\BlogRequest;
+use App\Http\Requests\Admin\WhyusRequest;
 
-class BlogController extends Controller
+class WhyusController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,13 +19,13 @@ class BlogController extends Controller
     public function index(Request $request)
     {
         
-        $blogs = Blog::orderBy('id', 'DESC')->paginate(25);
+        $whyus_s = Whyus::orderBy('id', 'DESC')->paginate(25);
         if($request->all()) {
             $data = $request->all();
-            $blogs = Blog::where('title', 'like', $data['title'])->paginate(25);
+            $whyus_s = Whyus::where('title', 'like', $data['title'])->paginate(25);
         }
 
-        return view('admin.blog.index', compact('blogs'));
+        return view('admin.whyus.index', compact('whyus_s'));
     }
 
     /**
@@ -35,7 +35,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-        return view('admin.blog.create');
+        return view('admin.whyus.create');
     }
 
     /**
@@ -44,24 +44,21 @@ class BlogController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(WhyusRequest $request)
     {
         $data = $request->all();
-        // dd($data);
-        // $radio = $request->get('status');
-
-        if ($request->hasFile('image_media')) {
-            $media = saveSingleMedia($request, 'image');
+        //dd($data);
+        if($request->hasFile('image_media')){
+           $media = saveSingleMedia($request, 'image');
             if (TRUE != $media['status']) {
                 Flash::error($media['message']);
-                return redirect(route('blog.index'));
+                return redirect(route('whyus.index'));
             }
             $data['media_id'] = $media['media_id'];
         }
-
-        Blog::create($data);
-        Flash::success('Successfully created blog');
-        return redirect(route('blog.index'));
+        Whyus::create($data);
+        Flash::success('Successfully created Page');
+        return redirect(route('whyus.index'));
     }
 
     /**
@@ -83,12 +80,12 @@ class BlogController extends Controller
      */
     public function edit($id)
     {
-        $blog = Blog::find($id);
-        if (empty($blog)) {
-            Flash::error('Blog not found!');
-            return redirect(route('blog.index'));
+        $whyus = Whyus::find($id);
+        if (empty($whyus)) {
+            Flash::error('whyus not found!');
+            return redirect(route('whyus.index'));
         }
-        return view('admin.blog.edit', compact('blog'));
+        return view('admin.whyus.edit', compact('whyus'));
     }
 
     /**
@@ -98,13 +95,13 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(WhyusRequest $request, $id)
     {
 
-        $blog = Blog::find($id);
-        if (empty($blog)) {
-            Flash::error('Blog not found!');
-            return redirect(route('blog.index'));
+        $whyus = Whyus::find($id);
+        if (empty($whyus)) {
+            Flash::error('whyus not found!');
+            return redirect(route('whyus.index'));
         }
 
         $data = $request->all();
@@ -117,9 +114,9 @@ class BlogController extends Controller
             $data['media_id'] = $media['media_id'];
         }
 
-        Blog::find($id)->update($data);
-        Flash::success('Successfully update blog');
-        return redirect(route('blog.index'));
+        Whyus::find($id)->update($data);
+        Flash::success('Successfully update Page');
+        return redirect(route('whyus.index'));
     }
 
     /**
@@ -130,9 +127,9 @@ class BlogController extends Controller
      */
     public function destroy($id)
     {
-        Blog::find($id)->delete();
-        Flash::success('Successfully delete blog');
-        return redirect(route('blog.index'));
+        Whyus::find($id)->delete();
+        Flash::success('Successfully delete Page');
+        return redirect(route('whyus.index'));
 
     }
 }

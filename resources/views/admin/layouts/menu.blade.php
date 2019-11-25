@@ -17,3 +17,7 @@
 <li class="{{ Request::is('doctor*') ? 'active' : '' }}">
     <a href="{{ route('doctor.index') }}"><i class="fa fa-edit"></i><span>Doctor</span></a>
 </li>
+
+<li class="{{ Request::is('whyus*') ? 'active' : '' }}">
+    <a href="{{ route('whyus.index') }}"><i class="fa fa-edit"></i><span>Why Us</span></a>
+</li>

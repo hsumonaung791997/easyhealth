@@ -34,6 +34,7 @@ Route::group(['prefix'=>'admin'],function(){
 		Route::resource('service','ServiceController');
 		Route::resource('location', 'LocationController');
 		Route::resource('doctor', 'DoctorController');
+		Route::resource('whyus', 'WhyusController');
 	});
  
 });

@@ -3,16 +3,16 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Edit Blog
+            Edit Page
         </h1>
-        <span class="breadcrumb"><a href='{{ route("blog.index") }}' class="btn btn-sm btn-primary"><i
-                    class="fa fa-arrow-circle-left"></i>&nbsp;&nbsp;Go To blog</a></span>
+        <span class="breadcrumb"><a href='{{ route("whyus.index") }}' class="btn btn-sm btn-primary"><i
+                    class="fa fa-arrow-circle-left"></i>&nbsp;&nbsp;Go To Page</a></span>
     </section>
    <div class="content">
        <div class="box box-primary">
            <div class="box-body">
                <div class="row">
-                   {!! Form::model($blog, ['route' => ['blog.update', $blog->id], 'method' => 'patch', 'files' => 'true']) !!}
+                   {!! Form::model($whyus, ['route' => ['whyus.update', $whyus->id], 'method' => 'patch', 'files' => 'true']) !!}
 
                         <div class="form-group col-sm-6 mmtext">
                             {!! Form::label('title', 'Title:') !!} <span class="text-danger">*</span>
@@ -25,18 +25,18 @@
                         </div>
 
                         <div class="form-group col-sm-6 mmtext pull-right">
-                            {!! Form::label('content', 'Content:') !!} <span class="text-danger">*</span>
-                            {!! Form::textarea('content', null, ['class' => 'editor']) !!}
-                            @if ($errors->has('content'))
+                            {!! Form::label('description', 'Description:') !!} <span class="text-danger">*</span>
+                            {!! Form::textarea('description', null, ['class' => 'editor']) !!}
+                            @if ($errors->has('description'))
                                 <span class="text-danger">
-                                    <strong>{{ $errors->first('content') }}</strong>
+                                    <strong>{{ $errors->first('description') }}</strong>
                                 </span>
                             @endif
                         </div>
 
                         <div class="form-group col-sm-6 mmtext">
                             {!! Form::label('file', 'Upload Product Photo :') !!} <span class="text-danger">*</span>
-                            {{ Form::hidden('media_path', BLOG_MEDIA_UPLOAD) }}
+                            {{ Form::hidden('media_path', WHYUS_MEDIA_UPLOAD) }}
                                 <div class="file-loading">
                                     <input type="file" id="media_upload" name="image_media" accept="image/*">
                                 </div>
@@ -54,7 +54,7 @@
 
                         <div class="form-group col-sm-12">
                             {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-                            <a href="{!! route('blog.index') !!}" class="btn btn-default">Cancel</a>
+                            <a href="{!! route('whyus.index') !!}" class="btn btn-default">Cancel</a>
                         </div>
 
                    {!! Form::close() !!}
@@ -68,10 +68,10 @@
    <script>
         $(function () {
             var preview_image = "<?php echo url('images/default_preview.png') ?>";
-            var initPreview = "<?php echo null != $blog->media ? url($blog->media->file_path . $blog->media->file_name) : url('images/default_preview.png') ?>";
-            var initPreviewAlt = "<?php echo null != $blog->media ? $blog->media->file_caption : '' ?>";
-            var dataId = "<?php echo null != $blog->media ? $blog->media->id : '' ?>";
-            var dataUrl = "<?php echo null != $blog->media ? url('admin/media/' . $blog->media->id) : '' ?>";
+            var initPreview = "<?php echo null != $whyus->media ? url($whyus->media->file_path . $whyus->media->file_name) : url('images/default_preview.png') ?>";
+            var initPreviewAlt = "<?php echo null != $whyus->media ? $whyus->media->file_caption : '' ?>";
+            var dataId = "<?php echo null != $whyus->media ? $whyus->media->id : '' ?>";
+            var dataUrl = "<?php echo null != $whyus->media ? url('admin/media/' . $whyus->media->id) : '' ?>";
             $("#media_upload").fileinput({
                 overwriteInitial: true,
                 maxFileSize: 1500,
@@ -88,7 +88,7 @@
                 msgErrorClass: 'alert alert-block alert-danger',
                 // for image files
                 initialPreview: [
-                    @if(isset($blog->media))
+                    @if(isset($whyus->media))
                         '<img src="' + initPreview + '" class="file-preview-image" alt="' + initPreviewAlt + '" title="' + initPreviewAlt + '" style="width:200px;height:200px">'
                     @endif
                 ],

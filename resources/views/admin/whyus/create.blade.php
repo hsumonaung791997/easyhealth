@@ -3,61 +3,36 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Create Location
+            Create New Page
         </h1>
-        <span class="breadcrumb"><a href='{{ route("location.index") }}' class="btn btn-sm btn-primary"><i
-                    class="fa fa-arrow-circle-left"></i>&nbsp;&nbsp;Go To Location</a></span>
+        <span class="breadcrumb"><a href='{{ route("whyus.index") }}' class="btn btn-sm btn-primary"><i
+                    class="fa fa-arrow-circle-left"></i>&nbsp;&nbsp;Go To Page</a></span>
     </section>
     <div class="content">
         <div class="box box-primary">
 
             <div class="box-body">
                 <div class="row">
-                {!! Form::open(['route' => 'location.store', 'files' => 'true']) !!}
+                {!! Form::open(['route' => 'whyus.store', 'files' => 'true']) !!}
 
                     <div class="form-group col-sm-6 mmtext">
-                        {!! Form::label('name', 'Name:') !!} <span class="text-danger">*</span>
-                        {!! Form::text('name', null, ['class' => 'form-control']) !!}
-                        @if ($errors->has('name'))
+                        {!! Form::label('title', 'Title:') !!} <span class="text-danger">*</span>
+                        {!! Form::text('title', null, ['class' => 'form-control']) !!}
+                        @if ($errors->has('title'))
                             <span class="text-danger">
-                                <strong>{{ $errors->first('name') }}</strong>
+                                <strong>{{ $errors->first('title') }}</strong>
                             </span>
                        @endif
                     </div>
 
-                    <div class="form-group col-sm-6 mmtext">
-                        {!! Form::label('address', 'Address:') !!} <span class="text-danger">*</span>
-                        {!! Form::text('address', null, ['class' => 'form-control']) !!}
-                        @if ($errors->has('address'))
-                            <span class="text-danger">
-                                <strong>{{ $errors->first('address') }}</strong>
-                            </span>
-                       @endif
+                    <div class="form-group col-sm-6 mmtext pull-right">
+                      {!! Form::label('description', 'Description:') !!} <span class="text-danger">*</span>
+                      <textarea id="description" class="editor" name="description" rows="10" cols="50"></textarea>
                     </div>
 
-                    <div class="form-group col-sm-6 mmtext">
-                        {!! Form::label('latitude', 'Latitude:') !!} <span class="text-danger">*</span>
-                        {!! Form::text('latitude', null, ['class' => 'form-control']) !!}
-                        @if ($errors->has('latitude'))
-                            <span class="text-danger">
-                                <strong>{{ $errors->first('latitude') }}</strong>
-                            </span>
-                       @endif
-                    </div>
-
-                    <div class="form-group col-sm-6 mmtext">
-                        {!! Form::label('longitude', 'Longitude:') !!} <span class="text-danger">*</span>
-                        {!! Form::text('longitude', null, ['class' => 'form-control']) !!}
-                        @if ($errors->has('longitude'))
-                            <span class="text-danger">
-                                <strong>{{ $errors->first('longitude') }}</strong>
-                            </span>
-                       @endif
-                    </div>
-
-                    <div class="form-group col-sm-12 mmtext">
+                   <div class="form-group col-sm-6 mmtext">
                        {!! Form::label('file', 'Upload Product Photo :') !!} <span class="text-danger">*</span>
-                       {{ Form::hidden('media_path', LOCATION_MEDIA_UPLOAD) }}
+                       {{ Form::hidden('media_path', SERVICE_MEDIA_UPLOAD) }}
                            <div class="file-loading">
                                <input type="file" id="image_media" name="image_media" accept="image/*">
                            </div>
@@ -67,7 +42,13 @@
                        <div id="kv-avatar-errors-1" class="center-block" style="width:800px;display:none"></div>
                    </div>
 
-                    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.1/css/fileinput.min.css" media="all"
+                  <div class="form-group col-sm-6 mmtext">
+                    {!! Form::label('status', 'Status:') !!} <span class="text-danger">*</span><br>
+                    Active &nbsp; &nbsp; {{ Form::radio('status', STATUS_ACTIVE ,['checked' => 'checked']) }} <br>
+                    Inactive &nbsp; &nbsp; {{ Form::radio('status', STATUS_INACTIVE) }}
+                  </div>
+
+                   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.1/css/fileinput.min.css" media="all"
                          rel="stylesheet" type="text/css"/>
                    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.1/js/fileinput.min.js"></script>
                    <script>
@@ -94,7 +75,7 @@
 
                     <div class="form-group col-sm-12">
                        {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-                       <a href="{!! route('location.index') !!}" class="btn btn-default">Cancel</a>
+                       <a href="{!! route('whyus.index') !!}" class="btn btn-default">Cancel</a>
                     </div>
 
                {!! Form::close() !!}
