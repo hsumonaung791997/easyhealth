@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use App\Model\Media;
 use App\Model\Category;
 
+
 function saveSingleMedia(Request $request, $upload_type)
 {
     $media_paths = json_decode(MEDIA_PATH, true);

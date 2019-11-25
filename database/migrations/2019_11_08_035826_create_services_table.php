@@ -20,6 +20,7 @@ class CreateServicesTable extends Migration
             $table->integer('media_id');
             $table->integer('status');
             $table->integer('parent')->nullable();
+            $table->smallInteger('type')->length(2);
             $table->timestamps();
         });
     }

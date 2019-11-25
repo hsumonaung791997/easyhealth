@@ -24,8 +24,16 @@ define('MEDIA_PATH', json_encode(
 
 define('MEDIA_TYPE', json_encode(
     array(
-        'image' => array('field_name' => 'image_media', 'extension' => array("jpg", "gif", "png", "jpeg"), 'max_size' => 5000000),
+      'image' => array('field_name' => 'image_media', 'extension' => array("jpg", "gif", "png", "jpeg"), 'max_size' => 5000000),
     )
+));
+
+define('SERVICE_TYPE', json_encode(
+	array(
+		11 => 'Home services',
+		12 => 'GP Service',
+		13 => 'Other'
+	)
 ));
 
 

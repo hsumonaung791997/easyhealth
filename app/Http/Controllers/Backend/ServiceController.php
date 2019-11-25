@@ -34,10 +34,11 @@ class ServiceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
         $parents = Service::where('parent', NULL)->get(); 
-        return view('admin.service.create', compact('parents'));
+        $service_type = json_decode(SERVICE_TYPE, true);
+        return view('admin.service.create', compact('parents', 'service_type'));
     }
 
     /**
@@ -84,8 +85,7 @@ class ServiceController extends Controller
     {
         $all_services = Service::all();
         $service = Service::find($id);
-        $parents = Service::where('parent', NULL)->get(); 
-        //$selected = Service::where('id', $service->parent)->pluck('id');
+        $parents = Service::where('parent', NULL)->get();
         if(empty($service)){
             Flash::error('Service not found');
             return redirect(route('service.index'));
@@ -95,7 +95,7 @@ class ServiceController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *
+     *-
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response

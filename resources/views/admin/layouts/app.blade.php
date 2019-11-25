@@ -200,6 +200,8 @@
             })
 
             $('#category_id').select2();
+            $('#parent_id').select2();
+            $('#type').select2();
 
             $('textarea.editor').each(function() {
                 CKEDITOR.replace($(this).attr('id'));

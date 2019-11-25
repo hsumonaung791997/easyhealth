@@ -23,9 +23,8 @@
                                 </span>
                             @endif
                         </div>
- 
-                        <div class="col-md-6" data-select2-id="29">
-                          <div class="form-group">                          
+                        
+                        <div class="form-group col-sm-6 mmtext">                          
                             {!! Form::label('parent', 'Parent:') !!}<span class="text-danger">*</span><br>
                             <?php
                                 $ids = [];
@@ -57,10 +56,21 @@
                                     @endif
                                 @endforeach
                             </select>
-                            </div>                     
+                        </div>                                        
+                        
+                        <div class="form-group col-sm-6">
+                            {!! Form::label('type', 'Service Type:') !!} <span class="text-danger">*</span>
+                             <?php $array = json_decode(SERVICE_TYPE, TRUE); ?>
+                            <select name="type" id="type" class="form-control">
+                                @foreach ($array as $key => $a) 
+                                <option value="{{ $key }}" @if( $key == $service->type ) selected @endif>
+                                    {{ $a }}
+                                </option>
+                                @endforeach
+                            </select>
                         </div>
 
-                        <div class="form-group col-sm-6 mmtext">
+                        <div class="form-group col-sm-6 mmtext pull-right">
                             {!! Form::label('description', 'Description:') !!} <span class="text-danger">*</span>
                             {!! Form::textarea('description', null, ['class' => 'editor']) !!}
 
@@ -71,6 +81,7 @@
                             @endif
                         </div>
 
+
                         <div class="form-group col-sm-6 mmtext">
                             {!! Form::label('file', 'Upload Product Photo :') !!} <span class="text-danger">*</span>
                             {{ Form::hidden('media_path', SERVICE_MEDIA_UPLOAD) }}
@@ -80,9 +91,12 @@
                             <div class="kv-avatar-hint">
                                 <small>Select file < 1500 KB</small>
                             </div>
-                            <div id="kv-avatar-errors-1" class="center-block" style="display:none"></div>
-                            
+
+                            <div id="kv-avatar-errors-1" class="center-block" style="display:none"></div>                           
                         </div>
+                               
+                        
+                        
 
                         <div class="form-group col-sm-6 mmtext">
                             {!! Form::label('status', 'Status:') !!} <span class="text-danger">*</span><br>

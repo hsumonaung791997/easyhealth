@@ -28,6 +28,7 @@ class ServiceRequest extends FormRequest
             'description'=>'required',
             'image_media'=>'required',
             'status'=>'required',
+            'type'=>'required',
         ];
     }
 }

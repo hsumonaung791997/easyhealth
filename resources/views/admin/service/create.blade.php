@@ -24,12 +24,9 @@
                             </span>
                        @endif
                     </div>
-
-                    <div class="col-md-6" data-select2-id="29">
-                      <div class="form-group">
-                        
-                        {!! Form::label('parent', 'Parent:') !!}<span class="text-danger">*</span><br>
-                        
+                    
+                    <div class="form-group col-sm-6 mmtext">                       
+                        {!! Form::label('parent', 'Parent:') !!}<span class="text-danger">*</span><br>                        
                         <select name="parent" id="parent_id" class="form-control">
                           <option selected="selected">
                           @foreach($parents as $parent)
@@ -38,20 +35,39 @@
                             </option>
                           @endforeach
                         </select>
-
-                        </div>                     
-                    </div>
-
+                        @if ($errors->has('title'))
+                            <span class="text-danger">
+                                <strong>{{ $errors->first('title') }}</strong>
+                            </span>
+                       @endif
+                    </div>                     
+                                          
+                    <div class="form-group col-sm-6 mmtext">                      
+                        {!! Form::label('service_type', 'Service Type:') !!}<span class="text-danger">*</span><br>
+                        <?php $array = json_decode(SERVICE_TYPE, TRUE); ?>
+                        <select name="type" id="type" class="form-control">
+                          <option selected="selected"></option>
+                          @foreach ($array as $key => $a) 
+                            <option value="{{ $key }}">
+                              {{ $a }}
+                            </option>
+                          @endforeach
+                        </select>
+                        @if ($errors->has('type'))
+                           <span class="text-danger">
+                               <strong>{{ $errors->first('type') }}</strong>
+                           </span>
+                        @endif
+                     </div>                     
+                
                     <div class="form-group col-sm-6 mmtext pull-right">
                       {!! Form::label('description', 'Description:') !!} <span class="text-danger">*</span>
-
-                      <textarea id="description" class="editor" name="description" rows="10" cols="50"></textarea>
-                       @if ($errors->has('description'))
+                        <textarea id="description" class="editor" name="description" rows="10" cols="50"></textarea>
+                        @if ($errors->has('description'))
                            <span class="text-danger">
                                <strong>{{ $errors->first('description') }}</strong>
                            </span>
-                      @endif
-
+                        @endif
                     </div>
 
                    <div class="form-group col-sm-6 mmtext">
@@ -71,10 +87,16 @@
                        @endif
                    </div>
 
+
                   <div class="form-group col-sm-6 mmtext">
                     {!! Form::label('status', 'Status:') !!} <span class="text-danger">*</span><br>
                     Active &nbsp; &nbsp; {{ Form::radio('status', STATUS_ACTIVE) }} <br>
-                    Inactive &nbsp; &nbsp; {{ Form::radio('status', STATUS_INACTIVE) }}
+                    Inactive &nbsp; &nbsp; {{ Form::radio('status', STATUS_INACTIVE) }}<br>
+                    @if ($errors->has('status'))
+                           <span class="text-danger">
+                               <strong>{{ $errors->first('status') }}</strong>
+                           </span>
+                        @endif
                   </div>
 
                    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.1/css/fileinput.min.css" media="all"
