@@ -109,7 +109,7 @@ class WhyusController extends Controller
             $media = saveSingleMedia($request, 'image');
             if (TRUE != $media['status']) {
                 Flash::error($media['message']);
-                return redirect(route('blog.index'));
+                return redirect(route('whyus.index'));
             }
             $data['media_id'] = $media['media_id'];
         }

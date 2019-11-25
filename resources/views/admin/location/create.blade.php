@@ -55,7 +55,7 @@
                         @endif
                     </div>
 
-                    <div class="form-group col-sm-6 mmtext">
+                    <div class="form-group col-sm-12 mmtext">
                        {!! Form::label('file', 'Upload Product Photo :') !!} <span class="text-danger">*</span>
                        {{ Form::hidden('media_path', LOCATION_MEDIA_UPLOAD) }}
                            <div class="file-loading">

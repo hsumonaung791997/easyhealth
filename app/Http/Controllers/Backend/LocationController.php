@@ -47,8 +47,6 @@ class LocationController extends Controller
     public function store(LocationRequest $request)
     {
         $data = $request->all();
-        // dd($data);
-        // $radio = $request->get('status');
 
         if ($request->hasFile('image_media')) {
             $media = saveSingleMedia($request, 'image');
@@ -60,7 +58,7 @@ class LocationController extends Controller
         }
 
         Location::create($data);
-        Flash::success('Successfully created loction');
+        Flash::success('Successfully created location');
         return redirect(route('location.index'));
     }
 
