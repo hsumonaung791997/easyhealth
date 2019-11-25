@@ -28,6 +28,11 @@
                     <div class="form-group col-sm-6 mmtext pull-right">
                       {!! Form::label('content', 'Content:') !!} <span class="text-danger">*</span>
                       <textarea id="content" class="editor" name="content" rows="10" cols="50"></textarea>
+                       @if ($errors->has('content'))
+                            <span class="text-danger">
+                                <strong>{{ $errors->first('content') }}</strong>
+                            </span>
+                       @endif
                     </div>
 
                    <div class="form-group col-sm-6 mmtext">
@@ -40,12 +45,22 @@
                            <small>Select file < 1500 KB</small>
                        </div>
                        <div id="kv-avatar-errors-1" class="center-block" style="width:800px;display:none"></div>
+                       @if ($errors->has('image_media'))
+                            <span class="text-danger">
+                                <strong>{{ $errors->first('image_media') }}</strong>
+                            </span>
+                       @endif
                    </div>
 
                   <div class="form-group col-sm-6 mmtext">
                     {!! Form::label('status', 'Status:') !!} <span class="text-danger">*</span><br>
-                    Active &nbsp; &nbsp; {{ Form::radio('status', STATUS_ACTIVE ,['checked' => 'checked']) }} <br>
-                    Inactive &nbsp; &nbsp; {{ Form::radio('status', STATUS_INACTIVE) }}
+                    Active &nbsp; &nbsp; {{ Form::radio('status', STATUS_ACTIVE) }} <br>
+                    Inactive &nbsp; &nbsp; {{ Form::radio('status', STATUS_INACTIVE) }}<br>
+                     @if ($errors->has('status'))
+                            <span class="text-danger">
+                                <strong>{{ $errors->first('status') }}</strong>
+                            </span>
+                       @endif
                   </div>
 
                    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.1/css/fileinput.min.css" media="all"

@@ -37,8 +37,8 @@ class ServiceController extends Controller
     public function create()
     {
         $parents = Service::where('parent', NULL)->get(); 
-        $service_type = json_decode(SERVICE_TYPE, true);
-        return view('admin.service.create', compact('parents', 'service_type'));
+       /* $service_type = json_decode(SERVICE_TYPE, true);*/
+        return view('admin.service.create', compact('parents'));
     }
 
     /**

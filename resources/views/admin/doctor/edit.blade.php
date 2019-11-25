@@ -12,48 +12,26 @@
        <div class="box box-primary">
            <div class="box-body">
                <div class="row">
-                   {!! Form::model($doctor, ['route' => ['doctor.update', $doctor->id], 'method' => 'patch', 'files' => 'true']) !!}
+                  {!! Form::model($doctor, ['route' => ['doctor.update', $doctor->id], 'method' => 'patch', 'files' => 'true']) !!}
 
-                        <div class="form-group col-sm-6 mmtext">
+                    <div class="form-group col-sm-6 mmtext">
                         {!! Form::label('name', 'Name:') !!} <span class="text-danger">*</span>
                         {!! Form::text('name', null, ['class' => 'form-control']) !!}
-                        @if ($errors->has('name'))
-                            <span class="text-danger">
-                                <strong>{{ $errors->first('name') }}</strong>
-                            </span>
-                       @endif
                     </div>
 
                     <div class="form-group col-sm-6 mmtext">
                         {!! Form::label('education', 'Education:') !!} <span class="text-danger">*</span>
                         {!! Form::text('education', null, ['class' => 'form-control']) !!}
-                        @if ($errors->has('education'))
-                            <span class="text-danger">
-                                <strong>{{ $errors->first('education') }}</strong>
-                            </span>
-                       @endif
                     </div>
 
                      <div class="form-group col-sm-6 mmtext">
                         {!! Form::label('position', 'Position:') !!} <span class="text-danger">*</span>
                         {!! Form::text('position', null, ['class' => 'form-control']) !!}
-                        @if ($errors->has('position'))
-                            <span class="text-danger">
-                                <strong>{{ $errors->first('position') }}</strong>
-                            </span>
-                       @endif
                     </div>
 
                     <div class="form-group col-sm-6 mmtext pull-right">
                       {!! Form::label('description', 'Description:') !!} <span class="text-danger">*</span>
                       {!! Form::textarea('description', null, ['class' => 'editor']) !!}
-
-                       @if ($errors->has('description'))
-                           <span class="text-danger">
-                               <strong>{{ $errors->first('description') }}</strong>
-                           </span>
-                      @endif
-
                     </div>
 
                    <div class="form-group col-sm-6 mmtext">
@@ -65,13 +43,12 @@
                             <div class="kv-avatar-hint">
                                 <small>Select file < 1500 KB</small>
                             </div>
-                            <div id="kv-avatar-errors-1" class="center-block" style="display:none"></div>
-                            
+                            <div id="kv-avatar-errors-1" class="center-block" style="display:none"></div>                           
                     </div>
 
                   <div class="form-group col-sm-6 mmtext">
                     {!! Form::label('status', 'Status:') !!} <span class="text-danger">*</span><br>
-                    Active &nbsp; &nbsp; {{ Form::radio('status', STATUS_ACTIVE ,['checked' => 'checked']) }} <br>
+                    Active &nbsp; &nbsp; {{ Form::radio('status', STATUS_ACTIVE) }} <br>
                     Inactive &nbsp; &nbsp; {{ Form::radio('status', STATUS_INACTIVE) }}
                   </div>
 
@@ -80,7 +57,7 @@
                             <a href="{!! route('doctor.index') !!}" class="btn btn-default">Cancel</a>
                  </div>
 
-                   {!! Form::close() !!}
+                {!! Form::close() !!}
                </div>
            </div>
        </div>

@@ -52,10 +52,10 @@
                             <span class="text-danger">
                                 <strong>{{ $errors->first('longitude') }}</strong>
                             </span>
-                       @endif
+                        @endif
                     </div>
 
-                    <div class="form-group col-sm-12 mmtext">
+                    <div class="form-group col-sm-6 mmtext">
                        {!! Form::label('file', 'Upload Product Photo :') !!} <span class="text-danger">*</span>
                        {{ Form::hidden('media_path', LOCATION_MEDIA_UPLOAD) }}
                            <div class="file-loading">
@@ -65,6 +65,11 @@
                            <small>Select file < 1500 KB</small>
                        </div>
                        <div id="kv-avatar-errors-1" class="center-block" style="width:800px;display:none"></div>
+                       @if ($errors->has('image_media'))
+                            <span class="text-danger">
+                                <strong>{{ $errors->first('image_media') }}</strong>
+                            </span>
+                       @endif
                    </div>
 
                     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.1/css/fileinput.min.css" media="all"

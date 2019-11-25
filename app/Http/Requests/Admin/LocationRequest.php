@@ -28,6 +28,7 @@ class LocationRequest extends FormRequest
             'address'=>'required',
             'latitude'=>'required|numeric',
             'longitude'=>'required|numeric',
+            'image_media'=>'required',
         ];
     }
 }

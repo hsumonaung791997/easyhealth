@@ -76,8 +76,13 @@
 
                   <div class="form-group col-sm-6 mmtext">
                     {!! Form::label('status', 'Status:') !!} <span class="text-danger">*</span><br>
-                    Active &nbsp; &nbsp; {{ Form::radio('status', STATUS_ACTIVE ,['checked' => 'checked']) }} <br>
-                    Inactive &nbsp; &nbsp; {{ Form::radio('status', STATUS_INACTIVE) }}
+                    Active &nbsp; &nbsp; {{ Form::radio('status', STATUS_ACTIVE) }} <br>
+                    Inactive &nbsp; &nbsp; {{ Form::radio('status', STATUS_INACTIVE) }}<br>
+                    @if ($errors->has('status'))
+                            <span class="text-danger">
+                                <strong>{{ $errors->first('status') }}</strong>
+                            </span>
+                       @endif
                   </div>
 
                    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.1/css/fileinput.min.css" media="all"

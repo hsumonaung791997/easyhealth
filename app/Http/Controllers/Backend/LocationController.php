@@ -22,7 +22,7 @@ class LocationController extends Controller
         $locations = Location::orderBy('id', 'DESC')->paginate(25);
         if($request->all()) {
             $data = $request->all();
-            $locations = Location::where('title', 'like', $data['title'])->paginate(25);
+            $locations = Location::where('name', 'like', $data['name'])->paginate(25);
         }
 
         return view('admin.location.index', compact('locations'));
@@ -98,7 +98,7 @@ class LocationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(LocationRequest $request, $id)
+    public function update(Request $request, $id)
     {
 
         $location = Location::find($id);

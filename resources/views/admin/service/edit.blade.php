@@ -81,7 +81,6 @@
                             @endif
                         </div>
 
-
                         <div class="form-group col-sm-6 mmtext">
                             {!! Form::label('file', 'Upload Product Photo :') !!} <span class="text-danger">*</span>
                             {{ Form::hidden('media_path', SERVICE_MEDIA_UPLOAD) }}
@@ -93,10 +92,7 @@
                             </div>
 
                             <div id="kv-avatar-errors-1" class="center-block" style="display:none"></div>                           
-                        </div>
-                               
-                        
-                        
+                        </div>                                              
 
                         <div class="form-group col-sm-6 mmtext">
                             {!! Form::label('status', 'Status:') !!} <span class="text-danger">*</span><br>

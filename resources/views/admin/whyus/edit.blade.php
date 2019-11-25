@@ -17,21 +17,11 @@
                         <div class="form-group col-sm-6 mmtext">
                             {!! Form::label('title', 'Title:') !!} <span class="text-danger">*</span>
                             {!! Form::text('title', null, ['class' => 'form-control']) !!}
-                            @if ($errors->has('title'))
-                                <span class="text-danger">
-                                    <strong>{{ $errors->first('title') }}</strong>
-                                </span>
-                            @endif
                         </div>
 
                         <div class="form-group col-sm-6 mmtext pull-right">
                             {!! Form::label('description', 'Description:') !!} <span class="text-danger">*</span>
                             {!! Form::textarea('description', null, ['class' => 'editor']) !!}
-                            @if ($errors->has('description'))
-                                <span class="text-danger">
-                                    <strong>{{ $errors->first('description') }}</strong>
-                                </span>
-                            @endif
                         </div>
 
                         <div class="form-group col-sm-6 mmtext">
@@ -47,7 +37,7 @@
                         </div>
 
                         <div class="form-group col-sm-6 mmtext">
-                            {!! Form::label('status', 'Status:') !!} <span class="text-danger">*</span>
+                            {!! Form::label('status', 'Status:') !!} <span class="text-danger">*</span><br>
                             Active &nbsp; &nbsp; {{ Form::radio('status', STATUS_ACTIVE) }} <br>
                             Inactive &nbsp; &nbsp; {{ Form::radio('status', STATUS_INACTIVE) }}
                         </div>
