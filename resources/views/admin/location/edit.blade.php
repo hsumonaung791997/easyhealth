@@ -18,14 +18,33 @@
                         {!! Form::label('name', 'Name:') !!} <span class="text-danger">*</span>
                         {!! Form::text('name', null, ['class' => 'form-control']) !!}
 
+                        @if ($errors->has('name'))
+                            <span class="text-danger">
+                                <strong>{{ $errors->first('name') }}</strong>
+                            </span>
+                        @endif
                     </div>
 
                     <div class="form-group col-sm-6 mmtext">
                         {!! Form::label('address', 'Address:') !!} <span class="text-danger">*</span>
                         {!! Form::text('address', null, ['class' => 'form-control']) !!}
+                        @if ($errors->has('address'))
+                            <span class="text-danger">
+                                <strong>{{ $errors->first('address') }}</strong>
+                            </span>
+                        @endif
                     </div>
 
                     <div class="form-group col-sm-6 mmtext">
+
+                        {!! Form::label('latitude', 'Latitude:') !!} <span class="text-danger">*</span>
+                        {!! Form::text('latitude', null, ['class' => 'form-control']) !!}
+                        @if ($errors->has('latitude'))
+                            <span class="text-danger">
+                                <strong>{{ $errors->first('latitude') }}</strong>
+                            </span>
+                        @endif
+
                         {!! Form::label('latitude', 'Latitude:') !!} <span class="text-danger">*</span>
                         {!! Form::text('latitude', null, ['class' => 'form-control']) !!}
                         @if ($errors->has('latitude'))
@@ -45,7 +64,7 @@
                         @endif
                     </div>
 
-                   <div class="form-group col-sm-6 mmtext">
+                   <div class="form-group col-sm-12 mmtext">
                         {!! Form::label('file', 'Upload Product Photo :') !!} <span class="text-danger">*</span>
                         {{ Form::hidden('media_path', LOCATION_MEDIA_UPLOAD) }}
                         <div class="file-loading">
