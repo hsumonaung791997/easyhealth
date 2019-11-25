@@ -36,15 +36,6 @@
                     </div>
 
                     <div class="form-group col-sm-6 mmtext">
-
-                        {!! Form::label('latitude', 'Latitude:') !!} <span class="text-danger">*</span>
-                        {!! Form::text('latitude', null, ['class' => 'form-control']) !!}
-                        @if ($errors->has('latitude'))
-                            <span class="text-danger">
-                                <strong>{{ $errors->first('latitude') }}</strong>
-                            </span>
-                        @endif
-
                         {!! Form::label('latitude', 'Latitude:') !!} <span class="text-danger">*</span>
                         {!! Form::text('latitude', null, ['class' => 'form-control']) !!}
                         @if ($errors->has('latitude'))
