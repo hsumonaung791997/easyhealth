@@ -32,7 +32,7 @@
                             <span class="text-danger">
                                 <strong>{{ $errors->first('address') }}</strong>
                             </span>
-                       @endif
+                        @endif
                     </div>
 
                     <div class="form-group col-sm-6 mmtext">
@@ -42,7 +42,7 @@
                             <span class="text-danger">
                                 <strong>{{ $errors->first('latitude') }}</strong>
                             </span>
-                       @endif
+                        @endif
                     </div>
 
                     <div class="form-group col-sm-6 mmtext">
