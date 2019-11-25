@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+ @extends('admin.layouts.app')
 
 @section('content')
     <section class="content-header">
@@ -12,55 +12,51 @@
        <div class="box box-primary">
            <div class="box-body">
                <div class="row">
-                   {!! Form::model($location, ['route' => ['location.update', $location->id], 'method' => 'patch', 'files' => 'true']) !!}
+                  {!! Form::model($location, ['route' => ['location.update', $location->id], 'method' => 'patch', 'files' => 'true']) !!}
 
-                        <div class="form-group col-sm-6 mmtext">
-                            {!! Form::label('name', 'Name:') !!} <span class="text-danger">*</span>
-                            {!! Form::text('name', null, ['class' => 'form-control']) !!}
-                        </div>
+                    <div class="form-group col-sm-6 mmtext">
+                        {!! Form::label('name', 'Name:') !!} <span class="text-danger">*</span>
+                        {!! Form::text('name', null, ['class' => 'form-control']) !!}
 
-                        <div class="form-group col-sm-6 mmtext">
-                            {!! Form::label('address', 'Address:') !!} <span class="text-danger">*</span>
-                            {!! Form::text('address', null, ['class' => 'form-control']) !!}
-                        </div>
+                    </div>
 
-                        <div class="form-group col-sm-6 mmtext">
-                            {!! Form::label('latitude', 'Latitude:') !!} <span class="text-danger">*</span>
-                            {!! Form::text('latitude', null, ['class' => 'form-control']) !!}
-                        </div>
+                    <div class="form-group col-sm-6 mmtext">
+                        {!! Form::label('address', 'Address:') !!} <span class="text-danger">*</span>
+                        {!! Form::text('address', null, ['class' => 'form-control']) !!}
+                    </div>
 
-                        <div class="form-group col-sm-6 mmtext">
-                            {!! Form::label('longitude', 'Longitude:') !!} <span class="text-danger">*</span>
-                            {!! Form::text('longitude', null, ['class' => 'form-control']) !!}
-                        </div>
+                    <div class="form-group col-sm-6 mmtext">
+                        {!! Form::label('latitude', 'Latitude:') !!} <span class="text-danger">*</span>
+                        {!! Form::text('latitude', null, ['class' => 'form-control']) !!}
+                    </div>
 
-                        <div class="form-group col-sm-6 mmtext">
-                            {!! Form::label('file', 'Upload Product Photo :') !!} <span class="text-danger">*</span>
-                            {{ Form::hidden('media_path', LOCATION_MEDIA_UPLOAD) }}
-                                <div class="file-loading">
-                                    <input type="file" id="media_upload" name="image_media" accept="image/*">
-                                </div>
+                    <div class="form-group col-sm-6 mmtext">
+                        {!! Form::label('longitude', 'Longitude:') !!} <span class="text-danger">*</span>
+                        {!! Form::text('longitude', null, ['class' => 'form-control']) !!}
+                    </div>
+
+                   <div class="form-group col-sm-6 mmtext">
+                        {!! Form::label('file', 'Upload Product Photo :') !!} <span class="text-danger">*</span>
+                        {{ Form::hidden('media_path', LOCATION_MEDIA_UPLOAD) }}
+                            <div class="file-loading">
+                                <input type="file" id="media_upload" name="image_media" accept="image/*">
+                            </div>
                             <div class="kv-avatar-hint">
                                 <small>Select file < 1500 KB</small>
                             </div>
-                            <div id="kv-avatar-errors-1" class="center-block" style="display:none"></div>
-                        </div>
+                            <div id="kv-avatar-errors-1" class="center-block" style="display:none"></div>                           
+                    </div>
 
-                        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.1/css/fileinput.min.css" media="all"
-                             rel="stylesheet" type="text/css"/>
-                       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.1/js/fileinput.min.js"></script>
-
-                        <div class="form-group col-sm-12">
-                            {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+                  <div class="form-group col-sm-12">
+                        {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
                             <a href="{!! route('location.index') !!}" class="btn btn-default">Cancel</a>
-                        </div>
+                 </div>
 
-                   {!! Form::close() !!}
+                {!! Form::close() !!}
                </div>
            </div>
        </div>
    </div>
-
    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.1/css/fileinput.min.css" media="all"
          rel="stylesheet" type="text/css"/>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.1/js/fileinput.min.js"></script>
@@ -101,5 +97,4 @@
             $('.kv-file-remove').attr('data-toggle', 'modal');
         })
    </script>
-
 @endsection

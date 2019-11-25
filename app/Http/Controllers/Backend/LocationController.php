@@ -54,7 +54,7 @@ class LocationController extends Controller
             $media = saveSingleMedia($request, 'image');
             if (TRUE != $media['status']) {
                 Flash::error($media['message']);
-                return redirect(route('blog.index'));
+                return redirect(route('location.index'));
             }
             $data['media_id'] = $media['media_id'];
         }
@@ -112,7 +112,7 @@ class LocationController extends Controller
             $media = saveSingleMedia($request, 'image');
             if (TRUE != $media['status']) {
                 Flash::error($media['message']);
-                return redirect(route('blog.index'));
+                return redirect(route('location.index'));
             }
             $data['media_id'] = $media['media_id'];
         }
