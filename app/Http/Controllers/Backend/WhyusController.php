@@ -95,7 +95,7 @@ class WhyusController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(WhyusRequest $request, $id)
+    public function update(Request $request, $id)
     {
 
         $whyus = Whyus::find($id);
@@ -109,7 +109,7 @@ class WhyusController extends Controller
             $media = saveSingleMedia($request, 'image');
             if (TRUE != $media['status']) {
                 Flash::error($media['message']);
-                return redirect(route('blog.index'));
+                return redirect(route('whyus.index'));
             }
             $data['media_id'] = $media['media_id'];
         }

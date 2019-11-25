@@ -27,14 +27,25 @@
                         <div class="form-group col-sm-6 mmtext">
                             {!! Form::label('latitude', 'Latitude:') !!} <span class="text-danger">*</span>
                             {!! Form::text('latitude', null, ['class' => 'form-control']) !!}
+                            @if ($errors->has('latitude'))
+                                <span class="text-danger">
+                                    <strong>{{ $errors->first('latitude') }}</strong>
+                                </span>
+                            @endif
                         </div>
+
 
                         <div class="form-group col-sm-6 mmtext">
                             {!! Form::label('longitude', 'Longitude:') !!} <span class="text-danger">*</span>
                             {!! Form::text('longitude', null, ['class' => 'form-control']) !!}
+                            @if ($errors->has('longitude'))
+                                <span class="text-danger">
+                                    <strong>{{ $errors->first('longitude') }}</strong>
+                                </span>
+                            @endif
                         </div>
 
-                        <div class="form-group col-sm-6 mmtext">
+                        <div class="form-group col-sm-12 mmtext">
                             {!! Form::label('file', 'Upload Product Photo :') !!} <span class="text-danger">*</span>
                             {{ Form::hidden('media_path', LOCATION_MEDIA_UPLOAD) }}
                                 <div class="file-loading">
