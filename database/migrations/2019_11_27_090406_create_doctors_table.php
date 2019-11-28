@@ -18,7 +18,7 @@ class CreateDoctorsTable extends Migration
             $table->string('name');
             $table->string('education');
             $table->string('position');
-            $table->string('description');
+            $table->text('description');
             $table->integer('media_id');
             $table->integer('status');
             $table->timestamps();

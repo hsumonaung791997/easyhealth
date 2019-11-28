@@ -69,7 +69,7 @@
                                 <h5>Corporate Info</h5>
                                 <ul>
                                     <li><a href="{{ url('contact') }}"><i class="fa fa-caret-right" aria-hidden="true"></i> Our Locations</a></li>
-                                    <li><a href="{{ url('our_doctors') }}"><i class="fa fa-caret-right" aria-hidden="true"></i> Our Doctors </a></li>
+                                    <li><a href="{{ url('/our_doctors') }}"><i class="fa fa-caret-right" aria-hidden="true"></i> Our Doctors </a></li>
 
                                     <li><a href="{{ url('whyus') }}"><i class="fa fa-caret-right" aria-hidden="true"></i> Company Profile </a></li>
                                     <li><a href="{{ url('management_team') }}"><i class="fa fa-caret-right" aria-hidden="true"></i> Management Team</a></li>

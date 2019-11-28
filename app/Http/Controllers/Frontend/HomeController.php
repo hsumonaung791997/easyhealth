@@ -4,8 +4,12 @@ namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+
 use App\Model\Blog;
 use App\Model\Location;
+use App\Model\Whyus;
+use App\Model\Doctor;
+>>>>>>> cdfcd89fb7387769e40986d8d2ad80a03a2e8dd1
 
 class HomeController extends Controller
 {
@@ -99,7 +103,8 @@ class HomeController extends Controller
 
     public function our_doctors()
     {
-    	return view('frontend.our_doctors');
+        $doctors = Doctor::where('status', 1)->get();
+    	return view('frontend.our_doctor', compact('doctors'));
     }
 
 
@@ -120,6 +125,10 @@ class HomeController extends Controller
         $locations = Location::all();
 
     	return view('frontend.whyus', compact('locations'));
+
+        $whyus = Whyus::where('status', 1)->first();
+        $doctors = Doctor::where('status', 1)->take(3)->get();
+    	return view('frontend.whyus', compact('whyus', 'doctors'));
     }
 
     public function women_health()

@@ -56,6 +56,11 @@
                                     @endif
                                 @endforeach
                             </select>
+                            @if ($errors->has('parent'))
+                                <span class="text-danger">
+                                    <strong>{{ $errors->first('parent') }}</strong>
+                                </span>
+                            @endif
                         </div>                                        
                         
                         <div class="form-group col-sm-6">
@@ -68,6 +73,11 @@
                                 </option>
                                 @endforeach
                             </select>
+                            @if ($errors->has('type'))
+                                <span class="text-danger">
+                                    <strong>{{ $errors->first('type') }}</strong>
+                                </span>
+                            @endif
                         </div>
 
                         <div class="form-group col-sm-6 mmtext pull-right">
@@ -91,13 +101,23 @@
                                 <small>Select file < 1500 KB</small>
                             </div>
 
-                            <div id="kv-avatar-errors-1" class="center-block" style="display:none"></div>                           
+                            <div id="kv-avatar-errors-1" class="center-block" style="display:none"></div>
+                            @if ($errors->has('image_media'))
+                                <span class="text-danger">
+                                    <strong>{{ $errors->first('image_media') }}</strong>
+                                </span>
+                            @endif                           
                         </div>                                              
 
                         <div class="form-group col-sm-6 mmtext">
                             {!! Form::label('status', 'Status:') !!} <span class="text-danger">*</span><br>
                             Active &nbsp; &nbsp; {{ Form::radio('status', STATUS_ACTIVE) }} <br>
                             Inactive &nbsp; &nbsp; {{ Form::radio('status', STATUS_INACTIVE) }}
+                            @if ($errors->has('status'))
+                                <span class="text-danger">
+                                    <strong>{{ $errors->first('status') }}</strong>
+                                </span>
+                            @endif
                         </div>
 
                         <div class="form-group col-sm-12">

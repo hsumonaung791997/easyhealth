@@ -399,6 +399,7 @@ class ComposerStaticInitac622c552661650c61b03bbfc11dca34
         'App\\Http\\Controllers\\Backend\\ServiceController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/ServiceController.php',
         'App\\Http\\Controllers\\Backend\\WhyusController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/WhyusController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\Frontend\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/HomeController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',
