@@ -23,147 +23,41 @@
         <section class="home-section paddingtop-10 paddingbot-30">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-4 col-md-4">
-                        <!-- Single Blog -->
-                        <div class="single-blog">
-                            <div class="blog-img">
-                                <img src="{{ asset('frontend/img/blog1.png') }}" alt="">
-                                <div class="post-category">
-                                   <a href="#"><i class="fa fa-folder-open-o" aria-hidden="true"></i> Health &amp; Care</a>
-                                </div>
-                            </div>
-                            <div class="blog-content">
-                                <div class="blog-title">
-                                    <h4><a href="#">Why Primary Health Care is very important in life?</a></h4>
-                                    <div class="meta">
-                                        <ul>
-                                            <li><i class="fa fa-user" aria-hidden="true"></i> Admin &nbsp;&nbsp;| &nbsp;&nbsp; <i class="fa fa-calendar" aria-hidden="true"></i> 04 June 2018</li>
-                                        </ul>
+                    @foreach($blogs as $blog)
+                        <div class="col-lg-4 col-md-4">
+                            <!-- Single Blog -->
+                            <div class="single-blog">
+                                <div class="blog-img">
+                                    <?php
+                                        $image = $blog->media->file_path . '/' . $blog->media->file_name;
+                                    ?>
+                                    <img src="{{ asset($image) }}">
+                                    <div class="post-category">
+                                       <a href="#"><i class="fa fa-folder-open-o" aria-hidden="true"></i> Health &amp; Care</a>
                                     </div>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. </p>
-                                <a href="{{ url('blogs_detail') }}" class="box_btn">read more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4">
-                        <!-- Single Blog -->
-                        <div class="single-blog">
-                            <div class="blog-img">
-                                <img src="{{ asset('frontend/img/blog2.png') }}" alt="">
-                                <div class="post-category">
-                                   <a href="#"><i class="fa fa-folder-open-o" aria-hidden="true"></i> Health &amp; Care</a>
-                                </div>
-                            </div>
-                            <div class="blog-content">
-                                <div class="blog-title">
-                                    <h4><a href="#">14 Things You Should Never, Ever Do in Bed</a></h4>
-                                    <div class="meta">
-                                        <ul>
-                                            <li><i class="fa fa-user" aria-hidden="true"></i> Admin &nbsp;&nbsp;| &nbsp;&nbsp; <i class="fa fa-calendar" aria-hidden="true"></i> 04 June 2018</li>
-                                        </ul>
-                                   </div>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque.</p>
-                                <a href="{{ url('blogs_detail') }}" class="box_btn">read more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4">
-                        <!-- Single Blog -->
-                        <div class="single-blog">
-                            <div class="blog-img">
-                                <img src="{{ asset('frontend/img/blog1.png') }}" alt="">
-                                <div class="post-category">
-                                   <a href="#"><i class="fa fa-folder-open-o" aria-hidden="true"></i> Health &amp; Care</a>
-                                </div>
-                            </div>
-                            <div class="blog-content">
-                                <div class="blog-title">
-                                    <h4><a href="#">Why Primary Health Care is very important in life?</a></h4>
-                                    <div class="meta">
-                                        <ul>
-                                            <li><i class="fa fa-user" aria-hidden="true"></i> Admin &nbsp;&nbsp;| &nbsp;&nbsp; <i class="fa fa-calendar" aria-hidden="true"></i> 04 June 2018</li>
-                                        </ul>
+                                <div class="blog-content">
+                                    <div class="blog-title">
+                                        <h4><a href="#">{{ $blog->title }}</a></h4>
+                                        <div class="meta">
+                                            <ul>
+                                                <li><i class="fa fa-user" aria-hidden="true"></i> Admin &nbsp;&nbsp;| &nbsp;&nbsp; <i class="fa fa-calendar" aria-hidden="true"></i> 04 June 2018</li>
+                                            </ul>
+                                        </div>
                                     </div>
+                                    <p>
+                                        {{ str_limit(strip_tags($blog->content), 100) }}
+                                        @if (strlen(strip_tags($blog->content)) > 100)
+                                          ... 
+                                          <a href="{{ url($blog->id, 'blogs_detail') }}" class="box_btn">read more</a>
+                                        @endif
+                                    </p>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. </p>
-                                <a href="{{ url('blogs_detail') }}" class="box_btn">read more</a>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
-                <div class="row paddingtop-50">
-                    <div class="col-lg-4 col-md-4">
-                        <!-- Single Blog -->
-                        <div class="single-blog">
-                            <div class="blog-img">
-                                <img src="{{ asset('frontend/img/blog1.png') }}" alt="">
-                                <div class="post-category">
-                                   <a href="#"><i class="fa fa-folder-open-o" aria-hidden="true"></i> Health &amp; Care</a>
-                                </div>
-                            </div>
-                            <div class="blog-content">
-                                <div class="blog-title">
-                                    <h4><a href="#">Why Primary Health Care is very important in life?</a></h4>
-                                    <div class="meta">
-                                        <ul>
-                                            <li><i class="fa fa-user" aria-hidden="true"></i> Admin &nbsp;&nbsp;| &nbsp;&nbsp; <i class="fa fa-calendar" aria-hidden="true"></i> 04 June 2018</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. </p>
-                                <a href="{{ url('blogs_detail') }}" class="box_btn">read more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4">
-                        <!-- Single Blog -->
-                        <div class="single-blog">
-                            <div class="blog-img">
-                                <img src="{{ asset('frontend/img/blog2.png') }}" alt="">
-                                <div class="post-category">
-                                   <a href="#"><i class="fa fa-folder-open-o" aria-hidden="true"></i> Health &amp; Care</a>
-                                </div>
-                            </div>
-                            <div class="blog-content">
-                                <div class="blog-title">
-                                    <h4><a href="#">14 Things You Should Never, Ever Do in Bed</a></h4>
-                                    <div class="meta">
-                                        <ul>
-                                            <li><i class="fa fa-user" aria-hidden="true"></i> Admin &nbsp;&nbsp;| &nbsp;&nbsp; <i class="fa fa-calendar" aria-hidden="true"></i> 04 June 2018</li>
-                                        </ul>
-                                   </div>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque.</p>
-                                <a href="{{ url('blogs_detail') }}" class="box_btn">read more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4">
-                        <!-- Single Blog -->
-                        <div class="single-blog">
-                            <div class="blog-img">
-                                <img src="{{ asset('frontend/img/blog1.png') }}" alt="">
-                                <div class="post-category">
-                                   <a href="#"><i class="fa fa-folder-open-o" aria-hidden="true"></i> Health &amp; Care</a>
-                                </div>
-                            </div>
-                            <div class="blog-content">
-                                <div class="blog-title">
-                                    <h4><a href="#">Why Primary Health Care is very important in life?</a></h4>
-                                    <div class="meta">
-                                        <ul>
-                                            <li><i class="fa fa-user" aria-hidden="true"></i> Admin &nbsp;&nbsp;| &nbsp;&nbsp; <i class="fa fa-calendar" aria-hidden="true"></i> 04 June 2018</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. </p>
-                                <a href="{{ url('blogs_detail') }}" class="box_btn">read more</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
             <div class="container text-center paddingtop-50">
                 <ul class="pagination ">

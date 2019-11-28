@@ -4,12 +4,16 @@ namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Model\Blog;
+use App\Model\Location;
 
 class HomeController extends Controller
 {
 	public function index()
 	{
-		return view('frontend.index');
+        $locations = Location::all();
+
+		return view('frontend.index', compact('locations'));
 	}
 
     public function appointment_form() 
@@ -17,14 +21,37 @@ class HomeController extends Controller
     	return view('frontend.appointment_form');
     }
 
-    public function blogs_detail() 
+    public function blogs_detail(Request $request, $id) 
     {
-        return view('frontend.blogs_detail');
+        $blog = Blog::find($id);
+        $details = Blog::all();
+
+        if (empty($blog)) {
+            Flash::error('blogs not found!');
+            return redirect(route('blogs_detail'));
+        }
+        return view('frontend.blogs_detail', compact('blog','details'));
     }
 
-    public function blogs() 
+    public function press_release_details(Request $request, $id)
     {
-        return view('frontend.blogs');
+        $locations = Location::all();
+        $blog = Blog::find($id);
+        $details = Blog::all();
+
+        if (empty($blog)) {
+            Flash::error('blogs not found!');
+            return redirect(route('press_release'));
+        }
+
+        return view('frontend.press_release_details', compact('locations','blog','details'));
+    }
+
+    public function blogs(Request $request) 
+    {
+        $blogs = Blog::all();
+
+        return view('frontend.blogs', compact('blogs'));
     }
 
     public function compare_health_assessments() 
@@ -34,17 +61,23 @@ class HomeController extends Controller
 
     public function contact()
 	{
-		return view('frontend.contact');
+		$locations = Location::all();
+        
+        return view('frontend.contact', compact('locations'));
 	}
 
     public function gp_services() 
     {
-    	return view('frontend.gp_services');
+        $locations = Location::all();
+
+    	return view('frontend.gp_services', compact('locations'));
     }
 
     public function health_assessments() 
     {
-        return view('frontend.health_assessments');
+        $locations = Location::all();
+
+        return view('frontend.health_assessments', compact('locations'));
     }
 
     public function management_team() 
@@ -59,7 +92,9 @@ class HomeController extends Controller
 
     public function mini_pharmacies()
     {
-    	return view('frontend.mini_pharmacies');
+        $locations = Location::all();
+
+    	return view('frontend.mini_pharmacies', compact('locations'));
     }
 
     public function our_doctors()
@@ -67,14 +102,12 @@ class HomeController extends Controller
     	return view('frontend.our_doctors');
     }
 
-    public function press_release_details()
-    {
-    	return view('frontend.press_release_details');
-    }
 
     public function press_release()
     {
-    	return view('frontend.press_release');
+        $blogs = Blog::all();
+
+    	return view('frontend.press_release', compact('blogs'));
     }
 
     public function privacy_policy()
@@ -84,7 +117,9 @@ class HomeController extends Controller
 
     public function whyus()
     {
-    	return view('frontend.whyus');
+        $locations = Location::all();
+
+    	return view('frontend.whyus', compact('locations'));
     }
 
     public function women_health()

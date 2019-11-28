@@ -26,7 +26,7 @@
                         <div class="single-blog">
                             <div class="blog-content">
                                 <div class="blog-title">
-                                    <h4 class="h-bold">Why Primary Health Care is very important in life?</h4>
+                                    <h4 class="h-bold">{{ $blog->title }}</h4>
                                     <div class="meta">
                                         <ul>
                                             <li><i class="fa fa-user" aria-hidden="true"></i> Admin &nbsp;&nbsp;| &nbsp;&nbsp; <i class="fa fa-calendar" aria-hidden="true"></i> 04 June 2018</li>
@@ -34,13 +34,13 @@
                                     </div>
                                 </div>
                                 <p>
-                                    Justo laoreet dignis sim lectus duic etiamd ipsum habitant tristique nam est. Donec venenatis leo eu varius curus da metus nuc placerat cursus In sodales purus non nisi. Aliquam orci lacus, mattis nec ornare sed, varius eget, turpis. Donec eget massa velit interdum interdum. Cras vehicula, pede a viverra varius pede sapien commodo turpis et blandit ut nisi. Eonec pede. Maecenas sodales elit. Suspendisse justo elit vulputate vel sodales sit amet convallis vel dolor.
+                                    
+                                <?php
+                                    $image = $blog->media->file_path . '/' . $blog->media->file_name;
+                                ?>
+                                <img src="{{ asset($image) }}"> 
                                     <br><br>
-                                    <img src="{{ asset('frontend/img/detail.jpg') }}" alt=""> 
-                                    <br><br>
-                                    Ut tellus.Nullam nec sem. Nullam risus turpis, rhoncus vel, varius consequat, laoreet ac, neque. Cras tristique ante lacinia dolor. Aenean a odio. Integer faucibus augue ut lacus.Sed purus neque, lacinia ac blandit nec pulvinar vel, pede. Suspendisse ut diam. Donec ut augue. Suspendisse et erat. Cras augue ipsum, pharetra indsa scelerisque acd mollis vel, metus. Nulla condimen tum sollicitudin lacus. Quisque urna enim placerat ut, auctor sed, mollis vitae. Cras volutpat, mauris a rhoncus accumsan est lacus tincidunt nibh eu pretium enim elit in augue. Vestibulum eget nibh velit fermentum sollicitudin. Sed vehicula lorem a rhonc usc varius felis felis ultrices dolor a euismod lacus ligula a nisl.
-                                    <br><br>
-                                    Ut tellus.Nullam nec sem. Nullam risus turpis, rhoncus vel, varius consequat, laoreet ac, neque. Cras tristique ante lacinia dolor. Aenean a odio. Integer faucibus augue ut lacus.Sed purus neque, lacinia ac blandit nec pulvinar vel, pede. Suspendisse ut diam. Donec ut augue. Suspendisse et erat. Cras augue ipsum, pharetra indsa scelerisque acd mollis vel, metus. Nulla condimen tum sollicitudin lacus. Quisque urna enim placerat ut, auctor sed, mollis vitae. Cras volutpat, mauris a rhoncus accumsan est lacus tincidunt nibh eu pretium enim elit in augue. Vestibulum eget nibh velit fermentum sollicitudin. Sed vehicula lorem a rhonc usc varius felis felis ultrices dolor a euismod lacus ligula a nisl.
+                                    {!! $blog->content !!}
                                 </p>
                                 <br>
                                 <div class="meta">
@@ -57,69 +57,7 @@
         </section>
         <!-- /Section: boxes -->
          <!-- CLinic Center Locations -->
-        <section class="home-section paddingbot-60">
-            <div class="container marginbot-30">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="wow fadeInDown" data-wow-delay="0.1s">
-                            <div class="section-heading text-center">
-                                <h2 class="h-bold">Find a private GP near me</h2>
-                                <p>View our health centre pages below or call us for advice on +959 123456789</p>
-                            </div>
-                        </div>
-                        <i class="title-bg"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6 col-md-6 wow fadeInLeft" data-wow-delay="0.1s">
-                        <div class="partner">
-                            <h4 class="h-bold"><i class="fa fa-hospital-o" aria-hidden="true"></i> Easy Health Center - Hleden</h4>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                            <b><a href="#">View Health Center Page > </a></b>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 wow fadeInRight" data-wow-delay="0.1s">
-                        <div class="partner">
-                            <h4 class="h-bold"><i class="fa fa-hospital-o" aria-hidden="true"></i> Easy Health Center - Maynigone</h4>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                            <b><a href="#">View Health Center Page > </a></b>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 wow fadeInLeft" data-wow-delay="0.1s">
-                        <div class="partner">
-                            <h4 class="h-bold"><i class="fa fa-hospital-o" aria-hidden="true"></i> Easy Health Center - Tarmwe</h4>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                            <b><a href="#">View Health Center Page > </a></b>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 wow fadeInRight" data-wow-delay="0.1s">
-                        <div class="partner">
-                            <h4 class="h-bold"><i class="fa fa-hospital-o" aria-hidden="true"></i> Easy Health Center - Lamataw</h4>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                            <b><a href="#">View Health Center Page > </a></b>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 wow fadeInLeft" data-wow-delay="0.1s">
-                        <div class="partner">
-                            <h4 class="h-bold"><i class="fa fa-hospital-o" aria-hidden="true"></i> Easy Health Center - Sule</h4>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                            <b><a href="#">View Health Center Page > </a></b>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 wow fadeInRight" data-wow-delay="0.1s"s>
-                        <div class="partner">
-                            <h4 class="h-bold"><i class="fa fa-hospital-o" aria-hidden="true"></i> Easy Health Center - Hlaing</h4>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                            <b><a href="#">View Health Center Page > </a></b>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+        @include('frontend.locations')
 
         <section class="home-section bg-gray paddingbot-60">
             <div class="container marginbot-30">

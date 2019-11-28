@@ -163,68 +163,7 @@
         <hr>
 
         <!-- CLinic Center Locations -->
-        <section class="home-section paddingbot-60">
-            <div class="container marginbot-30">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="wow fadeInDown" data-wow-delay="0.1s">
-                            <div class="section-heading text-center">
-                                <h2 class="h-bold">Find a private GP near me</h2>
-                                <p>View our health centre pages below or call us for advice on +959 123456789</p>
-                            </div>
-                        </div>
-                        <i class="title-bg"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6 col-md-6 wow fadeInLeft" data-wow-delay="0.1s">
-                        <div class="partner">
-                            <h4 class="h-bold"><i class="fa fa-hospital-o" aria-hidden="true"></i> Easy Health Center - Hleden</h4>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                            <b><a href="#">View Health Center Page > </a></b>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 wow fadeInRight" data-wow-delay="0.1s">
-                        <div class="partner">
-                            <h4 class="h-bold"><i class="fa fa-hospital-o" aria-hidden="true"></i> Easy Health Center - Maynigone</h4>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                            <b><a href="#">View Health Center Page > </a></b>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 wow fadeInLeft" data-wow-delay="0.1s">
-                        <div class="partner">
-                            <h4 class="h-bold"><i class="fa fa-hospital-o" aria-hidden="true"></i> Easy Health Center - Tarmwe</h4>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                            <b><a href="#">View Health Center Page > </a></b>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 wow fadeInRight" data-wow-delay="0.1s">
-                        <div class="partner">
-                            <h4 class="h-bold"><i class="fa fa-hospital-o" aria-hidden="true"></i> Easy Health Center - Lamataw</h4>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                            <b><a href="#">View Health Center Page > </a></b>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 wow fadeInLeft" data-wow-delay="0.1s">
-                        <div class="partner">
-                            <h4 class="h-bold"><i class="fa fa-hospital-o" aria-hidden="true"></i> Easy Health Center - Sule</h4>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                            <b><a href="#">View Health Center Page > </a></b>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 wow fadeInRight" data-wow-delay="0.1s"s>
-                        <div class="partner">
-                            <h4 class="h-bold"><i class="fa fa-hospital-o" aria-hidden="true"></i> Easy Health Center - Hlaing</h4>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                            <b><a href="#">View Health Center Page > </a></b>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        @include('frontend.locations')
 
 
         <section class="home-section bg-gray paddingbot-60">
