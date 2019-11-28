@@ -33,8 +33,7 @@
                                     </div>
                                 </div>
                                 <p>
-                                    <b>easy health</b>
-                                        {!! html_entity_decode($whyus->description) !!}
+                                    {!! $whyus->description !!}
                                 </p>
                             </div>
                         </div>
@@ -44,8 +43,8 @@
                             <div class="box text-center">
                                 <br><br>
                                 <?php
-                                        $image = $whyus->media->file_path . '/' . $whyus->media->file_name;
-                                    ?>
+                                    $image = $whyus->media->file_path . '/' . $whyus->media->file_name;
+                                ?>
                                 <img src="{{ asset($image) }}" class="img-responsive" width="100%" height="100%">
                             </div>
                         </div>

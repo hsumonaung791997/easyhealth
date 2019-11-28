@@ -4,7 +4,6 @@
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
     <div id="wrapper">
         @include('frontend.layouts.nav')
-
         <!-- breadcrumbs -->
         <section class="intro ui-title-page">
             <img src="{{ asset('frontend/img/health-assessments-title.png') }}" class="img-responsive" width="100%">
@@ -16,10 +15,7 @@
                     </div>
                 </div>
             </div>
-
         </section>
-         
-
         <section class="home-section paddingtop-10 paddingbot-30">
             <div class="container">
                 <div class="row">
@@ -56,25 +52,15 @@
                             </div>
                         </div>
                     @endforeach
-                </div>
-                
+                </div>   
             </div>
             <div class="container text-center paddingtop-50">
                 <ul class="pagination ">
-                    <li class="disabled"><a href="#">«</a></li>
-                    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">»</a></li>
+                    {{ $blogs->links() }}
                 </ul>
             </div>
-        </section>
-        <!-- /Section: boxes -->
-
-    </div>
-    
+        </section>    <!-- /Section: boxes -->
+    </div> 
 </body>
 @endsection
 </html>

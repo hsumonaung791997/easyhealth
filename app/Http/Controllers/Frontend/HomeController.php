@@ -9,7 +9,7 @@ use App\Model\Blog;
 use App\Model\Location;
 use App\Model\Whyus;
 use App\Model\Doctor;
->>>>>>> cdfcd89fb7387769e40986d8d2ad80a03a2e8dd1
+
 
 class HomeController extends Controller
 {
@@ -28,7 +28,7 @@ class HomeController extends Controller
     public function blogs_detail(Request $request, $id) 
     {
         $blog = Blog::find($id);
-        $details = Blog::all();
+        $details = Blog::orderBy('id', 'DESC')->where('status', 1)->take(3)->get();
 
         if (empty($blog)) {
             Flash::error('blogs not found!');
@@ -37,23 +37,28 @@ class HomeController extends Controller
         return view('frontend.blogs_detail', compact('blog','details'));
     }
 
+    public function press_release()
+    {
+        $blogs = Blog::orderBy('id', 'DESC')->where('status', 1)->paginate(3);
+
+        return view('frontend.press_release', compact('blogs'));
+    }
+
     public function press_release_details(Request $request, $id)
     {
-        $locations = Location::all();
         $blog = Blog::find($id);
-        $details = Blog::all();
+        $locations = Location::all();
 
         if (empty($blog)) {
             Flash::error('blogs not found!');
             return redirect(route('press_release'));
         }
-
-        return view('frontend.press_release_details', compact('locations','blog','details'));
+        return view('frontend.press_release_details', compact('blog','locations'));
     }
 
     public function blogs(Request $request) 
     {
-        $blogs = Blog::all();
+        $blogs = Blog::orderBy('id', 'DESC')->where('status', 1)->paginate(6);
 
         return view('frontend.blogs', compact('blogs'));
     }
@@ -86,12 +91,16 @@ class HomeController extends Controller
 
     public function management_team() 
     {
-        return view('frontend.management_team');
+        $locations = Location::all();
+
+        return view('frontend.management_team', compact('locations'));
     }
 
     public function men_health() 
     {
-        return view('frontend.men_health');
+        $locations = Location::all();
+
+        return view('frontend.men_health', compact('locations'));
     }
 
     public function mini_pharmacies()
@@ -107,14 +116,6 @@ class HomeController extends Controller
     	return view('frontend.our_doctor', compact('doctors'));
     }
 
-
-    public function press_release()
-    {
-        $blogs = Blog::all();
-
-    	return view('frontend.press_release', compact('blogs'));
-    }
-
     public function privacy_policy()
     {
     	return view('frontend.privacy_policy');
@@ -124,15 +125,15 @@ class HomeController extends Controller
     {
         $locations = Location::all();
 
-    	return view('frontend.whyus', compact('locations'));
-
         $whyus = Whyus::where('status', 1)->first();
         $doctors = Doctor::where('status', 1)->take(3)->get();
-    	return view('frontend.whyus', compact('whyus', 'doctors'));
+    	return view('frontend.whyus', compact('whyus', 'doctors', 'locations'));
     }
 
     public function women_health()
     {
-    	return view('frontend.women_health');
+        $locations = Location::all();
+
+    	return view('frontend.women_health', compact('locations'));
     }
 }
