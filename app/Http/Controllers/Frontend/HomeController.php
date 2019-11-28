@@ -10,14 +10,13 @@ use App\Model\Location;
 use App\Model\Whyus;
 use App\Model\Doctor;
 
-
 class HomeController extends Controller
 {
 	public function index()
 	{
         $locations = Location::all();
-
-		return view('frontend.index', compact('locations'));
+        $whyus = Whyus::where('status', 1)->first();
+		return view('frontend.index', compact('locations', 'whyus'));
 	}
 
     public function appointment_form() 
@@ -59,6 +58,7 @@ class HomeController extends Controller
     public function blogs(Request $request) 
     {
         $blogs = Blog::orderBy('id', 'DESC')->where('status', 1)->paginate(6);
+        $blogs = Blog::all();
 
         return view('frontend.blogs', compact('blogs'));
     }
@@ -124,9 +124,9 @@ class HomeController extends Controller
     public function whyus()
     {
         $locations = Location::all();
-
         $whyus = Whyus::where('status', 1)->first();
         $doctors = Doctor::where('status', 1)->take(3)->get();
+        
     	return view('frontend.whyus', compact('whyus', 'doctors', 'locations'));
     }
 
