@@ -33,8 +33,7 @@
                                     </div>
                                 </div>
                                 <p>
-                                    <b>easy health</b>
-                                        {!! html_entity_decode($whyus->description) !!}
+                                    {!! $whyus->description !!}
                                 </p>
                             </div>
                         </div>

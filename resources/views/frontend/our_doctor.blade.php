@@ -44,7 +44,7 @@
                                 </p>
                                 <h4 class="h-bold">Description</h4>
                                 <p>
-                                    {!! html_entity_decode($doctor->description) !!}
+                                    {!! $doctor->description !!}
                                 </p>
                             </div>                          
                         </div>

@@ -55,7 +55,7 @@
                 <div class="row">
                     <div class="wow fadeInDown" data-wow-delay="0.1s">
                         <div class="section-heading text-center">
-                            <h2 class="h-bold">Why Us? </h2>
+                            <h2 class="h-bold"> {{ $whyus->title }}</h2>
                             <p>Myanmar’s First & Only Convenient-Care Clinic Chain</p>
                         </div>
                         <i class="title-bg"></i>
@@ -63,14 +63,15 @@
                     <br><br>
                     <div class="col-sm-8 col-md-8">
                         <p>
-                            <b>easy health</b> is established to improve the dynamics of convenience in the healthcare landscape of Myanmar. The mission of easy health is simple - to make quality healthcare conveniently accessible.
-                            <br><br>
-                            Through its structure of a convenient-care clinic chain, easy health currently provides walk-in consultation services, lab test services and mini pharmacy at its clinics. As the name suggests, easy health strives to ease the burdens in seeking healthcare by making things easier and more convenient. However, the convenience does not come at a cost of quality as the medical quality, excellent service and patient safety are within the core foundation of everything we do!  
+                            {!! $whyus->description !!}
                         </p>
                         <a href="{{ url('whyus') }}" class="btn btn-skin btn-lg">Learn more</a>
                     </div>
                     <div class="col-sm-4 col-md-4">
-                        <img src="{{ asset('frontend/img/welcome.png') }}" alt="" class="img-responsive">
+                        <?php 
+                         $image = $whyus->media->file_path . '/' . $whyus->media->file_name;
+                        ?>
+                        <img src="{{ asset($image) }}" alt="" class="img-responsive" width="100%" height="100%">
                     </div>
                 </div>
             </div>
