@@ -37,7 +37,6 @@ class ServiceController extends Controller
     public function create()
     {
         $parents = Service::where('parent', NULL)->get(); 
-       /* $service_type = json_decode(SERVICE_TYPE, true);*/
         return view('admin.service.create', compact('parents'));
     }
 
@@ -50,7 +49,7 @@ class ServiceController extends Controller
     public function store(ServiceRequest $request)
     {
         //
-        $data = $request->all();;
+        $data = $request->all();
         if($request->hasFile('image_media')){
            $media = saveSingleMedia($request, 'image');
             if (TRUE != $media['status']) {

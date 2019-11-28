@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Model\Whyus;
+use App\Model\Doctor;
 
 class HomeController extends Controller
 {
@@ -64,7 +66,8 @@ class HomeController extends Controller
 
     public function our_doctors()
     {
-    	return view('frontend.our_doctors');
+        $doctors = Doctor::where('status', 1)->get();
+    	return view('frontend.our_doctor', compact('doctors'));
     }
 
     public function press_release_details()
@@ -84,7 +87,10 @@ class HomeController extends Controller
 
     public function whyus()
     {
-    	return view('frontend.whyus');
+
+        $whyus = Whyus::where('status', 1)->first();
+        $doctors = Doctor::where('status', 1)->take(3)->get();
+    	return view('frontend.whyus', compact('whyus', 'doctors'));
     }
 
     public function women_health()

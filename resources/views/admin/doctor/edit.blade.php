@@ -17,39 +17,69 @@
                     <div class="form-group col-sm-6 mmtext">
                         {!! Form::label('name', 'Name:') !!} <span class="text-danger">*</span>
                         {!! Form::text('name', null, ['class' => 'form-control']) !!}
+                        @if ($errors->has('name'))
+                                <span class="text-danger">
+                                    <strong>{{ $errors->first('name') }}</strong>
+                                </span>
+                        @endif
                     </div>
 
                     <div class="form-group col-sm-6 mmtext">
                         {!! Form::label('education', 'Education:') !!} <span class="text-danger">*</span>
                         {!! Form::text('education', null, ['class' => 'form-control']) !!}
+                        @if ($errors->has('education'))
+                                <span class="text-danger">
+                                    <strong>{{ $errors->first('education') }}</strong>
+                                </span>
+                        @endif
                     </div>
 
                      <div class="form-group col-sm-6 mmtext">
                         {!! Form::label('position', 'Position:') !!} <span class="text-danger">*</span>
                         {!! Form::text('position', null, ['class' => 'form-control']) !!}
+                        @if ($errors->has('position'))
+                                <span class="text-danger">
+                                    <strong>{{ $errors->first('position') }}</strong>
+                                </span>
+                        @endif
                     </div>
 
                     <div class="form-group col-sm-6 mmtext pull-right">
                       {!! Form::label('description', 'Description:') !!} <span class="text-danger">*</span>
                       {!! Form::textarea('description', null, ['class' => 'editor']) !!}
+                      @if ($errors->has('description'))
+                                <span class="text-danger">
+                                    <strong>{{ $errors->first('description') }}</strong>
+                                </span>
+                      @endif
                     </div>
 
                    <div class="form-group col-sm-6 mmtext">
                         {!! Form::label('file', 'Upload Product Photo :') !!} <span class="text-danger">*</span>
-                        {{ Form::hidden('media_path', SERVICE_MEDIA_UPLOAD) }}
+                        {{ Form::hidden('media_path', DOCTOR_MEDIA_UPLOAD) }}
                             <div class="file-loading">
                                 <input type="file" id="media_upload" name="image_media" accept="image/*">
                             </div>
                             <div class="kv-avatar-hint">
                                 <small>Select file < 1500 KB</small>
                             </div>
-                            <div id="kv-avatar-errors-1" class="center-block" style="display:none"></div>                           
+                            <div id="kv-avatar-errors-1" class="center-block" style="display:none"></div>
+                            @if ($errors->has('image_media'))
+                                <span class="text-danger">
+                                    <strong>{{ $errors->first('image_media') }}</strong>
+                                </span>
+                            @endif                           
                     </div>
 
                   <div class="form-group col-sm-6 mmtext">
                     {!! Form::label('status', 'Status:') !!} <span class="text-danger">*</span><br>
                     Active &nbsp; &nbsp; {{ Form::radio('status', STATUS_ACTIVE) }} <br>
                     Inactive &nbsp; &nbsp; {{ Form::radio('status', STATUS_INACTIVE) }}
+                    @if ($errors->has('status'))
+                                <span class="text-danger">
+                                    <strong>{{ $errors->first('status') }}</strong>
+                               </span>
+                    @endif
                   </div>
 
                   <div class="form-group col-sm-12">

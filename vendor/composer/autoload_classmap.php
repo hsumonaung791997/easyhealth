@@ -20,6 +20,7 @@ return array(
     'App\\Http\\Controllers\\Backend\\ServiceController' => $baseDir . '/app/Http/Controllers/Backend/ServiceController.php',
     'App\\Http\\Controllers\\Backend\\WhyusController' => $baseDir . '/app/Http/Controllers/Backend/WhyusController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+    'App\\Http\\Controllers\\Frontend\\HomeController' => $baseDir . '/app/Http/Controllers/Frontend/HomeController.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\CheckForMaintenanceMode' => $baseDir . '/app/Http/Middleware/CheckForMaintenanceMode.php',

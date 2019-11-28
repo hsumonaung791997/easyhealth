@@ -28,14 +28,13 @@
                             <div class="box">
                                 <div class="wow fadeInLeft" data-wow-delay="0.1s">
                                     <div class="section-heading">
-                                        <h2 class="h-bold">Welcome to easy health </h2>
+                                        <h2 class="h-bold"> {{ $whyus->title }}</h2>
                                         <p>Myanmar’s First & Only Convenient-Care Clinic Chain</p>
                                     </div>
                                 </div>
                                 <p>
-                                    <b>easy health</b> is established to improve the dynamics of convenience in the healthcare landscape of Myanmar. The mission of easy health is simple - to make quality healthcare conveniently accessible.
-                                    <br><br>
-                                    Through its structure of a convenient-care clinic chain, easy health currently provides walk-in consultation services, lab test services and mini pharmacy at its clinics. As the name suggests, easy health strives to ease the burdens in seeking healthcare by making things easier and more convenient. However, the convenience does not come at a cost of quality as the medical quality, excellent service and patient safety are within the core foundation of everything we do!  
+                                    <b>easy health</b>
+                                        {!! html_entity_decode($whyus->description) !!}
                                 </p>
                             </div>
                         </div>
@@ -44,7 +43,10 @@
                         <div class="wow fadeInRight" data-wow-delay="0.1s">
                             <div class="box text-center">
                                 <br><br>
-                                <img src="{{ asset('frontend/img/about.png') }}" class="img-responsive">
+                                <?php
+                                        $image = $whyus->media->file_path . '/' . $whyus->media->file_name;
+                                    ?>
+                                <img src="{{ asset($image) }}" class="img-responsive" width="100%" height="100%">
                             </div>
                         </div>
                     </div>
@@ -73,39 +75,25 @@
                 <div class="row">
                     <div id="grid-container" class="cbp-l-grid-team">
                         <ul>
+                            @foreach($doctors as $doctor)
                             <li class="cbp-item psychiatrist">
-                                <a href="#" class="cbp-caption cbp-singlePage">
+                                <a href="{{ url('/our_doctors') }}" class="cbp-caption"> 
                                     <div class="cbp-caption-defaultWrap">
-                                        <img src="{{ asset('frontend/img/doctors2.png') }}" alt="" width="100%">
+                                        <?php
+                                            $image = $doctor->media->file_path . '/' . $doctor->media->file_name;
+                                        ?>
+                                        <img src="{{ asset($image) }}" alt="" width="100%">
                                     </div>
                                 </a>
-                                <a href="#" class="cbp-singlePage cbp-l-grid-team-name">Dr.Alice Grue</a>
-                                <div class="cbp-l-grid-team-position">SENIOR NURSE</div>
-
-                            </li>
-                            <li class="cbp-item cardiologist">
-                                <a href="#" class="cbp-caption cbp-singlePage">
-                                    <div class="cbp-caption-defaultWrap">
-                                        <img src="{{ asset('frontend/img/doctors1.png') }}" alt="" width="100%">
-                                    </div>
-                                </a>
-                                <a href="#" class="cbp-singlePage cbp-l-grid-team-name">Dr.Joseph Murphy</a>
-                                <div class="cbp-l-grid-team-position">HEART SURGON</div>
-                            </li>
-                            <li class="cbp-item cardiologist">
-                                <a href="#" class="cbp-caption cbp-singlePage">
-                                    <div class="cbp-caption-defaultWrap">
-                                        <img src="{{ asset('frontend/img/doctors3.png') }}" alt="" width="100%">
-                                    </div>
-                                </a>
-                              <a href="#" class="cbp-singlePage cbp-l-grid-team-name">Dr.Alison Davis</a>
-                              <div class="cbp-l-grid-team-position">FAMILY PHYSICIAN</div>
-                            </li>
+                                <a href="#" class="cbp-singlePage cbp-l-grid-team-name">{{ $doctor->name }}</a>
+                                <div class="cbp-l-grid-team-position">{{ $doctor->position }}</div>
+                            </li> 
+                            @endforeach                            
                         </ul>
                     </div>
                     <br><br>
                     <center>
-                        <a href="{{ url('about') }}" class="btn btn-skin btn-lg">Learn more</a>
+                        <a href="{{ url('/our_doctors') }}" class="btn btn-skin btn-lg">Learn more</a>
                     </center>
                 </div>
             </div>
