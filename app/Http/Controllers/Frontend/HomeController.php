@@ -57,8 +57,7 @@ class HomeController extends Controller
 
     public function blogs(Request $request) 
     {
-        $blogs = Blog::orderBy('id', 'DESC')->where('status', 1)->paginate(6);
-        $blogs = Blog::all();
+        $blogs = Blog::orderBy('id', 'ASC')->where('status', 1)->paginate(6);
 
         return view('frontend.blogs', compact('blogs'));
     }
@@ -113,6 +112,7 @@ class HomeController extends Controller
     public function our_doctors()
     {
         $doctors = Doctor::where('status', 1)->get();
+
     	return view('frontend.our_doctor', compact('doctors'));
     }
 
@@ -126,8 +126,8 @@ class HomeController extends Controller
         $locations = Location::all();
         $whyus = Whyus::where('status', 1)->first();
         $doctors = Doctor::where('status', 1)->take(3)->get();
-        
-    	return view('frontend.whyus', compact('whyus', 'doctors', 'locations'));
+
+    	return view('frontend.whyus', compact('locations', 'whyus', 'doctors'));
     }
 
     public function women_health()

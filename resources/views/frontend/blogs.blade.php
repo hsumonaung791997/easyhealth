@@ -45,7 +45,7 @@
                                         {{ str_limit(strip_tags($blog->content), 100) }}
                                         @if (strlen(strip_tags($blog->content)) > 100)
                                           ... 
-                                          <a href="{{ url($blog->id, 'blogs_detail') }}" class="box_btn">read more</a>
+                                          <a href="{{ url($blog->id, 'blogs_detail') }}" class="box_btn pull-right">read more</a>
                                         @endif
                                     </p>
                                 </div>

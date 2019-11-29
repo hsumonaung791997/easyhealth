@@ -5,7 +5,6 @@
     <div id="wrapper">
         @include('frontend.layouts.nav')
 
-
         <!-- breadcrumbs -->
         <section class="intro ui-title-page">
             <img src="{{ asset('frontend/img/about-bg.png') }}" class="img-responsive">
@@ -18,8 +17,6 @@
                 </div>
             </div>
         </section>
-        
-
 
         <!-- Section: boxes -->
         <section class="home-section paddingtop-30 paddingbot-50">
