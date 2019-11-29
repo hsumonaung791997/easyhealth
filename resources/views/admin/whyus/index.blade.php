@@ -13,10 +13,10 @@
         <div class="row">
             <form method="GET">
                 <div class="form-group col-sm-3 mmtext">
-                    {!! Form::text('name', null, ['class' => 'form-control']) !!}
+                    {!! Form::text('name', null, ['class' => 'form-control searchtitle']) !!}
                 </div>
                 <a href="{!! route('whyus.index') !!}" class="btn btn-info">Clear</a>
-                <button type="submit" class="btn btn-primary">Search</button>
+                <button type="submit" class="btn btn-primary btnSearch">Search</button>
             </form>
         </div>
         <div class="clearfix"></div>

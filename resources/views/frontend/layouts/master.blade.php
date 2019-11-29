@@ -41,7 +41,7 @@
                             <div class="widget">
                                 <h5>Follow us</h5>
                                 <ul class="company-social">
-                                    <li class="social-facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li class="social-facebook"><a href="https://www.facebook.com/easyhealthmyanmar/"><i class="fa fa-facebook"></i></a></li>
                                     <li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
                                     <li class="social-google"><a href="#"><i class="fa fa-google-plus"></i></a></li>
                                 </ul>

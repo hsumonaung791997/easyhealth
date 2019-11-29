@@ -205,8 +205,7 @@
 
             $('textarea.editor').each(function() {
                 CKEDITOR.replace($(this).attr('id'));
-            });
-
+            });          
         });
         
     </script>

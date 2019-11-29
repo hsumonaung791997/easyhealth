@@ -25,6 +25,24 @@
                        @endif
                     </div>
 
+                    <div class="form-group col-sm-6 mmtext">                      
+                        {!! Form::label('type', 'Blog Type:') !!}<span class="text-danger">*</span><br>
+                        <?php $array = json_decode(BLOG, TRUE); ?>
+                        <select name="type" id="type" class="form-control">
+                          <option selected="selected"></option>
+                          @foreach ($array as $key => $blogtype) 
+                            <option value="{{ $key }}">
+                              {{ $blogtype }}
+                            </option>
+                          @endforeach
+                        </select>
+                        @if ($errors->has('type'))
+                           <span class="text-danger">
+                               <strong>{{ $errors->first('type') }}</strong>
+                           </span>
+                        @endif
+                     </div>      
+
                     <div class="form-group col-sm-6 mmtext pull-right">
                       {!! Form::label('content', 'Content:') !!} <span class="text-danger">*</span>
                       <textarea id="content" class="editor" name="content" rows="10" cols="50"></textarea>

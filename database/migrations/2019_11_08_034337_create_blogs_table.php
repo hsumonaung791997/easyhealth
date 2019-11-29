@@ -19,6 +19,7 @@ class CreateBlogsTable extends Migration
             $table->text('content');
             $table->integer('media_id');
             $table->boolean('status');
+            $table->smallInteger('type')->length(2);
             $table->timestamps();
         });
     }

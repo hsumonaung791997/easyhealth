@@ -11,12 +11,12 @@
     </section>
     <div class="content">
         <div class="row">
-            <form method="GET">
+            <form method="GET" class="form">
                 <div class="form-group col-sm-3 mmtext">
-                    {!! Form::text('title', null, ['class' => 'form-control']) !!}
+                    {!! Form::text('title', null, ['class' => 'form-control searchtitle']) !!}
                 </div>
                 <a href="{!! route('blog.index') !!}" class="btn btn-info">Clear</a>
-                <button type="submit" class="btn btn-primary">Search</button>
+                <button type="submit" class="btn btn-primary btnSearch">Search</button>
             </form>
         </div>
         <div class="clearfix"></div>
@@ -28,7 +28,7 @@
         <div class="box box-primary">
             <div class="box-body">
 
-                <table class="table table-striped table-hover tbl_repeat" id="sortable">
+                <table class="table table-striped table-hover tbl_repeat tabledata" id="sortable">
                     <thead>
                         <th>No.</th>
                         <th>Title</th>

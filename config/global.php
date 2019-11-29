@@ -41,4 +41,11 @@ define('SERVICE_TYPE', json_encode(
 	)
 ));
 
+define('BLOG', json_encode(
+    array(
+        17 => 'Press Release',
+        18 => 'Health Blog',
+    )
+));
+
 
