@@ -37,8 +37,8 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-stethoscope" aria-hidden="true"></i> News Blog <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                  
-                                <li><a href="{{ url('press_release') }}">Press Releases</a></li>
-                                <li><a href="{{ url('blogs') }}" >Health Blog </a></li>
+                                <li><a href="{{ url('17/newsblog') }}">Press Releases</a></li>
+                                <li><a href="{{ url('18/newsblog') }}" >Health Blog </a></li>
                             </ul>
                         </li>
                         <li><a href="{{ url('contact') }}"><i class="fa fa-hospital-o" aria-hidden="true"></i> Contact Us</a></li>

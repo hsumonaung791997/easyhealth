@@ -28,13 +28,23 @@ class HomeController extends Controller
     {
         $blog = Blog::find($id);
         $details = Blog::orderBy('id', 'DESC')->where('status', 1)->take(3)->get();
-
+        $heath_deatil = Blog::where('type', 18)->get();
         if (empty($blog)) {
             Flash::error('blogs not found!');
             return redirect(route('blogs_detail'));
         }
-        return view('frontend.blogs_detail', compact('blog','details'));
+        return view('frontend.blogs_detail', compact('blog', 'details', 'heath_deatil'));
     }
+
+    /*public function health_blogs($id)
+    {
+        $blog = Blog::find($id);
+        $health_blogs = Blog::where('type' , $id)->get();
+        if($id == 18)
+        {
+            return view('frontend.blogs_detail', compact('blog','health_blogs'));
+        }
+    }*/
 
     public function press_release()
     {
@@ -136,4 +146,18 @@ class HomeController extends Controller
 
     	return view('frontend.women_health', compact('locations'));
     }
+
+
+    public function newsblog($id)
+    {
+        $blogs = Blog::where('type', $id)->get();
+
+        if($id == 17) {
+            return view('frontend.press_release', compact('blogs'));
+        } else {
+            return view('frontend.health_blogs', compact('blogs'));
+        }
+
+    }
+        
 }

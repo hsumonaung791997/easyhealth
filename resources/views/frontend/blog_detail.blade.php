@@ -55,46 +55,7 @@
                     </div>
                     @endforeach
 
-                    <div class="col-lg-3 col-md-3 wow fadeInRight" data-wow-delay="0.2s">
-                        <!-- Single Blog -->
-                        @foreach($blogs as $blog)
-                        <div class="single-blog">
-                            <div class="blog-img">
-                                <?php 
-                                    $image = $blog->media->file_path .'/' . $blog->media->file_name;
-                                ?> 
-                                <img src="{{ asset($image) }}" alt=""> 
-                            </div>
-                            <div class="blog-content">
-                                <div class="blog-title">
-                                    <h4><a href="#">Blogs 1</a></h4>
-                                    <div class="meta">
-                                        <ul>
-                                            <li><i class="fa fa-user" aria-hidden="true"></i> Admin &nbsp;&nbsp;| &nbsp;&nbsp; <i class="fa fa-calendar" aria-hidden="true"></i> 04 June 2018</li>
-                                        </ul>
-                                   </div>
-                                </div>
-                                <a href="{{ url($blog->id, 'blogs_detail') }}" class="box_btn">read more</a>
-                            </div>
-                        </div>
-                        @endforeach
-                        <div class="single-blog paddingtop-50">
-                            <div class="blog-img">
-                                <img src="{{ asset('frontend/img/blog1.png') }}" alt=""> 
-                            </div>
-                            <div class="blog-content">
-                                <div class="blog-title">
-                                    <h4><a href="#">Blogs 2</a></h4>
-                                    <div class="meta">
-                                        <ul>
-                                            <li><i class="fa fa-user" aria-hidden="true"></i> Admin &nbsp;&nbsp;| &nbsp;&nbsp; <i class="fa fa-calendar" aria-hidden="true"></i> 04 June 2018</li>
-                                        </ul>
-                                   </div>
-                                </div>
-                                <a href="#" class="box_btn">read more</a>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </section>

@@ -56,7 +56,7 @@
                     
                     <div class="col-lg-3 col-md-3 wow fadeInRight" data-wow-delay="0.2s">
                         <!-- Single Blog -->
-                        @foreach($details as $detail)
+                        @foreach($heath_deatil as $detail)
                         <div class="single-blog">
                             <div class="blog-img">
                                 <?php

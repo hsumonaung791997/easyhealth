@@ -56,7 +56,7 @@
             </div>
             <div class="container text-center paddingtop-50">
                 <ul class="pagination ">
-                    {{ $blogs->links() }}
+                    
                 </ul>
             </div>
         </section>    <!-- /Section: boxes -->

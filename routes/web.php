@@ -50,6 +50,9 @@ Route::group(['namespace' => 'Frontend'], function() {
 		Route::get('privacy_policy', 'HomeController@privacy_policy')->name('frontend.privacy_policy');
 		Route::get('whyus', 'HomeController@whyus')->name('frontend.whyus');
 		Route::get('women_health', 'HomeController@women_health')->name('frontend.women_health');
+
+
+		Route::get('{id}/newsblog', 'HomeController@newsblog')->name('frontend.press_release');
 	});
 
  
