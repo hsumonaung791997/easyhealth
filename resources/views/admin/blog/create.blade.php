@@ -23,7 +23,7 @@
                                 <strong>{{ $errors->first('title') }}</strong>
                             </span>
                        @endif
-                    </div>
+                    </div> 
 
                     <div class="form-group col-sm-6 mmtext pull-right">
                       {!! Form::label('content', 'Content:') !!} <span class="text-danger">*</span>
@@ -37,7 +37,7 @@
 
                    <div class="form-group col-sm-6 mmtext">
                        {!! Form::label('file', 'Upload Product Photo :') !!} <span class="text-danger">*</span>
-                       {{ Form::hidden('media_path', BLOG_MEDIA_UPLOAD) }}
+                       {{ Form::hidden('media_path', CATEGORY_MEDIA_UPLOAD) }}
                            <div class="file-loading">
                                <input type="file" id="image_media" name="image_media" accept="image/*">
                            </div>

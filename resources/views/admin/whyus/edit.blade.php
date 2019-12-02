@@ -26,7 +26,7 @@
 
                         <div class="form-group col-sm-6 mmtext">
                             {!! Form::label('file', 'Upload Product Photo :') !!} <span class="text-danger">*</span>
-                            {{ Form::hidden('media_path', SERVICE_MEDIA_UPLOAD) }}
+                            {{ Form::hidden('media_path', CATEGORY_MEDIA_UPLOAD) }}
                                 <div class="file-loading">
                                     <input type="file" id="media_upload" name="image_media" accept="image/*">
                                 </div>
