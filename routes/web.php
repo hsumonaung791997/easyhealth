@@ -46,6 +46,7 @@ Route::group(['namespace' => 'Frontend'], function() {
 		Route::get('press_release_details', 'HomeController@press_release_details')->name('frontend.press_release_details');
 
 		Route::get('press_release', 'HomeController@press_release')->name('frontend.press_release');
+		 
 		Route::get('privacy_policy', 'HomeController@privacy_policy')->name('frontend.privacy_policy');
 		Route::get('whyus', 'HomeController@whyus')->name('frontend.whyus');
 		Route::get('women_health', 'HomeController@women_health')->name('frontend.women_health');
