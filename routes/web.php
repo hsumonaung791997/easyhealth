@@ -15,8 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -50,6 +48,9 @@ Route::group(['namespace' => 'Frontend'], function() {
 		Route::get('privacy_policy', 'HomeController@privacy_policy')->name('frontend.privacy_policy');
 		Route::get('whyus', 'HomeController@whyus')->name('frontend.whyus');
 		Route::get('women_health', 'HomeController@women_health')->name('frontend.women_health');
+
+
+		Route::get('{id}/newsblog', 'HomeController@newsblog')->name('frontend.press_release');
 	});
 
  
@@ -70,3 +71,7 @@ Route::group(['prefix'=>'admin'],function(){
 	});
  
 });
+
+// Route::get('test', function () {
+// 	return view('welcome');
+// });

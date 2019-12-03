@@ -20,8 +20,7 @@
         
         <section class="home-section paddingtop-50 paddingbot-30">
             <div class="container">
-                <div class="row">
-                    
+                <div class="row">  
                     <div class="col-lg-9 col-md-9 wow fadeInLeft" data-wow-delay="0.2s">
                         <!-- Single Blog -->
                         <div class="single-blog">
@@ -53,39 +52,34 @@
                         </div>
                     </div>
                    
-                    
                     <div class="col-lg-3 col-md-3 wow fadeInRight" data-wow-delay="0.2s">
                         <!-- Single Blog -->
-                        @foreach($details as $detail)
-                        <div class="single-blog">
-                            <div class="blog-img">
-                                <?php
-                                    $image = $detail->media->file_path . '/' . $detail->media->file_name;
-                                ?>
-                                <img src="{{ asset($image) }}">
-                            </div>
-                            <div class="blog-content">
-                                <div class="blog-title">
-                                    <h4><a href="#">{{ $detail->title }}</a></h4>
-                                    <div class="meta">
-                                        <ul>
-                                            <li><i class="fa fa-user" aria-hidden="true"></i> Admin &nbsp;&nbsp;| &nbsp;&nbsp; <i class="fa fa-calendar" aria-hidden="true"></i> 04 June 2018</li>
-                                        </ul>
-                                   </div>
+                        @foreach($health_detail as $detail)
+                            <div class="single-blog">
+                                <div class="blog-img">
+                                    <?php
+                                        $image = $detail->media->file_path . '/' . $detail->media->file_name;
+                                    ?>
+                                    <img src="{{ asset($image) }}">
                                 </div>
-                                <a href="{{ url($detail->id, 'blogs_detail') }}" class="box_btn">read more</a>
+                                <div class="blog-content">
+                                    <div class="blog-title">
+                                        <h4><a href="#">{{ $detail->title }}</a></h4>
+                                        <div class="meta">
+                                            <ul>
+                                                <li><i class="fa fa-user" aria-hidden="true"></i> Admin &nbsp;&nbsp;| &nbsp;&nbsp; <i class="fa fa-calendar" aria-hidden="true"></i> 04 June 2018</li>
+                                            </ul>
+                                       </div>
+                                    </div>
+                                    <a href="{{ url($detail->id, 'blogs_detail') }}" class="box_btn">read more</a>
+                                </div>
                             </div>
-                        </div>
-                        @endforeach
-                        
+                        @endforeach  
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- /Section: boxes -->
-        
-    </div>
-    
+        </section>  
+    </div> 
 </body>
 @endsection
 </html>

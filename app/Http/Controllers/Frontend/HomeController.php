@@ -27,13 +27,14 @@ class HomeController extends Controller
     public function blogs_detail(Request $request, $id) 
     {
         $blog = Blog::find($id);
-        $details = Blog::orderBy('id', 'DESC')->where('status', 1)->take(3)->get();
+
+        $health_detail = Blog::where('type', 18)->orderBy('id', 'ASC')->where('status', 1)->take(3)->get();
 
         if (empty($blog)) {
             Flash::error('blogs not found!');
             return redirect(route('blogs_detail'));
         }
-        return view('frontend.blogs_detail', compact('blog','details'));
+        return view('frontend.blogs_detail', compact('blog', 'health_detail'));
     }
 
     public function press_release()
@@ -53,13 +54,6 @@ class HomeController extends Controller
             return redirect(route('press_release'));
         }
         return view('frontend.press_release_details', compact('blog','locations'));
-    }
-
-    public function blogs(Request $request) 
-    {
-        $blogs = Blog::orderBy('id', 'ASC')->where('status', 1)->paginate(6);
-
-        return view('frontend.blogs', compact('blogs'));
     }
 
     public function compare_health_assessments() 
@@ -136,4 +130,16 @@ class HomeController extends Controller
 
     	return view('frontend.women_health', compact('locations'));
     }
+
+    public function newsblog($id)
+    {
+        $blogs = Blog::orderBy('id', 'DESC')->where('status', 1)->where('type', $id)->paginate(6);
+
+        if($id == 17) {
+            return view('frontend.press_release', compact('blogs'));
+        } else {
+            return view('frontend.health_blogs', compact('blogs'));
+        }
+    }
+
 }

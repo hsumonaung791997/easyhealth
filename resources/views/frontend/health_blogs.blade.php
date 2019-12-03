@@ -59,7 +59,7 @@
                     {{ $blogs->links() }}
                 </ul>
             </div>
-        </section>    <!-- /Section: boxes -->
+        </section>    
     </div> 
 </body>
 @endsection

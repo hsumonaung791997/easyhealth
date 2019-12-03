@@ -88,6 +88,8 @@
                     <a href="https://laravel-news.com">News</a>
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <!-- <br>
+                    <iframe src="https://player.vimeo.com/video/376969222" width="640" height="361" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe> -->
                 </div>
             </div>
         </div>
