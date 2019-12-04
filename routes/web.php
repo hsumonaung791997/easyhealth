@@ -51,6 +51,8 @@ Route::group(['namespace' => 'Frontend'], function() {
 
 
 		Route::get('{id}/newsblog', 'HomeController@newsblog')->name('frontend.press_release');
+
+		Route::get('{id}/location_detail', 'HomeController@location_detail')->name('frontend.location_detail');
 	});
 
  

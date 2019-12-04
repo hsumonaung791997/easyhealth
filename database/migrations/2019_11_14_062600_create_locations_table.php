@@ -17,6 +17,7 @@ class CreateLocationsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->text('address');
+            $table->text('description');
             $table->integer('media_id');
             $table->string('latitude');
             $table->string('longitude');

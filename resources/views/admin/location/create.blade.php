@@ -55,7 +55,19 @@
                         @endif
                     </div>
 
-                    <div class="form-group col-sm-12 mmtext">
+                    <div class="form-group col-sm-6 mmtext pull-right">
+                      {!! Form::label('description', 'Description:') !!} <span class="text-danger">*</span>
+
+                      <textarea id="description" class="editor" name="description" rows="10" cols="50"></textarea>
+                       @if ($errors->has('description'))
+                           <span class="text-danger">
+                               <strong>{{ $errors->first('description') }}</strong>
+                           </span>
+                      @endif
+
+                    </div>
+
+                    <div class="form-group col-sm-6 mmtext">
                        {!! Form::label('file', 'Upload Product Photo :') !!} <span class="text-danger">*</span>
                        {{ Form::hidden('media_path', CATEGORY_MEDIA_UPLOAD) }}
                            <div class="file-loading">

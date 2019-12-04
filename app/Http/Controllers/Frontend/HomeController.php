@@ -16,7 +16,7 @@ class HomeController extends Controller
 	{
         $locations = Location::all();
         $whyus = Whyus::where('status', 1)->first();
-		return view('frontend.index', compact('locations', 'whyus'));
+		return view('frontend.index', compact('locations', 'whyus','location'));
 	}
 
     public function appointment_form() 
@@ -126,10 +126,9 @@ class HomeController extends Controller
     	return view('frontend.whyus', compact('locations', 'whyus', 'doctors'));
     }
 
-    public function women_health()
+    public function women_health($id)
     {
         $locations = Location::all();
-
     	return view('frontend.women_health', compact('locations'));
     }
 
@@ -145,6 +144,15 @@ class HomeController extends Controller
         } else {
             return view('frontend.health_blogs', compact('blogs'));
         }
+    }
+
+
+    public function location_detail($id)
+    {
+        //
+        $location = Location::find($id);
+        $locations = Location::all();
+        return view('frontend.location_detail', compact('location', 'locations'));
     }
 
 }

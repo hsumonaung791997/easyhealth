@@ -22,7 +22,7 @@
                 <div class="partner">
                     <h4 class="h-bold"><i class="fa fa-hospital-o" aria-hidden="true"></i> {{ $location->name }}</h4>
                     <p>{{ $location->address }}</p>
-                    <b><a href="#">View Health Center Page > </a></b>
+                    <b><a href="{{ url($location->id, 'location_detail') }}">View Health Center Page > </a></b>
                 </div>
             </div>
             @endforeach
