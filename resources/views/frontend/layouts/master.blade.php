@@ -84,8 +84,8 @@
                             <div class="widget" style="color: #fff;">
                                 <h5>Our Blogs</h5>
                                 <ul>
-                                    <li><a href="{{ url('press_release') }}"><i class="fa fa-caret-right" aria-hidden="true"></i> Press Releases</a></li>
-                                    <li><a href="{{ url('blogs') }}"><i class="fa fa-caret-right" aria-hidden="true"></i> Health Blogs </a></li>
+                                    <li><a href="{{ url('17/newsblog') }}"><i class="fa fa-caret-right" aria-hidden="true"></i> Press Releases</a></li>
+                                    <li><a href="{{ url('18/newsblog') }}"><i class="fa fa-caret-right" aria-hidden="true"></i> Health Blogs </a></li>
                                 </ul>
                             </div>
                         </div>

@@ -56,7 +56,7 @@
                     
                     <div class="col-lg-3 col-md-3 wow fadeInRight" data-wow-delay="0.2s">
                         <!-- Single Blog -->
-                        @foreach($heath_deatil as $detail)
+                        @foreach($heath_blogs as $detail)
                         <div class="single-blog">
                             <div class="blog-img">
                                 <?php
@@ -76,16 +76,13 @@
                                 <a href="{{ url($detail->id, 'blogs_detail') }}" class="box_btn">read more</a>
                             </div>
                         </div>
-                        @endforeach
-                        
+                        @endforeach                       
                     </div>
                 </div>
             </div>
         </section>
-        <!-- /Section: boxes -->
-        
-    </div>
-    
+        <!-- /Section: boxes -->       
+    </div>    
 </body>
 @endsection
 </html>
