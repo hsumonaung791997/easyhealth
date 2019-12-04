@@ -15,10 +15,7 @@
                     </div>
                 </div>
             </div>
-
         </section>
-
-
         <!-- Left Menu -->
         <section class="home-section paddingtop-10 paddingbot-50">
             <div class="container">
@@ -77,13 +74,11 @@
                             <br>
                             <h4 class="h-bold">Ask us a question on +959 123456789</h4>
                             <a href="#" class="ph-call-btn btn btn-lg ">CALL NOW</a>
-                        </div>
-                        
+                        </div>   
                     </div>
                 </div>
             </div>
         </section>
-
 
         <section class="home-section bg-gray paddingbot-60">
             <div class="container">
@@ -155,8 +150,6 @@
                 </div>
             </div>
         </section>
-
-
          
         <!-- CLinic Center Locations -->
         <section class="home-section paddingbot-60">
@@ -222,7 +215,6 @@
             </div>
         </section>
 
-
         <section class="home-section bg-gray paddingbot-60">
             <div class="container marginbot-30">
                 <div class="row">
@@ -241,9 +233,7 @@
                 </div>
             </div>
         </section>
-
     </div>
- 
 </body>
 @endsection
 </html>
