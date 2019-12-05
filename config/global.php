@@ -13,13 +13,22 @@ define('DB_DATE', 'Y-m-d H:i:s');
 
 // Media File Upload
 define('CATEGORY_MEDIA_UPLOAD', 16);
-
+define('BLOG_MEDIA_UPLOAD', 19);
+define('SERVICE_MEDIA_UPLOAD', 20);
+define('LOCATION_MEDIA_UPLOAD', 21);
+define('DOCTOR_MEDIA_UPLOAD', 22);
+define('WHYUS_MEDIA_UPLOAD', 23);
 
 define('PAGINATE', 25);
 
 define('MEDIA_PATH', json_encode(
     array(
-        16 => 'upload/categories'
+        16 => 'upload/categories',
+        19 => 'upload/blogs',
+        20 => 'upload/services',
+        21 => 'upload/locations',
+        22 => 'upload/doctors',
+        23 => 'upload/whyus'
     )
 ));
 
@@ -31,8 +40,8 @@ define('MEDIA_TYPE', json_encode(
 
 define('SERVICE_TYPE', json_encode(
 	array(
-		11 => 'Home services',
-		12 => 'GP Service',
+		11 => 'GP Service',
+		12 => 'Health Assessments',
 		13 => 'Other'
 	)
 ));

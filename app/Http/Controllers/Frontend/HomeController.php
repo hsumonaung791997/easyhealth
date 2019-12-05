@@ -9,6 +9,7 @@ use App\Model\Blog;
 use App\Model\Location;
 use App\Model\Whyus;
 use App\Model\Doctor;
+use App\Model\Service;
 
 class HomeController extends Controller
 {
@@ -68,13 +69,6 @@ class HomeController extends Controller
         return view('frontend.contact', compact('locations'));
 	}
 
-    public function gp_services() 
-    {
-        $locations = Location::all();
-
-    	return view('frontend.gp_services', compact('locations'));
-    }
-
     public function health_assessments() 
     {
         $locations = Location::all();
@@ -88,14 +82,7 @@ class HomeController extends Controller
 
         return view('frontend.management_team', compact('locations'));
     }
-
-    public function men_health() 
-    {
-        $locations = Location::all();
-
-        return view('frontend.men_health', compact('locations'));
-    }
-
+    
     public function mini_pharmacies()
     {
         $locations = Location::all();
@@ -140,6 +127,42 @@ class HomeController extends Controller
         } else {
             return view('frontend.health_blogs', compact('blogs'));
         }
+    }
+
+    public function services($id) 
+    {
+        $locations = Location::all();
+
+        $gp_services = Service::orderBy('id', 'DESC')->where('status', 1)->where('type', $id)->where('parent', NULL)->get();
+        $gp_modules = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', '!=', NULL)->where('type', $id)->get();
+
+        $health_assessments = Service::orderBy('id', 'DESC')->where('status', 1)->where('type', $id)->where('parent', NULL)->get();
+        $hs_modules = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', '!=', NULL)->where('type', $id)->get();
+
+        if($id == 11){  
+            return view('frontend.gp_services', compact('locations', 'gp_services', 'gp_modules'));
+        }
+        else if($id == 12){
+            return view('frontend.health_assessments', compact('locations', 'health_assessments', 'hs_modules'));
+        }
+        else{
+            return view('frontend.index');
+        }
+    }
+
+    public function men_health() 
+    {
+        $locations = Location::all();
+
+        return view('frontend.men_health', compact('locations'));
+    }
+
+    public function menhealth_detail(Request $request, $id) 
+    {
+        $locations = Location::all();
+        $detail = Service::find($id);
+        
+        return view('frontend.men_health', compact('locations', 'detail'));
     }
 
 }

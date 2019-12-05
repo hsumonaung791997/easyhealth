@@ -38,7 +38,7 @@
                                 <?php
                                     $image = $blog->media->file_path . '/' . $blog->media->file_name;
                                 ?>
-                                <img src="{{ asset($image) }}"> 
+                                <img src="{{ asset($image) }}" class="press_detail"> 
                                     <br><br>
                                     {!! $blog->content !!}
                                 </p>

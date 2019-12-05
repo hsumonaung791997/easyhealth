@@ -25,9 +25,9 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-md" aria-hidden="true"></i> Our Services <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ url('gp_services') }}">Private GP services </a></li>
+                        <li><a href="{{ url('11/services') }}">Private GP services </a></li>
                         <li><a href="{{ url('mini_pharmacies') }}">Mini pharmacies </a></li>
-                        <li><a href="{{ url('health_assessments') }}">Health screenings and diagnostics </a></li>
+                        <li><a href="{{ url('12/services') }}">Health screenings and diagnostics </a></li>
                         <li><a href="#">Home services</a></li>
                         <li><a href="#">Telemedicine services</a></li>
                         <li><a href="#">Corporate B2B healthcare</a></li>

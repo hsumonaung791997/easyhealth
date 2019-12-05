@@ -5,8 +5,8 @@
         <h1>
             Create New Service
         </h1>
-        <span class="breadcrumb"><a href='{{ route("service.index") }}' class="btn btn-sm btn-primary"><i
-                    class="fa fa-arrow-circle-left"></i>&nbsp;&nbsp;Go To Service</a></span>
+        <span class="breadcrumb"><a href='{{ route("service.index") }}' class="btn btn-sm btn-primary">
+          <i class="fa fa-arrow-circle-left"></i>&nbsp;&nbsp;Go To Service</a></span>
     </section>
     <div class="content">
         <div class="box box-primary">
@@ -72,7 +72,7 @@
 
                    <div class="form-group col-sm-6 mmtext">
                        {!! Form::label('file', 'Upload Product Photo :') !!} <span class="text-danger">*</span>
-                       {{ Form::hidden('media_path', CATEGORY_MEDIA_UPLOAD) }}
+                       {{ Form::hidden('media_path', SERVICE_MEDIA_UPLOAD) }}
                            <div class="file-loading">
                                <input type="file" id="image_media" name="image_media" accept="image/*">
                            </div>

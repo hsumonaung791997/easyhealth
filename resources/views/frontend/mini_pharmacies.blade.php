@@ -82,7 +82,7 @@
                                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                             </p>
                             <br>
-                            <a href="{{ url('health_assessments') }}" class="btn btn-skin btn-lg">Learn more</a>
+                            <a href="{{ url('12/services')}}" class="btn btn-skin btn-lg">Learn more</a>
                         </div>
                         <div class="col-sm-5 col-md-5 text-center paddingtop-30 paddingbot-50 wow fadeInRight" data-wow-delay="0.2s">
                             <img src="{{ asset('frontend/img/health-ass.png') }}" class="img-responsive">
@@ -94,7 +94,6 @@
         <hr>
         <!-- CLinic Center Locations -->
         @include('frontend.locations')
-
 
         <section class="home-section bg-gray paddingbot-60">
             <div class="container marginbot-30">

@@ -1,0 +1,27 @@
+php artisan make:migration add_new_field --table=service
+
+sudo apt install youtube-dl
+
+mysql>desc table name;
+
+url() nae image bind yin localhost ka nay sa yu tl...browser ka route loh thet mhat tl...real mhr not found msg tat naing tl...so...image route ta khu crate pay htr ya tl...path nae
+
+asset() ka public hte ka index ko tan route tl...so file tway bind chin yin asset() ko use tr better tl
+
+explain doctors;
+alter table doctors modify column description text;
+explain doctors;
+
+video download -> https://yts.lt/
+
+Import to db
+mysql -u root -ppassword easyhealth < /home/thura/Desktop/easyhealth.sql
+
+Export db
+mysqldump -u user_name -p database_name > dump.sql
+
+php artisan make:migration type --table="blogs"
+
+sudo apt install libdvdnav4 libdvdread4 gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly libdvd-pkg
+
+https://www.qcode.in/smooth-image-upload-and-resize-in-laravel/

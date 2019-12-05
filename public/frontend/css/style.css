@@ -3202,3 +3202,8 @@ a.btn:focus{
 		padding:250px 0 0;
 	}
 }
+
+.press_detail{
+  width: 75%;
+  height: 60%;
+}

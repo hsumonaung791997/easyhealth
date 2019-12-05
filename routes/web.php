@@ -32,10 +32,12 @@ Route::group(['namespace' => 'Frontend'], function() {
 		Route::get('blogs', 'HomeController@blogs')->name('frontend.blogs');
 		Route::get('compare_health_assessments', 'HomeController@compare_health_assessments')->name('frontend.compare_health_assessments');
 		Route::get('contact', 'HomeController@contact')->name('frontend.contact');
-		Route::get('gp_services', 'HomeController@gp_services')->name('frontend.gp_services');
+		// Route::get('gp_services', 'HomeController@gp_services')->name('frontend.gp_services');
 		Route::get('health_assessments', 'HomeController@health_assessments')->name('frontend.health_assessments');
 		Route::get('management_team', 'HomeController@management_team')->name('frontend.management_team');
 		Route::get('men_health', 'HomeController@men_health')->name('frontend.men_health');
+		Route::get('{id}/menhealth_detail', 'HomeController@menhealth_detail')->name('frontend.men_health');
+
 		Route::get('mini_pharmacies', 'HomeController@mini_pharmacies')->name('frontend.mini_pharmacies');
 
 		Route::get('our_doctors', 'HomeController@our_doctors')->name('frontend.our_doctors');
@@ -49,8 +51,8 @@ Route::group(['namespace' => 'Frontend'], function() {
 		Route::get('whyus', 'HomeController@whyus')->name('frontend.whyus');
 		Route::get('women_health', 'HomeController@women_health')->name('frontend.women_health');
 
-
 		Route::get('{id}/newsblog', 'HomeController@newsblog')->name('frontend.press_release');
+		Route::get('{id}/services', 'HomeController@services')->name('frontend.gp_services');
 	});
 
  

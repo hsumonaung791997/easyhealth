@@ -18,26 +18,25 @@
             </div>
         </section>
 
-
         <!-- Section: boxes -->
         <section class="home-section paddingbot-50">
             <div class="container">
                 <div class="row">
+                    @foreach($gp_services as $gp_service)
                     <div class="wow fadeInUp" data-wow-delay="0.2s">
                         <div class="col-sm-12 col-md-12 text-center paddingbot-50">
                             <div class="wow fadeInDown" data-wow-delay="0.1s">
                                 <div class="section-heading">
-                                    <h2 class="h-bold">Private GP Services</h2>
+                                    <h2 class="h-bold">{{ $gp_service->title }}</h2>
                                 </div>
                                 <i class="title-bg"></i>
                             </div>
                             <p class="wow fadeInUp" data-wow-delay="0.1s">
-                                <b>easy health</b> is established to improve the dynamics of convenience in the healthcare landscape of Myanmar. The mission of easy health is simple - to make quality healthcare conveniently accessible.
-                                <br> 
-                                Through its structure of a convenient-care clinic chain, easy health currently provides walk-in consultation services, lab test services and mini pharmacy at its clinics. As the name suggests, easy health strives to ease the burdens in seeking healthcare by making things easier and more convenient. However, the convenience does not come at a cost of quality as the medical quality, excellent service and patient safety are within the core foundation of everything we do!  
+                                {!! $gp_service->description !!}
                             </p>
                         </div>
                     </div>
+                    @endforeach
                 </div>
                 <div class="row">
                     <div class="col-sm-6 col-md-6 gp-frame-left paddingbot-20 paddingtop-20 wow fadeInLeft" data-wow-delay="0.2s">
@@ -81,20 +80,33 @@
                         </div>
                     </div>
 
+                    @foreach($gp_modules as $gp_module)
                     <div class="col-sm-3 col-md-3">
                         <div class="wow fadeInLeft" data-wow-delay="0.2s">
                             <div class="box text-center">
-                                <img src="{{ asset('frontend/img/women-health.png') }}" class="img-responsive">
-                                <h4 class="h-bold">Women's Health</h4>
+                                <?php
+                                    $image = $gp_module->media->file_path . '/' . $gp_module->media->file_name;
+                                ?>
+                                <img src="{{ asset($image) }}" style="width: 95%; height: 35%;">
+                                <h4 class="h-bold">{{ $gp_module->title }}</h4>
                                 <i class="title-bg"></i>
-                                <p>
+                                <!-- <p>
                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
                                 </p>
-                                <a href="{{ url('women_health') }}" class="btn btn-skin btn-lg">View More</a>
+                                <a href="{{ url('women_health') }}" class="btn btn-skin btn-lg">View More</a> -->
+                                <p>
+                                    {{ str_limit(strip_tags($gp_module->description), 80) }}
+                                    @if (strlen(strip_tags($gp_module->content)) > 80)
+                                      ... 
+                                      
+                                    @endif
+                                </p>
+                                <a href="{{ url($gp_module->id, 'menhealth_detail') }}" class="btn btn-skin btn-lg">view more</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-3 col-md-3">
+                    @endforeach
+                    <!-- <div class="col-sm-3 col-md-3">
                         <div class="wow fadeInLeft" data-wow-delay="0.2s">
                             <div class="box text-center">
                                 <img src="{{ asset('frontend/img/men-health.png') }}" class="img-responsive">                           
@@ -126,7 +138,7 @@
                                 <a href="#" class="btn btn-skin btn-lg">View More</a>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </section>
