@@ -1,5 +1,6 @@
 @extends('frontend.layouts.master')
 @section('content')
+
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
     <div id="wrapper">
         @include('frontend.layouts.nav')
@@ -10,7 +11,7 @@
             <div class="breadcrumbs-title">
                 <div class="container">
                     <div class="wow fadeInDown" data-wow-delay="0.1s">
-                        <h1>Why Us?</h1>
+                        <h1>Easy Health Center - {{$location->address}}</h1>
                         <div class="ui-subtitle-page">Easy Health - Myanmar’s First & Only Convenient-Care Clinic Chain</div>
                     </div>
                 </div>
@@ -28,12 +29,12 @@
                             <div class="box">
                                 <div class="wow fadeInLeft" data-wow-delay="0.1s">
                                     <div class="section-heading">
-                                        <h2 class="h-bold"> {{ $whyus->title }}</h2>
+                                        <h2 class="h-bold">{{ $location->name }} - {{ $location->address }} </h2>
                                         <p>Myanmar’s First & Only Convenient-Care Clinic Chain</p>
                                     </div>
                                 </div>
                                 <p>
-                                    {!! $whyus->description !!}
+                                   {!! $location->description !!}
                                 </p>
                             </div>
                         </div>
@@ -42,10 +43,10 @@
                         <div class="wow fadeInRight" data-wow-delay="0.1s">
                             <div class="box text-center">
                                 <br><br>
-                                <?php
-                                    $image = $whyus->media->file_path . '/' . $whyus->media->file_name;
-                                ?>
-                                <img src="{{ asset($image) }}" class="img-responsive" width="100%" height="100%">
+                                  <?php
+                                        $image = $location->media->file_path . '/' . $location->media->file_name;
+                                    ?>
+                                <img src="{{ asset($image)}}" class="img-responsive" width="90%" height="60%">
                             </div>
                         </div>
                     </div>
@@ -54,67 +55,11 @@
         </section>
         <!-- /Section: boxes -->
 
-        <!-- Section: team -->
-        <section class="home-section bg-gray paddingbot-60">
-            <div class="container marginbot-50">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="wow fadeInDown" data-wow-delay="0.1s">
-                            <div class="section-heading text-center">
-                                <h2 class="h-bold">Our Medical Specialists</h2>
-                                <p>Our medical specialists care about you & your family’s health</p>
-                            </div>
-                        </div>
-                        <i class="title-bg"></i>
-                    </div>
-                </div>
-            </div>
 
-            <div class="container">
-                <div class="row">
-                    <div id="grid-container" class="cbp-l-grid-team">
-                        <ul>
-                            @foreach($doctors as $doctor)
-                            <li class="cbp-item psychiatrist">
-                                <a href="{{ url('/our_doctors') }}" class="cbp-caption"> 
-                                    <div class="cbp-caption-defaultWrap">
-                                        <?php
-                                            $image = $doctor->media->file_path . '/' . $doctor->media->file_name;
-                                        ?>
-                                        <img src="{{ asset($image) }}" alt="" width="100%">
-                                    </div>
-                                </a>
-                                <a href="#" class="cbp-singlePage cbp-l-grid-team-name">{{ $doctor->name }}</a>
-                                <div class="cbp-l-grid-team-position">{{ $doctor->position }}</div>
-                            </li> 
-                            @endforeach                            
-                        </ul>
-                    </div>
-                    <br><br>
-                    <center>
-                        <a href="{{ url('/our_doctors') }}" class="btn btn-skin btn-lg">Learn more</a>
-                    </center>
-                </div>
-            </div>
-        </section>
-        <!-- /Section: team -->
+        <!-- Clinin Location -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3819.454131809791!2d96.1295201148683!3d16.803812288430848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c1eb4756c1c6bb%3A0x85dd6ec1eb58a8da!2zMTM5IOGAl-GArOGAuOGAgOGAm-GArOGAnOGAmeGAuuGAuCwg4YCb4YCU4YC64YCA4YCv4YCU4YC6!5e0!3m2!1smy!2smm!4v1575432711876!5m2!1smy!2smm" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 
-
-        <section class="home-section paddingtop-0 paddingbot-40">
-            <div class="callaction check-bg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="wow fadeInUp" data-wow-delay="0.1s">
-                                <div class="cta-text">
-                                  <center><h3><i class="fa fa-stethoscope"></i> လွယ်ကူစွာ easy health မှာ ကျန်းမာရေး စောင့်ရှောက်ပါ </h3></center>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>   
-        </section>
+ 
 
         <!-- Section: works -->
         <section class="home-section paddingbot-60">
@@ -132,7 +77,7 @@
                 </div>
             </div>
 
-            <div class="container">
+           <div class="container">
                 <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <div class="wow bounceInUp" data-wow-delay="0.2s">
@@ -152,7 +97,23 @@
         <!-- /Section: works -->
 
         <!-- CLinic Center Locations -->
-        @include('frontend.locations')
+        <section class="home-section paddingbot-60">
+            <div class="container marginbot-30">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="wow fadeInDown" data-wow-delay="0.1s">
+                            <div class="section-heading text-center">
+                                <h2 class="h-bold">Find a private GP near me</h2>
+                                <p>View our health centre pages below or call us for advice on +959 123456789</p>
+                            </div>
+                        </div>
+                        <i class="title-bg"></i>
+                    </div>
+                </div>
+            </div>
+             @include('frontend.locations')
+        </section>
+
 
         <section class="home-section bg-gray paddingbot-60">
             <div class="container marginbot-30">
@@ -173,6 +134,7 @@
             </div>
         </section>
     </div>
+    <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
 </body>
 @endsection
  

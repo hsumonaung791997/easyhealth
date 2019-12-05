@@ -33,6 +33,7 @@
                         <th>No.</th>
                         <th>Name</th>
                         <th>Address</th>
+                        <th>Description</th>
                         <th>Latitude</th>
                         <th>Longitude</th>
                         <th colspan="3">Action</th>
@@ -44,6 +45,7 @@
                             <td>{{ $index++ }}</td>
                             <td>{!! $location->name !!}</td>
                             <td>{!! $location->address !!}</td>
+                            <td>{!! $location->description !!}</td>
                             <td>{!! $location->latitude !!}</td>
                             <td>{!! $location->longitude !!}</td>
                             <td>

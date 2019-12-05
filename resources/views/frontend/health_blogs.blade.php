@@ -10,7 +10,7 @@
             <div class="breadcrumbs-title">
                 <div class="container">
                     <div class="wow fadeInDown" data-wow-delay="0.1s">
-                        <h1>Our Blogs</h1>
+                        <h1>Our Health Blogs</h1>
                         <div class="ui-subtitle-page">Easy Health - Myanmar’s First & Only Convenient-Care Clinic Chain</div>
                     </div>
                 </div>
@@ -19,7 +19,7 @@
         <section class="home-section paddingtop-10 paddingbot-30">
             <div class="container">
                 <div class="row">
-                    @foreach($blogs as $blog)
+                    @foreach($blogs->slice(0, 3) as $blog)
                         <div class="col-lg-4 col-md-4">
                             <!-- Single Blog -->
                             <div class="single-blog">
@@ -56,11 +56,11 @@
             </div>
             <div class="container text-center paddingtop-50">
                 <ul class="pagination ">
-                    {{ $blogs->links() }}
+                  
                 </ul>
             </div>
         </section>    
     </div> 
 </body>
 @endsection
-</html>
+ 

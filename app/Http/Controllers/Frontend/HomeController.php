@@ -17,7 +17,7 @@ class HomeController extends Controller
 	{
         $locations = Location::all();
         $whyus = Whyus::where('status', 1)->first();
-		return view('frontend.index', compact('locations', 'whyus'));
+		return view('frontend.index', compact('locations', 'whyus','location'));
 	}
 
     public function appointment_form() 
@@ -28,14 +28,16 @@ class HomeController extends Controller
     public function blogs_detail(Request $request, $id) 
     {
         $blog = Blog::find($id);
-
-        $health_detail = Blog::where('type', 18)->orderBy('id', 'ASC')->where('status', 1)->take(3)->get();
+        $health_details = Blog::orderBy('id', 'DESC')->where([
+                    ['type', '=', 18],
+                    ['status', '=', 1],
+                ])->take(3)->get();
 
         if (empty($blog)) {
             Flash::error('blogs not found!');
             return redirect(route('blogs_detail'));
         }
-        return view('frontend.blogs_detail', compact('blog', 'health_detail'));
+        return view('frontend.blogs_detail', compact('blog', 'health_details'));
     }
 
     public function press_release()
@@ -111,17 +113,19 @@ class HomeController extends Controller
     	return view('frontend.whyus', compact('locations', 'whyus', 'doctors'));
     }
 
-    public function women_health()
+    public function women_health($id)
     {
         $locations = Location::all();
-
     	return view('frontend.women_health', compact('locations'));
     }
 
     public function newsblog($id)
     {
-        $blogs = Blog::orderBy('id', 'DESC')->where('status', 1)->where('type', $id)->paginate(6);
-
+ 
+        $blogs = Blog::where([
+                    ['type', '=', $id],
+                    ['status', '=', 1],
+                ])->get();   
         if($id == 17) {
             return view('frontend.press_release', compact('blogs'));
         } else {
@@ -163,6 +167,13 @@ class HomeController extends Controller
         $detail = Service::find($id);
         
         return view('frontend.men_health', compact('locations', 'detail'));
+    }
+
+    public function location_detail($id)
+    {
+        $location = Location::find($id);
+        $locations = Location::all();
+        return view('frontend.location_detail', compact('location', 'locations'));
     }
 
 }
