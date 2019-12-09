@@ -53,9 +53,9 @@
                         <div class="widget" style="color: #fff;">
                             <h5>Our Services</h5>
                             <ul>
-                                <li><a href="{{ url('gp_services') }}"><i class="fa fa-caret-right" aria-hidden="true"></i> Private GP services </a></li>
+                                <li><a href="{{ url('11/services') }}"><i class="fa fa-caret-right" aria-hidden="true"></i> Private GP services </a></li>
                                 <li><a href="{{ url('mini_pharmacies')}}"><i class="fa fa-caret-right" aria-hidden="true"></i> Mini pharmacies </a></li>
-                                <li><a href="{{ url('health_assessments') }}"><i class="fa fa-caret-right" aria-hidden="true"></i> Health screenings and diagnostics </a></li>
+                                <li><a href="{{ url('12/services') }}"><i class="fa fa-caret-right" aria-hidden="true"></i> Health screenings and diagnostics </a></li>
                                 <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Home services</a></li>
                                 <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Telemedicine services</a></li>
                                 <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Corporate B2B healthcare</a></li>

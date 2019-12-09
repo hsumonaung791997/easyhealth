@@ -122,10 +122,11 @@ class HomeController extends Controller
     public function newsblog($id)
     {
  
-        $blogs = Blog::where([
-                    ['type', '=', $id],
-                    ['status', '=', 1],
-                ])->get();   
+        // $blogs = Blog::where([
+        //             ['type', '=', $id],
+        //             ['status', '=', 1],
+        //         ])->paginate(6);   
+        $blogs = Blog::orderBy('id', 'ASC')->where('status', 1)->where('type', $id)->paginate(6);
         if($id == 17) {
             return view('frontend.press_release', compact('blogs'));
         } else {

@@ -19,7 +19,7 @@
         <section class="home-section paddingtop-10 paddingbot-30">
             <div class="container">
                 <div class="row">
-                    @foreach($blogs->slice(0, 3) as $blog)
+                    @foreach($blogs as $blog)
                         <div class="col-lg-4 col-md-4">
                             <!-- Single Blog -->
                             <div class="single-blog">
@@ -56,7 +56,7 @@
             </div>
             <div class="container text-center paddingtop-50">
                 <ul class="pagination ">
-                  
+                  {{ $blogs->links() }}
                 </ul>
             </div>
         </section>    

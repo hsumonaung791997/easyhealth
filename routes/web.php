@@ -52,12 +52,9 @@ Route::group(['namespace' => 'Frontend'], function() {
 		Route::get('women_health', 'HomeController@women_health')->name('frontend.women_health');
 
 		Route::get('{id}/newsblog', 'HomeController@newsblog')->name('frontend.press_release');
-<<<<<<< HEAD
 		Route::get('{id}/services', 'HomeController@services')->name('frontend.gp_services');
-=======
 
 		Route::get('{id}/location_detail', 'HomeController@location_detail')->name('frontend.location_detail');
->>>>>>> 368085cac78d84a6fb6ba3953e0329f44270be15
 	});
 
  
