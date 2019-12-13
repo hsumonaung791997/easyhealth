@@ -49,7 +49,7 @@
             </div> 
         </div>
          
-
+        @if($whyus != null || !empty($whyus))
         <section class="home-section paddingtop-50">
             <div class="container">
                 <div class="row">
@@ -76,6 +76,7 @@
                 </div>
             </div>
         </section>
+        @endif
 
 
         <section class="home-section paddingtop-40">

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <title>{{ config('app.name', 'Easy Health') }}</title>
+    <title>Easy Health</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-
+    <link rel="shortcut icon" href="{{ asset('frontend/img/favicon.ico') }}" type="image/x-icon">
     <!-- Bootstrap 3.3.7 -->
     <link rel="stylesheet" href="{{ asset('bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
     <!-- Font Awesome -->
@@ -29,8 +29,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('bower_components/select2/dist/css/select2.min.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.1/css/star-rating.css" media="all" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/custom.css') }}">
-    <link rel="stylesheet" href="../../plugins/select2/css/select2.min.css">
-    <link rel="stylesheet" href="../../plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    <!-- <link rel="stylesheet" href="../../plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="../../plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css"> -->
 
     @yield('css')
 </head>
@@ -176,7 +176,7 @@
     <script src="{{ asset('bower_components/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
     <script src="{{ asset('bower_components/admin-lte/app.js')}}"></script>
     <script src="{{ asset('bower_components/select2/dist/js/select2.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('frontend/intl-tel-input/build/js/intlTelInput.js')}}"></script>
+    <!-- <script type="text/javascript" src="{{asset('frontend/intl-tel-input/build/js/intlTelInput.js')}}"></script> -->
     <script src="//cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
     
     <script>

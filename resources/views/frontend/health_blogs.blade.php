@@ -1,4 +1,3 @@
-
 @extends('frontend.layouts.master')
 @section('content')
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
@@ -29,12 +28,12 @@
                                     ?>
                                     <img src="{{ asset($image) }}">
                                     <div class="post-category">
-                                       <a href="#"><i class="fa fa-folder-open-o" aria-hidden="true"></i> Health &amp; Care</a>
+                                       <a href="{{ url($blog->id, 'blogs_detail') }}"><i class="fa fa-folder-open-o" aria-hidden="true"></i> Health &amp; Care</a>
                                     </div>
                                 </div>
                                 <div class="blog-content">
                                     <div class="blog-title">
-                                        <h4><a href="#">{{ $blog->title }}</a></h4>
+                                        <h4><a href="{{ url($blog->id, 'blogs_detail') }}">{{ $blog->title }}</a></h4>
                                         <div class="meta">
                                             <ul>
                                                 <li><i class="fa fa-user" aria-hidden="true"></i> Admin &nbsp;&nbsp;| &nbsp;&nbsp; <i class="fa fa-calendar" aria-hidden="true"></i> 04 June 2018</li>

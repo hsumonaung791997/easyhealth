@@ -10,6 +10,9 @@ use Redirect;
 
 class MediaController extends Controller
 {
+	public function __construct() {
+        $this->middleware('auth');
+    }
     public function destroy($id) {
         $media = Media::find($id);
         File::delete($media->file_path . $media->file_name);

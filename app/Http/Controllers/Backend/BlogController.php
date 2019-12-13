@@ -7,10 +7,15 @@ use App\Http\Controllers\Controller;
 use App\Model\Blog;
 use File;
 use Flash;
-use App\Http\Requests\Admin\BlogRequest;
+use App\Http\Requests\StoreBlogRequest;
+use App\Http\Requests\UpdateBlogRequest;
 
 class BlogController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -18,13 +23,11 @@ class BlogController extends Controller
      */
     public function index(Request $request)
     {
-        
         $blogs = Blog::orderBy('id', 'DESC')->paginate(25);
         if($request->all()) {
             $data = $request->all();
             $blogs = Blog::where('title', 'like', $data['title'])->paginate(25);
         }
-
         return view('admin.blog.index', compact('blogs'));
     }
 
@@ -44,12 +47,9 @@ class BlogController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(BlogRequest $request)
+    public function store(StoreBlogRequest $request)
     {
         $data = $request->all();
-        // dd($data);
-        // $radio = $request->get('status');
-
         if ($request->hasFile('image_media')) {
             $media = saveSingleMedia($request, 'image');
             if (TRUE != $media['status']) {
@@ -58,7 +58,6 @@ class BlogController extends Controller
             }
             $data['media_id'] = $media['media_id'];
         }
-
         Blog::create($data);
         Flash::success('Successfully created blog');
         return redirect(route('blog.index'));
@@ -98,15 +97,18 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateBlogRequest $request, $id)
     {
-
+        if ($request->hasFile('image_media') == false) {
+            $validatedData = $request->validate([
+                'image' => 'required',
+            ]);
+        }
         $blog = Blog::find($id);
         if (empty($blog)) {
             Flash::error('Blog not found!');
             return redirect(route('blog.index'));
         }
-
         $data = $request->all();
         if ($request->hasFile('image_media')) {
             $media = saveSingleMedia($request, 'image');
@@ -116,7 +118,6 @@ class BlogController extends Controller
             }
             $data['media_id'] = $media['media_id'];
         }
-
         Blog::find($id)->update($data);
         Flash::success('Successfully update blog');
         return redirect(route('blog.index'));

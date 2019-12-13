@@ -1,7 +1,17 @@
+@font-face {
+    font-family: 'myanmar3';
+    src: url('../../fonts/myanmar3/Myanmar3.eot');
+    src: url('../../fonts/myanmar3/Myanmar3.eot?#iefix') format('embedded-opentype'), 
+         url('../../fonts/myanmar3/Myanmar3.woff2') format('woff2'), 
+         url('../../fonts/myanmar3/Myanmar3.woff') format('woff'), 
+         url('../../fonts/myanmar3/Myanmar3.ttf') format('truetype'), 
+         url('../../fonts/myanmar3/Myanmar3.svg') format('svg');
+    font-style: normal;
+}
 body {
     width: 100%;
     height: 100%;
-    font-family: bupa ,Helvetica,sans-serif;
+    font-family: bupa ,Helvetica,sans-serif, myanmar3;
 	font-weight: 300;
     color: #666;
     background-color: #ddd;
@@ -1014,7 +1024,7 @@ h4,
 h5,
 h6 {
     margin: 0 0 30px;
-    font-family: bupa,Arial,Helvetica,sans-serif;
+    font-family: bupa,Arial,Helvetica,sans-serif,myanmar3 !important;
     font-weight: 400;
 	color: #444;
 	line-height: 1em;
@@ -3207,3 +3217,4 @@ a.btn:focus{
   width: 75%;
   height: 60%;
 }
+
