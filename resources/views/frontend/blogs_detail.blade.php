@@ -83,5 +83,3 @@
         <!-- /Section: boxes -->       
     </div>    
 </body>
- 
- 

@@ -1,38 +1,37 @@
+/** Font Append **/
+@font-face {
+    font-family: 'myanmar3';
+    src: url('../fonts/myanmar3/Myanmar3.eot');
+    src: url('../fonts/myanmar3/Myanmar3.eot?#iefix') format('embedded-opentype'), 
+         url('../fonts/myanmar3/Myanmar3.woff2') format('woff2'), 
+         url('../fonts/myanmar3/Myanmar3.woff') format('woff'), 
+         url('../fonts/myanmar3/Myanmar3.ttf') format('truetype'), 
+         url('../fonts/myanmar3/Myanmar3.svg') format('svg');
+    font-style: normal;
+}
+
 /** Myanmar Font **/
 body {
     color: #6d6d6d;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-/** Font Append **/
-@font-face {
-    /*
-    font-family: unimyanmar;
-    src: url(../font/mm3.ttf);
-    */
-    font-family: 'myanmar3';
-    src: url('../font/myanmar3.eot');
-    src: local('Myanmar3'), url('../font/myanmar3.ttf') format('truetype');
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif, myanmar3;
 }
 
 .mmtext {
     /*font-family: unimyanmar !important;*/
-    font-family: myanmar3 !important;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif, myanmar3 !important;
     font-weight: normal;
     font-style: normal;
     letter-spacing: 0;
 }
 
-
-
 input {
     /*font-family: unimyanmar !important;*/
-    font-family: myanmar3 !important;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif, myanmar3 !important;
 }
 
 .select2-selection__rendered {
     /*font-family: unimyanmar !important;*/
-    font-family: myanmar3 !important;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif, myanmar3 !important;
 }
 
 .mandatory {
@@ -51,8 +50,6 @@ input {
     overflow: auto;
 }
 
-/**
-**/
 .kv-avatar .krajee-default.file-preview-frame,
 .kv-avatar .krajee-default.file-preview-frame:hover {
     margin: 0;
@@ -202,5 +199,8 @@ input {
     color: #fdb732;
 }
 
+.radio {
+    margin-top: 0px !important;
+}
 
 

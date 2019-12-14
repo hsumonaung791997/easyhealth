@@ -12,9 +12,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/master.css') }}">
 </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
-
-@yield('content')
-
+    @yield('content')
     <footer>
         <div class="container">
             <div class="row">
@@ -77,35 +75,35 @@
                             </ul>
                         </div>
                     </div>                      
-            </div>
-             <div class="col-sm-6 col-md-2">
-                <div class="wow fadeInDown" data-wow-delay="0.1s">
-                    <div class="widget" style="color: #fff;">
-                        <h5>Our Blogs</h5>
-                        <ul>
-                            <li><a href="{{ url('17/newsblog') }}"><i class="fa fa-caret-right" aria-hidden="true"></i> Press Releases</a></li>
-                            <li><a href="{{ url('18/newsblog') }}"><i class="fa fa-caret-right" aria-hidden="true"></i> Health Blogs </a></li>
-                        </ul>
-                    </div>
                 </div>
-            </div>   
-        </div>
-
-        <div class="sub-footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-4 col-md-4 col-lg-4">
-                        <div class="wow fadeInLeft" data-wow-delay="0.1s">
-                            <div class="text-left">
-                                <p><img src="{{ asset('frontend/img/footer-eh-logo.png') }}"></p>
-                            </div>
+                <div class="col-sm-6 col-md-2">
+                    <div class="wow fadeInDown" data-wow-delay="0.1s">
+                        <div class="widget" style="color: #fff;">
+                            <h5>Our Blogs</h5>
+                            <ul>
+                                <li><a href="{{ url('17/newsblog') }}"><i class="fa fa-caret-right" aria-hidden="true"></i> Press Releases</a></li>
+                                <li><a href="{{ url('18/newsblog') }}"><i class="fa fa-caret-right" aria-hidden="true"></i> Health Blogs </a></li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="col-sm-8 col-md-8 col-lg-8">
-                        <div class="wow fadeInRight" data-wow-delay="0.1s">
-                            <div class="text-right">
-                                <div class="credits">
-                                    &copy; easy health 2019
+                </div>   
+            </div>
+            <div class="sub-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-4 col-md-4 col-lg-4">
+                            <div class="wow fadeInLeft" data-wow-delay="0.1s">
+                                <div class="text-left">
+                                    <p><img src="{{ asset('frontend/img/footer-eh-logo.png') }}"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-8 col-md-8 col-lg-8">
+                            <div class="wow fadeInRight" data-wow-delay="0.1s">
+                                <div class="text-right">
+                                    <div class="credits">
+                                        &copy; easy health 2019
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -114,10 +112,7 @@
             </div>
         </div>
     </footer>
-
     <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
-
-
     <script src="{{ asset('frontend/js/jquery.min.js') }}"></script>
     <script src="{{ asset('frontend/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('frontend/js/jquery.easing.min.js') }}"></script>
@@ -129,7 +124,6 @@
     <script src="{{ asset('frontend/js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('frontend/js/nivo-lightbox.min.js') }}"></script>
     <script src="{{ asset('frontend/js/custom.js') }}"></script>
-
     <!-- Date Picker -->
     <script>           
         $('#dob').calendar();
@@ -137,7 +131,6 @@
             type: 'date'
         });
     </script> 
-
     <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
     <!-- Booking Button -->
     <div class="log-in">

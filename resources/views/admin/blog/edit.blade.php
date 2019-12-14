@@ -1,5 +1,4 @@
 @extends('admin.layouts.app')
-
 @section('content')
     <section class="content-header">
         <h1>
@@ -8,25 +7,28 @@
         <span class="breadcrumb"><a href='{{ route("blog.index") }}' class="btn btn-sm btn-primary"><i
                     class="fa fa-arrow-circle-left"></i>&nbsp;&nbsp;Go To blog</a></span>
     </section>
-   <div class="content">
-       <div class="box box-primary">
-           <div class="box-body">
-               <div class="row">
-                   {!! Form::model($blog, ['route' => ['blog.update', $blog->id], 'method' => 'patch', 'files' => 'true']) !!}
-
+    <div class="content">
+        <div class="box box-primary">
+            <div class="box-body">
+                <div class="row">
+                    {!! Form::model($blog, ['route' => ['blog.update', $blog->id], 'method' => 'patch', 'files' => 'true']) !!}
                         <div class="form-group col-sm-6 mmtext">
                             {!! Form::label('title', 'Title:') !!} <span class="text-danger">*</span>
                             {!! Form::text('title', null, ['class' => 'form-control']) !!}
-                        </div>
-
+                            @if ($errors->has('title'))
+                                <span class="text-danger">
+                                    <strong>{{ $errors->first('title') }}</strong>
+                                </span>
+                           @endif
+                        </div> 
                         <div class="form-group col-sm-6">
                             {!! Form::label('type', 'Blog Type:') !!} <span class="text-danger">*</span>
                              <?php $array = json_decode(BLOG, TRUE); ?>
                             <select name="type" id="type" class="form-control">
                                 @foreach ($array as $key => $blogtype) 
-                                <option value="{{ $key }}" @if( $key == $blog->type ) selected @endif>
-                                    {{ $blogtype }}
-                                </option>
+                                    <option value="{{ $key }}" @if( $key == $blog->type ) selected @endif>
+                                        {{ $blogtype }}
+                                    </option>
                                 @endforeach
                             </select>
                             @if ($errors->has('type'))
@@ -35,44 +37,50 @@
                                 </span>
                             @endif
                         </div>
-
                         <div class="form-group col-sm-6 mmtext pull-right">
                             {!! Form::label('content', 'Content:') !!} <span class="text-danger">*</span>
                             {!! Form::textarea('content', null, ['class' => 'editor']) !!}
+                            @if ($errors->has('content'))
+                                <span class="text-danger">
+                                    <strong>{{ $errors->first('content') }}</strong>
+                                </span>
+                            @endif
                         </div>                      
-
                         <div class="form-group col-sm-6 mmtext">
                             {!! Form::label('file', 'Upload Product Photo :') !!} <span class="text-danger">*</span>
                             {{ Form::hidden('media_path', BLOG_MEDIA_UPLOAD) }}
-                                <div class="file-loading">
-                                    <input type="file" id="media_upload" name="image_media" accept="image/*">
-                                </div>
+                            <div class="file-loading">
+                                <input type="file" id="media_upload" name="image_media" accept="image/*">
+                            </div>
                             <div class="kv-avatar-hint">
                                 <small>Select file < 1500 KB</small>
                             </div>
                             <div id="kv-avatar-errors-1" class="center-block" style="display:none"></div>
+                            @if ($errors->has('image'))
+                                <span class="text-danger">
+                                    <strong>{{ $errors->first('image') }}</strong>
+                                </span>
+                            @endif
                         </div>
-
                         <div class="form-group col-sm-6 mmtext">
                             {!! Form::label('status', 'Status:') !!} <span class="text-danger">*</span><br>
-                            Active &nbsp; &nbsp; {{ Form::radio('status', STATUS_ACTIVE) }} <br>
-                            Inactive &nbsp; &nbsp; {{ Form::radio('status', STATUS_INACTIVE) }}
+                            <label class="radio radio-inline">{!! Form::radio('status', 1, true) !!} Active </label>
+                            <label class="radio radio-inline">{!! Form::radio('status', 0) !!} Inactive </label>
                         </div>
 
                         <div class="form-group col-sm-12">
                             {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
                             <a href="{!! route('blog.index') !!}" class="btn btn-default">Cancel</a>
                         </div>
-
-                   {!! Form::close() !!}
-               </div>
-           </div>
-       </div>
-   </div>
-   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.1/css/fileinput.min.css" media="all"
+                    {!! Form::close() !!}
+                </div>
+            </div>
+        </div>
+    </div>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.1/css/fileinput.min.css" media="all"
          rel="stylesheet" type="text/css"/>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.1/js/fileinput.min.js"></script>
-   <script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.1/js/fileinput.min.js"></script>
+    <script>
         $(function () {
             var preview_image = "<?php echo url('images/default_preview.png') ?>";
             var initPreview = "<?php echo null != $blog->media ? url($blog->media->file_path . $blog->media->file_name) : url('images/default_preview.png') ?>";
@@ -96,10 +104,10 @@
                 // for image files
                 initialPreview: [
                     @if(isset($blog->media))
-                        '<img src="' + initPreview + '" class="file-preview-image" alt="' + initPreviewAlt + '" title="' + initPreviewAlt + '" style="width:200px;height:200px">'
+                        '<img src="' + initPreview + '" class="file-preview-image" alt="' + initPreviewAlt + '" title="' + initPreviewAlt + '" style="width:200px;height:200px"><input type="hidden" name="image" value="1">'
                     @endif
                 ],
-                defaultPreviewContent: '<img src="' + preview_image + '" alt="Your Avatar" class="img-rounded" style="width:250px">',
+                defaultPreviewContent: '<img src="' + preview_image + '" alt="Your Avatar" class="img-rounded" style="width:250px"><input type="hidden" name="image" value="">',
                 layoutTemplates: {main2: '{preview} ' + ' {remove} {browse}'},
                 allowedFileExtensions: ["jpg", "png", "gif", "jpeg"]
             });
