@@ -76,6 +76,6 @@ Route::group(['prefix'=>'admin'],function(){
  
 });
 
-// Route::get('test', function () {
-// 	return view('welcome');
-// });
+Route::get('test', function () {
+	return view('oop');
+});
