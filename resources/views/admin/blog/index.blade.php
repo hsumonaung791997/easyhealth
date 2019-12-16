@@ -30,6 +30,7 @@
                         <thead>
                             <th>No.</th>
                             <th>Title</th>
+                            <th>Blog Type</th>
                             <th>Content</th>
                             <th>Status</th>
                             <th colspan="3">Action</th>
@@ -40,6 +41,13 @@
                                 <tr>
                                     <td>{{ $index++ }}</td>
                                     <td>{{ $blog->title }}</td>
+                                    <td>
+                                        @if($blog->type == 17)
+                                            Press Release
+                                        @else
+                                            Health Blog
+                                        @endif
+                                    </td>
                                     <td>{!! $blog->content !!}</td>
                                     <td>{!! showPrettyStatus($blog->status) !!}</td>
                                     <td>
