@@ -7,7 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Model\Location;
 use File;
 use Flash;
-use App\Http\Requests\Admin\LocationRequest;
+use App\Http\Requests\StoreLocationRequest;
+use App\Http\Requests\UpdateLocationRequest;
 
 class LocationController extends Controller
 {
@@ -47,7 +48,7 @@ class LocationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(LocationRequest $request)
+    public function store(StoreLocationRequest $request)
     {
         $data = $request->all();
 
@@ -99,7 +100,7 @@ class LocationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateLocationRequest $request, $id)
     {
 
         $location = Location::find($id);

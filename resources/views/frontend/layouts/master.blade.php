@@ -125,12 +125,12 @@
     <script src="{{ asset('frontend/js/nivo-lightbox.min.js') }}"></script>
     <script src="{{ asset('frontend/js/custom.js') }}"></script>
     <!-- Date Picker -->
-    <script>           
+   <!--  <script>           
         $('#dob').calendar();
         $('#appointmentDate').calendar({
             type: 'date'
         });
-    </script> 
+    </script>  -->
     <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
     <!-- Booking Button -->
     <div class="log-in">

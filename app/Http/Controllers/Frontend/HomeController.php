@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
 use App\Model\Blog;
 use App\Model\Location;
 use App\Model\Whyus;
@@ -122,11 +121,11 @@ class HomeController extends Controller
     public function newsblog($id)
     {
  
-        // $blogs = Blog::where([
-        //             ['type', '=', $id],
-        //             ['status', '=', 1],
-        //         ])->paginate(6);   
-        $blogs = Blog::orderBy('id', 'ASC')->where('status', 1)->where('type', $id)->paginate(6);
+        $blogs = Blog::where([
+                    ['type', '=', $id],
+                    ['status', '=', 1],
+                ])->paginate(6);   
+       /* $blogs = Blog::orderBy('id', 'ASC')->where('status', 1)->where('type', $id)->paginate(6);*/
         if($id == 17) {
             return view('frontend.press_release', compact('blogs'));
         } else {

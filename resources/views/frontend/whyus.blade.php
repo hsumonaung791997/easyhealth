@@ -20,6 +20,7 @@
 
 
         <!-- Section: boxes -->
+        @if($whyus != null || !empty($whyus))
         <section class="home-section paddingtop-50 paddingbot-50">
             <div class="container">
                 <div class="row">
@@ -52,6 +53,7 @@
                 </div>
             </div>
         </section>
+        @endif
         <!-- /Section: boxes -->
 
         <!-- Section: team -->

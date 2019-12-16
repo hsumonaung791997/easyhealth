@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Admin;
+namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LocationRequest extends FormRequest
+class UpdateWhyusRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,12 +23,10 @@ class LocationRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'name'=>'required',
-            'address'=>'required',
-            'latitude'=>'required|numeric',
-            'longitude'=>'required|numeric',
-            'image_media'=>'required',
+        return  [
+            'title'=>'required',
+            'description'=>'required',
+            'status'=>'required',
         ];
     }
 }

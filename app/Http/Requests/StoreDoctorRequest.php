@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Admin;
+namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class WhyusRequest extends FormRequest
+class StoreDoctorRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,8 +23,10 @@ class WhyusRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'title'=>'required',
+        return  [
+            'name'=>'required',
+            'education'=>'required',
+            'position'=>'required',
             'description'=>'required',
             'image_media'=>'required',
             'status'=>'required',

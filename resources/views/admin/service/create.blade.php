@@ -87,15 +87,14 @@
                        @endif
                    </div>
 
-
                   <div class="form-group col-sm-6 mmtext">
                     {!! Form::label('status', 'Status:') !!} <span class="text-danger">*</span><br>
-                    Active &nbsp; &nbsp; {{ Form::radio('status', STATUS_ACTIVE) }} <br>
-                    Inactive &nbsp; &nbsp; {{ Form::radio('status', STATUS_INACTIVE) }}<br>
+                        <label class="radio radio-inline">{!! Form::radio('status', 1, true) !!} Active </label>
+                        <label class="radio radio-inline">{!! Form::radio('status', 0) !!} Inactive </label>
                     @if ($errors->has('status'))
-                           <span class="text-danger">
-                               <strong>{{ $errors->first('status') }}</strong>
-                           </span>
+                        <span class="text-danger">
+                            <strong>{{ $errors->first('status') }}</strong>
+                        </span>
                         @endif
                   </div>
 

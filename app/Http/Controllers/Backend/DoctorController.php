@@ -8,6 +8,8 @@ use App\Model\Doctor;
 use App\Http\Requests\Admin\DoctorRequest;
 use File;
 use Flash;
+use App\Http\Requests\StoreDoctorRequest;
+use App\Http\Requests\UpdateDoctorRequest;
 
 class DoctorController extends Controller
 {
@@ -48,7 +50,7 @@ class DoctorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(DoctorRequest $request)
+    public function store(StoreDoctorRequest $request)
     {
         //
         $data = $request->all();
@@ -102,7 +104,7 @@ class DoctorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateDoctorRequest $request, $id)
     {
         //
         $doctor = Doctor::find($id);
