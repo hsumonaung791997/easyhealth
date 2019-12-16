@@ -1,10 +1,8 @@
 @extends('frontend.layouts.master')
 @section('content')
-
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
     <div id="wrapper">
         @include('frontend.layouts.nav')
-        
         <!-- breadcrumbs -->
         <section class="intro ui-title-page">
             <img src="{{ asset('frontend/img/health-assessments-title.png') }}" class="img-responsive" width="100%">
@@ -18,9 +16,7 @@
                 </div>
             </div>
         </section>
-
         <!-- Left Menu -->
-       
         <section class="home-section paddingtop-10 paddingbot-50">
             <div class="container">
                 <div class="row">
@@ -90,8 +86,6 @@
                 </div>
             </div>
         </section>
-
-
         <section class="home-section bg-gray paddingbot-60">
             <div class="container">
                 <div class="row">
@@ -196,4 +190,3 @@
     <!-- Core JavaScript Files --> 
 </body>
 @endsection
-</html>
