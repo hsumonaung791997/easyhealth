@@ -134,7 +134,7 @@
     <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
     <!-- Booking Button -->
     <div class="log-in">
-        <a href="https://www.google.com/" target="_blank" id="popup__toggle" onclick="return true;">
+        <a href="https://clinic.platomedical.com/book/ZWFzeWhlYWx0aA==/b1c85d8f6d094e55a7c2614794c33599/t7bfV6z" target="_blank" id="popup__toggle" onclick="return true;">
             <div class="circlephone" style="transform-origin: center;"></div>
             <div class="circle-fill" style="transform-origin: center;"></div>
             <div class="img-circle" style="transform-origin: center;"><div class="img-circleblock" style="transform-origin: center;"></div></div>
