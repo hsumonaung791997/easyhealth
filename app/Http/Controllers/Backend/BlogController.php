@@ -25,8 +25,8 @@ class BlogController extends Controller
     {
         $blogs = Blog::orderBy('id', 'DESC')->paginate(25);
         if($request->all()) {
-            $data = $request->all();
-            $blogs = Blog::where('title', 'like', $data['title'])->paginate(25);
+            $data = $request->get('title');
+            $blogs = Blog::where('title', 'like', '%'.$data.'%')->paginate(25);
         }
         return view('admin.blog.index', compact('blogs'));
     }

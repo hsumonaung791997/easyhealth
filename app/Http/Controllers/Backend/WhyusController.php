@@ -25,8 +25,8 @@ class WhyusController extends Controller
         
         $whyus_s = Whyus::orderBy('id', 'DESC')->paginate(25);
         if($request->all()) {
-            $data = $request->all();
-            $whyus_s = Whyus::where('title', 'like', $data['title'])->paginate(25);
+            $data = $request->get('title');
+            $whyus_s = Whyus::where('title', 'like', '%'.$data.'%')->paginate(25);
         }
 
         return view('admin.whyus.index', compact('whyus_s'));
