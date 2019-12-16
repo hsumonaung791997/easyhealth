@@ -7,7 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Model\Whyus;
 use File;
 use Flash;
-use App\Http\Requests\Admin\WhyusRequest;
+use App\Http\Requests\StoreWhyusRequest;
+use App\Http\Requests\UpdateWhyusRequest;
 
 class WhyusController extends Controller
 {
@@ -24,8 +25,8 @@ class WhyusController extends Controller
         
         $whyus_s = Whyus::orderBy('id', 'DESC')->paginate(25);
         if($request->all()) {
-            $data = $request->all();
-            $whyus_s = Whyus::where('title', 'like', $data['title'])->paginate(25);
+            $data = $request->get('title');
+            $whyus_s = Whyus::where('title', 'like', '%'.$data.'%')->paginate(25);
         }
 
         return view('admin.whyus.index', compact('whyus_s'));
@@ -47,7 +48,7 @@ class WhyusController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(WhyusRequest $request)
+    public function store(StoreWhyusRequest $request)
     {
         $data = $request->all();
         //dd($data);
@@ -98,7 +99,7 @@ class WhyusController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateWhyusRequest $request, $id)
     {
 
         $whyus = Whyus::find($id);

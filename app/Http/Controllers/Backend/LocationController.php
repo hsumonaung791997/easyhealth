@@ -7,7 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Model\Location;
 use File;
 use Flash;
-use App\Http\Requests\Admin\LocationRequest;
+use App\Http\Requests\StoreLocationRequest;
+use App\Http\Requests\UpdateLocationRequest;
 
 class LocationController extends Controller
 {
@@ -24,8 +25,10 @@ class LocationController extends Controller
         
         $locations = Location::orderBy('id', 'DESC')->paginate(25);
         if($request->all()) {
-            $data = $request->all();
-            $locations = Location::where('name', 'like', $data['name'])->paginate(25);
+            $data = $request->get('name','address');
+            $locations = Location::where('name', 'like', '%'.$data.'%')
+                                ->orWhere('address', 'like', '%'.$data.'%')
+                                ->paginate(25);
         }
 
         return view('admin.location.index', compact('locations'));
@@ -47,7 +50,7 @@ class LocationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(LocationRequest $request)
+    public function store(StoreLocationRequest $request)
     {
         $data = $request->all();
 
@@ -99,7 +102,7 @@ class LocationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateLocationRequest $request, $id)
     {
 
         $location = Location::find($id);

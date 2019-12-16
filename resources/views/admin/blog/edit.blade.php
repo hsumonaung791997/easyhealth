@@ -45,7 +45,8 @@
                                     <strong>{{ $errors->first('content') }}</strong>
                                 </span>
                             @endif
-                        </div>                      
+                        </div>
+                                              
                         <div class="form-group col-sm-6 mmtext">
                             {!! Form::label('file', 'Upload Product Photo :') !!} <span class="text-danger">*</span>
                             {{ Form::hidden('media_path', BLOG_MEDIA_UPLOAD) }}
@@ -62,6 +63,7 @@
                                 </span>
                             @endif
                         </div>
+
                         <div class="form-group col-sm-6 mmtext">
                             {!! Form::label('status', 'Status:') !!} <span class="text-danger">*</span><br>
                             <label class="radio radio-inline">{!! Form::radio('status', 1, true) !!} Active </label>

@@ -8,7 +8,8 @@ use App\Model\Service;
 use File;
 use Flash;
 use App\Model\Category;
-use App\Http\Requests\Admin\ServiceRequest;
+use App\Http\Requests\StoreServiceRequest;
+use App\Http\Requests\UpdateServiceRequest;
 
 class ServiceController extends Controller
 {
@@ -24,8 +25,8 @@ class ServiceController extends Controller
     {
         $services = Service::orderBy('id', 'DESC')->paginate(25);
         if($request->all()) {
-            $data = $request->all();
-            $services = Service::where('title', 'like', $data['title'])->paginate(25);
+            $data = $request->get('title');
+            $services = Service::where('title', 'like', '%'.$data.'%')->paginate(25);
         }
 
         return view('admin.service.index', compact('services'));
@@ -49,7 +50,7 @@ class ServiceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ServiceRequest $request)
+    public function store(StoreServiceRequest $request)
     {
         //
         $data = $request->all();
@@ -102,7 +103,7 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateServiceRequest $request, $id)
     {
         //
         //$category = Category::all();

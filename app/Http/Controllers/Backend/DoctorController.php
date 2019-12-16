@@ -8,6 +8,8 @@ use App\Model\Doctor;
 use App\Http\Requests\Admin\DoctorRequest;
 use File;
 use Flash;
+use App\Http\Requests\StoreDoctorRequest;
+use App\Http\Requests\UpdateDoctorRequest;
 
 class DoctorController extends Controller
 {
@@ -24,8 +26,11 @@ class DoctorController extends Controller
         //
         $doctors = Doctor::orderBy('id', 'DESC')->paginate(25);
         if($request->all()) {
-            $data = $request->all();
-            $doctors = Doctor::where('name', 'like', $data['name'])->paginate(25);
+            $data = $request->get('name','position','education');
+            $doctors = Doctor::where('name', 'like', '%'.$data.'%')
+                            ->orWhere('position', 'like', '%'.$data.'%')
+                            ->orWhere('education', 'like', '%'.$data.'%')
+                            ->paginate(25);
         }
 
         return view('admin.doctor.index', compact('doctors'));
@@ -48,7 +53,7 @@ class DoctorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(DoctorRequest $request)
+    public function store(StoreDoctorRequest $request)
     {
         //
         $data = $request->all();
@@ -102,7 +107,7 @@ class DoctorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateDoctorRequest $request, $id)
     {
         //
         $doctor = Doctor::find($id);

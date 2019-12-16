@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Admin;
+namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BlogRequest extends FormRequest
+class StoreWhyusRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,8 +25,7 @@ class BlogRequest extends FormRequest
     {
         return  [
             'title'=>'required',
-            'type'=>'required',
-            'content'=>'required',
+            'description'=>'required',
             'image_media'=>'required',
             'status'=>'required',
         ];
