@@ -21,11 +21,13 @@ class LocationController extends Controller
      */
     public function index(Request $request)
     {
-        
         $locations = Location::orderBy('id', 'DESC')->paginate(25);
         if($request->all()) {
-            $data = $request->all();
-            $locations = Location::where('name', 'like', $data['name'])->paginate(25);
+            $data = $request->get('name','address');
+         
+            $locations = Location::where('name', 'like', '%'.$data. '%')
+                         ->orWhere('address', 'like', '%'.$data. '%')
+                         ->paginate(25);
         }
 
         return view('admin.location.index', compact('locations'));
