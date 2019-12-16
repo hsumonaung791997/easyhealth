@@ -1,10 +1,8 @@
 @extends('frontend.layouts.master')
 @section('content')
-
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
     <div id="wrapper">
         @include('frontend.layouts.nav')
-
         <!-- breadcrumbs -->
         <section class="intro ui-title-page">
             <img src="{{ asset('frontend/img/about-bg.png') }}" class="img-responsive">
@@ -17,7 +15,6 @@
                 </div>
             </div>
         </section>
-        
         <section class="home-section paddingbot-30">
             <div class="container">
                 <div class="row">
@@ -34,7 +31,6 @@
                                     </div>
                                 </div>
                                 <p>
-                                    
                                 <?php
                                     $image = $blog->media->file_path . '/' . $blog->media->file_name;
                                 ?>
@@ -50,15 +46,12 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                     
+                    </div>  
                 </div>
             </div>
         </section>
-        <!-- /Section: boxes -->
          <!-- CLinic Center Locations -->
         @include('frontend.locations')
-
         <section class="home-section bg-gray paddingbot-60">
             <div class="container marginbot-30">
                 <div class="row">
@@ -76,8 +69,8 @@
                     </div>
                 </div>
             </div>
-        </section>    
+        </section> 
+        <!-- /Section: boxes -->      
     </div>
 </body>
 @endsection
-</html>

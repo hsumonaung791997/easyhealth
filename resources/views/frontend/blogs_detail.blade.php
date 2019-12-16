@@ -1,10 +1,8 @@
-
 @extends('frontend.layouts.master')
 @section('content')
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
     <div id="wrapper">
         @include('frontend.layouts.nav')
-        
         <!-- breadcrumbs -->
         <section class="intro ui-title-page">
             <img src="{{ asset('frontend/img/about-bg.png') }}" class="img-responsive">
@@ -17,7 +15,6 @@
                 </div>
             </div>
         </section>
-        
         <section class="home-section paddingtop-50 paddingbot-30">
             <div class="container">
                 <div class="row">  
@@ -50,8 +47,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                   
+                    </div>  
                     <div class="col-lg-3 col-md-3 wow fadeInRight" data-wow-delay="0.2s">
                         <!-- Single Blog -->
                         @foreach($health_details as $detail)
@@ -69,14 +65,13 @@
                                             <ul>
                                                 <li><i class="fa fa-user" aria-hidden="true"></i> Admin &nbsp;&nbsp;| &nbsp;&nbsp; <i class="fa fa-calendar" aria-hidden="true"></i> 04 June 2018</li>
                                             </ul>
-                                       </div>
+                                        </div>
                                     </div>
                                     <a href="{{ url($detail->id, 'blogs_detail') }}" class="box_btn">read more</a>
                                 </div>
                            </div>
                         @endforeach    
                     </div>                                     
-                 </div>
                 </div>
             </div>
         </section>
