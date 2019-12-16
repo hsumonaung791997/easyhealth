@@ -48,6 +48,8 @@
                                             Health Blog
                                         @endif
                                     </td>
+
+                                    
                                     <td>{!! $blog->content !!}</td>
                                     <td>{!! showPrettyStatus($blog->status) !!}</td>
                                     <td>
