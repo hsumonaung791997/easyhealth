@@ -51,11 +51,10 @@ class BlogController extends Controller
         $data = $request->all();
         if ($request->hasFile('image_media')) {
             $media = saveSingleMedia($request, 'image');
-            if (TRUE != $media['status']) {
-                Flash::error($media['message']);
-                return redirect(route('blog.index'));
+            if (TRUE == $media['status']) {
+                $data['media_id'] = $media['media_id'];
             }
-            $data['media_id'] = $media['media_id'];
+            
         }
         Blog::create($data);
         Flash::success('Successfully created blog');
@@ -107,15 +106,9 @@ class BlogController extends Controller
         $data = $request->all();
         if ($request->hasFile('image_media')) {
             $media = saveSingleMedia($request, 'image');
-            if (TRUE != $media['status']) {
-                Flash::error($media['message']);
-                return redirect(route('blog.index'));
-            }
-            $data['media_id'] = $media['media_id'];
-        } else {
-            if($request->img != null) {
-                $data['media_id'] = null;
-            }
+            if (TRUE == $media['status']) {
+                $data['media_id'] = $media['media_id'];
+            }  
         } 
         Blog::find($id)->update($data);
         Flash::success('Successfully update blog');

@@ -54,11 +54,9 @@ class PartnersController extends Controller
         $partners = $request->all();
         if ($request->hasFile('image_media')) {
             $media = saveSingleMedia($request, 'image');
-            if (TRUE != $media['status']) {
-                Flash::error($media['message']);
-                return redirect(route('partner.index'));
-            }
-            $partners['media_id'] = $media['media_id'];
+            if (TRUE == $media['status']) {
+                $partners['media_id'] = $media['media_id'];
+            }   
         }
         Partner::create($partners);
         Flash::success('Partner create successfully');
@@ -111,14 +109,9 @@ class PartnersController extends Controller
         $data = $request->all();
         if ($request->hasFile('image_media')) {
             $media = saveSingleMedia($request, 'image');
-            if (TRUE != $media['status']) {
-                Flash::error($media['message']);
-                return redirect(route('partner.index'));
-            } else {
-            if($request->img != null) {
-                $data['media_id'] = null;
-            } 
-            $data['media_id'] = $media['media_id'];
+            if (TRUE == $media['status']) {
+                $data['media_id'] = $media['media_id'];
+            }     
         }
         Partner::find($id)->update($data);
         Flash::success('Successfully update partner');

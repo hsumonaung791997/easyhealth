@@ -56,11 +56,9 @@ class DoctorController extends Controller
         //dd($data);
         if($request->hasFile('image_media')){
            $media = saveSingleMedia($request, 'image');
-            if (TRUE != $media['status']) {
-                Flash::error($media['message']);
-                return redirect(route('doctor.index'));
+            if (TRUE == $media['status']) {
+                $data['media_id'] = $media['media_id'];
             }
-            $data['media_id'] = $media['media_id'];
         }
         Doctor::create($data);
         Flash::success('Successfully created doctor');
@@ -108,21 +106,13 @@ class DoctorController extends Controller
             Flash::error('Doctor not found!');
             return redirect(route('doctor.index'));
         }
-
         $data = $request->all();
         if ($request->hasFile('image_media')) {
             $media = saveSingleMedia($request, 'image');
-            if (TRUE != $media['status']) {
-                Flash::error($media['message']);
-                return redirect(route('doctor.index'));
+            if (TRUE == $media['status']) {
+                $data['media_id'] = $media['media_id'];
             }
-            $data['media_id'] = $media['media_id'];
-        } else {
-            if($request->img != null) {
-                $data['media_id'] = null;
-            }  
         }
-
         Doctor::find($id)->update($data);
         Flash::success('Successfully update doctor');
         return redirect(route('doctor.index'));

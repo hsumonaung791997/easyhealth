@@ -52,11 +52,9 @@ class ValuePropositionController extends Controller
         $data = $request->all();
         if($request->hasFile('image_media')){
            $media = saveSingleMedia($request, 'image');
-            if (TRUE != $media['status']) {
-                Flash::error($media['message']);
-                return redirect(route('value.index'));
-            }
-            $data['media_id'] = $media['media_id'];
+            if (TRUE == $media['status']) {
+                $data['media_id'] = $media['media_id'];
+            } 
         }
         ValueProposition::create($data);
         Flash::success('Successfully created Value Proposition');
@@ -105,21 +103,13 @@ class ValuePropositionController extends Controller
             Flash::error('Value Proposition not found!');
             return redirect(route('value.index'));
         }
-
         $data = $request->all();
         if ($request->hasFile('image_media')) {
             $media = saveSingleMedia($request, 'image');
-            if (TRUE != $media['status']) {
-                Flash::error($media['message']);
-                return redirect(route('value.index'));
-            }
-            $data['media_id'] = $media['media_id'];
-        } else {
-            if($request->img != NULL) {
-                $data['media_id'] = NULL;
+            if (TRUE == $media['status']) {
+                $data['media_id'] = $media['media_id'];
             }
         }
-
         ValueProposition::find($id)->update($data);
         Flash::success('Successfully update Value Proposition');
         return redirect(route('value.index'));

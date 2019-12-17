@@ -53,11 +53,9 @@ class WhyusController extends Controller
         //dd($data);
         if($request->hasFile('image_media')){
            $media = saveSingleMedia($request, 'image');
-            if (TRUE != $media['status']) {
-                Flash::error($media['message']);
-                return redirect(route('whyus.index'));
-            }
-            $data['media_id'] = $media['media_id'];
+            if (TRUE == $media['status']) {
+                $data['media_id'] = $media['media_id'];
+            }  
         }
         Whyus::create($data);
         Flash::success('Successfully created Page');
@@ -108,17 +106,10 @@ class WhyusController extends Controller
         $data = $request->all();
         if ($request->hasFile('image_media')) {
             $media = saveSingleMedia($request, 'image');
-            if (TRUE != $media['status']) {
-                Flash::error($media['message']);
-                return redirect(route('whyus.index'));
+            if (TRUE == $media['status']) {
+                $data['media_id'] = $media['media_id'];
             }
-            $data['media_id'] = $media['media_id'];
-        } else {
-            if($request->img != null) {
-                $data['media_id'] = null;
-            }  
         }
-
         Whyus::find($id)->update($data);
         Flash::success('Successfully update Page');
         return redirect(route('whyus.index'));

@@ -54,11 +54,9 @@ class CompanyProfileController extends Controller
         $data = $request->all();
         if ($request->hasFile('image_media')) {
             $media = saveSingleMedia($request, 'image');
-            if (TRUE != $media['status']) {
-                Flash::error($media['message']);
-                return redirect(route('company_profile.index'));
+            if (TRUE == $media['status']) {
+                $data['media_id'] = $media['media_id'];
             }
-            $data['media_id'] = $media['media_id'];
         }
         CompanyProfile::create($data);
         Flash::success('Successfully created company profile');
@@ -102,7 +100,6 @@ class CompanyProfileController extends Controller
      */
     public function update(ProfileRequest $request, $id)
     {
-        //
         $profile = CompanyProfile::find($id);
         if (empty($profile)) {
             Flash::error('Company Profile not found!');
@@ -111,14 +108,9 @@ class CompanyProfileController extends Controller
         $data = $request->all();
         if ($request->hasFile('image_media')) {
             $media = saveSingleMedia($request, 'image');
-            if (TRUE != $media['status']) {
-                Flash::error($media['message']);
-                return redirect(route('company_profile.index'));
-            } else {
-            if($request->img != null) {
-                $data['media_id'] = null;
-            } 
-            $data['media_id'] = $media['media_id'];
+            if (TRUE == $media['status']) {
+                $data['media_id'] = $media['media_id'];
+            }
         }
         CompanyProfile::find($id)->update($data);
         Flash::success('Successfully update Company Profile');
@@ -133,7 +125,6 @@ class CompanyProfileController extends Controller
      */
     public function destroy($id)
     {
-        //
         CompanyProfile::find($id)->delete();
         Flash::success('Successfully delete Company Profile');
         return redirect(route('company_profile.index'));

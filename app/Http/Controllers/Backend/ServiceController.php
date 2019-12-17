@@ -55,11 +55,9 @@ class ServiceController extends Controller
         $data = $request->all();
         if($request->hasFile('image_media')){
            $media = saveSingleMedia($request, 'image');
-            if (TRUE != $media['status']) {
-                Flash::error($media['message']);
-                return redirect(route('service.index'));
+            if (TRUE == $media['status']) {
+                $data['media_id'] = $media['media_id'];
             }
-            $data['media_id'] = $media['media_id'];
         }
         Service::create($data);
         Flash::success('Successfully created service');
@@ -104,8 +102,6 @@ class ServiceController extends Controller
      */
     public function update(ServiceRequest $request, $id)
     {
-        //
-        //$category = Category::all();
         $services = Service::find($id);
         if(empty($services)){
             Flash::error('Service not found');
@@ -114,15 +110,10 @@ class ServiceController extends Controller
         $data = $request->all();
         if ($request->hasFile('image_media')) {
             $media = saveSingleMedia($request, 'image');
-            if (TRUE != $media['status']) {
-                Flash::error($media['message']);
-                return redirect(route('service.index'));
-            } else {
-            if($request->img != null) {
-                $data['media_id'] = null;
-            } 
-            $data['media_id'] = $media['media_id'];
-        } 
+            if(TRUE == $media['status']) {
+                $data['media_id'] = $media['media_id'];
+            }
+        }
         Service::find($id)->update($data);
         Flash::success('Successfully service update');
         return redirect(route('service.index'));

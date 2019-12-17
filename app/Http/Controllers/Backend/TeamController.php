@@ -47,11 +47,9 @@ class TeamController extends Controller
         $data = $request->all();
         if ($request->hasFile('image_media')) {
             $media = saveSingleMedia($request, 'image');
-            if (TRUE != $media['status']) {
-                Flash::error($media['message']);
-                return redirect(route('team.index'));
+            if (TRUE == $media['status']) {
+                $data['media_id'] = $media['media_id'];
             }
-            $data['media_id'] = $media['media_id'];
         }
         Team::create($data);
         Flash::success('Successfully created team member');
@@ -99,21 +97,13 @@ class TeamController extends Controller
             Flash::error('Management Team not found!');
             return redirect(route('team.index'));
         }
-
         $data = $request->all();
         if ($request->hasFile('image_media')) {
             $media = saveSingleMedia($request, 'image');
-            if (TRUE != $media['status']) {
-                Flash::error($media['message']);
-                return redirect(route('team.index'));
+            if (TRUE == $media['status']) {
+                $data['media_id'] = $media['media_id'];
             }
-            $data['media_id'] = $media['media_id'];
-        } else{
-            if($request->img != NULL) {
-                $data['media_id'] = NULL;
-            }    
         }
-
         Team::find($id)->update($data);
         Flash::success('Successfully update Team');
         return redirect(route('team.index'));
