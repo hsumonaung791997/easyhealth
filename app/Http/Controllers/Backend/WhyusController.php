@@ -7,8 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Model\Whyus;
 use File;
 use Flash;
-use App\Http\Requests\StoreWhyusRequest;
-use App\Http\Requests\UpdateWhyusRequest;
+use App\Http\Requests\WhyusRequest;
 
 class WhyusController extends Controller
 {
@@ -48,7 +47,7 @@ class WhyusController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreWhyusRequest $request)
+    public function store(WhyusRequest $request)
     {
         $data = $request->all();
         //dd($data);
@@ -99,15 +98,13 @@ class WhyusController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateWhyusRequest $request, $id)
+    public function update(WhyusRequest $request, $id)
     {
-
         $whyus = Whyus::find($id);
         if (empty($whyus)) {
             Flash::error('whyus not found!');
             return redirect(route('whyus.index'));
         }
-
         $data = $request->all();
         if ($request->hasFile('image_media')) {
             $media = saveSingleMedia($request, 'image');
@@ -116,6 +113,10 @@ class WhyusController extends Controller
                 return redirect(route('whyus.index'));
             }
             $data['media_id'] = $media['media_id'];
+        } else {
+            if($request->img != null) {
+                $data['media_id'] = null;
+            }  
         }
 
         Whyus::find($id)->update($data);

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <title>Easy Health</title>
+    <title>easy health</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <link rel="shortcut icon" href="{{ asset('frontend/img/favicon.ico') }}" type="image/x-icon">
     <!-- Bootstrap 3.3.7 -->

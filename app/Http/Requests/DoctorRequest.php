@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateWhyusRequest extends FormRequest
+class DoctorRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,9 @@ class UpdateWhyusRequest extends FormRequest
     public function rules()
     {
         return  [
-            'title'=>'required',
+            'name'=>'required',
+            'education'=>'required',
+            'position'=>'required',
             'description'=>'required',
             'status'=>'required',
         ];

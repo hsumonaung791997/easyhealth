@@ -21,3 +21,11 @@
 <li class="{{ Request::is('whyus*') ? 'active' : '' }}">
     <a href="{{ route('whyus.index') }}"><i class="fa fa-edit"></i><span>Why Us</span></a>
 </li>
+
+<li class="{{ Request::is('partner*') ? 'active' : '' }}">
+    <a href="{{ route('partner.index') }}"><i class="fa fa-edit"></i><span>Partner</span></a>
+</li>
+
+<li class="{{ Request::is('company_profile*') ? 'active' : '' }}">
+    <a href="{{ route('company_profile.index') }}"><i class="fa fa-edit"></i><span>Company Profile</span></a>
+</li>

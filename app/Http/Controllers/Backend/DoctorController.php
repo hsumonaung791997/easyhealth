@@ -5,11 +5,9 @@ namespace App\Http\Controllers\Backend;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Doctor;
-use App\Http\Requests\Admin\DoctorRequest;
 use File;
 use Flash;
-use App\Http\Requests\StoreDoctorRequest;
-use App\Http\Requests\UpdateDoctorRequest;
+use App\Http\Requests\DoctorRequest;
 
 class DoctorController extends Controller
 {
@@ -53,7 +51,7 @@ class DoctorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreDoctorRequest $request)
+    public function store(DoctorRequest $request)
     {
         //
         $data = $request->all();
@@ -107,7 +105,7 @@ class DoctorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateDoctorRequest $request, $id)
+    public function update(DoctorRequest $request, $id)
     {
         //
         $doctor = Doctor::find($id);
@@ -124,6 +122,10 @@ class DoctorController extends Controller
                 return redirect(route('doctor.index'));
             }
             $data['media_id'] = $media['media_id'];
+        } else {
+            if($request->img != null) {
+                $data['media_id'] = null;
+            }  
         }
 
         Doctor::find($id)->update($data);

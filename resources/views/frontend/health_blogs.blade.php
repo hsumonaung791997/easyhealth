@@ -23,10 +23,12 @@
                             <!-- Single Blog -->
                             <div class="single-blog">
                                 <div class="blog-img">
-                                    <?php
-                                        $image = $blog->media->file_path . '/' . $blog->media->file_name;
-                                    ?>
-                                    <img src="{{ asset($image) }}">
+                                    @if($blog->media_id != null)
+                                        <?php
+                                            $image = $blog->media->file_path . '/' . $blog->media->file_name;
+                                        ?>
+                                        <img src="{{ asset($image) }}" class="img-responsive" width="100%" height="100%">
+                                    @endif
                                     <div class="post-category">
                                        <a href="{{ url($blog->id, 'blogs_detail') }}"><i class="fa fa-folder-open-o" aria-hidden="true"></i> Health &amp; Care</a>
                                     </div>

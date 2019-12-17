@@ -119,10 +119,10 @@
                 // for image files
                 initialPreview: [
                     @if(isset($doctor->media))
-                        '<img src="' + initPreview + '" class="file-preview-image" alt="' + initPreviewAlt + '" title="' + initPreviewAlt + '" style="width:200px;height:200px"><input type="hidden" name="image" value="1">'
+                        '<img src="' + initPreview + '" class="file-preview-image" alt="' + initPreviewAlt + '" title="' + initPreviewAlt + '" style="width:200px;height:200px">'
                     @endif
                 ],
-                defaultPreviewContent: '<img src="' + preview_image + '" alt="Your Avatar" class="img-rounded" style="width:250px"><input type="hidden" name="image" value="">',
+                defaultPreviewContent: '<img src="' + preview_image + '" alt="Your Avatar" class="img-rounded" style="width:250px"><input type="hidden" name="img" value="1">',
                 layoutTemplates: {main2: '{preview} ' + ' {remove} {browse}'},
                 allowedFileExtensions: ["jpg", "png", "gif", "jpeg"]
             });

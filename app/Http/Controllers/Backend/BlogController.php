@@ -7,8 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Model\Blog;
 use File;
 use Flash;
-use App\Http\Requests\StoreBlogRequest;
-use App\Http\Requests\UpdateBlogRequest;
+use App\Http\Requests\BlogRequest;
 
 class BlogController extends Controller
 {
@@ -47,7 +46,7 @@ class BlogController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreBlogRequest $request)
+    public function store(BlogRequest $request)
     {
         $data = $request->all();
         if ($request->hasFile('image_media')) {
@@ -97,13 +96,9 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateBlogRequest $request, $id)
+    public function update(BlogRequest $request, $id)
     {
-        if ($request->hasFile('image_media') == false) {
-            $validatedData = $request->validate([
-                'image' => 'required',
-            ]);
-        }
+         
         $blog = Blog::find($id);
         if (empty($blog)) {
             Flash::error('Blog not found!');
@@ -117,12 +112,15 @@ class BlogController extends Controller
                 return redirect(route('blog.index'));
             }
             $data['media_id'] = $media['media_id'];
-        }
+        } else {
+            if($request->img != null) {
+                $data['media_id'] = null;
+            }
+        } 
         Blog::find($id)->update($data);
         Flash::success('Successfully update blog');
         return redirect(route('blog.index'));
     }
-
     /**
      * Remove the specified resource from storage.
      *

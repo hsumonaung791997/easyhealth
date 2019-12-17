@@ -50,10 +50,12 @@
                         <div class="wow fadeInRight" data-wow-delay="0.1s">
                             <div class="box text-center">
                                 <br><br>
-                                 <?php
-                                    $image = $doctor->media->file_path . '/' . $doctor->media->file_name;
-                                ?>
-                                <img src="{{ asset($image) }}" class="img-responsive" width="100%" height="100%">
+                                @if($doctor->media_id != null)
+                                    <?php
+                                        $image = $doctor->media->file_path . '/' . $doctor->media->file_name;
+                                    ?>
+                                    <img src="{{ asset($image) }}" class="img-responsive" width="100%" height="100%">
+                                @endif
                             </div>
                         </div>
                     </div>

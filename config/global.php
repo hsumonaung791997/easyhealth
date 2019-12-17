@@ -18,6 +18,8 @@ define('SERVICE_MEDIA_UPLOAD', 20);
 define('LOCATION_MEDIA_UPLOAD', 21);
 define('DOCTOR_MEDIA_UPLOAD', 22);
 define('WHYUS_MEDIA_UPLOAD', 23);
+define('PARTNER_MEDIA_UPLOAD', 26);
+define('PROFILE_MEDIA_UPLOAD', 27);
 
 define('PAGINATE', 25);
 
@@ -28,7 +30,9 @@ define('MEDIA_PATH', json_encode(
         20 => 'upload/services',
         21 => 'upload/locations',
         22 => 'upload/doctors',
-        23 => 'upload/whyus'
+        23 => 'upload/whyus',
+        26 => 'upload/partners',
+        27 => 'upload/profiles',
     )
 ));
 

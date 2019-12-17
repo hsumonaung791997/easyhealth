@@ -22,10 +22,12 @@
                         <!-- Single Blog -->
                         <div class="single-blog">
                             <div class="blog-img">
-                                <?php
-                                    $image = $blog->media->file_path . '/' . $blog->media->file_name;
-                                ?>
-                                <img src="{{ asset($image) }}">
+                               @if($blog->media_id != null)
+                                    <?php
+                                        $image = $blog->media->file_path . '/' . $blog->media->file_name;
+                                    ?>
+                                    <img src="{{ asset($image) }}" class="img-responsive" width="100%" height="100%">
+                                @endif
                             </div>
                             <div class="blog-content">
                                 <div class="blog-title">
@@ -53,10 +55,12 @@
                         @foreach($health_details as $detail)
                             <div class="single-blog">
                                 <div class="blog-img">
-                                    <?php
-                                        $image = $detail->media->file_path . '/' . $detail->media->file_name;
-                                    ?>
-                                    <img src="{{ asset($image) }}">
+                                    @if($detail->media_id != null)
+                                        <?php
+                                            $image = $detail->media->file_path . '/' . $detail->media->file_name;
+                                        ?>
+                                        <img src="{{ asset($image) }}" class="img-responsive" width="100%" height="100%">
+                                    @endif
                                 </div>
                                 <div class="blog-content">
                                     <div class="blog-title">

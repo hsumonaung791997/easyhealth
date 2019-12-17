@@ -8,8 +8,7 @@ use App\Model\Service;
 use File;
 use Flash;
 use App\Model\Category;
-use App\Http\Requests\StoreServiceRequest;
-use App\Http\Requests\UpdateServiceRequest;
+use App\Http\Requests\ServiceRequest;
 
 class ServiceController extends Controller
 {
@@ -50,7 +49,7 @@ class ServiceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreServiceRequest $request)
+    public function store(ServiceRequest $request)
     {
         //
         $data = $request->all();
@@ -103,7 +102,7 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateServiceRequest $request, $id)
+    public function update(ServiceRequest $request, $id)
     {
         //
         //$category = Category::all();
@@ -118,7 +117,10 @@ class ServiceController extends Controller
             if (TRUE != $media['status']) {
                 Flash::error($media['message']);
                 return redirect(route('service.index'));
-            }
+            } else {
+            if($request->img != null) {
+                $data['media_id'] = null;
+            } 
             $data['media_id'] = $media['media_id'];
         } 
         Service::find($id)->update($data);
