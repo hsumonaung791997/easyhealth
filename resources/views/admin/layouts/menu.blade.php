@@ -21,3 +21,7 @@
 <li class="{{ Request::is('whyus*') ? 'active' : '' }}">
     <a href="{{ route('whyus.index') }}"><i class="fa fa-edit"></i><span>Why Us</span></a>
 </li>
+
+<li class="{{ Request::is('team*') ? 'active' : '' }}">
+    <a href="{{ route('team.index') }}"><i class="fa fa-edit"></i><span>Team Management</span></a>
+</li>

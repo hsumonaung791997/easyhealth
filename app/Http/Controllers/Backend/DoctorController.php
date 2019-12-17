@@ -89,9 +89,7 @@ class DoctorController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
-           
+    {        
         $doctor = Doctor::find($id);
         if(empty($doctor)){
             Flash::error('Doctor not found');
@@ -109,7 +107,6 @@ class DoctorController extends Controller
      */
     public function update(UpdateDoctorRequest $request, $id)
     {
-        //
         $doctor = Doctor::find($id);
         if (empty($doctor)) {
             Flash::error('Doctor not found!');
@@ -139,7 +136,6 @@ class DoctorController extends Controller
      */
     public function destroy($id)
     {
-        //
         Doctor::find($id)->delete();
         Flash::success('Successfully delete doctor');
         return redirect(route('doctor.index'));

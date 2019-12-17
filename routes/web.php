@@ -55,6 +55,7 @@ Route::group(['prefix'=>'admin'],function(){
 		Route::resource('location', 'LocationController');
 		Route::resource('doctor', 'DoctorController');
 		Route::resource('whyus', 'WhyusController');
+		Route::resource('team', 'TeamController');
 	});
 });
 
