@@ -25,3 +25,7 @@
 <li class="{{ Request::is('team*') ? 'active' : '' }}">
     <a href="{{ route('team.index') }}"><i class="fa fa-edit"></i><span>Team Management</span></a>
 </li>
+
+<li class="{{ Request::is('value*') ? 'active' : '' }}">
+    <a href="{{ route('value.index') }}"><i class="fa fa-edit"></i><span>Value Proposition</span></a>
+</li>

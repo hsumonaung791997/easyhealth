@@ -48,6 +48,7 @@ return array(
     'App\\Model\\Media' => $baseDir . '/app/Model/Media.php',
     'App\\Model\\Service' => $baseDir . '/app/Model/Service.php',
     'App\\Model\\Team' => $baseDir . '/app/Model/Team.php',
+    'App\\Model\\ValueProposition' => $baseDir . '/app/Model/ValueProposition.php',
     'App\\Model\\Whyus' => $baseDir . '/app/Model/Whyus.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',

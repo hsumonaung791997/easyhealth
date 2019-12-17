@@ -427,6 +427,7 @@ class ComposerStaticInitac622c552661650c61b03bbfc11dca34
         'App\\Model\\Media' => __DIR__ . '/../..' . '/app/Model/Media.php',
         'App\\Model\\Service' => __DIR__ . '/../..' . '/app/Model/Service.php',
         'App\\Model\\Team' => __DIR__ . '/../..' . '/app/Model/Team.php',
+        'App\\Model\\ValueProposition' => __DIR__ . '/../..' . '/app/Model/ValueProposition.php',
         'App\\Model\\Whyus' => __DIR__ . '/../..' . '/app/Model/Whyus.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',

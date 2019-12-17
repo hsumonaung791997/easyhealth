@@ -19,6 +19,7 @@ define('LOCATION_MEDIA_UPLOAD', 21);
 define('DOCTOR_MEDIA_UPLOAD', 22);
 define('WHYUS_MEDIA_UPLOAD', 23);
 define('TEAM_MEDIA_UPLOAD', 30);
+define('VALUE_PROPOSITION_MEDIA_UPLOAD', 31);
 
 define('PAGINATE', 25);
 
@@ -30,7 +31,8 @@ define('MEDIA_PATH', json_encode(
         21 => 'upload/locations',
         22 => 'upload/doctors',
         23 => 'upload/whyus',
-        30 => 'upload/teams'
+        30 => 'upload/teams',
+        31 => 'upload/value_proposition'
     )
 ));
 
