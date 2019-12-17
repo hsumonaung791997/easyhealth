@@ -21,7 +21,6 @@ class LocationController extends Controller
      */
     public function index(Request $request)
     {
-        
         $locations = Location::orderBy('id', 'DESC')->paginate(25);
         if($request->all()) {
             $data = $request->get('name','address');
@@ -29,7 +28,6 @@ class LocationController extends Controller
                                 ->orWhere('address', 'like', '%'.$data.'%')
                                 ->paginate(25);
         }
-
         return view('admin.location.index', compact('locations'));
     }
 
