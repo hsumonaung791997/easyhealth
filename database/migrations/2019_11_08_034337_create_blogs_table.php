@@ -17,7 +17,7 @@ class CreateBlogsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('content');
-            $table->integer('media_id');
+            $table->integer('media_id')->nullable();
             $table->boolean('status');
             $table->smallInteger('type')->length(2);
             $table->timestamps();

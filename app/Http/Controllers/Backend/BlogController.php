@@ -98,11 +98,7 @@ class BlogController extends Controller
      */
     public function update(BlogRequest $request, $id)
     {
-        if ($request->hasFile('image_media') == false) {
-            $validatedData = $request->validate([
-                'image' => 'required',
-            ]);
-        }
+         
         $blog = Blog::find($id);
         if (empty($blog)) {
             Flash::error('Blog not found!');
@@ -116,12 +112,15 @@ class BlogController extends Controller
                 return redirect(route('blog.index'));
             }
             $data['media_id'] = $media['media_id'];
-        }
+        } else {
+            if($request->img != null) {
+                $data['media_id'] = null;
+            }
+        } 
         Blog::find($id)->update($data);
         Flash::success('Successfully update blog');
         return redirect(route('blog.index'));
     }
-
     /**
      * Remove the specified resource from storage.
      *

@@ -17,7 +17,7 @@ class CreateWhyusesTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('description');
-            $table->integer('media_id');
+            $table->integer('media_id')->nullable();
             $table->boolean('status');
             $table->timestamps();
         });

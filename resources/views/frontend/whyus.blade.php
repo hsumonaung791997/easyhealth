@@ -43,10 +43,12 @@
                         <div class="wow fadeInRight" data-wow-delay="0.1s">
                             <div class="box text-center">
                                 <br><br>
-                                <?php
-                                    $image = $whyus->media->file_path . '/' . $whyus->media->file_name;
-                                ?>
-                                <img src="{{ asset($image) }}" class="img-responsive" width="100%" height="100%">
+                                @if($whyus->media_id != null)
+                                    <?php
+                                        $image = $whyus->media->file_path . '/' . $whyus->media->file_name;
+                                    ?>
+                                    <img src="{{ asset($image) }}" class="img-responsive" width="100%" height="100%">
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -80,10 +82,12 @@
                             <li class="cbp-item psychiatrist">
                                 <a href="{{ url('/our_doctors') }}" class="cbp-caption"> 
                                     <div class="cbp-caption-defaultWrap">
+                                    @if($doctor->media_id != null)
                                         <?php
                                             $image = $doctor->media->file_path . '/' . $doctor->media->file_name;
                                         ?>
-                                        <img src="{{ asset($image) }}" alt="" width="100%">
+                                        <img src="{{ asset($image) }}" class="img-responsive" width="100%" height="100%">
+                                    @endif
                                     </div>
                                 </a>
                                 <a href="#" class="cbp-singlePage cbp-l-grid-team-name">{{ $doctor->name }}</a>

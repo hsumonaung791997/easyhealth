@@ -7,7 +7,7 @@
     <meta name="author" content="Easy Health - Myanmar’s First & Only Convenient-Care Clinic Chain">
     <link rel="shortcut icon" href="{{ asset('frontend/img/favicon.ico') }}" type="image/x-icon">
     <link rel="icon" href="{{ asset('frontend/img/favicon.ico') }}" type="image/x-icon">
-    <title>Easy Health - Myanmar’s First & Only Convenient-Care Clinic Chain</title>
+    <title>easy health - Myanmar’s First & Only Convenient-Care Clinic Chain</title>
     <!-- css -->
     <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/master.css') }}">
 </head>

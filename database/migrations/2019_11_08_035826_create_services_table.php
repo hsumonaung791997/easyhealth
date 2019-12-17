@@ -17,7 +17,7 @@ class CreateServicesTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('description');
-            $table->integer('media_id');
+            $table->integer('media_id')->nullable();
             $table->integer('status');
             $table->integer('parent')->nullable();
             $table->smallInteger('type')->length(2);

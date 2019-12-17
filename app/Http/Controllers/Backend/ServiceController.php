@@ -117,7 +117,10 @@ class ServiceController extends Controller
             if (TRUE != $media['status']) {
                 Flash::error($media['message']);
                 return redirect(route('service.index'));
-            }
+            } else {
+            if($request->img != null) {
+                $data['media_id'] = null;
+            } 
             $data['media_id'] = $media['media_id'];
         } 
         Service::find($id)->update($data);

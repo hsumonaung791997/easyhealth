@@ -116,7 +116,10 @@ class LocationController extends Controller
                 return redirect(route('location.index'));
             }
             $data['media_id'] = $media['media_id'];
-        }
+        } else {
+            if($request->img != null) {
+                $data['media_id'] = null;
+            } 
 
         Location::find($id)->update($data);
         Flash::success('Successfully update location');

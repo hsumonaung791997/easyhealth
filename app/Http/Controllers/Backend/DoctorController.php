@@ -85,9 +85,7 @@ class DoctorController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
-           
+    {        
         $doctor = Doctor::find($id);
         if(empty($doctor)){
             Flash::error('Doctor not found');
@@ -105,7 +103,6 @@ class DoctorController extends Controller
      */
     public function update(DoctorRequest $request, $id)
     {
-        //
         $doctor = Doctor::find($id);
         if (empty($doctor)) {
             Flash::error('Doctor not found!');
@@ -120,6 +117,10 @@ class DoctorController extends Controller
                 return redirect(route('doctor.index'));
             }
             $data['media_id'] = $media['media_id'];
+        } else {
+            if($request->img != null) {
+                $data['media_id'] = null;
+            }  
         }
 
         Doctor::find($id)->update($data);
@@ -135,7 +136,6 @@ class DoctorController extends Controller
      */
     public function destroy($id)
     {
-        //
         Doctor::find($id)->delete();
         Flash::success('Successfully delete doctor');
         return redirect(route('doctor.index'));

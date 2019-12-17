@@ -100,13 +100,11 @@ class WhyusController extends Controller
      */
     public function update(WhyusRequest $request, $id)
     {
-
         $whyus = Whyus::find($id);
         if (empty($whyus)) {
             Flash::error('whyus not found!');
             return redirect(route('whyus.index'));
         }
-
         $data = $request->all();
         if ($request->hasFile('image_media')) {
             $media = saveSingleMedia($request, 'image');
@@ -115,6 +113,10 @@ class WhyusController extends Controller
                 return redirect(route('whyus.index'));
             }
             $data['media_id'] = $media['media_id'];
+        } else {
+            if($request->img != null) {
+                $data['media_id'] = null;
+            }  
         }
 
         Whyus::find($id)->update($data);
