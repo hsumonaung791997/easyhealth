@@ -21,9 +21,9 @@ class DoctorController extends Controller
      */
     public function index(Request $request)
     {
-        //
         $doctors = Doctor::orderBy('id', 'DESC')->paginate(25);
         if($request->all()) {
+
             $data = $request->get('name','position','education');
             $doctors = Doctor::where('name', 'like', '%'.$data.'%')
                             ->orWhere('position', 'like', '%'.$data.'%')
