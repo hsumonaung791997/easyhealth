@@ -114,6 +114,10 @@ class ValuePropositionController extends Controller
                 return redirect(route('value.index'));
             }
             $data['media_id'] = $media['media_id'];
+        } else {
+            if($request->img != NULL) {
+                $data['media_id'] = NULL;
+            }
         }
 
         ValueProposition::find($id)->update($data);

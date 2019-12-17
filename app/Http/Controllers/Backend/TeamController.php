@@ -108,6 +108,10 @@ class TeamController extends Controller
                 return redirect(route('team.index'));
             }
             $data['media_id'] = $media['media_id'];
+        } else{
+            if($request->img != NULL) {
+                $data['media_id'] = NULL;
+            }    
         }
 
         Team::find($id)->update($data);
