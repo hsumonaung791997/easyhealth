@@ -48,7 +48,7 @@
                         </div>
                                               
                         <div class="form-group col-sm-6 mmtext">
-                            {!! Form::label('file', 'Upload Product Photo :') !!} <span class="text-danger">*</span>
+                            {!! Form::label('file', 'Upload Product Photo :') !!}
                             {{ Form::hidden('media_path', BLOG_MEDIA_UPLOAD) }}
                             <div class="file-loading">
                                 <input type="file" id="media_upload" name="image_media" accept="image/*">
@@ -57,11 +57,6 @@
                                 <small>Select file < 1500 KB</small>
                             </div>
                             <div id="kv-avatar-errors-1" class="center-block" style="display:none"></div>
-                            @if ($errors->has('image'))
-                                <span class="text-danger">
-                                    <strong>{{ $errors->first('image') }}</strong>
-                                </span>
-                            @endif
                         </div>
 
                         <div class="form-group col-sm-6 mmtext">
@@ -106,10 +101,10 @@
                 // for image files
                 initialPreview: [
                     @if(isset($blog->media))
-                        '<img src="' + initPreview + '" class="file-preview-image" alt="' + initPreviewAlt + '" title="' + initPreviewAlt + '" style="width:200px;height:200px"><input type="hidden" name="image" value="1">'
+                        '<img src="' + initPreview + '" class="file-preview-image" alt="' + initPreviewAlt + '" title="' + initPreviewAlt + '" style="width:200px;height:200px">'
                     @endif
                 ],
-                defaultPreviewContent: '<img src="' + preview_image + '" alt="Your Avatar" class="img-rounded" style="width:250px"><input type="hidden" name="image" value="">',
+                defaultPreviewContent: '<img src="' + preview_image + '" alt="Your Avatar" class="img-rounded" style="width:250px">',
                 layoutTemplates: {main2: '{preview} ' + ' {remove} {browse}'},
                 allowedFileExtensions: ["jpg", "png", "gif", "jpeg"]
             });

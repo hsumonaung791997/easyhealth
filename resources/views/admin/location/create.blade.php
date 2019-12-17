@@ -57,18 +57,16 @@
 
                     <div class="form-group col-sm-6 mmtext pull-right">
                       {!! Form::label('description', 'Description:') !!} <span class="text-danger">*</span>
-
                       <textarea id="description" class="editor" name="description" rows="10" cols="50"></textarea>
                        @if ($errors->has('description'))
                            <span class="text-danger">
                                <strong>{{ $errors->first('description') }}</strong>
                            </span>
                       @endif
-
                     </div>
 
                     <div class="form-group col-sm-6 mmtext">
-                       {!! Form::label('file', 'Upload Product Photo :') !!} <span class="text-danger">*</span>
+                       {!! Form::label('file', 'Upload Product Photo :') !!}
                        {{ Form::hidden('media_path', LOCATION_MEDIA_UPLOAD) }}
                            <div class="file-loading">
                                <input type="file" id="image_media" name="image_media" accept="image/*">
@@ -77,11 +75,6 @@
                            <small>Select file < 1500 KB</small>
                        </div>
                        <div id="kv-avatar-errors-1" class="center-block" style="width:800px;display:none"></div>
-                       @if ($errors->has('image_media'))
-                            <span class="text-danger">
-                                <strong>{{ $errors->first('image_media') }}</strong>
-                            </span>
-                       @endif
                    </div>
 
                     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.1/css/fileinput.min.css" media="all"

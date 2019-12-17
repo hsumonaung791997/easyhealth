@@ -26,7 +26,6 @@ class StoreWhyusRequest extends FormRequest
         return  [
             'title'=>'required',
             'description'=>'required',
-            'image_media'=>'required',
             'status'=>'required',
         ];
     }

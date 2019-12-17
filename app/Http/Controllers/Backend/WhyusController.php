@@ -7,8 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Model\Whyus;
 use File;
 use Flash;
-use App\Http\Requests\StoreWhyusRequest;
-use App\Http\Requests\UpdateWhyusRequest;
+use App\Http\Requests\WhyusRequest;
 
 class WhyusController extends Controller
 {
@@ -48,7 +47,7 @@ class WhyusController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreWhyusRequest $request)
+    public function store(WhyusRequest $request)
     {
         $data = $request->all();
         //dd($data);
@@ -99,7 +98,7 @@ class WhyusController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateWhyusRequest $request, $id)
+    public function update(WhyusRequest $request, $id)
     {
 
         $whyus = Whyus::find($id);

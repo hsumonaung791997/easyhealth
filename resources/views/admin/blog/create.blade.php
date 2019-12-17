@@ -48,7 +48,7 @@
                         @endif
                     </div>
                     <div class="form-group col-sm-6 mmtext">
-                        {!! Form::label('file', 'Upload Product Photo :') !!} <span class="text-danger">*</span>
+                        {!! Form::label('file', 'Upload Product Photo :') !!}
                         {{ Form::hidden('media_path', BLOG_MEDIA_UPLOAD) }}
                             <div class="file-loading">
                                 <input type="file" id="image_media" name="image_media" accept="image/*">
@@ -57,11 +57,6 @@
                             <small>Select file < 1500 KB</small>
                         </div>
                         <div id="kv-avatar-errors-1" class="center-block" style="width:800px;display:none"></div>
-                        @if ($errors->has('image_media'))
-                            <span class="text-danger">
-                                <strong>{{ $errors->first('image_media') }}</strong>
-                            </span>
-                        @endif
                     </div>
                     <div class="form-group col-sm-6 mmtext">
                         {!! Form::label('status', 'Status:') !!} <span class="text-danger">*</span><br>
