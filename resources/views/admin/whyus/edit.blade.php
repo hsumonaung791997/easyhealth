@@ -1,5 +1,4 @@
 @extends('admin.layouts.app')
-
 @section('content')
     <section class="content-header">
         <h1>
@@ -13,7 +12,6 @@
            <div class="box-body">
                <div class="row">
                    {!! Form::model($whyus, ['route' => ['whyus.update', $whyus->id], 'method' => 'patch', 'files' => 'true']) !!}
-
                         <div class="form-group col-sm-6 mmtext">
                             {!! Form::label('title', 'Title:') !!} <span class="text-danger">*</span>
                             {!! Form::text('title', null, ['class' => 'form-control']) !!}
@@ -25,7 +23,7 @@
                         </div>
 
                         <div class="form-group col-sm-6 mmtext">
-                            {!! Form::label('file', 'Upload Product Photo :') !!} <span class="text-danger">*</span>
+                            {!! Form::label('file', 'Upload Product Photo :') !!}
                             {{ Form::hidden('media_path', WHYUS_MEDIA_UPLOAD) }}
                                 <div class="file-loading">
                                     <input type="file" id="media_upload" name="image_media" accept="image/*">
@@ -46,7 +44,6 @@
                             {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
                             <a href="{!! route('whyus.index') !!}" class="btn btn-default">Cancel</a>
                         </div>
-
                    {!! Form::close() !!}
                </div>
            </div>

@@ -28,7 +28,6 @@ class LocationController extends Controller
                                 ->orWhere('address', 'like', '%'.$data.'%')
                                 ->paginate(25);
         }
-
         return view('admin.location.index', compact('locations'));
     }
 

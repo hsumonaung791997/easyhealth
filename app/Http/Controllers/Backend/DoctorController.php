@@ -23,14 +23,12 @@ class DoctorController extends Controller
     {
         $doctors = Doctor::orderBy('id', 'DESC')->paginate(25);
         if($request->all()) {
-
             $data = $request->get('name','position','education');
             $doctors = Doctor::where('name', 'like', '%'.$data.'%')
                             ->orWhere('position', 'like', '%'.$data.'%')
                             ->orWhere('education', 'like', '%'.$data.'%')
                             ->paginate(25);
         }
-
         return view('admin.doctor.index', compact('doctors'));
     }
 
