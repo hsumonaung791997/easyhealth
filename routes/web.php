@@ -57,6 +57,8 @@ Route::group(['prefix'=>'admin'],function(){
 		Route::resource('whyus', 'WhyusController');
 		Route::resource('partner', 'PartnersController');
 		Route::resource('company_profile', 'CompanyProfileController');
+		Route::resource('team', 'TeamController');
+		Route::resource('value', 'ValuePropositionController');
 	});
 });
 
