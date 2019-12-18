@@ -31,7 +31,7 @@
                             <th>No.</th>
                             <th>Title</th>
                             <th>Blog Type</th>
-                            <th>Content</th>
+                            <th>Blog Photo</th>
                             <th>Status</th>
                             <th colspan="3">Action</th>
                         </thead>
@@ -48,7 +48,11 @@
                                             Health Blog
                                         @endif
                                     </td>
-                                    <td>{!! $blog->content !!}</td>
+                                    <td>
+                                        @if(!empty($blog->media))
+                                            <img src="{{ url($blog->media->file_path.$blog->media->file_name) }}" width="100px">
+                                        @endif
+                                    </td>
                                     <td>{!! showPrettyStatus($blog->status) !!}</td>
                                     <td>
                                     <a href="{!! route('blog.edit', [$blog->id]) !!}"

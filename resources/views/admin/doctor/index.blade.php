@@ -33,7 +33,7 @@
                             <th>Name</th>
                             <th>Education</th>
                             <th>Position</th>
-                            <th>Description</th>
+                            <th>Doctor Photo</th>
                             <th>Status</th>
                             <th colspan="3">Action</th>
                         </thead>
@@ -45,7 +45,11 @@
                                 <td>{{ $doctor->name }}</td>
                                 <td>{{ $doctor->education }}</td>
                                 <td>{{ $doctor->position }}</td>
-                                <td>{!! $doctor->description !!}</td>
+                                <td>
+                                    @if(!empty($doctor->media))
+                                        <img src="{{ url($doctor->media->file_path.$doctor->media->file_name) }}" width="100px">
+                                    @endif
+                                </td>
                                 <td>{!! showPrettyStatus($doctor->status) !!}</td>
                                 <td>
                                 <a href="{!! route('doctor.edit', [$doctor->id]) !!}"

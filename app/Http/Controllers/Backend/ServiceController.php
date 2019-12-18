@@ -22,14 +22,12 @@ class ServiceController extends Controller
      */
     public function index(Request $request)
     {
-        $services = Service::orderBy('id', 'DESC')->paginate(25);
+        $services = Service::with('media')->orderBy('id', 'DESC')->paginate(25);
         if($request->all()) {
             $data = $request->get('title');
             $services = Service::where('title', 'like', '%'.$data.'%')->paginate(25);
         }
-
         return view('admin.service.index', compact('services'));
-        
     }
 
     /**
@@ -51,7 +49,6 @@ class ServiceController extends Controller
      */
     public function store(ServiceRequest $request)
     {
-        //
         $data = $request->all();
         if($request->hasFile('image_media')){
            $media = saveSingleMedia($request, 'image');
@@ -113,6 +110,10 @@ class ServiceController extends Controller
             if(TRUE == $media['status']) {
                 $data['media_id'] = $media['media_id'];
             }
+        } else {
+            if(!empty($data['img'])) {
+                $data['media_id'] = null;
+            }   
         }
         Service::find($id)->update($data);
         Flash::success('Successfully service update');
@@ -127,7 +128,6 @@ class ServiceController extends Controller
      */
     public function destroy($id)
     {
-        //
         Service::find($id)->delete();
         Flash::success('Successfully service delete');
         return redirect(route('service.index'));

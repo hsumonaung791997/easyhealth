@@ -15,6 +15,7 @@ class PartnersController extends Controller
     {
         $this->middleware('auth');
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -22,8 +23,7 @@ class PartnersController extends Controller
      */
     public function index(Request $request)
     {
-        //
-        $partners = Partner::orderBy('id', 'DESC')->paginate(25);
+        $partners = Partner::with('media')->orderBy('id', 'DESC')->paginate(25);
         if($request->all()) {
             $data = $request->get('title');
             $partners = Partner::where('name', 'like', '%'.$data.'%')->paginate(25);
@@ -38,7 +38,6 @@ class PartnersController extends Controller
      */
     public function create()
     {
-        //
         return view('admin.partner.create');
     }
 
@@ -50,7 +49,6 @@ class PartnersController extends Controller
      */
     public function store(PartnerRequest $request)
     {
-        //
         $partners = $request->all();
         if ($request->hasFile('image_media')) {
             $media = saveSingleMedia($request, 'image');
@@ -82,7 +80,6 @@ class PartnersController extends Controller
      */
     public function edit($id)
     {
-        //
          $partner = Partner::find($id);
         if (empty($partner)) {
             Flash::error('Partner not found!');
@@ -100,7 +97,6 @@ class PartnersController extends Controller
      */
     public function update(PartnerRequest $request, $id)
     {
-        //
         $partner = Partner::find($id);
         if (empty($partner)) {
             Flash::error('Partner not found!');
@@ -112,6 +108,10 @@ class PartnersController extends Controller
             if (TRUE == $media['status']) {
                 $data['media_id'] = $media['media_id'];
             }     
+        } else {
+            if(!empty($data['img'])) {
+                $data['media_id'] = null;
+            }   
         }
         Partner::find($id)->update($data);
         Flash::success('Successfully update partner');
@@ -126,7 +126,6 @@ class PartnersController extends Controller
      */
     public function destroy($id)
     {
-        //
         Partner::find($id)->delete();
         Flash::success('Successfully delete partner');
         return redirect(route('partner.index'));

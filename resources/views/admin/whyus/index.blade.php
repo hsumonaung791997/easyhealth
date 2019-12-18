@@ -30,7 +30,7 @@
                         <thead>
                             <th>No.</th>
                             <th>Title</th>
-                            <th>Description</th>
+                            <th>Whyus Photo</th>
                             <th>Status</th>
                             <th colspan="3">Action</th>
                         </thead>
@@ -40,7 +40,11 @@
                             <tr>
                                 <td>{{ $index++ }}</td>
                                 <td>{!! $whyus->title !!}</td>
-                                <td>{!! $whyus->description !!}</td>
+                                <td>
+                                    @if(!empty($whyus->media))
+                                        <img src="{{ url($whyus->media->file_path.$whyus->media->file_name) }}" width="100px">
+                                    @endif
+                                </td>
                                 <td>{!! showPrettyStatus($whyus->status) !!}</td>
                                 <td>
                                 <a href="{!! route('whyus.edit', [$whyus->id]) !!}"

@@ -14,6 +14,7 @@ class WhyusController extends Controller
     public function __construct() {
         $this->middleware('auth');
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -21,13 +22,11 @@ class WhyusController extends Controller
      */
     public function index(Request $request)
     {
-        
-        $whyus_s = Whyus::orderBy('id', 'DESC')->paginate(25);
+        $whyus_s = Whyus::with('media')->orderBy('id', 'DESC')->paginate(25);
         if($request->all()) {
             $data = $request->get('title');
             $whyus_s = Whyus::where('title', 'like', '%'.$data.'%')->paginate(25);
         }
-
         return view('admin.whyus.index', compact('whyus_s'));
     }
 
@@ -50,7 +49,6 @@ class WhyusController extends Controller
     public function store(WhyusRequest $request)
     {
         $data = $request->all();
-        //dd($data);
         if($request->hasFile('image_media')){
            $media = saveSingleMedia($request, 'image');
             if (TRUE == $media['status']) {
@@ -109,6 +107,10 @@ class WhyusController extends Controller
             if (TRUE == $media['status']) {
                 $data['media_id'] = $media['media_id'];
             }
+        } else {
+            if(!empty($data['img'])) {
+                $data['media_id'] = null;
+            }   
         }
         Whyus::find($id)->update($data);
         Flash::success('Successfully update Page');
@@ -126,7 +128,6 @@ class WhyusController extends Controller
         Whyus::find($id)->delete();
         Flash::success('Successfully delete Page');
         return redirect(route('whyus.index'));
-
     }
 }
 

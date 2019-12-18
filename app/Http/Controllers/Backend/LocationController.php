@@ -14,6 +14,7 @@ class LocationController extends Controller
     public function __construct() {
         $this->middleware('auth');
     }
+    
     /**
      * Display a listing of the resource.
      *
@@ -21,7 +22,7 @@ class LocationController extends Controller
      */
     public function index(Request $request)
     {
-        $locations = Location::orderBy('id', 'DESC')->paginate(25);
+        $locations = Location::with('media')->orderBy('id', 'DESC')->paginate(25);
         if($request->all()) {
             $data = $request->get('name','address');
             $locations = Location::where('name', 'like', '%'.$data.'%')
@@ -50,7 +51,6 @@ class LocationController extends Controller
     public function store(LocationRequest $request)
     {
         $data = $request->all();
-
         if ($request->hasFile('image_media')) {
             $media = saveSingleMedia($request, 'image');
             if (TRUE == $media['status']) {
@@ -98,7 +98,6 @@ class LocationController extends Controller
      */
     public function update(LocationRequest $request, $id)
     {
-
         $location = Location::find($id);
         if (empty($location)) {
             Flash::error('Location not found!');
@@ -109,6 +108,10 @@ class LocationController extends Controller
             $media = saveSingleMedia($request, 'image');
             if (TRUE == $media['status']) {
                 $data['media_id'] = $media['media_id'];    
+            }   
+        } else {
+            if(!empty($data['img'])) {
+                $data['media_id'] = null;
             }   
         }
         Location::find($id)->update($data);
@@ -127,7 +130,6 @@ class LocationController extends Controller
         Location::find($id)->delete();
         Flash::success('Successfully delete location');
         return redirect(route('location.index'));
-
     }
 }
 

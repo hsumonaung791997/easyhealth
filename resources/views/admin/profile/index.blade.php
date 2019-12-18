@@ -30,7 +30,7 @@
                         <thead>
                             <th>No.</th>
                             <th>Title</th>
-                            <th>Description</th>
+                            <th>Profile Photo</th>
                             <th colspan="3">Action</th>
                         </thead>
                         <tbody>
@@ -39,7 +39,11 @@
                                 <tr>
                                     <td>{{ $index++ }}</td>
                                     <td>{{ $profile->title }}</td>
-                                    <td>{!! $profile->description !!}</td>
+                                    <td>
+                                        @if(!empty($profile->media))
+                                            <img src="{{ url($profile->media->file_path.$profile->media->file_name) }}" width="100px">
+                                        @endif
+                                    </td>
                                     <td>
                                     <a href="{!! route('company_profile.edit', [$profile->id]) !!}"
                                        class='btn btn-xs btn-primary'><i class="fa fa-check-square-o"></i>&nbsp;Edit</a>

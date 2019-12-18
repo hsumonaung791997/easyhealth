@@ -45,10 +45,9 @@
                                     <strong>{{ $errors->first('content') }}</strong>
                                 </span>
                             @endif
-                        </div>
-                                              
+                        </div>                      
                         <div class="form-group col-sm-6 mmtext">
-                            {!! Form::label('file', 'Upload Product Photo :') !!}
+                            {!! Form::label('file', 'Upload Blog Photo :') !!}
                             {{ Form::hidden('media_path', BLOG_MEDIA_UPLOAD) }}
                             <div class="file-loading">
                                 <input type="file" id="media_upload" name="image_media" accept="image/*">
@@ -58,13 +57,11 @@
                             </div>
                             <div id="kv-avatar-errors-1" class="center-block" style="display:none"></div>
                         </div>
-
                         <div class="form-group col-sm-6 mmtext">
                             {!! Form::label('status', 'Status:') !!} <span class="text-danger">*</span><br>
                             <label class="radio radio-inline">{!! Form::radio('status', 1, true) !!} Active </label>
                             <label class="radio radio-inline">{!! Form::radio('status', 0) !!} Inactive </label>
                         </div>
-
                         <div class="form-group col-sm-12">
                             {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
                             <a href="{!! route('blog.index') !!}" class="btn btn-default">Cancel</a>
@@ -91,8 +88,8 @@
                 showClose: false,
                 showCaption: true,
                 showUpload: false,
-                browseLabel: 'Browse Logo',
-                removeLabel: 'Remove Logo',
+                browseLabel: 'Browse Image',
+                removeLabel: 'Remove Image',
                 browseIcon: '<i class="fa fa-cloud-upload"></i>',
                 removeIcon: '<i class="fa fa-trash-o">',
                 removeTitle: 'Cancel or reset changes',
@@ -113,5 +110,5 @@
             $('.kv-file-remove').attr('data-url', dataUrl);
             $('.kv-file-remove').attr('data-toggle', 'modal');
         })
-   </script>
+    </script>
 @endsection

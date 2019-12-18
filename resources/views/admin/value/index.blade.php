@@ -29,7 +29,7 @@
                         <thead>
                             <th>No.</th>
                             <th>Title</th>
-                            <th>Description</th>
+                            <th>Value Postitoin Photo</th>
                             <th>Status</th>
                             <th colspan="3">Action</th>
                         </thead>
@@ -39,7 +39,11 @@
                             <tr>
                                 <td>{{ $index++ }}</td>
                                 <td>{!! $value->title !!}</td>
-                                <td>{!! $value->description !!}</td>
+                                <td>
+                                    @if(!empty($value->media))
+                                        <img src="{{ url($value->media->file_path.$value->media->file_name) }}" width="100px">
+                                    @endif
+                                </td>
                                 <td>{!! showPrettyStatus($value->status) !!}</td>
                                 <td>
                                 <a href="{!! route('value.edit', [$value->id]) !!}"

@@ -14,20 +14,19 @@ class ValuePropositionController extends Controller
     public function __construct() {
         $this->middleware('auth');
     }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    {
-        
-        $values = ValueProposition::orderBy('id', 'DESC')->paginate(25);
+    {   
+        $values = ValueProposition::with('media')->orderBy('id', 'DESC')->paginate(25);
         if($request->all()) {
             $data = $request->get('title');
             $values = ValueProposition::where('title', 'like', '%'.$data.'%')->paginate(25);
         }
-
         return view('admin.value.index', compact('values'));
     }
 
@@ -97,7 +96,6 @@ class ValuePropositionController extends Controller
      */
     public function update(ValuePropositionRequest $request, $id)
     {
-
         $value = ValueProposition::find($id);
         if (empty($value)) {
             Flash::error('Value Proposition not found!');
@@ -109,6 +107,10 @@ class ValuePropositionController extends Controller
             if (TRUE == $media['status']) {
                 $data['media_id'] = $media['media_id'];
             }
+        } else {
+            if(!empty($data['img'])) {
+                $data['media_id'] = null;
+            }   
         }
         ValueProposition::find($id)->update($data);
         Flash::success('Successfully update Value Proposition');

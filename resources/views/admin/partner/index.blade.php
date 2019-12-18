@@ -30,7 +30,7 @@
                         <thead>
                             <th>No.</th>
                             <th>Name</th>
-                            <th>Description</th>
+                            <th>Partner Photo</th>
                             <th colspan="3">Action</th>
                         </thead>
                         <tbody>
@@ -39,7 +39,11 @@
                                 <tr>
                                     <td>{{ $index++ }}</td>
                                     <td>{{ $partner->name }}</td>
-                                    <td>{!! $partner->description !!}</td>
+                                    <td>
+                                        @if(!empty($partner->media))
+                                            <img src="{{ url($partner->media->file_path.$partner->media->file_name) }}" width="100px">
+                                        @endif
+                                    </td>
                                     <td>
                                     <a href="{!! route('partner.edit', [$partner->id]) !!}"
                                        class='btn btn-xs btn-primary'><i class="fa fa-check-square-o"></i>&nbsp;Edit</a>

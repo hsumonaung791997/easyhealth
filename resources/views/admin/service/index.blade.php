@@ -30,7 +30,8 @@
                         <thead>
                             <th>No.</th>
                             <th>Title</th>
-                            <th>Description</th>
+                            <th>Service Type</th>
+                            <th>Service Photo</th>
                             <th>Status</th>
                             <th colspan="3">Action</th>
                         </thead>
@@ -40,7 +41,20 @@
                             <tr>
                                 <td>{{ $index++ }}</td>
                                 <td>{{ $service->title }}</td>
-                                <td>{!! $service->description !!}</td>
+                                <td>
+                                    @if($service->type == 11)
+                                        GP Service
+                                    @elseif($service->type == 12)
+                                        Health Assessments
+                                    @else
+                                        Other
+                                    @endif
+                                </td>
+                                <td>
+                                    @if(!empty($service->media))
+                                        <img src="{{ url($service->media->file_path.$service->media->file_name) }}" width="100px">
+                                    @endif
+                                </td>
                                 <td>{!! showPrettyStatus($service->status) !!}</td>
                                 <td>
                                 <a href="{!! route('service.edit', [$service->id]) !!}"
