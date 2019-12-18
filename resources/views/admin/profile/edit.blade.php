@@ -21,7 +21,6 @@
                                 </span>
                            @endif
                         </div> 
-                         
                         <div class="form-group col-sm-6 mmtext pull-right">
                             {!! Form::label('description', 'Description:') !!} <span class="text-danger">*</span>
                             {!! Form::textarea('description', null, ['class' => 'editor']) !!}
@@ -30,10 +29,9 @@
                                     <strong>{{ $errors->first('description') }}</strong>
                                 </span>
                             @endif
-                        </div>
-                                              
+                        </div>                   
                         <div class="form-group col-sm-6 mmtext">
-                            {!! Form::label('file', 'Upload Product Photo :') !!} <span class="text-danger">*</span>
+                            {!! Form::label('file', 'Upload Profile Photo :') !!} <span class="text-danger">*</span>
                             {{ Form::hidden('media_path', PROFILE_MEDIA_UPLOAD) }}
                             <div class="file-loading">
                                 <input type="file" id="media_upload" name="image_media" accept="image/*">
@@ -48,7 +46,6 @@
                                 </span>
                             @endif
                         </div>
-
                         <div class="form-group col-sm-12">
                             {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
                             <a href="{!! route('company_profile.index') !!}" class="btn btn-default">Cancel</a>
@@ -75,8 +72,8 @@
                 showClose: false,
                 showCaption: true,
                 showUpload: false,
-                browseLabel: 'Browse Logo',
-                removeLabel: 'Remove Logo',
+                browseLabel: 'Browse Image',
+                removeLabel: 'Remove Image',
                 browseIcon: '<i class="fa fa-cloud-upload"></i>',
                 removeIcon: '<i class="fa fa-trash-o">',
                 removeTitle: 'Cancel or reset changes',
@@ -97,5 +94,5 @@
             $('.kv-file-remove').attr('data-url', dataUrl);
             $('.kv-file-remove').attr('data-toggle', 'modal');
         })
-   </script>
+    </script>
 @endsection

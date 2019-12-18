@@ -29,7 +29,7 @@
                         <thead>
                             <th>No.</th>
                             <th>Title</th>
-                            <th>Description</th>
+                            <th>Team Photo</th>
                             <th colspan="3">Action</th>
                         </thead>
                         <tbody>
@@ -38,7 +38,11 @@
                             <tr>
                                 <td>{{ $index++ }}</td>
                                 <td>{!! $team->title !!}</td>
-                                <td>{!! $team->description !!}</td>
+                                <td>
+                                    @if(!empty($team->media))
+                                        <img src="{{ url($team->media->file_path.$team->media->file_name) }}" width="100px">
+                                    @endif
+                                </td>
                                 <td>
                                 <a href="{!! route('team.edit', [$team->id]) !!}"
                                    class='btn btn-xs btn-primary'><i class="fa fa-check-square-o"></i>&nbsp;Edit</a>

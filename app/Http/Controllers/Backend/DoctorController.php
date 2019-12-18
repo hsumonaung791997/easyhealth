@@ -14,6 +14,7 @@ class DoctorController extends Controller
     public function __construct() {
         $this->middleware('auth');
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -21,7 +22,7 @@ class DoctorController extends Controller
      */
     public function index(Request $request)
     {
-        $doctors = Doctor::orderBy('id', 'DESC')->paginate(25);
+        $doctors = Doctor::with('media')->orderBy('id', 'DESC')->paginate(25);
         if($request->all()) {
             $data = $request->get('name','position','education');
             $doctors = Doctor::where('name', 'like', '%'.$data.'%')
@@ -39,7 +40,6 @@ class DoctorController extends Controller
      */
     public function create()
     {
-        //
         return view('admin.doctor.create');
     }
 
@@ -51,9 +51,7 @@ class DoctorController extends Controller
      */
     public function store(DoctorRequest $request)
     {
-        //
         $data = $request->all();
-        //dd($data);
         if($request->hasFile('image_media')){
            $media = saveSingleMedia($request, 'image');
             if (TRUE == $media['status']) {
@@ -112,6 +110,10 @@ class DoctorController extends Controller
             if (TRUE == $media['status']) {
                 $data['media_id'] = $media['media_id'];
             }
+        } else {
+            if(!empty($data['img'])) {
+                $data['media_id'] = null;
+            }   
         }
         Doctor::find($id)->update($data);
         Flash::success('Successfully update doctor');

@@ -15,6 +15,7 @@ class CompanyProfileController extends Controller
     {
         $this->middleware('auth');
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -22,8 +23,7 @@ class CompanyProfileController extends Controller
      */
     public function index(Request $request)
     {
-        //
-        $profiles = CompanyProfile::orderBy('id', 'DESC')->paginate(25);
+        $profiles = CompanyProfile::with('media')->orderBy('id', 'DESC')->paginate(25);
         if($request->all()) {
             $data = $request->get('title');
             $profiles = CompanyProfile::where('title', 'like', '%'.$data.'%')->paginate(25);
@@ -38,7 +38,6 @@ class CompanyProfileController extends Controller
      */
     public function create()
     {
-        //
         return view('admin.profile.create');
     }
 
@@ -50,7 +49,6 @@ class CompanyProfileController extends Controller
      */
     public function store(ProfileRequest $request)
     {
-        //
         $data = $request->all();
         if ($request->hasFile('image_media')) {
             $media = saveSingleMedia($request, 'image');
@@ -82,8 +80,7 @@ class CompanyProfileController extends Controller
      */
     public function edit($id)
     {
-        //
-         $profile = CompanyProfile::find($id);
+        $profile = CompanyProfile::find($id);
         if (empty($profile)) {
             Flash::error('Company Profile not found!');
             return redirect(route('company_profile.index'));
@@ -111,6 +108,10 @@ class CompanyProfileController extends Controller
             if (TRUE == $media['status']) {
                 $data['media_id'] = $media['media_id'];
             }
+        } else {
+            if(!empty($data['img'])) {
+                $data['media_id'] = null;
+            }   
         }
         CompanyProfile::find($id)->update($data);
         Flash::success('Successfully update Company Profile');

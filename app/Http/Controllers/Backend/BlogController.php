@@ -22,7 +22,7 @@ class BlogController extends Controller
      */
     public function index(Request $request)
     {
-        $blogs = Blog::orderBy('id', 'DESC')->paginate(25);
+        $blogs = Blog::with('media')->orderBy('id', 'DESC')->paginate(25);
         if($request->all()) {
             $data = $request->get('title');
             $blogs = Blog::where('title', 'like', '%'.$data.'%')->paginate(25);
@@ -96,8 +96,7 @@ class BlogController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(BlogRequest $request, $id)
-    {
-         
+    {     
         $blog = Blog::find($id);
         if (empty($blog)) {
             Flash::error('Blog not found!');
@@ -109,7 +108,11 @@ class BlogController extends Controller
             if (TRUE == $media['status']) {
                 $data['media_id'] = $media['media_id'];
             }  
-        } 
+        } else {
+            if(!empty($data['img'])) {
+                $data['media_id'] = null;
+            }   
+        }
         Blog::find($id)->update($data);
         Flash::success('Successfully update blog');
         return redirect(route('blog.index'));

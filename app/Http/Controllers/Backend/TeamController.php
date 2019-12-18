@@ -11,6 +11,10 @@ use App\Http\Requests\TeamRequest;
 
 class TeamController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +22,7 @@ class TeamController extends Controller
      */
     public function index(Request $request)
     {
-        $teams = Team::orderBy('id','DESC')->paginate(25);
+        $teams = Team::with('media')->orderBy('id','DESC')->paginate(25);
         if($request->all()){
             $data = $request->get('title');
             $teams = Team::where('title','like', '%'.$data.'%')->paginate(25);
@@ -103,6 +107,10 @@ class TeamController extends Controller
             if (TRUE == $media['status']) {
                 $data['media_id'] = $media['media_id'];
             }
+        } else {
+            if(!empty($data['img'])) {
+                $data['media_id'] = null;
+            }   
         }
         Team::find($id)->update($data);
         Flash::success('Successfully update Team');

@@ -24,10 +24,11 @@ class LocationRequest extends FormRequest
     public function rules()
     {
         return  [
-           'name'=>'required',
+            'name'=>'required',
             'address'=>'required',
             'latitude'=>'required|numeric',
             'longitude'=>'required|numeric',
+            'description'=>'required'
         ];
     }
 }

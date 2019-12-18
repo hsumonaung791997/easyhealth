@@ -4,7 +4,6 @@
         <h1>
             Location
         </h1>
-
         <span class="breadcrumb"><a href='{{ route("location.create") }}' class="btn btn-sm btn-primary"><i
                 class="fa fa-plus-square"></i>&nbsp;&nbsp;Create New Location</a></span>
     </section>
@@ -32,9 +31,9 @@
                             <th>No.</th>
                             <th>Name</th>
                             <th>Address</th>
-                            <th>Description</th>
                             <th>Latitude</th>
                             <th>Longitude</th>
+                            <th>Location Photo</th>
                             <th colspan="3">Action</th>
                         </thead>
                         <tbody>
@@ -43,10 +42,14 @@
                             <tr>
                                 <td>{{ $index++ }}</td>
                                 <td>{!! $location->name !!}</td>
-                                <td>{!! $location->address !!}</td>
                                 <td>{!! $location->description !!}</td>
                                 <td>{!! $location->latitude !!}</td>
                                 <td>{!! $location->longitude !!}</td>
+                                <td>
+                                    @if(!empty($location->media))
+                                        <img src="{{ url($location->media->file_path.$location->media->file_name) }}" width="100px">
+                                    @endif
+                                </td>
                                 <td>
                                 <a href="{!! route('location.edit', [$location->id]) !!}"
                                    class='btn btn-xs btn-primary'><i class="fa fa-check-square-o"></i>&nbsp;Edit</a>
