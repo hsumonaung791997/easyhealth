@@ -16,30 +16,13 @@
             </button>
             <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('frontend/img/logo.png') }}" alt="" width="210" height="" /></a>
         </div>
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="{{ url('/') }}"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
-                <li><a href="{{ url('whyus') }}"><i class="fa fa-question-circle" aria-hidden="true"></i> Why Us?</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-md" aria-hidden="true"></i> Our Services <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{ url('11/services') }}">Private GP services </a></li>
-                        <li><a href="{{ url('mini_pharmacies') }}">Mini pharmacies </a></li>
-                        <li><a href="{{ url('12/services') }}">Health screenings and diagnostics </a></li>
-                        <li><a href="#">Home services</a></li>
-                        <li><a href="#">Telemedicine services</a></li>
-                        <li><a href="#">Corporate B2B healthcare</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-stethoscope" aria-hidden="true"></i> News Blog <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                         
-                        <li><a href="{{ url('17/newsblog') }}">Press Releases</a></li>
-                        <li><a href="{{ url('18/newsblog') }}" >Health Blog </a></li>
-                    </ul>
+                <li><a href="{{ url('index') }}"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+                <li><a href="{{ url('whyus')}}"><i class="fa fa-question-circle" aria-hidden="true"></i> Why Us?</a></li>
+                <li><a href="{{ url('our_service') }}"><i class="fa fa-user-md" aria-hidden="true"></i> Our Services</a></li>
+                <li> <a href="{{ url('new_blogs') }}"><i class="fa fa-stethoscope" aria-hidden="true"></i> News Blog</a>
                 </li>
                 <li><a href="{{ url('contact') }}"><i class="fa fa-hospital-o" aria-hidden="true"></i> Contact Us</a></li>
             </ul>

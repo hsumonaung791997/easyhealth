@@ -1,5 +1,3 @@
-
-
 <section class="home-section paddingbot-60">
     <div class="container marginbot-30">
         <div class="row">
