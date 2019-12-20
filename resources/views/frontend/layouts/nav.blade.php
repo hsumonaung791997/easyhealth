@@ -19,7 +19,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="{{ url('index') }}"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+                <li><a href="{{ url('/') }}"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
                 <li><a href="{{ url('whyus')}}"><i class="fa fa-question-circle" aria-hidden="true"></i> Why Us?</a></li>
                 <li><a href="{{ url('our_service') }}"><i class="fa fa-user-md" aria-hidden="true"></i> Our Services</a></li>
                 <li> <a href="{{ url('new_blogs') }}"><i class="fa fa-stethoscope" aria-hidden="true"></i> News Blog</a>

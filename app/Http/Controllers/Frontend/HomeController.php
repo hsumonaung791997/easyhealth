@@ -9,15 +9,29 @@ use App\Model\Location;
 use App\Model\Whyus;
 use App\Model\Doctor;
 use App\Model\Service;
+use App\Model\Partner;
+use App\Model\Team;
 
 class HomeController extends Controller
 {
 	public function index()
 	{
         $locations = Location::all();
-        $whyus = Whyus::where('status', 1)->first();
-		return view('frontend.index', compact('locations', 'whyus','location'));
+        $partners = Partner::all();
+        $blogs = Blog::where('status', 1)->paginate(3);
+        $whyus = Whyus::where('status', 1)->get();
+		return view('frontend.index', compact('whyus','blogs','locations','partners'));
 	}
+
+    public function whyus()
+    {
+        $locations = Location::all();
+        $whyus = Whyus::where('status', 1)->get();
+        $teams = Team::all();
+        $doctors = Doctor::where('status', 1)->take(2)->get();
+
+        return view('frontend.whyus', compact('locations', 'whyus', 'doctors','teams'));
+    }
 
     public function appointment_form() 
     {
@@ -103,15 +117,7 @@ class HomeController extends Controller
     	return view('frontend.privacy_policy');
     }
 
-    public function whyus()
-    {
-        $locations = Location::all();
-        $whyus = Whyus::where('status', 1)->first();
-        $doctors = Doctor::where('status', 1)->take(3)->get();
-
-    	return view('frontend.whyus', compact('locations', 'whyus', 'doctors'));
-    }
-
+    
     public function women_health($id)
     {
         $locations = Location::all();
