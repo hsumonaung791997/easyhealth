@@ -9,7 +9,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-use DB;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -63,85 +63,3 @@ Route::group(['prefix'=>'admin'],function(){
 	});
 });
 
-Route::get('test', function () {
-	return view('oop');
-});
- 
-Route::get('show-category', function() {
-	$result = DB::table('users')->get();
-	return $result;
-});
-
-Route::get('insert-category', function() {
-	DB::table('users')->insert([
-		['email' => 'john@example.com', 'name' => 'Aung Aung', 'email' => 'john@gmail.com',
-		'password' => '1234', 'remember_token' => '','created_at' => now(), 'updated_at' => now()],
-		['email' => 'koko@example.com', 'name' => 'Ko Ko', 'email' => 'ko@gmail.com',
-		'password' => '1234', 'remember_token' => '','created_at' => now(), 'updated_at' => now()]
-	]);
-});
-
-Route::get('update-category', function() {
-	DB::table('users')
-			->where('id', 1)
-            ->update(['name' => 'Hla Hla']);
-});
-
-Route::get('delete-category', function() {
-	DB::table('users')
-			// ->where('id', 13)->delete();
-			->where('id', '>', 2)->delete();
-});
-
-
-Route::get('show-data', function() {
-	$result = DB::table('categories')->get();
-	// $result = DB::table('categories')
- //                    ->whereNotIn('id', [5, 7])
- //                    ->get();
-	// $result = DB::table('categories')->count();
-	// $result = DB::table('categories')->where('name', 'test')->get();
-	// $result = DB::table('categories')->pluck('name');
-	// $result = DB::table('categories')->where('name','testing')->value('created_at');
-	// $result = DB::table('categories')->select('name as user_name')->get();
-	// $result = DB::table('categories')->where('name','test')->first();
-	// $result = DB::table('categories')->find(5);
-
-	return $result;
-	// return $result->id;
-	// return $result->name;
-});
-
-Route::get('insert-data', function() {
-	DB::table('categories')->insert([
-		['name'=>'testing','created_at'=>now(),'updated_at'=>now()],
-		['name'=>'test','created_at'=>now(),'updated_at'=>now()]
-	]);
-});
-
-Route::get('update-data', function() {
-	DB::table('categories')
-			->where('id', 1)
-			->update(['name' => 'Query Builder']);
-});
-
-Route::get('delete-data', function() {
-	DB::table('categories')
-			->where('id', 6)
-			->delete();
-});
-
-Route::get('join', function() {
-	$first = DB::table('users')
-            ->whereNotNull('name');
-
-	$users = DB::table('users')
-	            ->whereNotNull('email')
-	            ->union($first)
-	            ->get();
-	return $users;
-});
-
-Route::get('truncate', function() {
-	DB::table('categories')->truncate();
-});

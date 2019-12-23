@@ -29,6 +29,7 @@
                         <thead>
                             <th>No.</th>
                             <th>Title</th>
+                            <th>Position</th>
                             <th>Team Photo</th>
                             <th colspan="3">Action</th>
                         </thead>
@@ -38,6 +39,7 @@
                             <tr>
                                 <td>{{ $index++ }}</td>
                                 <td>{!! $team->title !!}</td>
+                                <td>{!! $team->position !!}</td>
                                 <td>
                                     @if(!empty($team->media))
                                         <img src="{{ url($team->media->file_path.$team->media->file_name) }}" width="100px">

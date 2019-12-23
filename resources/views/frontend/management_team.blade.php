@@ -4,8 +4,6 @@
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
     <div id="wrapper">
         @include('frontend.layouts.nav')
-
-
         <!-- breadcrumbs -->
         <section class="intro ui-title-page">
             <img src="{{ asset('frontend/img/about-bg.png') }}" class="img-responsive">
@@ -18,73 +16,27 @@
                 </div>
             </div>
         </section>
-        
- 
-
         <!-- Section: team -->
-        <section class="home-section paddingbot-60">
-             
+        <section class="home-section paddingbot-60">   
             <div class="container">
                 <div class="row">
                     <div id="grid-container" class="cbp-l-grid-team">
                         <ul>
+                            @foreach($teams as $team)
                             <li class="cbp-item text-center">
                                 <a href="#" class="cbp-caption ">
                                     <div class="cbp-caption-defaultWrap">
-                                        <img src="{{ asset('frontend/img/doctors2.png') }}" alt="" width="100%">
+                                        <?php 
+                                        $image = $team->media->file_path. '/' .$team->media->file_name;
+                                        ?>
+                                        <img src="{{ asset($image) }}" alt="" width="100%">
                                     </div>
                                 </a>
-                                <h4 class="h-bold">Name</h4>
-                                <div class="cbp-l-grid-team-position">Position</div>
+                                <h4 class="h-bold">{{ $team->title }}</h4>
+                                <div class="cbp-l-grid-team-position">{{ $team->position }}</div>
 
                             </li>
-                            <li class="cbp-item text-center">
-                                <a href="#" class="cbp-caption ">
-                                    <div class="cbp-caption-defaultWrap">
-                                        <img src="{{ asset('frontend/img/doctors1.png') }}" alt="" width="100%">
-                                    </div>
-                                </a>
-                                <h4 class="h-bold">Name</h4>
-                                <div class="cbp-l-grid-team-position">Position</div>
-                            </li>
-                            <li class="cbp-item text-center">
-                                <a href="#" class="cbp-caption ">
-                                    <div class="cbp-caption-defaultWrap">
-                                        <img src="{{ asset('frontend/img/doctors3.png') }}" alt="" width="100%">
-                                    </div>
-                                </a>
-                              <h4 class="h-bold">Name</h4>
-                                <div class="cbp-l-grid-team-position">Position</div>
-                            </li>
-
-                            <li class="cbp-item text-center">
-                                <a href="#" class="cbp-caption ">
-                                    <div class="cbp-caption-defaultWrap">
-                                        <img src="{{ asset('frontend/img/doctors2.png') }}" alt="" width="100%">
-                                    </div>
-                                </a>
-                                <h4 class="h-bold">Name</h4>
-                                <div class="cbp-l-grid-team-position">Position</div>
-
-                            </li>
-                            <li class="cbp-item text-center">
-                                <a href="#" class="cbp-caption ">
-                                    <div class="cbp-caption-defaultWrap">
-                                        <img src="{{ asset('frontend/img/doctors1.png') }}" alt="" width="100%">
-                                    </div>
-                                </a>
-                                <h4 class="h-bold">Name</h4>
-                                <div class="cbp-l-grid-team-position">Position</div>
-                            </li>
-                            <li class="cbp-item text-center">
-                                <a href="#" class="cbp-caption ">
-                                    <div class="cbp-caption-defaultWrap">
-                                        <img src="{{ asset('frontend/img/doctors3.png') }}" alt="" width="100%">
-                                    </div>
-                                </a>
-                              <h4 class="h-bold">Name</h4>
-                                <div class="cbp-l-grid-team-position">Position</div>
-                            </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>

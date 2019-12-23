@@ -11,6 +11,7 @@ use App\Model\Doctor;
 use App\Model\Service;
 use App\Model\Partner;
 use App\Model\Team;
+use App\Model\ValueProposition;
 
 class HomeController extends Controller
 {
@@ -18,19 +19,26 @@ class HomeController extends Controller
 	{
         $locations = Location::all();
         $partners = Partner::all();
-        $blogs = Blog::where('status', 1)->paginate(3);
+        // $blogs = Blog::where('status', 1)->paginate(3);
+        $blogs = Blog::where('status', 1)->orderBy('id','DESC')->take(3)->get();
+        $slide = Blog::where('status', 1)->orderBy('id','ASC')->take(3)->get();
         $whyus = Whyus::where('status', 1)->get();
-		return view('frontend.index', compact('whyus','blogs','locations','partners'));
+        $services = Service::where([
+            ['status', 1],
+            ['parent', NULL] 
+        ])->get();
+		return view('frontend.index', compact('whyus','blogs','locations','partners','slide','services'));
 	}
 
     public function whyus()
     {
         $locations = Location::all();
         $whyus = Whyus::where('status', 1)->get();
-        $teams = Team::all();
-        $doctors = Doctor::where('status', 1)->take(2)->get();
+        // $teams = Team::all();
+        $doctors = Doctor::where('status', 1)->orderBy('id','DESC')->take(2)->get();
+        $values = ValueProposition::all();
 
-        return view('frontend.whyus', compact('locations', 'whyus', 'doctors','teams'));
+        return view('frontend.whyus', compact('locations', 'whyus', 'doctors','values'));
     }
 
     public function appointment_form() 
@@ -46,11 +54,15 @@ class HomeController extends Controller
                     ['status', '=', 1],
                 ])->take(3)->get();
 
-        if (empty($blog)) {
-            Flash::error('blogs not found!');
-            return redirect(route('blogs_detail'));
-        }
         return view('frontend.blogs_detail', compact('blog', 'health_details'));
+    }
+
+    public function management_team() 
+    {
+        $locations = Location::all();
+        $teams = Team::all();
+
+        return view('frontend.management_team', compact('locations','teams'));
     }
 
     public function press_release()
@@ -89,13 +101,6 @@ class HomeController extends Controller
         $locations = Location::all();
 
         return view('frontend.health_assessments', compact('locations'));
-    }
-
-    public function management_team() 
-    {
-        $locations = Location::all();
-
-        return view('frontend.management_team', compact('locations'));
     }
     
     public function mini_pharmacies()

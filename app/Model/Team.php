@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Team extends Model
 {
-    protected $fillable = ['title','description','media_id'];
+    protected $fillable = ['title','description','media_id','position'];
 
     public function media()
     {

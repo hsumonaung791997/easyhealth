@@ -69,20 +69,15 @@
                 </div>
             </div>
             <div class="container">
-                @foreach($teams as $team)
                 <div class="row">
-                    <?php
-                       $image = $team->media->file_path . '/' . $team->media->file_name;
-                    ?>
-                    <img src="{{ asset($image) }}" class="img-responsive" width="100%">
+                    <img src="{{ asset('frontend/img/medical-management.jpg') }}" class="img-responsive" width="100%">
                     <br>
-                    <p>{!! $team->description !!}</p>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </p>
                     <br> 
                     <center>
-                        <a href="#" class="btn-pink-box">Learn More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a>
+                        <a href="{{ url('management_team')}}" class="btn-pink-box">Learn More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a>
                     </center>
                 </div>
-                @endforeach
             </div>
         </section>
         <!-- /Section: team -->
@@ -109,12 +104,12 @@
                             <div class="box">
                                 <div>
                                     <div class="section-heading">
-                                        <h3 class="h-bold">Doctor Name</h3>
-                                        <h4>Position</h4>
+                                        <h3 class="h-bold">{{ $doctor->name }}</h3>
+                                        <h4>{{ $doctor->position }}</h4>
                                     </div>
                                 </div>
                                 <p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. 
+                                    {!! $doctor->description !!}
                                 </p>
                             </div>
                         </div>
@@ -123,38 +118,16 @@
                         <div class="wow fadeInRight" data-wow-delay="0.1s">
                             <div class="box text-center">
                                 <br><br>
-                                <img src="img/doctors2.png" class="img-responsive">
+                                <?php
+                                $image = $doctor->media->file_path .'/'. $doctor->media->file_name;
+                                ?>
+                                <img src="{{ asset($image) }}" class="img-responsive">
                             </div>
                         </div>
                     </div>
                     @endforeach
                 </div>
 
-                <div class="row paddingtop-50">
-                    <div class="col-sm-8 col-md-9">
-                        <div class="wow fadeInLeft" data-wow-delay="0.1s">
-                            <div class="box">
-                                <div>
-                                    <div class="section-heading">
-                                        <h3 class="h-bold">Doctor Name</h3>
-                                        <h4>Position</h4>
-                                    </div>
-                                </div>
-                                <p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. 
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4 col-md-3">
-                        <div class="wow fadeInRight" data-wow-delay="0.1s">
-                            <div class="box text-center">
-                                <br><br>
-                                <img src="img/doctors1.png" class="img-responsive">
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -174,16 +147,19 @@
             </div>
             <div class="container">
                 <div class="row">
+                    <?php $id = 0; ?>
+                    @foreach($values as $v)
                     <div class="col-md-4 col-sm-12 col-12 paddingtop-10">
                         <div class="serv-section-2">
                             <div class="serv-section-2-icon"> <i class="fa fa-line-chart" aria-hidden="true"></i>  </div>
                             <div class="serv-section-desc">
-                                <h4>01.</h4>
-                                <h5>Quality</h5> </div>
+                                <h4>{{ $id++ }}</h4>
+                                <h5>{{ $v->title }}</h5> </div>
                             <div class="section-heading-line-left"></div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-12 col-12 paddingtop-10">
+                    @endforeach
+                    <!-- <div class="col-md-4 col-sm-12 col-12 paddingtop-10">
                         <div class="serv-section-2 serv-section-2-act">
                             <div class="serv-section-2-icon serv-section-2-icon-act"> <i class="fa fa-comment-o" aria-hidden="true"></i> </div>
                             <div class="serv-section-desc">
@@ -202,9 +178,9 @@
                             <div class="section-heading-line-left"></div>
                             
                         </div>
-                    </div>
+                    </div> -->
                 </div>
-                <div class="row paddingtop-20">
+                <!-- <div class="row paddingtop-20">
                     <div class="col-md-4 col-sm-12 col-12 paddingtop-10">
                         <div class="serv-section-2">
                             <div class="serv-section-2-icon"> <i class="fa fa-cube" aria-hidden="true"></i> </div>
@@ -235,7 +211,7 @@
                             
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </section>
 

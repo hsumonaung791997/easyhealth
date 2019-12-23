@@ -224,7 +224,7 @@
                         <div id="carousel-reviews" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="item active">
-                                    @foreach($blogs as $key => $blog)
+                                    @foreach($blogs as $blog)
                                     <div class="col-md-4 col-sm-6">
                                         <div class="block-text rel zmin">
                                             <!-- <img src="http://bestjquery.com/tutorial/news-slider/demo19/images/img-1.jpg" alt=""> -->
@@ -263,17 +263,26 @@
                                         </div>
                                     </div> -->
                                 </div>
-                                <!-- <div class="item">
+                                <div class="item">
+                                    @foreach($blogs as $blog)
                                     <div class="col-md-4 col-sm-6">
                                         <div class="block-text rel zmin">
-                                            <img src="http://bestjquery.com/tutorial/news-slider/demo33/images/img-1.jpg" alt="">
+                                            <?php 
+                                            $image = $blog->media->file_path. '/' .$blog->media->file_name;
+                                            ?>
+                                            <img src="{{ asset($image) }}" alt="">
                                             <br>
-                                            <a title="" href="#">Latest News Post</a>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad magni, nesciunt obcaecati possimus quasi quibusdam quos ratione sequi sit veritatis....</p>
-                                            <a href="#" class="btn-pink-box">Read More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a>
+                                            <a title="" href="#">{{ $blog->title }}</a>
+                                            <p>{{ str_limit(strip_tags($blog->content), 100) }}
+                                                @if (strlen(strip_tags($blog->content)) > 100)
+                                                  ... 
+                                                @endif
+                                            </p>
+                                            <a href="{{ url($blog->id, 'blogs_detail') }}" class="btn-pink-box">Read More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a>
                                         </div>
                                     </div>
-                                    <div class="col-md-4 col-sm-6">
+                                    @endforeach
+                                    <!-- <div class="col-md-4 col-sm-6">
                                         <div class="block-text rel zmin">
                                             <img src="http://bestjquery.com/tutorial/news-slider/demo33/images/img-2.jpg" alt="">
                                             <br>
@@ -290,8 +299,8 @@
                                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad magni, nesciunt obcaecati possimus quasi quibusdam quos ratione sequi sit veritatis....</p>
                                             <a href="#" class="btn-pink-box">Read More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a>
                                         </div>
-                                    </div>
-                                </div> -->
+                                    </div> -->
+                                </div>
                             </div>
                             <a class="left carousel-control" href="#carousel-reviews" role="button" data-slide="prev">
                                 <span class="glyphicon glyphicon-chevron-left"></span>
@@ -299,6 +308,7 @@
                             <a class="right carousel-control" href="#carousel-reviews" role="button" data-slide="next">
                                 <span class="glyphicon glyphicon-chevron-right"></span>
                             </a>
+
                         </div>
                     </div>
                 </div>
