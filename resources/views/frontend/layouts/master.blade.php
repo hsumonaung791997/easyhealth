@@ -63,6 +63,27 @@
                                     </li>
                                 </ul>
                             </div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-md-3">
+                    <div class="wow fadeInDown" data-wow-delay="0.1s">
+                        <div class="widget" style="color: #fff;">
+                            <h5>Open Now</h5>
+                            <ul>
+                                <li>
+                                    <span class="glyphicon glyphicon-time"></span> Daily Open : 7am to 11pm
+                                </li>
+                                <br>
+                                <li>
+                                    <span class="glyphicon glyphicon-phone-alt"></span>  +959 772 317388
+                                </li>
+                                <br>
+                                <li>
+                                    <i class="fa fa-envelope"></i> easyhealth.mm@gmail.com
+                                </li>
+                            </ul>
+ 
                         </div>
                         <div class="wow fadeInDown" data-wow-delay="0.1s">
                             <div class="widget">
@@ -157,13 +178,7 @@
     <script src="{{ asset('frontend/js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('frontend/js/nivo-lightbox.min.js') }}"></script>
     <script src="{{ asset('frontend/js/custom.js') }}"></script>
-    <!-- Date Picker -->
-   <!--  <script>           
-        $('#dob').calendar();
-        $('#appointmentDate').calendar({
-            type: 'date'
-        });
-    </script>  -->
+    
     <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
     <!-- Booking Button -->
     <div class="log-in">

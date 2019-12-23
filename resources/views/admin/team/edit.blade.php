@@ -20,6 +20,15 @@
                                 </span>
                             @endif
                         </div>
+                        <div class="form-group col-sm-6 mmtext">
+                            {!! Form::label('position', 'Position:') !!} <span class="text-danger">*</span>
+                            {!! Form::text('position', null, ['class' => 'form-control']) !!}
+                            @if ($errors->has('position'))
+                                <span class="text-danger">
+                                    <strong>{{ $errors->first('position') }}</strong>
+                                </span>
+                            @endif
+                        </div>
                         <div class="form-group col-sm-6 mmtext pull-right">
                             {!! Form::label('description', 'Description:') !!} <span class="text-danger">*</span>
                             {!! Form::textarea('description', null, ['class' => 'editor']) !!}

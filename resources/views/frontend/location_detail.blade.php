@@ -1,10 +1,8 @@
 @extends('frontend.layouts.master')
 @section('content')
-
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
     <div id="wrapper">
         @include('frontend.layouts.nav')
-
         <!-- breadcrumbs -->
         <section class="intro ui-title-page">
             <img src="{{ asset('frontend/img/about-bg.png') }}" class="img-responsive">
@@ -17,9 +15,6 @@
                 </div>
             </div>
         </section>
-        
-
-
         <!-- Section: boxes -->
         <section class="home-section paddingtop-50 paddingbot-50">
             <div class="container">
@@ -54,13 +49,8 @@
             </div>
         </section>
         <!-- /Section: boxes -->
-
-
         <!-- Clinin Location -->
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3819.454131809791!2d96.1295201148683!3d16.803812288430848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c1eb4756c1c6bb%3A0x85dd6ec1eb58a8da!2zMTM5IOGAl-GArOGAuOGAgOGAm-GArOGAnOGAmeGAuuGAuCwg4YCb4YCU4YC64YCA4YCv4YCU4YC6!5e0!3m2!1smy!2smm!4v1575432711876!5m2!1smy!2smm" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-
- 
-
         <!-- Section: works -->
         <section class="home-section paddingbot-60">
             <div class="container marginbot-50">
@@ -76,7 +66,6 @@
                     </div>
                 </div>
             </div>
-
            <div class="container">
                 <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-12">
@@ -94,45 +83,7 @@
                 </div>
             </div>
         </section>
-        <!-- /Section: works -->
-
-        <!-- CLinic Center Locations -->
-        <section class="home-section paddingbot-60">
-            <div class="container marginbot-30">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="wow fadeInDown" data-wow-delay="0.1s">
-                            <div class="section-heading text-center">
-                                <h2 class="h-bold">Find a private GP near me</h2>
-                                <p>View our health centre pages below or call us for advice on +959 123456789</p>
-                            </div>
-                        </div>
-                        <i class="title-bg"></i>
-                    </div>
-                </div>
-            </div>
-             @include('frontend.locations')
-        </section>
-
-
-        <section class="home-section bg-gray paddingbot-60">
-            <div class="container marginbot-30">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="wow fadeInUp" data-wow-delay="0.1s">
-                            <div class="section-heading text-center">
-                                <h2 class="h-bold">What’s next?</h2>
-                                <h2 class="h-bold">Call us</h2>
-                                <p>For more information or to make a booking, please call us.</p>
-                                <i class="fa fa-phone fa-2x" aria-hidden="true"></i>
-                                <h2 class="h-bold">09 123456789</h2>
-                                <b>Open Daily 7am to 11pm</b>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        @include('frontend.locations')
     </div>
     <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
 </body>

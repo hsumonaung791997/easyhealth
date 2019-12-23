@@ -9,6 +9,9 @@ use App\Model\Location;
 use App\Model\Whyus;
 use App\Model\Doctor;
 use App\Model\Service;
+use App\Model\Partner;
+use App\Model\Team;
+use App\Model\ValueProposition;
 
 class HomeController extends Controller
 {
@@ -17,12 +20,47 @@ class HomeController extends Controller
         $locations = Location::all();
         $whyus = Whyus::where('status', 1)->first();
         $ourservices = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', NULL)->get();
-		return view('frontend.index', compact('locations', 'whyus','ourservices'));
+        $partners = Partner::all();
+        // $blogs = Blog::where('status', 1)->paginate(3);
+        $blogs = Blog::where('status', 1)->orderBy('id','DESC')->take(3)->get();
+        $slide = Blog::where('status', 1)->orderBy('id','ASC')->take(3)->get();
+        $whyus = Whyus::where('status', 1)->get();
+		return view('frontend.index', compact('whyus','blogs','locations','partners','slide', 'ourservices'));
 	}
+
+    public function whyus()
+    {
+        $locations = Location::all();
+        $whyus = Whyus::where('status', 1)->get();
+        // $teams = Team::all();
+        $doctors = Doctor::where('status', 1)->orderBy('id','DESC')->take(2)->get();
+        $values = ValueProposition::all();
+
+        return view('frontend.whyus', compact('locations', 'whyus', 'doctors','values'));
+    }
 
     public function appointment_form() 
     {
     	return view('frontend.appointment_form');
+    }
+
+    public function blogs_detail(Request $request, $id) 
+    {
+        $blog = Blog::find($id);
+        $health_details = Blog::orderBy('id', 'DESC')->where([
+                    ['type', '=', 18],
+                    ['status', '=', 1],
+                ])->take(3)->get();
+
+        return view('frontend.blogs_detail', compact('blog', 'health_details'));
+    }
+
+    public function management_team() 
+    {
+        $locations = Location::all();
+        $teams = Team::all();
+
+        return view('frontend.management_team', compact('locations','teams'));
     }
 
     public function press_release()
@@ -62,13 +100,6 @@ class HomeController extends Controller
 
         return view('frontend.health_assessments', compact('locations'));
     }
-
-    public function management_team() 
-    {
-        $locations = Location::all();
-
-        return view('frontend.management_team', compact('locations'));
-    }
     
     public function mini_pharmacies()
     {
@@ -89,15 +120,7 @@ class HomeController extends Controller
     	return view('frontend.privacy_policy');
     }
 
-    public function whyus()
-    {
-        $locations = Location::all();
-        $whyus = Whyus::where('status', 1)->first();
-        $doctors = Doctor::where('status', 1)->take(3)->get();
-
-    	return view('frontend.whyus', compact('locations', 'whyus', 'doctors'));
-    }
-
+    
     public function women_health($id)
     {
         $locations = Location::all();
