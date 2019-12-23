@@ -42,7 +42,7 @@
                             <tr>
                                 <td>{{ $index++ }}</td>
                                 <td>{!! $location->name !!}</td>
-                                <td>{!! $location->description !!}</td>
+                                <td>{!! $location->address !!}</td>
                                 <td>{!! $location->latitude !!}</td>
                                 <td>{!! $location->longitude !!}</td>
                                 <td>

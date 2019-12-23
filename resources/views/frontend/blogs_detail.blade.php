@@ -52,7 +52,7 @@
                     </div>  
                     <div class="col-lg-3 col-md-3 wow fadeInRight" data-wow-delay="0.2s">
                         <!-- Single Blog -->
-                        @foreach($health_details as $detail)
+                        @foreach($blog_details as $detail)
                             <div class="single-blog">
                                 <div class="blog-img">
                                     @if($detail->media_id != null)
@@ -71,7 +71,7 @@
                                             </ul>
                                         </div>
                                     </div>
-                                    <a href="{{ url($detail->id, 'blogs_detail') }}" class="box_btn">read more</a>
+                                    <a href="{{ url($detail->id, 'blogs_details') }}" class="box_btn">read more</a>
                                 </div>
                            </div>
                         @endforeach    

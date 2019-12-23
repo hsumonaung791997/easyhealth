@@ -9,7 +9,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-use DB;
 Route::get('/', function () {
     return view('welcome');
 });
@@ -19,7 +18,7 @@ Route::group(['namespace' => 'Frontend'], function() {
 	Route::get('/', 'HomeController@index')->name('frontend.index');
 	Route::get('appointment_form', 'HomeController@appointment_form')->name('frontend.appointment_form');
 	// Route::get('blogs_detail', 'HomeController@blogs_detail')->name('frontend.blogs_detail');
-	Route::get('{id}/blogs_detail', 'HomeController@blogs_detail')->name('frontend.blogs_detail');
+	Route::get('{id}/blogs_details', 'HomeController@blogs_details')->name('frontend.blogs_detail');
 	// Route::get('/', 'HomeController@locations')->name('frontend.index');
 	Route::get('{id}/press_release_details', 'HomeController@press_release_details')->name('frontend.press_release_details');
 	Route::get('blogs', 'HomeController@blogs')->name('frontend.blogs');
@@ -41,6 +40,10 @@ Route::group(['namespace' => 'Frontend'], function() {
 	Route::get('{id}/newsblog', 'HomeController@newsblog')->name('frontend.press_release');
 	Route::get('{id}/services', 'HomeController@services')->name('frontend.gp_services');
 	Route::get('{id}/location_detail', 'HomeController@location_detail')->name('frontend.location_detail');
+	Route::get('ourservices', 'HomeController@ourservices')->name('frontend.our_services');
+	Route::get('news_blogs', 'HomeController@newsblogs')->name('frontend.news_blogs');
+	Route::get('search_blogs', 'HomeController@search_blogs')->name('frontend.search_blogs');
+	Route::get('{id}/gp_services', 'HomeController@miniservices')->name('frontend.gp_services');
 });
 
 Route::group(['prefix'=>'admin'],function(){
@@ -61,87 +64,4 @@ Route::group(['prefix'=>'admin'],function(){
 		Route::resource('team', 'TeamController');
 		Route::resource('value', 'ValuePropositionController');
 	});
-});
-
-Route::get('test', function () {
-	return view('oop');
-});
- 
-Route::get('show-category', function() {
-	$result = DB::table('users')->get();
-	return $result;
-});
-
-Route::get('insert-category', function() {
-	DB::table('users')->insert([
-		['email' => 'john@example.com', 'name' => 'Aung Aung', 'email' => 'john@gmail.com',
-		'password' => '1234', 'remember_token' => '','created_at' => now(), 'updated_at' => now()],
-		['email' => 'koko@example.com', 'name' => 'Ko Ko', 'email' => 'ko@gmail.com',
-		'password' => '1234', 'remember_token' => '','created_at' => now(), 'updated_at' => now()]
-	]);
-});
-
-Route::get('update-category', function() {
-	DB::table('users')
-			->where('id', 1)
-            ->update(['name' => 'Hla Hla']);
-});
-
-Route::get('delete-category', function() {
-	DB::table('users')
-			// ->where('id', 13)->delete();
-			->where('id', '>', 2)->delete();
-});
-
-
-Route::get('show-data', function() {
-	$result = DB::table('categories')->get();
-	// $result = DB::table('categories')
- //                    ->whereNotIn('id', [5, 7])
- //                    ->get();
-	// $result = DB::table('categories')->count();
-	// $result = DB::table('categories')->where('name', 'test')->get();
-	// $result = DB::table('categories')->pluck('name');
-	// $result = DB::table('categories')->where('name','testing')->value('created_at');
-	// $result = DB::table('categories')->select('name as user_name')->get();
-	// $result = DB::table('categories')->where('name','test')->first();
-	// $result = DB::table('categories')->find(5);
-
-	return $result;
-	// return $result->id;
-	// return $result->name;
-});
-
-Route::get('insert-data', function() {
-	DB::table('categories')->insert([
-		['name'=>'testing','created_at'=>now(),'updated_at'=>now()],
-		['name'=>'test','created_at'=>now(),'updated_at'=>now()]
-	]);
-});
-
-Route::get('update-data', function() {
-	DB::table('categories')
-			->where('id', 1)
-			->update(['name' => 'Query Builder']);
-});
-
-Route::get('delete-data', function() {
-	DB::table('categories')
-			->where('id', 6)
-			->delete();
-});
-
-Route::get('join', function() {
-	$first = DB::table('users')
-            ->whereNotNull('name');
-
-	$users = DB::table('users')
-	            ->whereNotNull('email')
-	            ->union($first)
-	            ->get();
-	return $users;
-});
-
-Route::get('truncate', function() {
-	DB::table('categories')->truncate();
 });

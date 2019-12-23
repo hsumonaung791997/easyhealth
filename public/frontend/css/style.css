@@ -103,102 +103,45 @@ html {
 .serv-section-2:hover:before {
     background: #EB72A5;
 }
-
-.bg-warm-grey {
-    background-color: #e5f2f9;
-    color: #333!important;
-    padding: 15px;
-}
-.bg-warm-grey span{
-  color: #333;
-}
-.bg-warm-grey h3{
-  color: #333;
-}
-.bg-warm-grey p{
-  font-size: 14px;
-  text-align: justify;
-  color: #333;
-}
-.bg-lightblue-new {
+.bg-colour-0 {
     background-color: #A0D5D7;
     color: #fff !important;
     padding: 15px;
 }
-.bg-lightblue-new span{
-  color: #fff;
+.bg-colour-0 p{
+    color: #fff !important;
 }
-.bg-lightblue-new h2{
-  color: #fff;
-}
-.bg-lightblue-new p{
-  font-size: 14px;
-  text-align: justify;
-}
-.bg-pink {
+.bg-colour-1 {
     background-color: #EB72A5;
     color: #333!important;
     padding: 15px;
 }
-.bg-pink span{
-  color: #fff;
-}
-.bg-pink p{
-  color: #fff;
-  font-size: 14px;
-}
-.bg-pink h3{
-  color: #fff;
-}
-
-.bg-ebony {
-    background-color: #5E5E5E;
+.bg-colour-1 span,.bg-colour-1 h3, .bg-colour-1 p {
     color: #fff !important;
-    padding: 15px;
 }
-.bg-ebony span {
-  color: #fff;
-}
-.bg-ebony p{
-  color: #fff;
-  font-size: 14px;
-}
-.bg-ebony h3{
-  color: #fff;
-}
-
-.bg-pink-orange {
+.bg-colour-2 {
     background-color: #FF8C61;
     color: #fff !important;
     padding: 15px;
 }
-.bg-pink-orange span {
-  color: #fff;
+.bg-colour-3 {
+    background-color: #e5f2f9;
+    color: #333!important;
+    padding: 15px;
 }
-.bg-pink-orange p{
-  color: #fff;
-  font-size: 14px;
+.bg-colour-4 {
+    background-color: #5E5E5E;
+    color: #fff !important;
+    padding: 15px;
 }
-.bg-pink-orange h3{
-  color: #fff;
-}
-
-.bg-midnight {
+.bg-colour-5 {
     background-color: #7A306C;
     color: #fff !important;
     padding: 15px;
 }
-.bg-midnight span {
-  color: #fff;
+.svbox {
+  padding-bottom: 30px;
 }
-.bg-midnight p{
-  color: #fff;
-  font-size: 14px;
-}
-.bg-midnight h3{
-  color: #fff;
-}
-
 p{
 	line-height: 2em !important;
   font-size: 16px;
