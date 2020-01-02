@@ -22,21 +22,21 @@
         <section class="home-section paddingbot-50">
             <div class="container">
                 <div class="row">
-                    @foreach($gp_services as $gp_service)
+                     
                     <div class="wow fadeInUp" data-wow-delay="0.2s">
                         <div class="col-sm-12 col-md-12 text-center paddingbot-50">
                             <div class="wow fadeInDown" data-wow-delay="0.1s">
                                 <div class="section-heading">
-                                    <h2 class="h-bold">{{ $gp_service->title }}</h2>
+                                    <h2 class="h-bold">{{ $ourservices->title }}</h2>
                                 </div>
                                 <i class="title-bg"></i>
                             </div>
                             <p class="wow fadeInUp" data-wow-delay="0.1s">
-                                {!! $gp_service->description !!}
+                                {!! $ourservices->description !!}
                             </p>
                         </div>
                     </div>
-                    @endforeach
+                    
                 </div>
                 <div class="row">
                     <div class="col-sm-6 col-md-6 gp-frame-left paddingbot-20 paddingtop-20 wow fadeInLeft" data-wow-delay="0.2s">
@@ -80,65 +80,29 @@
                         </div>
                     </div>
 
-                    @foreach($gp_modules as $gp_module)
+                    @foreach($miniservices as $miniservice)
                     <div class="col-sm-3 col-md-3">
                         <div class="wow fadeInLeft" data-wow-delay="0.2s">
                             <div class="box text-center">
-                                <?php
-                                    $image = $gp_module->media->file_path . '/' . $gp_module->media->file_name;
+                                 <?php
+                                    $image = $miniservice->media->file_path . '/' . $miniservice->media->file_name;
                                 ?>
-                                <img src="{{ asset($image) }}" style="width: 95%; height: 35%;">
-                                <h4 class="h-bold">{{ $gp_module->title }}</h4>
+                                <img src="{{ asset($image) }}" style="width: 95%; height: 35%;">                      
+                                <h4 class="h-bold">{{ $miniservice->title }}</h4>
                                 <i class="title-bg"></i>
-                                <!-- <p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                                </p>
-                                <a href="{{ url('women_health') }}" class="btn btn-skin btn-lg">View More</a> -->
                                 <p>
-                                    {{ str_limit(strip_tags($gp_module->description), 80) }}
-                                    @if (strlen(strip_tags($gp_module->content)) > 80)
+                                    {{ str_limit(strip_tags($miniservice->description), 80) }}
+                                    @if (strlen(strip_tags($miniservice->content)) > 80)
                                       ... 
                                       
                                     @endif
                                 </p>
-                                <a href="{{ url($gp_module->id, 'menhealth_detail') }}" class="btn btn-skin btn-lg">view more</a>
+                                <a href="#" class="btn btn-skin btn-lg">View More</a>
                             </div>
                         </div>
                     </div>
                     @endforeach
-                    <!-- <div class="col-sm-3 col-md-3">
-                        <div class="wow fadeInLeft" data-wow-delay="0.2s">
-                            <div class="box text-center">
-                                <img src="{{ asset('frontend/img/men-health.png') }}" class="img-responsive">                           
-                                <h4 class="h-bold">Men's Health </h4>
-                                <i class="title-bg"></i>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                <a href="{{ url('men_health') }}" class="btn btn-skin btn-lg">View More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-md-3">
-                        <div class="wow fadeInLeft" data-wow-delay="0.2s">
-                            <div class="box text-center">
-                                <img src="{{ asset('frontend/img/mental-health.png') }}" class="img-responsive">
-                                <h4 class="h-bold">Mental Health</h4>
-                                <i class="title-bg"></i>
-                                <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry.  </p>
-                                <a href="#" class="btn btn-skin btn-lg">View More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-md-3">
-                        <div class="wow fadeInLeft" data-wow-delay="0.2s">
-                            <div class="box text-center">
-                                <img src="{{ asset('frontend/img/men-health.png') }}" class="img-responsive">                           
-                                <h4 class="h-bold">Men's Health </h4>
-                                <i class="title-bg"></i>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.  </p>
-                                <a href="#" class="btn btn-skin btn-lg">View More</a>
-                            </div>
-                        </div>
-                    </div> -->
+                   
                 </div>
             </div>
         </section>

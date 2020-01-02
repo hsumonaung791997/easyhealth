@@ -19,7 +19,7 @@ Route::group(['namespace' => 'Frontend'], function() {
 	Route::get('/', 'HomeController@index')->name('frontend.index');
 	Route::get('appointment_form', 'HomeController@appointment_form')->name('frontend.appointment_form');
 	// Route::get('blogs_detail', 'HomeController@blogs_detail')->name('frontend.blogs_detail');
-	Route::get('{id}/blogs_detail', 'HomeController@blogs_detail')->name('frontend.blogs_detail');
+	Route::get('{id}/blogs_details', 'HomeController@blogs_details')->name('frontend.blogs_detail');
 	// Route::get('/', 'HomeController@locations')->name('frontend.index');
 	Route::get('{id}/press_release_details', 'HomeController@press_release_details')->name('frontend.press_release_details');
 	Route::get('blogs', 'HomeController@blogs')->name('frontend.blogs');
@@ -41,6 +41,10 @@ Route::group(['namespace' => 'Frontend'], function() {
 	Route::get('{id}/newsblog', 'HomeController@newsblog')->name('frontend.press_release');
 	Route::get('{id}/services', 'HomeController@services')->name('frontend.gp_services');
 	Route::get('{id}/location_detail', 'HomeController@location_detail')->name('frontend.location_detail');
+	Route::get('ourservices', 'HomeController@ourservices')->name('frontend.our_services');
+	Route::get('news_blogs', 'HomeController@newsblogs')->name('frontend.news_blogs');
+	Route::get('search_blogs', 'HomeController@search_blogs')->name('frontend.search_blogs');
+	Route::get('{id}/gp_services', 'HomeController@miniservices')->name('frontend.gp_services');
 });
 
 Route::group(['prefix'=>'admin'],function(){
@@ -62,4 +66,3 @@ Route::group(['prefix'=>'admin'],function(){
 		Route::resource('value', 'ValuePropositionController');
 	});
 });
-

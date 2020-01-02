@@ -5,6 +5,9 @@ define("STATUS_ACTIVE", 1);
 define("STATUS_INACTIVE", 0);
 define("STATUS_PENDING", 2);
 
+define("ADMIN", 1);
+define("PATIENT", 2);
+
 define("MALE", 1);
 define("FEMALE", 0);
 

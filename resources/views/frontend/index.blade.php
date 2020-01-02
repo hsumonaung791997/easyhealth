@@ -87,83 +87,25 @@
                             <img src="{{ asset('frontend/img/medical-services.png') }}" class="img-responsive" alt="" />
                         </div>
                     </div>
+                     @foreach($ourservices as $ourservice)
                     <div class="col-sm-4 col-md-4">
+                       
                         <div class="wow fadeInLeft" data-wow-delay="0.1s">
                             <div class="service-box">
                                 <div class="service-icon">
                                 <span class="fa fa-stethoscope fa-3x"></span>
                             </div>
                             <div class="service-desc">
-                                <h5 class="h-light">Private GP Services</h5>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.  </p>
-                                <a href="#"> Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="wow fadeInLeft" data-wow-delay="0.2s">
-                        <div class="service-box">
-                            <div class="service-icon">
-                                <span class="fa fa-wheelchair fa-3x"></span>
-                            </div>
-                            <div class="service-desc">
-                                <h5 class="h-light">Mini Pharmacies</h5>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.  </p>
-                                <a href="#"> Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="wow fadeInLeft" data-wow-delay="0.3s">
-                        <div class="service-box">
-                            <div class="service-icon">
-                                <span class="fa fa-plus-square fa-3x"></span>
-                            </div>
-                            <div class="service-desc">
-                                <h5 class="h-light">Health Screenings and Diagnostics</h5>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.  </p>
-                                <a href="#"> Read More</a>
+                                <h5 class="h-light">{{ $ourservice->title }}</h5>
+                                <p> {{ str_limit(strip_tags($ourservice->description), 80) }}
+                                @if (strlen(strip_tags($ourservice->description)) > 80)
+                                @endif  </p>
+                                 <a href="#"> Read More</a>                      
                             </div>
                         </div>
                     </div>
                 </div> 
-                <div class="col-sm-4 col-md-4">
-                    <div class="wow fadeInRight" data-wow-delay="0.1s">
-                        <div class="service-box">
-                            <div class="service-icon">
-                                <span class="fa fa-h-square fa-3x"></span>
-                            </div>
-                            <div class="service-desc">
-                                <h5 class="h-light">Home Services</h5>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.  </p>
-                                <a href="#"> Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="wow fadeInRight" data-wow-delay="0.2s">
-                        <div class="service-box">
-                            <div class="service-icon">
-                                <span class="fa fa-filter fa-3x"></span>
-                            </div>
-                            <div class="service-desc">
-                                <h5 class="h-light">Telemedicine Services</h5>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.  </p>
-                                <a href="#"> Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="wow fadeInRight" data-wow-delay="0.3s">
-                        <div class="service-box">
-                            <div class="service-icon">
-                                <span class="fa fa-user-md fa-3x"></span>
-                            </div>
-                            <div class="service-desc">
-                                <h5 class="h-light">Corporate B2B Healthcare</h5>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.  </p>
-                                <a href="#"> Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                  </div>
-                </div>
+                  @endforeach
             </div>
         </section>
         <section class="home-section paddingbot-60">
@@ -263,44 +205,7 @@
                                         </div>
                                     </div> -->
                                 </div>
-                                <div class="item">
-                                    @foreach($blogs as $blog)
-                                    <div class="col-md-4 col-sm-6">
-                                        <div class="block-text rel zmin">
-                                            <?php 
-                                            $image = $blog->media->file_path. '/' .$blog->media->file_name;
-                                            ?>
-                                            <img src="{{ asset($image) }}" alt="">
-                                            <br>
-                                            <a title="" href="#">{{ $blog->title }}</a>
-                                            <p>{{ str_limit(strip_tags($blog->content), 100) }}
-                                                @if (strlen(strip_tags($blog->content)) > 100)
-                                                  ... 
-                                                @endif
-                                            </p>
-                                            <a href="{{ url($blog->id, 'blogs_detail') }}" class="btn-pink-box">Read More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a>
-                                        </div>
-                                    </div>
-                                    @endforeach
-                                    <!-- <div class="col-md-4 col-sm-6">
-                                        <div class="block-text rel zmin">
-                                            <img src="http://bestjquery.com/tutorial/news-slider/demo33/images/img-2.jpg" alt="">
-                                            <br>
-                                            <a title="" href="#">Latest News Post</a>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad magni, nesciunt obcaecati possimus quasi quibusdam quos ratione sequi sit veritatis....</p>
-                                            <a href="#" class="btn-pink-box">Read More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-6">
-                                        <div class="block-text rel zmin">
-                                            <img src="http://bestjquery.com/tutorial/news-slider/demo33/images/img-3.jpg" alt="">
-                                            <br>
-                                            <a title="" href="#">Latest News Post</a>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad magni, nesciunt obcaecati possimus quasi quibusdam quos ratione sequi sit veritatis....</p>
-                                            <a href="#" class="btn-pink-box">Read More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a>
-                                        </div>
-                                    </div> -->
-                                </div>
+                                 
                             </div>
                             <a class="left carousel-control" href="#carousel-reviews" role="button" data-slide="prev">
                                 <span class="glyphicon glyphicon-chevron-left"></span>
