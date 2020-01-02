@@ -18,7 +18,7 @@
                     <div class="hero">
                         <hgroup>
                             <h1>Private GP services</h1> <br><br>    
-                            <center><a href="#" class="btn-white-box ">Learn More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a></center>
+                            <center><a href="{{ url('gp_services') }}" class="btn-white-box ">Learn More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a></center>
                         </hgroup>     
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                         <hgroup>
                             <h1>Health screenings and diagnostics</h1>        
                             <br><br>    
-                            <center><a href="#" class="btn-white-box ">Learn More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a></center>
+                            <center><a href="{{ url('health_assessments') }}" class="btn-white-box ">Learn More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a></center>
                         </hgroup>            
                     </div>
                 </div>
@@ -38,7 +38,7 @@
                         <hgroup>
                             <h1>Mini Pharmacy</h1>        
                             <br><br>    
-                            <center><a href="#" class="btn-white-box ">Learn More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a></center>
+                            <center><a href="{{ url('mini_pharmacies') }}" class="btn-white-box ">Learn More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a></center>
                         </hgroup>
                     </div>
                 </div>

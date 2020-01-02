@@ -23,11 +23,8 @@ class HomeController extends Controller
         $blogs = Blog::where('status', 1)->orderBy('id','DESC')->take(3)->get();
         $slide = Blog::where('status', 1)->orderBy('id','ASC')->take(3)->get();
         $whyus = Whyus::where('status', 1)->get();
-        $services = Service::where([
-            ['status', 1],
-            ['parent', NULL] 
-        ])->get();
-		return view('frontend.index', compact('whyus','blogs','locations','partners','slide','services'));
+
+		return view('frontend.index', compact('whyus','blogs','locations','partners','slide'));
 	}
 
     public function whyus()
