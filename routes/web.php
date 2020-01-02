@@ -19,7 +19,7 @@ Route::group(['namespace' => 'Frontend'], function() {
 	Route::get('/', 'HomeController@index')->name('frontend.index');
 	Route::get('appointment_form', 'HomeController@appointment_form')->name('frontend.appointment_form');
 	// Route::get('blogs_detail', 'HomeController@blogs_detail')->name('frontend.blogs_detail');
-	Route::get('{id}/blogs_details', 'HomeController@blogs_details')->name('frontend.blogs_detail');
+	Route::get('{id}/blogs_detail', 'HomeController@blogs_details')->name('frontend.blogs_detail');
 	// Route::get('/', 'HomeController@locations')->name('frontend.index');
 	Route::get('{id}/press_release_details', 'HomeController@press_release_details')->name('frontend.press_release_details');
 	Route::get('blogs', 'HomeController@blogs')->name('frontend.blogs');

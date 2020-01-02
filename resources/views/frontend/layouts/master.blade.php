@@ -42,7 +42,7 @@
             </div>
         </div>
     </section>
-     <footer>
+        <footer>
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6 col-md-3">
@@ -63,27 +63,6 @@
                                     </li>
                                 </ul>
                             </div>
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6 col-md-3">
-                    <div class="wow fadeInDown" data-wow-delay="0.1s">
-                        <div class="widget" style="color: #fff;">
-                            <h5>Open Now</h5>
-                            <ul>
-                                <li>
-                                    <span class="glyphicon glyphicon-time"></span> Daily Open : 7am to 11pm
-                                </li>
-                                <br>
-                                <li>
-                                    <span class="glyphicon glyphicon-phone-alt"></span>  +959 772 317388
-                                </li>
-                                <br>
-                                <li>
-                                    <i class="fa fa-envelope"></i> easyhealth.mm@gmail.com
-                                </li>
-                            </ul>
- 
                         </div>
                         <div class="wow fadeInDown" data-wow-delay="0.1s">
                             <div class="widget">
@@ -148,7 +127,7 @@
                         <div class="col-sm-4 col-md-4 col-lg-4">
                             <div class="wow fadeInLeft" data-wow-delay="0.1s">
                                 <div class="text-left">
-                                    <p><img src="{{ asset('frontend/img/footer-eh-logo.png') }}"></p>
+                                    <p><img src="{{ asset('img/footer-eh-logo.png') }}"></p>
                                 </div>
                             </div>
                         </div>

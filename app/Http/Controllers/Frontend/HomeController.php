@@ -208,5 +208,4 @@ class HomeController extends Controller
         return $blogs;
     }
 
-
 }

@@ -219,7 +219,7 @@
                 </div>
             </div>
         </section>
-        @include('frontend.locations')
+
     </div> 
 </body>
 @endsection
