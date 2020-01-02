@@ -9,9 +9,7 @@
             <div class="breadcrumbs-title">
                 <div class="container">
                     <div class="wow fadeInDown" data-wow-delay="0.1s">
-                        @foreach($hs_modules->slice(0, 1) as $hs)
-                        <h1>{{ $hs->title }} </h1>
-                        @endforeach
+                        <h1>Health Core</h1>
                     </div>
                 </div>
             </div>
@@ -28,14 +26,11 @@
                                     <li>
                                         <a href=""><b class="h-bold">Health assessments</b></a>
                                     </li>
+                                    @foreach($hs_li as $h)
                                     <li>
-                                        @foreach($hs_modules as $hs_module)
-                                        <a href="">
-                                            <i class="fa fa-caret-right" aria-hidden="true"></i> <span class="title">
-                                                {{ $hs_module->title }}   
-                                            </span>
+                                        <a href="#">
+                                            <i class="fa fa-caret-right" aria-hidden="true"></i> <span class="title">{{ $h->title }}</span>
                                         </a>
-                                        @endforeach
                                     </li>
                                     <!-- <li>
                                         <a href="#">
@@ -67,21 +62,20 @@
                                             <i class="fa fa-caret-right" aria-hidden="true"></i> <span class="title">Health Focus</span>
                                         </a>
                                     </li> -->
+                                    @endforeach
                                 </ul>   
                             </nav>    
                         </div>
-                        @foreach($hs_modules->slice(0, 1) as $hs)
                         <div class="col-sm-8 col-md-8 paddingbot-30 wow fadeInLeft" data-wow-delay="0.1s">
-                            <h4 class="h-bold">Our {{ $hs->title }} provides a key set of tests and measures to give you a view on your current health and any future health risks.</h4>
+                            <h4 class="h-bold">Our Health Core assessment provides a key set of tests and measures to give you a view on your current health and any future health risks.</h4>
                             <p>
-                                {!! $hs->description !!}
-                                <!-- Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. -->
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                 
                             </p>
                             <br>
                             <h4 class="h-bold">Ask us a question on +959 123456789</h4>
                             <a href="#" class="ph-call-btn btn btn-lg ">CALL NOW</a>
                         </div>
-                        @endforeach
                     </div> 
                 </div>
             </div>
@@ -112,8 +106,6 @@
                 </div>
             </div>
         </section>
-
-
         <section class="home-section paddingbot-60">
             <div class="container">
                 <div class="row">
@@ -162,11 +154,6 @@
             </div>
         </section>
         <hr>
-
-        <!-- CLinic Center Locations -->
-        @include('frontend.locations')
-
-
         <section class="home-section bg-gray paddingbot-60">
             <div class="container marginbot-30">
                 <div class="row">
@@ -185,8 +172,6 @@
                 </div>
             </div>
         </section>
-
     </div>
-    <!-- Core JavaScript Files --> 
 </body>
 @endsection

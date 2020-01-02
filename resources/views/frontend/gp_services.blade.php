@@ -4,8 +4,6 @@
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
     <div id="wrapper">
         @include('frontend.layouts.nav')
-
-        <!-- breadcrumbs -->
         <section class="intro ui-title-page">
             <img src="{{ asset('frontend/img/services-details.png') }}" class="img-responsive" width="100%">
             <div class="breadcrumbs-title">
@@ -17,12 +15,9 @@
                 </div>
             </div>
         </section>
-
-        <!-- Section: boxes -->
         <section class="home-section paddingbot-50">
             <div class="container">
-                <div class="row">
-                     
+                <div class="row">     
                     <div class="wow fadeInUp" data-wow-delay="0.2s">
                         <div class="col-sm-12 col-md-12 text-center paddingbot-50">
                             <div class="wow fadeInDown" data-wow-delay="0.1s">
@@ -35,12 +30,10 @@
                                 {!! $ourservices->description !!}
                             </p>
                         </div>
-                    </div>
-                    
+                    </div>    
                 </div>
                 <div class="row">
-                    <div class="col-sm-6 col-md-6 gp-frame-left paddingbot-20 paddingtop-20 wow fadeInLeft" data-wow-delay="0.2s">
-                         
+                    <div class="col-sm-6 col-md-6 gp-frame-left paddingbot-20 paddingtop-20 wow fadeInLeft" data-wow-delay="0.2s">     
                         <div class="section-heading">
                             <h4 class="h-bold">How to book a GP Services</h4>
                             <br><br>
@@ -49,10 +42,8 @@
                             <h4 class="h-bold"><i class="fa fa-phone" aria-hidden="true"></i> 09 123456789</h4>
                             <p>For more information or to make a booking, please call us.</p>
                             <p><b>Lines are open Daily 7am to 11pm</b></p>
-                        </div>
-                         
+                        </div>     
                     </div>
-
                     <div class="col-sm-6 col-md-6 gp-frame-right paddingbot-20 paddingtop-20 gp-frame wow fadeInRight" data-wow-delay="0.2s">
                         <h4 class="h-bold">Why should I choose private GP services with easy health?</h4>
                         <br>
@@ -63,14 +54,11 @@
                                 <li> All of our costs are up front so you’ll have no hidden surprises </li>
                                 <li> You can book your appointment online or via a dedicated telephone booking team at a time convenient to you </li>
                                 <li> We have experienced doctors and offer a high quality and professional service </li>
-                                <li> Our customers love our service </li>
-                                 
-                            </ul>
-                            
+                                <li> Our customers love our service </li>                 
+                            </ul>    
                         </p>  
                     </div>
                 </div>
-
                 <div class="row paddingtop-50">
                     <div class="wow fadeInDown" data-wow-delay="0.1s">
                         <div class="section-heading text-center paddingbot-50">
@@ -79,7 +67,6 @@
                             <i class="title-bg"></i>
                         </div>
                     </div>
-
                     @foreach($miniservices as $miniservice)
                     <div class="col-sm-3 col-md-3">
                         <div class="wow fadeInLeft" data-wow-delay="0.2s">
@@ -97,17 +84,14 @@
                                       
                                     @endif
                                 </p>
-                                <a href="#" class="btn btn-skin btn-lg">View More</a>
+                                <a href="{{ url($miniservice->id, 'gp_detail')}}" class="btn btn-skin btn-lg">View More</a>
                             </div>
                         </div>
                     </div>
-                    @endforeach
-                   
+                    @endforeach   
                 </div>
             </div>
         </section>
-        <!-- /Section: boxes -->
-
         <section class="home-section bg-gray paddingbot-60">
             <div class="container marginbot-30">
                 <div class="row">
@@ -122,7 +106,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-12">
@@ -140,11 +123,6 @@
                 </div>
             </div>
         </section>
-
-
-        <!-- CLinic Center Locations -->
-        @include('frontend.locations')
-
         <section class="home-section bg-gray paddingbot-60">
             <div class="container marginbot-30">
                 <div class="row">
@@ -163,9 +141,7 @@
                 </div>
             </div>
         </section>
-
-    </div>
-    
+    </div> 
 </body>
 @endsection
 </html>

@@ -71,7 +71,7 @@
                                             </ul>
                                         </div>
                                     </div>
-                                    <a href="{{ url($detail->id, 'blogs_details') }}" class="box_btn">read more</a>
+                                    <a href="{{ url($detail->id, 'blogs_detail') }}" class="box_btn">read more</a>
                                 </div>
                            </div>
                         @endforeach    

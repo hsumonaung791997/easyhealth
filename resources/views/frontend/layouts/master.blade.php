@@ -68,7 +68,7 @@
                             <div class="widget">
                                 <h5>Follow us</h5>
                                 <ul class="company-social">
-                                    <li class="social-facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li class="social-facebook"><a href="https://www.facebook.com/easyhealthmyanmar"><i class="fa fa-facebook"></i></a></li>
                                     <li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
                                     <li class="social-google"><a href="#"><i class="fa fa-google-plus"></i></a></li>
                                 </ul>
@@ -80,10 +80,10 @@
                             <div class="widget" style="color: #fff;">
                                 <h5>Our Services</h5>
                                 <ul>
-                                    <li><a href="gp-services.html"><i class="fa fa-caret-right" aria-hidden="true"></i> Private GP services </a></li>
-                                    <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Mini pharmacies </a></li>
-                                    <li><a href="health-assessments.html"><i class="fa fa-caret-right" aria-hidden="true"></i> Health screenings and diagnostics </a></li>
-                                    <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Home services</a></li>
+                                    <li><a href="ourservices"><i class="fa fa-caret-right" aria-hidden="true"></i> Private GP services </a></li>
+                                    <li><a href="mini_pharmacies"><i class="fa fa-caret-right" aria-hidden="true"></i> Mini pharmacies </a></li>
+                                    <li><a href="health_assessments"><i class="fa fa-caret-right" aria-hidden="true"></i> Health screenings and diagnostics </a></li>
+                                    <li><a href="our_services"><i class="fa fa-caret-right" aria-hidden="true"></i> Home services</a></li>
                                     <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Telemedicine services</a></li>
                                     <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Corporate B2B healthcare</a></li>
                                 </ul>
@@ -95,12 +95,12 @@
                             <div class="widget">
                                 <h5>Corporate Info</h5>
                                 <ul>
-                                    <li><a href="contact.html"><i class="fa fa-caret-right" aria-hidden="true"></i> Our Locations</a></li>
-                                    <li><a href="our-doctors.html"><i class="fa fa-caret-right" aria-hidden="true"></i> Our Doctors </a></li>
+                                    <li><a href="contact"><i class="fa fa-caret-right" aria-hidden="true"></i> Our Locations</a></li>
+                                    <li><a href="our_doctor"><i class="fa fa-caret-right" aria-hidden="true"></i> Our Doctors </a></li>
 
-                                    <li><a href="whyus.html"><i class="fa fa-caret-right" aria-hidden="true"></i> Company Profile </a></li>
-                                    <li><a href="management-team.html"><i class="fa fa-caret-right" aria-hidden="true"></i> Management Team</a></li>
-                                    <li><a href="privacy-policy.html"><i class="fa fa-caret-right" aria-hidden="true"></i> Privacy Poilcy </a></li>
+                                    <li><a href="whyus"><i class="fa fa-caret-right" aria-hidden="true"></i> Company Profile </a></li>
+                                    <li><a href="management_team"><i class="fa fa-caret-right" aria-hidden="true"></i> Management Team</a></li>
+                                    <li><a href="privacy_policy"><i class="fa fa-caret-right" aria-hidden="true"></i> Privacy Poilcy </a></li>
                                 </ul>
                             </div>
                         </div>
@@ -111,8 +111,8 @@
                             <div class="widget" style="color: #fff;">
                                 <h5>News Blog</h5>
                                 <ul>
-                                    <li><a href="press-release.html"><i class="fa fa-caret-right" aria-hidden="true"></i> Press Releases</a></li>
-                                    <li><a href="blogs.html"><i class="fa fa-caret-right" aria-hidden="true"></i> Health Blogs </a></li>
+                                    <li><a href="news_blogs"><i class="fa fa-caret-right" aria-hidden="true"></i> Press Releases</a></li>
+                                    <li><a href="new_blogs"><i class="fa fa-caret-right" aria-hidden="true"></i> Health Blogs </a></li>
                                 </ul>
                             </div>
                         </div>
@@ -127,7 +127,7 @@
                         <div class="col-sm-4 col-md-4 col-lg-4">
                             <div class="wow fadeInLeft" data-wow-delay="0.1s">
                                 <div class="text-left">
-                                    <p><img src="{{ asset('img/footer-eh-logo.png') }}"></p>
+                                    <p><img src="{{ asset('frontend/img/footer-eh-logo.png') }}"></p>
                                 </div>
                             </div>
                         </div>

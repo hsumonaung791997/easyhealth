@@ -1,16 +1,22 @@
 @extends('frontend.layouts.master')
 @section('content')
+
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
     <div id="wrapper">
         @include('frontend.layouts.nav')
 
         <!-- breadcrumbs -->
+
         <section class="intro ui-title-page">
-            <img src="{{ asset('frontend/img/medical-banner.png') }}" class="img-responsive" width="100%">
+            <?php
+                $image = $detail->media->file_path . '/' . $detail->media->file_name;
+            ?>
+            <img src="{{ asset($image) }}"  class="img-responsive" width="100%">
+            <!-- <img src="{{ asset('frontend/img/men-health-title.png') }}" class="img-responsive" width="100%"> -->
             <div class="breadcrumbs-title">
                 <div class="container">
                     <div class="wow fadeInDown" data-wow-delay="0.1s">
-                        <h1>Mini Pharmacies </h1>
+                        <h1>{{ $detail->title }}</h1>
                         <div class="ui-subtitle-page">Easy Health - Myanmar’s First & Only Convenient-Care Clinic Chain</div>
                     </div>
                 </div>
@@ -25,9 +31,10 @@
                     <div>
                         <div class="col-sm-9 col-md-9 paddingbot-30 wow fadeInLeft" data-wow-delay="0.1s">
                             <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                {!! $detail->description !!}
+                                <!-- Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                                 <br>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, 
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,  -->
                             </p>
                         </div>
                         <div class="col-sm-3 col-md-3 text-center paddingbot-50 wow fadeInRight" data-wow-delay="0.2s">
@@ -43,6 +50,7 @@
                 </div>
             </div>
         </section>
+     
         <!-- /Section: boxes -->
 
         <section class="home-section bg-gray paddingbot-60">
@@ -70,23 +78,21 @@
                 </div>
             </div>
         </section>
-
-
         <section id="boxes" class="home-section paddingtop-50 paddingbot-50">
             <div class="container">
-                <div class="row">
-                    <div>
+                <div class="row">    
+                    <div>   
                         <div class="col-sm-7 col-md-7 paddingbot-30 wow fadeInLeft" data-wow-delay="0.1s">
                             <h3 class="h-bold">{{ $hs->title }}</h3>
                             <p>
                                 {!! $hs->description !!}
                             </p>
                             <br>
-                            <a href="{{ url($hs->id, 'health_assessments') }}" class="btn btn-skin btn-lg">Learn more</a>
+                            <a href="{{ url($hs->id, 'health_assessments')}}" class="btn btn-skin btn-lg">Learn more</a>
                         </div>
                         <div class="col-sm-5 col-md-5 text-center paddingtop-30 paddingbot-50 wow fadeInRight" data-wow-delay="0.2s">
                             <?php
-                            $image = $hs->media->file_path .'/' .$hs->media->file_name; 
+                            $image = $hs->media->file_path. '/' .$hs->media->file_name;
                             ?>
                             <img src="{{ asset($image) }}" class="img-responsive">
                         </div>
@@ -96,7 +102,6 @@
         </section>
         <hr>
         <!-- CLinic Center Locations -->
-        @include('frontend.locations')
 
         <section class="home-section bg-gray paddingbot-60">
             <div class="container marginbot-30">
