@@ -52,6 +52,15 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="form-group col-sm-6 mmtext">
+                            {!! Form::label('phone', 'Phone:') !!} <span class="text-danger">*</span>
+                                {!! Form::text('phone', null, ['class' => 'form-control']) !!}
+                                @if ($errors->has('phone'))
+                                    <span class="text-danger">
+                                        <strong>{{ $errors->first('phone') }}</strong>
+                                    </span>
+                                @endif
+                        </div>
                         <div class="form-group col-sm-6 mmtext pull-right">
                             {!! Form::label('description', 'Description:') !!} <span class="text-danger">*</span>
                             <textarea id="description" class="editor" name="description" rows="10" cols="50"></textarea>

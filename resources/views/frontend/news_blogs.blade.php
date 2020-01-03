@@ -56,7 +56,7 @@
                                             @if (strlen(strip_tags($newsblog->content)) > 200)
                                                 <a href="#" class="btn-white-box ">Learn More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a>
                                             @endif</p>
-                                            <a href="{{url($newsblog->id, 'blogs_detail')}}" class="btn-pink-box">Read More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a>
+                                            <a href="{{ url($newsblog->id, 'blogs_detail') }}" class="btn-pink-box">Read More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a>
                                         </div>
                                     </div>
                                 </div>

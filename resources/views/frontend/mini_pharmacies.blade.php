@@ -93,7 +93,6 @@
         </section>
         <hr>
         <!-- CLinic Center Locations -->
-        @include('frontend.locations')
 
         <section class="home-section bg-gray paddingbot-60">
             <div class="container marginbot-30">
