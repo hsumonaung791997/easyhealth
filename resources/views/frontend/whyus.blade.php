@@ -42,13 +42,11 @@
                                 <br><br>
                                 @if($whyus->media_id != null)
                                 <?php
-<<<<<<< HEAD
                                     $image = $whyus->media->file_path . '/' . $whyus->media->file_name;
-=======
-                                    $image = $w->media->file_path .'/'. $w->media->file_name;
->>>>>>> 1f98da3d7812e713c6be7447541243e01ba1c9ec
+                                    $image = $whyus->media->file_path .'/'. $whyus->media->file_name;
+
                                 ?>
-                                <img src="{{ asset($image) }}" class="img-responsive">
+                                <img src="{{ asset($image) }}" class="img-responsive" width="100%" height="100%">
                                 @endif
                             </div>
                         </div>

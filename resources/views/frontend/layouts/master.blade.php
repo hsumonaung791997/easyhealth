@@ -14,7 +14,7 @@
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
     @yield('content')
     <!-- CLinic Center Locations -->
-    <section class="home-section paddingbot-60">
+    <section class="home-section">
         <div class="container marginbot-30">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">

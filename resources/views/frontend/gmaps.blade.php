@@ -5,7 +5,7 @@
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.24/gmaps.js"></script>
   	<style type="text/css">
     	#mymap {
-      		border:1px solid red;
+      		/*border:1px solid red;*/
       		width: 100%;
       		height: 500px;
     	}

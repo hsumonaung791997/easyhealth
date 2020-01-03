@@ -46,25 +46,25 @@
         </div>
         <section class="home-section paddingtop-50 paddingbot-50">
             <div class="container">
-                @foreach($whyus as $w)
+                
                 <div class="row paddingbot-50 paddingtop-30 text-center" style="background: #f1efeb;color: #333;">
                     <div class="wow fadeInDown" data-wow-delay="0.1s">
                         <div class="section-heading text-center">
                             <h2 class="h-bold" style="color: #333;">Why Us? </h2>
-                            <p><b>{{ $w->title }}</b></p>
+                            <p><b>{{ $whyus->title }}</b></p>
                         </div>
                         <i class="title-bg"></i>
                     </div>
                     <br> 
                     <div class="col-sm-12 col-md-12">
                         <p>
-                            {!! $w->description !!}
+                            {!! $whyus->description !!}
                         </p>
                         <br>
                         <center><a href="{{ url('whyus') }}" class="btn-pink-box">Learn More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a></center>
                     </div>    
                 </div>
-                @endforeach
+               
             </div>
         </section>
         <section class="home-section bg-gray nopadding paddingtop-60">
