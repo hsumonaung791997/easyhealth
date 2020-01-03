@@ -216,7 +216,7 @@
         </section>
 
 
-        <section class="home-section paddingtop-0 paddingbot-40">
+        <!-- <section class="home-section paddingtop-0 paddingbot-40">
             <div class="callaction check-bg">
                 <div class="container">
                     <div class="row">
@@ -230,7 +230,7 @@
                     </div>
                 </div>
             </div>   
-        </section>
+        </section> -->
 
         <!-- Section: works -->
         <section class="home-section paddingbot-60">

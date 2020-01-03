@@ -16,8 +16,6 @@
                 </div>
             </div>
         </section>
-
-
         <!-- Section: boxes -->
         <section id="boxes" class="home-section paddingtop-10 paddingbot-50">
             <div class="container">
@@ -71,7 +69,6 @@
             </div>
         </section>
 
-
         <section id="boxes" class="home-section paddingtop-50 paddingbot-50">
             <div class="container">
                 <div class="row">
@@ -86,7 +83,7 @@
                         </div>
                         <div class="col-sm-5 col-md-5 text-center paddingtop-30 paddingbot-50 wow fadeInRight" data-wow-delay="0.2s">
                             <?php
-                            $image = $hs->media->file_path .'/' .$hs->media->file_name; 
+                            $image = $hs->media->file_path. '/' .$hs->media->file_name;
                             ?>
                             <img src="{{ asset($image) }}" class="img-responsive">
                         </div>
@@ -116,7 +113,6 @@
                 </div>
             </div>
         </section>
-
     </div>
 </body>
 @endsection

@@ -48,6 +48,7 @@ Route::group(['namespace' => 'Frontend'], function() {
 	Route::get('news_blogs', 'HomeController@newsblogs')->name('frontend.news_blogs');
 	Route::get('search_blogs', 'HomeController@search_blogs')->name('frontend.search_blogs');
 	Route::get('{id}/gp_services', 'HomeController@miniservices')->name('frontend.gp_services');
+	Route::get('{id}/mini_pharmacies', 'HomeController@mini_pharmacies')->name('frontend.mini_pharmacies');
 });
 
 Route::group(['prefix'=>'admin'],function(){
