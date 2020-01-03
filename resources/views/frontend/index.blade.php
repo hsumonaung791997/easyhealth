@@ -87,7 +87,7 @@
                             <img src="{{ asset('frontend/img/medical-services.png') }}" class="img-responsive" alt="" />
                         </div>
                     </div>
-                     @foreach($ourservices as $ourservice)
+                    @foreach($ourservices as $ourservice)
                     <div class="col-sm-4 col-md-4">
                        
                         <div class="wow fadeInLeft" data-wow-delay="0.1s">

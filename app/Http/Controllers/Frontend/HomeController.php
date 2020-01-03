@@ -23,12 +23,10 @@ class HomeController extends Controller
         // $whyus = Whyus::where('status', 1)->first();
         $ourservices = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', NULL)->get();
         $partners = Partner::all();
-        // $blogs = Blog::where('status', 1)->paginate(3);
         $blogs = Blog::where('status', 1)->orderBy('id','DESC')->take(3)->get();
         $slide = Blog::where('status', 1)->orderBy('id','ASC')->take(3)->get();
         $whyus = Whyus::where('status', 1)->first();
-
-		return view('frontend.index', compact('whyus','blogs','locations','partners','slide', 'ourservices'));
+		return view('frontend.index', compact('whyus','blogs','locations','partners','ourservices'));
 	}
 
     public function whyus()
@@ -163,10 +161,10 @@ class HomeController extends Controller
         $locations = Location::all();
 
         // $ourservices = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', NULL)->get();   
-        $ourservices = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', NULL)->where('type', 11)->get();//GP Service   
+        $gp = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', NULL)->where('type', 11)->get();//GP Service   
         $hs = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', NULL)->where('type', 12)->get();//Health Assessment  
         $other = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', NULL)->where('type', 13)->get(); //other 
-        return view('frontend.our_services',compact('locations', 'ourservices','hs','other'));
+        return view('frontend.our_services',compact('locations', 'gp','hs','other'));
     }
 
     public function miniservices($id)
