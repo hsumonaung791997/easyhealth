@@ -42,7 +42,7 @@
                             <div class="box text-center">
                                 <br><br>
                                 <?php
-                                    $image = $w->media->file_path . '/' . $w->media->file_name;
+                                    $image = $w->media->file_path .'/'. $w->media->file_name;
                                 ?>
                                 <img src="{{ asset($image) }}" class="img-responsive">
                             </div>
