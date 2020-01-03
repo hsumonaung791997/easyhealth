@@ -42,7 +42,11 @@
                                 <br><br>
                                 @if($whyus->media_id != null)
                                 <?php
+<<<<<<< HEAD
                                     $image = $whyus->media->file_path . '/' . $whyus->media->file_name;
+=======
+                                    $image = $w->media->file_path .'/'. $w->media->file_name;
+>>>>>>> 1f98da3d7812e713c6be7447541243e01ba1c9ec
                                 ?>
                                 <img src="{{ asset($image) }}" class="img-responsive">
                                 @endif
@@ -216,7 +220,7 @@
         </section>
 
 
-        <section class="home-section paddingtop-0 paddingbot-40">
+        <!-- <section class="home-section paddingtop-0 paddingbot-40">
             <div class="callaction check-bg">
                 <div class="container">
                     <div class="row">
@@ -230,7 +234,7 @@
                     </div>
                 </div>
             </div>   
-        </section>
+        </section> -->
 
         <!-- Section: works -->
         <section class="home-section paddingbot-60">

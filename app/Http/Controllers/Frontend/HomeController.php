@@ -171,12 +171,21 @@ class HomeController extends Controller
 
     public function miniservices($id)
     {
-        $ourservices = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', NULL)->where('type', 11)->first(); 
+        $ourservices = Service::find($id);
         $miniservices = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', '!=', NULL)->where('type', 11)->get();
         $locations = Location::all();
 
         return view('frontend.gp_services', compact('miniservices', 'locations', 'ourservices'));
         
+    }
+    
+    public function gp_detail($id)
+    {
+        $locations = Location::all();
+        $detail = Service::find($id);
+        $hs = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', NULL)->where('type', 12)->first();
+
+        return view('frontend.gp_detail', compact('locations','detail','hs'));
     }
 
     public function newsblogs(Request $request)
@@ -231,15 +240,6 @@ class HomeController extends Controller
         
     //     return view('frontend.men_health', compact('locations', 'detail'));
     // }
-
-    public function gp_detail($id)
-    {
-        $locations = Location::all();
-        $detail = Service::find($id);
-        $hs = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', NULL)->where('type', 12)->first();
-
-        return view('frontend.gp_detail', compact('locations','detail','hs'));
-    }
 
     public function location_detail($id)
     {

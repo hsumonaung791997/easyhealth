@@ -83,7 +83,6 @@
                 </div>
             </div>
         </section>
-        @include('frontend.locations')
     </div>
     <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
 </body>

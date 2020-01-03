@@ -16,8 +16,6 @@
                 </div>
             </div>
         </section>
-
-
         <!-- Section: boxes -->
         <section id="boxes" class="home-section paddingtop-10 paddingbot-50">
             <div class="container">
@@ -71,7 +69,6 @@
             </div>
         </section>
 
-
         <section id="boxes" class="home-section paddingtop-50 paddingbot-50">
             <div class="container">
                 <div class="row">
@@ -87,7 +84,7 @@
                         <div class="col-sm-5 col-md-5 text-center paddingtop-30 paddingbot-50 wow fadeInRight" data-wow-delay="0.2s">
                             @if($hs->media_id != null)
                             <?php
-                            $image = $hs->media->file_path .'/' .$hs->media->file_name; 
+                            $image = $hs->media->file_path. '/' .$hs->media->file_name;
                             ?>
                             <img src="{{ asset($image) }}" class="img-responsive">
                             @endif
@@ -98,7 +95,6 @@
         </section>
         <hr>
         <!-- CLinic Center Locations -->
-        @include('frontend.locations')
 
         <section class="home-section bg-gray paddingbot-60">
             <div class="container marginbot-30">
@@ -118,7 +114,6 @@
                 </div>
             </div>
         </section>
-
     </div>
 </body>
 @endsection

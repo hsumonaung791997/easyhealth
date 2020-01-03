@@ -80,6 +80,27 @@
                 </div>
             </div>
         </section>
+        <section class="paddingbot-50 paddingtop-20">
+            <div class="container">
+                <div class="row">
+                    @foreach($other as $key => $oth)
+                    <div class="col-sm-6 col-md-6 svbox">
+                        <div class="bg-colour-{{$key}} wow fadeInLeft" data-wow-delay="0.3s">
+                            <span class="fa fa-stethoscope fa-4x"></span>
+                            <br>
+                            <h3 class="h-light">{{ $oth->title }}</h3>
+                            <p style="font-size: 14px;">
+                                {{ str_limit(strip_tags($oth->description), 160) }}
+                                @if (strlen(strip_tags($oth->description)) > 160)
+                                <a href="{{ url($oth->id , 'mini_pharmacies') }}" class="btn-white-box ">Learn More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a>
+                                @endif
+                            </p>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
     </div>
 @endsection
      
