@@ -14,55 +14,55 @@
                     </div>
                 </div>
             </div>
-        </section>
-         
+        </section> 
         <section class="bg-gray paddingtop-50 paddingbot-50">
             <div class="carousel-reviews broun-block">
-                <div class="container">
-                     
+                <div class="container"> 
                     <div class="row">
                         <div class="col-md-8 col-sm-8">
 
                         </div>
                         <div class="col-md-2">
                             <div class="form-group">
-                                <select id="inputState" class="form-control">
-                                     
-                                    <option value="17" class="a" >Press Releases</option>
-                                    <option value="18" class="a">Health Blogs</option>
+                            <form>
+                                <select id="inputStat" class="newblog form-control">
+                                    <option value="0">Please Select</option>
+                                    <option value="17">Press Releases</option>
+                                    <option value="18">Health Blogs</option>
                                 </select>
-                                <button type="submit" class="btn btn-sm pull-right">Search</button>
+                                <input type="hidden" name="url" id="url" value="{{ url('news_blogs') }}">
+                            </form>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="container">
                     <div class="row">    
-                        <div id="carousel-reviews" class="carousel slide" data-ride="carousel">                    
-                           <div class="carousel-inner" id="newsblog">
+                            
+                    
                                 @foreach($newsblogs as $newsblog)
-                                <div class="item active">
+                                
                                     <div class="col-md-4 col-sm-6">
                                         <div class="block-text rel zmin">
                                            @if($newsblog->media_id != null)
                                             <?php
                                                 $image = $newsblog->media->file_path . '/' . $newsblog->media->file_name;
                                             ?>
-                                                <img src="{{ asset($image) }}" class="img-responsive" width="100%" height="100%">
+                                                <img src="{{ asset($image) }}" class="img-responsive">
                                             @endif
                                             <br>
                                             <a title="" href="#">{{ $newsblog->title }}</a>
                                             <p>{{ str_limit(strip_tags($newsblog->content), 200) }}
                                             @if (strlen(strip_tags($newsblog->content)) > 200)
-                                                <a href="#" class="btn-white-box ">Learn More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a>
+                                                 <a href="{{ url($newsblog->id, 'blogs_detail') }}" class="btn-pink-box">Read More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a>
                                             @endif</p>
-                                            <a href="{{ url($newsblog->id, 'blogs_detail') }}" class="btn-pink-box">Read More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a>
+                                           
                                         </div>
                                     </div>
-                                </div>
+                                
                                 @endforeach
-                            </div>
-                        </div>
+                        
+                        
                     </div>
                 </div>
             </div>
@@ -92,9 +92,10 @@
 <script src="{{ asset('frontend/js/jquery.min.js') }}"></script>
 <script type="text/javascript">
     $(document).ready(function(){
-        $('.a').select(function(){
-            alert('ok');
-        });
+        $(document).on('change', '#inputStat', function () {
+            var url = $('#url').val() + '?type=' + $(this).val();
+            window.location.href = url;
+        })
     });
 </script>
 

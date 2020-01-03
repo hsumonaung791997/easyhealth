@@ -8,10 +8,12 @@
         <!-- breadcrumbs -->
 
         <section class="intro ui-title-page">
+            @if($detail->media_id != null)
             <?php
                 $image = $detail->media->file_path . '/' . $detail->media->file_name;
             ?>
             <img src="{{ asset($image) }}"  class="img-responsive" width="100%" height="20%">
+            @endif
             <!-- <img src="{{ asset('frontend/img/men-health-title.png') }}" class="img-responsive" width="100%"> -->
             <div class="breadcrumbs-title">
                 <div class="container">
@@ -32,9 +34,6 @@
                         <div class="col-sm-9 col-md-9 paddingbot-30 wow fadeInLeft" data-wow-delay="0.1s">
                             <p>
                                 {!! $detail->description !!}
-                                <!-- Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                                <br>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,  -->
                             </p>
                         </div>
                         <div class="col-sm-3 col-md-3 text-center paddingbot-50 wow fadeInRight" data-wow-delay="0.2s">

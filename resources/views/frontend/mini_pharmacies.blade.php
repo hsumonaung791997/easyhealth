@@ -82,10 +82,12 @@
                             <a href="{{ url($hs->id, 'health_assessments') }}" class="btn btn-skin btn-lg">Learn more</a>
                         </div>
                         <div class="col-sm-5 col-md-5 text-center paddingtop-30 paddingbot-50 wow fadeInRight" data-wow-delay="0.2s">
+                            @if($hs->media_id != null)
                             <?php
                             $image = $hs->media->file_path. '/' .$hs->media->file_name;
                             ?>
                             <img src="{{ asset($image) }}" class="img-responsive">
+                            @endif
                         </div>
                     </div>
                 </div>

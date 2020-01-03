@@ -71,10 +71,12 @@
                     <div class="col-sm-3 col-md-3">
                         <div class="wow fadeInLeft" data-wow-delay="0.2s">
                             <div class="box text-center">
+                                @if($miniservice->media_id != null)
                                  <?php
                                     $image = $miniservice->media->file_path . '/' . $miniservice->media->file_name;
                                 ?>
-                                <img src="{{ asset($image) }}" style="width: 95%; height: 35%;">                      
+                                <img src="{{ asset($image) }}" style="width: 95%; height: 35%;">
+                                @endif                    
                                 <h4 class="h-bold">{{ $miniservice->title }}</h4>
                                 <i class="title-bg"></i>
                                 <p>

@@ -46,6 +46,9 @@ Route::group(['namespace' => 'Frontend'], function() {
 	Route::get('{id}/location_detail', 'HomeController@location_detail')->name('frontend.location_detail');
 	Route::get('ourservices', 'HomeController@ourservices')->name('frontend.our_services');
 	Route::get('news_blogs', 'HomeController@newsblogs')->name('frontend.news_blogs');
+
+	Route::get('{id}/news_blogs', 'HomeController@filterblog')->name('frontend.filterblog');
+
 	Route::get('search_blogs', 'HomeController@search_blogs')->name('frontend.search_blogs');
 	Route::get('{id}/gp_services', 'HomeController@miniservices')->name('frontend.gp_services');
 

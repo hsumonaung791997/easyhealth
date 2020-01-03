@@ -51,12 +51,6 @@ class LocationController extends Controller
     public function store(LocationRequest $request)
     {
         $data = $request->all();
-        if ($request->hasFile('image_media')) {
-            $media = saveSingleMedia($request, 'image');
-            if (TRUE == $media['status']) {
-                $data['media_id'] = $media['media_id'];
-            } 
-        }
         Location::create($data);
         Flash::success('Successfully created location');
         return redirect(route('location.index'));
@@ -104,16 +98,6 @@ class LocationController extends Controller
             return redirect(route('location.index'));
         }
         $data = $request->all();
-        if ($request->hasFile('image_media')) {
-            $media = saveSingleMedia($request, 'image');
-            if (TRUE == $media['status']) {
-                $data['media_id'] = $media['media_id'];    
-            }   
-        } else {
-            if(!empty($data['img'])) {
-                $data['media_id'] = null;
-            }   
-        }
         Location::find($id)->update($data);
         Flash::success('Successfully update location');
         return redirect(route('location.index'));

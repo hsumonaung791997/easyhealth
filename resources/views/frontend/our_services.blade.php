@@ -101,40 +101,6 @@
                 </div>
             </div>
         </section>
-        <!-- CLinic Center Locations -->
-        <!-- <section class="home-section bg-gray  paddingbot-60">
-            <div class="container marginbot-30">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="wow fadeInDown" data-wow-delay="0.1s">
-                            <div class="section-heading text-center">
-                                <h2 class="h-bold">Find a private GP near me</h2>
-                                <p>View our health centre pages below or call us for advice on +959 123456789</p>
-                            </div>
-                        </div>
-                        <i class="title-bg"></i>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="home-section paddingbot-60">
-            <div class="container marginbot-30">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="wow fadeInUp" data-wow-delay="0.1s">
-                            <div class="section-heading text-center">
-                                <h2 class="h-bold">What’s next?</h2>
-                                <h2 class="h-bold">Call us</h2>
-                                <p>For more information or to make a booking, please call us.</p>
-                                <i class="fa fa-phone fa-2x" aria-hidden="true"></i>
-                                <h2 class="h-bold">09 123456789</h2>
-                                <p>Lines are open Daily 7am to 11pm</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>    -->
     </div>
 @endsection
      

@@ -32,7 +32,7 @@ class HomeController extends Controller
     public function whyus()
     {
         $locations = Location::all();
-        $whyus = Whyus::where('status', 1)->get();
+        $whyus = Whyus::where('status', 1)->first();
         // $teams = Team::all();
         $doctors = Doctor::where('status', 1)->orderBy('id','DESC')->take(2)->get();
         $values = ValueProposition::all();
@@ -186,13 +186,31 @@ class HomeController extends Controller
         return view('frontend.gp_detail', compact('locations','detail','hs'));
     }
 
-    public function newsblogs()
+    public function newsblogs(Request $request)
     {
-        $newsblogs = Blog::where('status', 1)->get();
-        //dd($newsblogs);
+
+        $data = $request->all();
         $locations = Location::all();
+        if (!empty($data)) {
+            if (0 == $data['type']) {
+                return redirect(url('news_blogs'));
+            }
+
+            $newsblogs = Blog::where('type', $data['type'])->get();
+        } else {
+            $newsblogs = Blog::where('status', 1)->get();
+        }
+
         return view('frontend.news_blogs', compact('newsblogs', 'locations'));
     }
+
+
+    /*public function filterblog($id)
+    {
+        $blogs = Blog::where('type', $id);
+        dd(
+
+    }*/
 
     public function blogs_details(Request $request, $id) 
     {
