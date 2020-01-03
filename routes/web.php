@@ -28,11 +28,14 @@ Route::group(['namespace' => 'Frontend'], function() {
 	// Route::get('gp_services', 'HomeController@gp_services')->name('frontend.gp_services');
 	Route::get('health_assessments', 'HomeController@health_assessments')->name('frontend.health_assessments');
 	Route::get('management_team', 'HomeController@management_team')->name('frontend.management_team');
-	Route::get('men_health', 'HomeController@men_health')->name('frontend.men_health');
-	Route::get('{id}/menhealth_detail', 'HomeController@menhealth_detail')->name('frontend.men_health');
+	// Route::get('men_health', 'HomeController@men_health')->name('frontend.men_health');
+	// Route::get('{id}/menhealth_detail', 'HomeController@menhealth_detail')->name('frontend.men_health');
+	Route::get('{id}/gp_detail', 'HomeController@gp_detail')->name('frontend.gp_detail');
+	Route::get('{id}/health_assessments', 'HomeController@health_assessments')->name('frontend.health_assessments');
+	
 	Route::get('mini_pharmacies', 'HomeController@mini_pharmacies')->name('frontend.mini_pharmacies');
-	Route::get('our_doctors', 'HomeController@our_doctors')->name('frontend.our_doctors');
-	Route::get('/our_doctors', 'HomeController@our_doctors');
+	Route::get('our_doctor', 'HomeController@our_doctor')->name('frontend.our_doctor');
+	// Route::get('/our_doctors', 'HomeController@our_doctors');
 	Route::get('press_release_details', 'HomeController@press_release_details')->name('frontend.press_release_details');
 	Route::get('press_release', 'HomeController@press_release')->name('frontend.press_release'); 
 	Route::get('privacy_policy', 'HomeController@privacy_policy')->name('frontend.privacy_policy');

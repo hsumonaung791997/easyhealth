@@ -20,7 +20,7 @@ class HomeController extends Controller
 	public function index()
 	{
         $locations = Location::all();
-        $whyus = Whyus::where('status', 1)->first();
+        // $whyus = Whyus::where('status', 1)->first();
         $ourservices = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', NULL)->get();
         $partners = Partner::all();
         // $blogs = Blog::where('status', 1)->paginate(3);
@@ -97,30 +97,43 @@ class HomeController extends Controller
         return view('frontend.contact', compact('locations'));
 	}
 
-    public function health_assessments() 
+    public function health_assessments($id) 
     {
         $locations = Location::all();
+        $hs_li = Service::orderBy('id','DESC')->where('type', 12)->get();
 
-        return view('frontend.health_assessments', compact('locations'));
+        return view('frontend.health_assessments', compact('locations','hs_li'));
     }
     
     public function mini_pharmacies()
     {
         $locations = Location::all();
+        // $detail = Service::find($id);
+        $hs = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', NULL)->where('type', 12)->first();
 
-    	return view('frontend.mini_pharmacies', compact('locations'));
+        return view('frontend.mini_pharmacies', compact('locations','hs'));
     }
 
-    public function our_doctors()
-    {
-        $doctors = Doctor::where('status', 1)->get();
+    // public function our_doctors()
+    // {
+    //     $doctors = Doctor::where('status', 1)->get();
 
-    	return view('frontend.our_doctor', compact('doctors'));
-    }
+    // 	return view('frontend.our_doctor', compact('doctors'));
+    // }
 
     public function privacy_policy()
     {
-    	return view('frontend.privacy_policy');
+        $locations = Location::all();
+
+    	return view('frontend.privacy_policy', compact('locations'));
+    }
+
+    public function our_doctor()
+    {
+        $locations = Location::all();
+        $doctors = Doctor::where('status', 1)->get();
+
+        return view('frontend.our_doctor', compact('doctors','locations'));
     }
 
     
@@ -149,8 +162,11 @@ class HomeController extends Controller
     {
         $locations = Location::all();
 
-        $ourservices = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', NULL)->get();   
-        return view('frontend.our_services',compact('locations', 'ourservices'));
+        // $ourservices = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', NULL)->get();   
+        $ourservices = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', NULL)->where('type', 11)->get();//GP Service   
+        $hs = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', NULL)->where('type', 12)->get();//Health Assessment  
+        $other = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', NULL)->where('type', 13)->get(); //other 
+        return view('frontend.our_services',compact('locations', 'ourservices','hs','other'));
     }
 
     public function miniservices($id)
@@ -183,19 +199,28 @@ class HomeController extends Controller
         return view('frontend.blogs_detail', compact('blog', 'blog_details', 'locations'));
     }
 
-    public function men_health() 
-    {
-        $locations = Location::all();
+    // public function men_health() 
+    // {
+    //     $locations = Location::all();
 
-        return view('frontend.men_health', compact('locations'));
-    }
+    //     return view('frontend.men_health', compact('locations'));
+    // }
 
-    public function menhealth_detail(Request $request, $id) 
+    // public function menhealth_detail(Request $request, $id) 
+    // {
+    //     $locations = Location::all();
+    //     $detail = Service::find($id);
+        
+    //     return view('frontend.men_health', compact('locations', 'detail'));
+    // }
+
+    public function gp_detail($id)
     {
         $locations = Location::all();
         $detail = Service::find($id);
-        
-        return view('frontend.men_health', compact('locations', 'detail'));
+        $hs = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', NULL)->where('type', 12)->first();
+
+        return view('frontend.gp_detail', compact('locations','detail','hs'));
     }
 
     public function location_detail($id)
@@ -215,5 +240,4 @@ class HomeController extends Controller
         $locations = DB::table('locations')->get();
         return view('frontend.gmaps', compact('locations'));
     }
-
 }
