@@ -21,6 +21,7 @@ class CreateLocationsTable extends Migration
             $table->integer('media_id')->nullable();
             $table->string('latitude');
             $table->string('longitude');
+            $table->text('phone');
             $table->timestamps();
         });
     }

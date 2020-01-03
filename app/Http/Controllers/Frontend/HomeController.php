@@ -12,6 +12,8 @@ use App\Model\Service;
 use App\Model\Partner;
 use App\Model\Team;
 use App\Model\ValueProposition;
+use DB;
+
 
 class HomeController extends Controller
 {
@@ -206,6 +208,12 @@ class HomeController extends Controller
     public function search($id){
       $blogs= DB::table('blogs')->select('blogs.*')->where('blogs.id', $id);
         return $blogs;
+    }
+
+    public function gmaps()
+    {
+        $locations = DB::table('locations')->get();
+        return view('frontend.gmaps', compact('locations'));
     }
 
 }

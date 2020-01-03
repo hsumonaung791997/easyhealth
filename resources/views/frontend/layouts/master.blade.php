@@ -28,19 +28,7 @@
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                @foreach($locations as $location)
-                <div class="col-sm-6 col-md-6 wow fadeInLeft" data-wow-delay="0.1s">
-                    <div class="partner">
-                        <h4 class="h-bold"><i class="fa fa-hospital-o" aria-hidden="true"></i> {{ $location->name }}</h4>
-                        <p>{{ $location->address }}</p>
-                        <b><a href="{{ url($location->id, 'location_detail') }}">View Health Center Page > </a></b>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-        </div>
+        @include('frontend.gmaps')
     </section>
         <footer>
             <div class="container">

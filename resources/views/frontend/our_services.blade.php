@@ -74,20 +74,6 @@
                     </div>
                 </div>
             </div>
-
-            <div class="container">
-                <div class="row">
-                    @foreach($locations as $location)
-                    <div class="col-sm-6 col-md-6 wow fadeInLeft" data-wow-delay="0.1s">
-                        <div class="partner">
-                            <h4 class="h-bold"><i class="fa fa-hospital-o" aria-hidden="true"></i> {{ $location->name }}- {{ $location->address }}</h4>
-                            <p>{!! $location->description !!} </p>
-                            <b><a href="#">View Health Center Page > </a></b>
-                        </div>
-                    </div>
-                    @endforeach
-                </div>
-            </div>
         </section>
         <section class="home-section paddingbot-60">
             <div class="container marginbot-30">
