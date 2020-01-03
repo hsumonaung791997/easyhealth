@@ -25,13 +25,9 @@
     });
     $.each(locations, function( index, value ){
 	    mymap.addMarker({
-	       lat: value.latitude,
-	       lng: value.longitude,
-	       title: value.address,
-          // icon: 'http://securelinkdemo.website/frontend/img/favicon.ico',
-	       click: function(e) {
-	           alert(value.name+' and Phone No is '+value.phone+', from ' +value.address);
-	       }
+	           lat: value.latitude,
+	           lng: value.longitude,
+	           title: value.name +" ,Address: " + value.address + ' , Phone: ' +value.phone,
 	    });
    });
   </script>
