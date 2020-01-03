@@ -33,7 +33,6 @@
                             <th>Address</th>
                             <th>Latitude</th>
                             <th>Longitude</th>
-                            <th>Location Photo</th>
                             <th colspan="3">Action</th>
                         </thead>
                         <tbody>
@@ -45,11 +44,6 @@
                                 <td>{!! $location->address !!}</td>
                                 <td>{!! $location->latitude !!}</td>
                                 <td>{!! $location->longitude !!}</td>
-                                <td>
-                                    @if(!empty($location->media))
-                                        <img src="{{ url($location->media->file_path.$location->media->file_name) }}" width="100px">
-                                    @endif
-                                </td>
                                 <td>
                                 <a href="{!! route('location.edit', [$location->id]) !!}"
                                    class='btn btn-xs btn-primary'><i class="fa fa-check-square-o"></i>&nbsp;Edit</a>

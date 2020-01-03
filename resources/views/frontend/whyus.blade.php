@@ -20,19 +20,18 @@
         <section class="home-section paddingtop-50 paddingbot-50">
             <div class="container">
                 <div class="row">
-                    @foreach($whyus as $w)
                     <div class="col-sm-7 col-md-7">
                         <div class="wow fadeInUp" data-wow-delay="0.2s">
                             
                             <div class="box">
                                 <div class="wow fadeInLeft" data-wow-delay="0.1s">
                                     <div class="section-heading">
-                                        <h2 class="h-bold"> {{ $w->title }}</h2>
+                                        <h2 class="h-bold"> {{ $whyus->title }}</h2>
                                         <p>Myanmar’s First & Only Convenient-Care Clinic Chain</p>
                                     </div>
                                 </div>
                                 <p>
-                                    {!! $w->description !!}
+                                    {!! $whyus->description !!}
                                 </p>
                             </div>
                         </div>
@@ -41,14 +40,15 @@
                         <div class="wow fadeInRight" data-wow-delay="0.1s">
                             <div class="box text-center">
                                 <br><br>
+                                @if($whyus->media_id != null)
                                 <?php
-                                    $image = $w->media->file_path . '/' . $w->media->file_name;
+                                    $image = $whyus->media->file_path . '/' . $whyus->media->file_name;
                                 ?>
                                 <img src="{{ asset($image) }}" class="img-responsive">
+                                @endif
                             </div>
                         </div>
                     </div>
-                    @endforeach
                 </div>
             </div>
         </section>

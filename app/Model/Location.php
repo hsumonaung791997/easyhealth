@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Location extends Model
 {
-    protected $fillable = ['name', 'address', 'description','latitude', 'longitude', 'phone' , 'media_id'];
+    protected $fillable = ['name', 'address', 'description','latitude', 'longitude', 'phone' ,];
 
     public function media()
     {

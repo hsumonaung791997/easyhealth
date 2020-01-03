@@ -124,22 +124,18 @@
             </div>
             <div class="container">
                 <div class="row">
-                    
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <div class="wow FadeInUp" data-wow-delay="0.2s">
                             @foreach($partners as $partner)
                             <div class="col-xs-4 col-md-2 col-lg-2">
+                                @if($partner->media_id != null)
                                 <?php
                                    $image = $partner->media->file_path . '/' . $partner->media->file_name;
                                 ?>
-                                <img src="{{ asset($image) }}" class="img-responsive" alt="img">  
+                                <img src="{{ asset($image) }}" class="img-responsive" alt="img"> 
+                                @endif 
                             </div>
                             @endforeach
-                            <!-- <div class="col-xs-4 col-md-2 col-lg-2') }}"> <img src="{{ asset('frontend/img/partner1.png') }}" class="img-responsive" alt="img"> </div>
-                            <div class="col-xs-4 col-md-2 col-lg-2"> <img src="{{ asset('frontend/img/partner1.png') }}" class="img-responsive" alt="img"> </div>
-                            <div class="col-xs-4 col-md-2 col-lg-2"> <img src="{{ asset('frontend/img/partner1.png') }}" class="img-responsive" alt="img"> </div>
-                            <div class="col-xs-4 col-md-2 col-lg-2">  <img src="{{ asset('frontend/img/partner1.png') }}" class="img-responsive" alt="img"> </div>
-                            <div class="col-xs-4 col-md-2 col-lg-2"> <img src="{{ asset('frontend/img/partner1.png') }}" class="img-responsive" alt="img"> </div> -->
                         </div>
                     </div>
                     
@@ -166,27 +162,16 @@
                         <div id="carousel-reviews" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="item active">
-                                    @foreach($blogs as $blog)
                                     <div class="col-md-4 col-sm-6">
                                         <div class="block-text rel zmin">
-                                            <!-- <img src="http://bestjquery.com/tutorial/news-slider/demo19/images/img-1.jpg" alt=""> -->
-                                            <?php
-                                                $image = $blog->media->file_path . '/' . $blog->media->file_name;
-                                            ?>
-                                            <img src="{{ asset($image) }}" alt="">     
+                                            <img src="http://bestjquery.com/tutorial/news-slider/demo19/images/img-1.jpg" alt="">
                                             <br>
-                                            <a title="" href="#">{{ $blog->title }}</a>
-                                            <p>{{ str_limit(strip_tags($blog->content), 100) }}
-                                                @if (strlen(strip_tags($blog->content)) > 100)
-                                                  ... 
-                                                @endif
-                                            </p>
-                                            <a href="{{ url($blog->id, 'blogs_detail') }}" class="btn-pink-box">Read More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a>
+                                            <a title="" href="#">Latest News Post </a>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad magni, nesciunt obcaecati possimus quasi quibusdam quos ratione sequi sit veritatis....</p>
+                                            <a href="#" class="btn-pink-box">Read More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a>
                                         </div>
                                     </div>
-                                    @endforeach
-
-                                    <!-- <div class="col-md-4 col-sm-6">
+                                    <div class="col-md-4 col-sm-6">
                                         <div class="block-text rel zmin">
                                             <img src="http://bestjquery.com/tutorial/news-slider/demo19/images/img-2.jpg" alt="">
                                             <br>
@@ -203,9 +188,37 @@
                                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad magni, nesciunt obcaecati possimus quasi quibusdam quos ratione sequi sit veritatis....</p>
                                             <a href="#" class="btn-pink-box">Read More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a>
                                         </div>
-                                    </div> -->
+                                    </div>
                                 </div>
-                                 
+                                <div class="item">
+                                    <div class="col-md-4 col-sm-6">
+                                        <div class="block-text rel zmin">
+                                            <img src="http://bestjquery.com/tutorial/news-slider/demo33/images/img-1.jpg" alt="">
+                                            <br>
+                                            <a title="" href="#">Latest News Post</a>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad magni, nesciunt obcaecati possimus quasi quibusdam quos ratione sequi sit veritatis....</p>
+                                            <a href="#" class="btn-pink-box">Read More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <div class="block-text rel zmin">
+                                            <img src="http://bestjquery.com/tutorial/news-slider/demo33/images/img-2.jpg" alt="">
+                                            <br>
+                                            <a title="" href="#">Latest News Post</a>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad magni, nesciunt obcaecati possimus quasi quibusdam quos ratione sequi sit veritatis....</p>
+                                            <a href="#" class="btn-pink-box">Read More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <div class="block-text rel zmin">
+                                            <img src="http://bestjquery.com/tutorial/news-slider/demo33/images/img-3.jpg" alt="">
+                                            <br>
+                                            <a title="" href="#">Latest News Post</a>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad magni, nesciunt obcaecati possimus quasi quibusdam quos ratione sequi sit veritatis....</p>
+                                            <a href="#" class="btn-pink-box">Read More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <a class="left carousel-control" href="#carousel-reviews" role="button" data-slide="prev">
                                 <span class="glyphicon glyphicon-chevron-left"></span>
@@ -213,7 +226,6 @@
                             <a class="right carousel-control" href="#carousel-reviews" role="button" data-slide="next">
                                 <span class="glyphicon glyphicon-chevron-right"></span>
                             </a>
-
                         </div>
                     </div>
                 </div>

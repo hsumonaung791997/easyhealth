@@ -32,36 +32,6 @@
                                             <i class="fa fa-caret-right" aria-hidden="true"></i> <span class="title">{{ $h->title }}</span>
                                         </a>
                                     </li>
-                                    <!-- <li>
-                                        <a href="#">
-                                            <i class="fa fa-caret-right" aria-hidden="true"></i> <span class="title">Health Focus</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-caret-right" aria-hidden="true"></i> <span class="title">Health Enhance</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-caret-right" aria-hidden="true"></i> <span class="title">Health Peak</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-caret-right" aria-hidden="true"></i> <span class="title"> Mature health</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-caret-right" aria-hidden="true"></i> <span class="title">Health assessment FAQs</span>
-                                        </a>
-                                    </li>
-                                    <li class="last">
-                                        <a href="#">
-                                            <i class="fa fa-caret-right" aria-hidden="true"></i> <span class="title">Health Focus</span>
-                                        </a>
-                                    </li> -->
                                     @endforeach
                                 </ul>   
                             </nav>    

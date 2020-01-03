@@ -26,10 +26,12 @@
                             <li class="cbp-item text-center">
                                 <a href="#" class="cbp-caption ">
                                     <div class="cbp-caption-defaultWrap">
+                                        @if($team->media_id != null)
                                         <?php 
                                         $image = $team->media->file_path. '/' .$team->media->file_name;
                                         ?>
                                         <img src="{{ asset($image) }}" alt="" width="100%">
+                                        @endif
                                     </div>
                                 </a>
                                 <h4 class="h-bold">{{ $team->title }}</h4>
