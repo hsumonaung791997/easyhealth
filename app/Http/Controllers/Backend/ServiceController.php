@@ -50,6 +50,7 @@ class ServiceController extends Controller
     public function store(ServiceRequest $request)
     {
         $data = $request->all();
+        //dd($data);
         if($request->hasFile('image_media')){
            $media = saveSingleMedia($request, 'image');
             if (TRUE == $media['status']) {

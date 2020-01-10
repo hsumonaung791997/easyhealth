@@ -2,7 +2,7 @@
 @section('content')
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
     <div id="wrapper">
-        @extends('frontend.layouts.nav')
+        @include('frontend.layouts.nav')
         <!-- breadcrumbs -->
         <section class="intro ui-title-page">
             <img src="img/about-bg.png" class="img-responsive" width="100%">
@@ -19,7 +19,7 @@
             <div class="carousel-reviews broun-block">
                 <div class="container"> 
                     <div class="row">
-                        <div class="col-md-8 col-sm-8">
+                        <div class="col-md-10 col-sm-10">
 
                         </div>
                         <div class="col-md-2">
@@ -27,42 +27,35 @@
                             <form>
                                 <select id="inputStat" class="newblog form-control">
                                     <option value="0">Please Select</option>
-                                    <option value="17">Press Releases</option>
-                                    <option value="18">Health Blogs</option>
+                                    <option value="17" @if(!empty($type)) @if($type == 17) selected @endif @endif>Press Releases</option>
+                                    <option value="18"  @if(!empty($type)) @if($type == 18) selected @endif @endif>Health Blogs</option>
                                 </select>
                                 <input type="hidden" name="url" id="url" value="{{ url('news_blogs') }}">
-                            </form>
+
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="container">
                     <div class="row">    
-                            
-                    
-                                @foreach($newsblogs as $newsblog)
-                                
-                                    <div class="col-md-4 col-sm-6">
-                                        <div class="block-text rel zmin">
-                                           @if($newsblog->media_id != null)
-                                            <?php
-                                                $image = $newsblog->media->file_path . '/' . $newsblog->media->file_name;
-                                            ?>
-                                                <img src="{{ asset($image) }}" class="img-responsive">
-                                            @endif
-                                            <br>
-                                            <a title="" href="#">{{ $newsblog->title }}</a>
-                                            <p>{{ str_limit(strip_tags($newsblog->content), 200) }}
-                                            @if (strlen(strip_tags($newsblog->content)) > 200)
-                                                 <a href="{{ url($newsblog->id, 'blogs_detail') }}" class="btn-pink-box">Read More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a>
-                                            @endif</p>
-                                           
-                                        </div>
-                                    </div>
-                                
-                                @endforeach
-                        
-                        
+                        @foreach($newsblogs as $newsblog)      
+                            <div class="col-md-4 col-sm-6">
+                                <div class="block-text rel zmin">
+                                   @if($newsblog->media_id != null)
+                                    <?php
+                                        $image = $newsblog->media->file_path . '/' . $newsblog->media->file_name;
+                                    ?>
+                                        <img src="{{ asset($image) }}" class="img-responsive">
+                                    @endif
+                                    <br>
+                                    <a title="" href="#">{{ $newsblog->title }}</a>
+                                    <p>{{ str_limit(strip_tags($newsblog->content), 200) }}
+                                    @if (strlen(strip_tags($newsblog->content)) > 200)
+                                         <a href="{{ url($newsblog->id, 'blogs_detail') }}" class="btn-pink-box">Read More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a>
+                                    @endif</p>
+                                </div>
+                            </div>
+                        @endforeach 
                     </div>
                 </div>
             </div>

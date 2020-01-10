@@ -9,13 +9,13 @@
     </section>
     <div class="content">
         <div class="row">
-            <form method="GET" class="form">
-                <div class="form-group col-sm-3 mmtext">
-                    {!! Form::text('title', null, ['class' => 'form-control searchtitle']) !!}
-                </div>
-                <a href="{!! route('blog.index') !!}" class="btn btn-info">Clear</a>
-                <button type="submit" class="btn btn-primary btnSearch">Search</button>
-            </form>
+                <form method="GET" class="form">
+                    <div class="form-group col-sm-3 mmtext">
+                        {!! Form::text('title', null, ['class' => 'form-control searchtitle']) !!}
+                    </div>
+                    <a href="{!! route('blog.index') !!}" class="btn btn-info">Clear</a>
+                    <button type="submit" class="btn btn-primary btnSearch">Search</button>
+                </form>  
         </div>
         <div class="clearfix"></div>
         <div class="clearfix"></div>
