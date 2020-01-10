@@ -17,21 +17,23 @@
         </section>
         <section class="home-section paddingbot-50">
             <div class="container">
+                @if($gp_service != null)
                 <div class="row">     
                     <div class="wow fadeInUp" data-wow-delay="0.2s">
                         <div class="col-sm-12 col-md-12 text-center paddingbot-50">
                             <div class="wow fadeInDown" data-wow-delay="0.1s">
                                 <div class="section-heading">
-                                    <h2 class="h-bold">{{ $ourservices->title }}</h2>
+                                    <h2 class="h-bold">{{ $gp_service->title }}</h2>
                                 </div>
                                 <i class="title-bg"></i>
                             </div>
                             <p class="wow fadeInUp" data-wow-delay="0.1s">
-                                {!! $ourservices->description !!}
+                                {!! $gp_service->description !!}
                             </p>
                         </div>
                     </div>    
                 </div>
+                @endif
                 <div class="row">
                     <div class="col-sm-6 col-md-6 gp-frame-left paddingbot-20 paddingtop-20 wow fadeInLeft" data-wow-delay="0.2s">     
                         <div class="section-heading">
@@ -67,26 +69,26 @@
                             <i class="title-bg"></i>
                         </div>
                     </div>
-                    @foreach($miniservices as $miniservice)
+                    @foreach($gpminiservices as $gpminiservice)
                     <div class="col-sm-3 col-md-3">
                         <div class="wow fadeInLeft" data-wow-delay="0.2s">
                             <div class="box text-center">
-                                @if($miniservice->media_id != null)
+                                @if($gpminiservice->media_id != null)
                                  <?php
-                                    $image = $miniservice->media->file_path . '/' . $miniservice->media->file_name;
+                                    $image = $gpminiservice->media->file_path . '/' . $gpminiservice->media->file_name;
                                 ?>
-                                <img src="{{ asset($image) }}" style="width: 95%; height: 35%;">
+                                <img src="{{ asset($image) }}" class="img-responsive">
                                 @endif                    
-                                <h4 class="h-bold">{{ $miniservice->title }}</h4>
+                                <h4 class="h-bold">{{ $gpminiservice->title }}</h4>
                                 <i class="title-bg"></i>
                                 <p>
-                                    {{ str_limit(strip_tags($miniservice->description), 80) }}
-                                    @if (strlen(strip_tags($miniservice->content)) > 80)
+                                    {!! str_limit(strip_tags($gpminiservice->content_one), 100) !!}
+                                    @if (strlen(strip_tags($gpminiservice->content_one)) > 100)
                                       ... 
-                                      
+                                       <a href="{{ url($gpminiservice->id, 'gp_detail')}}" class="btn btn-skin btn-lg">View More</a>
                                     @endif
                                 </p>
-                                <a href="{{ url($miniservice->id, 'gp_detail')}}" class="btn btn-skin btn-lg">View More</a>
+                               
                             </div>
                         </div>
                     </div>

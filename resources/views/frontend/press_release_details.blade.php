@@ -20,10 +20,11 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12 wow fadeInLeft" data-wow-delay="0.2s">
                         <!-- Single Blog -->
+                        @foreach($pressreleasedetails as $pressreleasedetail)
                         <div class="single-blog">
                             <div class="blog-content">
                                 <div class="blog-title">
-                                    <h4 class="h-bold">{{ $blog->title }}</h4>
+                                    <h4 class="h-bold">{{ $pressreleasedetail->title }}</h4>
                                     <div class="meta">
                                         <ul>
                                             <li><i class="fa fa-user" aria-hidden="true"></i> Admin &nbsp;&nbsp;| &nbsp;&nbsp; <i class="fa fa-calendar" aria-hidden="true"></i> 04 June 2018</li>
@@ -31,14 +32,14 @@
                                     </div>
                                 </div>
                                 <p>
-                                @if($blog->media_id != null)
+                                @if($pressreleasedetail->media_id != null)
                                     <?php
-                                        $image = $blog->media->file_path . '/' . $blog->media->file_name;
+                                        $image = $pressreleasedetail->media->file_path . '/' . $pressreleasedetail->media->file_name;
                                     ?>
                                     <img src="{{ asset($image) }}" class="img-responsive" width="100%" height="100%">
                                 @endif
                                     <br><br>
-                                    {!! $blog->content !!}
+                                    {!! $pressreleasedetail->content !!}
                                 </p>
                                 <br>
                                 <div class="meta">
@@ -48,12 +49,13 @@
                                 </div>
                             </div>
                         </div>
+                        @endforeach
                     </div>  
                 </div>
             </div>
         </section>
          <!-- CLinic Center Locations -->
-        @include('frontend.locations')
+        
         <section class="home-section bg-gray paddingbot-60">
             <div class="container marginbot-30">
                 <div class="row">

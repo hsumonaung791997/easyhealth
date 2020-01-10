@@ -18,7 +18,7 @@
                     <div class="hero">
                         <hgroup>
                             <h1>Private GP services</h1> <br><br>    
-                            <center><a href="{{ url('gp_services') }}" class="btn-white-box ">Learn More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a></center>
+                            <center><a href="{{ url(11,'gp_services') }}" class="btn-white-box ">Learn More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a></center>
                         </hgroup>     
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                         <hgroup>
                             <h1>Health screenings and diagnostics</h1>        
                             <br><br>    
-                            <center><a href="{{ url('health_assessments') }}" class="btn-white-box ">Learn More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a></center>
+                            <center><a href="{{ url(12,'health_assessments') }}" class="btn-white-box ">Learn More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a></center>
                         </hgroup>            
                     </div>
                 </div>
@@ -38,12 +38,13 @@
                         <hgroup>
                             <h1>Mini Pharmacy</h1>        
                             <br><br>    
-                            <center><a href="{{ url('mini_pharmacies') }}" class="btn-white-box ">Learn More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a></center>
+                            <center><a href="{{ url(13,'other') }}" class="btn-white-box ">Learn More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a></center>
                         </hgroup>
                     </div>
                 </div>
             </div> 
         </div>
+        @if($whyus != null)
         <section class="home-section paddingtop-50 paddingbot-50">
             <div class="container">
                 
@@ -67,6 +68,7 @@
                
             </div>
         </section>
+        @endif
         <section class="home-section bg-gray nopadding paddingtop-60">
             <div class="container">
                 <div class="row">
@@ -97,10 +99,10 @@
                             </div>
                             <div class="service-desc">
                                 <h5 class="h-light">{{ $ourservice->title }}</h5>
-                                <p> {{ str_limit(strip_tags($ourservice->description), 80) }}
-                                @if (strlen(strip_tags($ourservice->description)) > 80)
+                                <p> {!! str_limit(strip_tags($ourservice->content_one), 80) !!}
+                                @if (strlen(strip_tags($ourservice->content_one)) > 80)
                                 @endif  </p>
-                                 <a href="#"> Read More</a>                      
+                                 <a href=" @if( $ourservice->type == 11 ){{ url($ourservice->id , 'gp_services')}} @elseif ($ourservice->type == 12) {{ url($ourservice->id , 'health_assessments') }} @else {{ url($ourservice->id , 'other')}} @endif">Read More</a>                      
                             </div>
                         </div>
                     </div>

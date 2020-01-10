@@ -41,58 +41,16 @@
         <section class="paddingbot-50 paddingtop-20">
             <div class="container">
                 <div class="row">
-                    @foreach($gp as $key => $g)
+                    @foreach($ourservices as $key => $ourservice)
                     <div class="col-sm-6 col-md-6 svbox">
                         <div class="bg-colour-{{$key}} wow fadeInLeft" data-wow-delay="0.3s">
                             <span class="fa fa-stethoscope fa-4x"></span>
                             <br>
-                            <h3 class="h-light">{{ $g->title }}</h3>
+                            <h3 class="h-light">{{ $ourservice->title }}</h3>
                             <p style="font-size: 14px;">
-                                {{ str_limit(strip_tags($g->description), 160) }}
-                                @if (strlen(strip_tags($g->description)) > 160)
-                                <a href="{{ url($g->id , 'gp_services') }}" class="btn-white-box ">Learn More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a>
-                                @endif
-                            </p>
-                        </div>
-                    </div>
-                    @endforeach
-                </div>
-            </div>
-        </section>
-        <section class="paddingbot-50 paddingtop-20">
-            <div class="container">
-                <div class="row">
-                    @foreach($hs as $key => $h)
-                    <div class="col-sm-6 col-md-6 svbox">
-                        <div class="bg-colour-{{$key}} wow fadeInLeft" data-wow-delay="0.3s">
-                            <span class="fa fa-stethoscope fa-4x"></span>
-                            <br>
-                            <h3 class="h-light">{{ $h->title }}</h3>
-                            <p style="font-size: 14px;">
-                                {{ str_limit(strip_tags($h->description), 160) }}
-                                @if (strlen(strip_tags($h->description)) > 160)
-                                <a href="{{ url($h->id , 'health_assessments') }}" class="btn-white-box ">Learn More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a>
-                                @endif
-                            </p>
-                        </div>
-                    </div>
-                    @endforeach
-                </div>
-            </div>
-        </section>
-        <section class="paddingbot-50 paddingtop-20">
-            <div class="container">
-                <div class="row">
-                    @foreach($other as $key => $oth)
-                    <div class="col-sm-6 col-md-6 svbox">
-                        <div class="bg-colour-{{$key}} wow fadeInLeft" data-wow-delay="0.3s">
-                            <span class="fa fa-stethoscope fa-4x"></span>
-                            <br>
-                            <h3 class="h-light">{{ $oth->title }}</h3>
-                            <p style="font-size: 14px;">
-                                {{ str_limit(strip_tags($oth->description), 160) }}
-                                @if (strlen(strip_tags($oth->description)) > 160)
-                                <a href="{{ url($oth->id , 'mini_pharmacies') }}" class="btn-white-box ">Learn More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a>
+                                {!! str_limit(strip_tags($ourservice->content_one), 250) !!}
+                                @if (strlen(strip_tags($ourservice->content_one)) > 250)
+                                <a href=" @if( $ourservice->type == 11 ){{ url($ourservice->id , 'gp_services')}} @elseif ($ourservice->type == 12) {{ url($ourservice->id , 'health_assessments') }} @else {{ url($ourservice->id , 'other')}} @endif" class="btn-white-box ">Learn More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a>
                                 @endif
                             </p>
                         </div>

@@ -26,8 +26,9 @@ class ServiceRequest extends FormRequest
         return  [
             'title'=>'required',
             'type'=>'required',
-            'description'=>'required',
-            'status'=>'required',  
+            'content_one'=>'required',
+            'status'=>'required',
+            'content_two'=>'required',
         ];
     }
 }

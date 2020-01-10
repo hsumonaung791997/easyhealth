@@ -16,11 +16,12 @@ class CreateServicesTable extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->text('description');
+            $table->text('content_one');
             $table->integer('media_id')->nullable();
             $table->integer('status');
             $table->integer('parent')->nullable();
             $table->smallInteger('type')->length(2);
+            $table->text('content_two');
             $table->timestamps();
         });
     }

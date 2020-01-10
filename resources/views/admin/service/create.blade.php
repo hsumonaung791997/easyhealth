@@ -52,14 +52,15 @@
                             @endif
                         </div>                                                                          
                         <div class="form-group col-sm-6 mmtext pull-right">
-                            {!! Form::label('description', 'Description:') !!} <span class="text-danger">*</span>
-                            <textarea id="description" class="editor" name="description" rows="10" cols="50"></textarea>
-                            @if ($errors->has('description'))
+                            {!! Form::label('content_one', 'Content_One:') !!} <span class="text-danger">*</span>
+                            <textarea id="content_one" class="editor" name="content_one" rows="10" cols="50"></textarea>
+                            @if ($errors->has('content_one'))
                                <span class="text-danger">
-                                   <strong>{{ $errors->first('description') }}</strong>
+                                   <strong>{{ $errors->first('content_one') }}</strong>
                                </span>
                             @endif
                         </div>
+
                         <div class="form-group col-sm-6 mmtext">
                             {!! Form::label('file', 'Upload Service Photo :') !!}
                             {{ Form::hidden('media_path', SERVICE_MEDIA_UPLOAD) }}
@@ -71,6 +72,17 @@
                             </div>
                             <div id="kv-avatar-errors-1" class="center-block" style="width:800px;display:none"></div>
                         </div>
+
+                         <div class="form-group col-sm-6 mmtext pull-right">
+                            {!! Form::label('content_two', 'Content_Two:') !!} <span class="text-danger">*</span>
+                            <textarea id="content_two" class="editor" name="content_two" rows="10" cols="50"></textarea>
+                            @if ($errors->has('content_two'))
+                               <span class="text-danger">
+                                   <strong>{{ $errors->first('content_two') }}</strong>
+                               </span>
+                            @endif
+                        </div>
+
                         <div class="form-group col-sm-6 mmtext">
                             {!! Form::label('status', 'Status:') !!} <span class="text-danger">*</span><br>
                             <label class="radio radio-inline">{!! Form::radio('status', 1, true) !!} Active </label>
