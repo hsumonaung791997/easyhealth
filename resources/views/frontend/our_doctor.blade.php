@@ -20,7 +20,7 @@
 
         <!-- Section: boxes -->
         <section class="home-section paddingtop-30 paddingbot-50">
-            @foreach($doctors as $doctor) 
+            @foreach($ourdoctors as $doctor) 
             <div class="container">              
                 <div class="row">                     
                     <div class="col-sm-8 col-md-8">

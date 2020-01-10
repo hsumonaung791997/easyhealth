@@ -43,7 +43,6 @@
                                 @if($whyus->media_id != null)
                                 <?php
                                     $image = $whyus->media->file_path . '/' . $whyus->media->file_name;
-                                    $image = $whyus->media->file_path .'/'. $whyus->media->file_name;
 
                                 ?>
                                 <img src="{{ asset($image) }}" class="img-responsive" width="100%" height="100%">
@@ -99,36 +98,32 @@
                     </div>
                 </div>
 
+                <div class="container">
                 <div class="row">
-                    @foreach($doctors as $doctor)
-                    <div class="col-sm-8 col-md-9">
-                        <div class="wow fadeInLeft" data-wow-delay="0.1s">
-                            <div class="box">
-                                <div>
-                                    <div class="section-heading">
-                                        <h3 class="h-bold">{{ $doctor->name }}</h3>
-                                        <h4>{{ $doctor->position }}</h4>
-                                    </div>
-                                </div>
-                                <p>
-                                    {!! $doctor->description !!}
-                                </p>
-                            </div>
-                        </div>
+                    <div id="grid-container" class="cbp-l-grid-team">
+                        <ul>
+                            @foreach($doctors as $doctor)
+                            <li class="cbp-item psychiatrist">
+                                <a href="{{ url('our_doctor')}}">
+                                    @if($doctor->media_id != null)
+                                        <?php
+                                            $image = $doctor->media->file_path . '/' . $doctor->media->file_name;
+                                        ?>
+                                        <img src="{{ asset($image) }}" class="img-responsive">
+                                    @endif 
+                                </a>
+                                <a href="#" class="cbp-singlePage cbp-l-grid-team-name">{{ $doctor->name }}</a>
+                                <div class="cbp-l-grid-team-position">{{ $doctor->position }}</div>
+                            </li>
+                            @endforeach
+                        </ul>
                     </div>
-                    <div class="col-sm-4 col-md-3">
-                        <div class="wow fadeInRight" data-wow-delay="0.1s">
-                            <div class="box text-center">
-                                <br><br>
-                                <?php
-                                $image = $doctor->media->file_path .'/'. $doctor->media->file_name;
-                                ?>
-                                <img src="{{ asset($image) }}" class="img-responsive">
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
+                    <br><br>
+                    <center>
+                        <a href="{{ url('our_doctor')}}" class="btn btn-skin btn-lg">Learn more</a>
+                    </center>
                 </div>
+            </div>
 
             </div>
         </section>

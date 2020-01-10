@@ -21,13 +21,11 @@
             <div class="container">
                 <div class="row">
                     <div>
+                        @if($otherservice != null)
                         <div class="col-sm-9 col-md-9 paddingbot-30 wow fadeInLeft" data-wow-delay="0.1s">
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                                <br>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, 
-                            </p>
+                            <p>{!! $otherservice->content_one !!}</p>
                         </div>
+                        @endif
                         <div class="col-sm-3 col-md-3 text-center paddingbot-50 wow fadeInRight" data-wow-delay="0.2s">
                             <a href="#" class="ph-call-btn btn btn-lg ">CALL NOW</a>
                             <br><br> 
@@ -47,23 +45,17 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-7 col-md-7 col-lg-7">
-                         <h3 class="h-bold">We cover a wide range of male focused healthcare concerns including:</h3>
-                         <p>
-                             <ul>  
-                                <li>Erectile dysfunction</li>
-                                <li>Testicular lumps </li>
-                                <li>Testicular pain</li>
-                                <li>Bladder or prostate symptoms </li>
-                                <li>Testicular examination and advice/demonstration of self-examination techniques</li>
-                                <li>Prostate examination and PSA testing (screening for prostate cancer) </li>
-                                 
-                                <li>Pre-pregnancy advice </li>
-                                <li>Osteoporosis and assessment of osteoporosis risk </li>
-                            </ul>
+                        <p>
+                            {!! $otherservice->content_two !!}
                         </p>
                     </div>
                     <div class="col-sm-5 col-md-5 col-lg-5 paddingtop-30">
-                         <img src="{{ asset('frontend/img/men-health-des.png') }}" class="img-responsive">
+                        @if($otherservice->media_id != null)
+                            <?php
+                                $image = $otherservice->media->file_path . '/' . $otherservice->media->file_name;
+                            ?>
+                            <img src="{{ asset($image) }}" class="img-responsive">
+                        @endif
                     </div>
                 </div>
             </div>
@@ -74,19 +66,19 @@
                 <div class="row">
                     <div>
                         <div class="col-sm-7 col-md-7 paddingbot-30 wow fadeInLeft" data-wow-delay="0.1s">
-                            <h3 class="h-bold">{{ $hs->title }}</h3>
+                            <h3 class="h-bold">{{ $health_assessment->title }}</h3>
                             <p>
-                                {!! $hs->description !!}
+                                {!! $health_assessment->description !!}
                             </p>
                             <br>
-                            <a href="{{ url($hs->id, 'health_assessments') }}" class="btn btn-skin btn-lg">Learn more</a>
+                            <a href="{{ url($health_assessment->id, 'health_assessments') }}" class="btn btn-skin btn-lg">Learn more</a>
                         </div>
                         <div class="col-sm-5 col-md-5 text-center paddingtop-30 paddingbot-50 wow fadeInRight" data-wow-delay="0.2s">
-                            @if($hs->media_id != null)
+                            @if($health_assessment->media_id != null)
                             <?php
-                            $image = $hs->media->file_path. '/' .$hs->media->file_name;
+                            $image = $health_assessment->media->file_path. '/' .$health_assessment->media->file_name;
                             ?>
-                            <img src="{{ asset($image) }}" class="img-responsive">
+                            <img src="{{ asset($image) }}" class="img-responsive" width="100%" height="100%">
                             @endif
                         </div>
                     </div>

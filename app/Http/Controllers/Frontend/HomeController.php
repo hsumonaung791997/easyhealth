@@ -25,6 +25,7 @@ class HomeController extends Controller
         $blogs = Blog::where('status', 1)->orderBy('id','DESC')->take(3)->get();
         $slide = Blog::where('status', 1)->orderBy('id','ASC')->take(3)->get();
         $whyus = Whyus::where('status', 1)->first();
+
 		return view('frontend.index', compact('whyus','blogs','locations','partners','ourservices'));
 	}
 
@@ -32,7 +33,7 @@ class HomeController extends Controller
     {
         $locations = Location::all();
         $whyus = Whyus::where('status', 1)->first();
-        $doctors = Doctor::where('status', 1)->orderBy('id','DESC')->take(2)->get();
+        $doctors = Doctor::where('status', 1)->orderBy('id','DESC')->take(3)->get();
         $values = ValueProposition::all();
 
         return view('frontend.whyus', compact('locations', 'whyus', 'doctors','values'));
@@ -100,22 +101,6 @@ class HomeController extends Controller
 
         return view('frontend.health_assessments', compact('locations','hs_li'));
     }
-    
-    public function mini_pharmacies()
-    {
-        $locations = Location::all();
-        // $detail = Service::find($id);
-        $hs = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', NULL)->where('type', 12)->first();
-
-        return view('frontend.mini_pharmacies', compact('locations','hs'));
-    }
-
-    // public function our_doctors()
-    // {
-    //     $doctors = Doctor::where('status', 1)->get();
-
-    // 	return view('frontend.our_doctor', compact('doctors'));
-    // }
 
     public function privacy_policy()
     {
@@ -127,52 +112,41 @@ class HomeController extends Controller
     public function our_doctor()
     {
         $locations = Location::all();
-        $doctors = Doctor::where('status', 1)->get();
-
-        return view('frontend.our_doctor', compact('doctors','locations'));
+        $ourdoctors = Doctor::orderBy('id', 'DESC')->where('status', 1)->get();
+        return view('frontend.our_doctor', compact('locations','ourdoctors'));
     }
 
-    
-    public function women_health($id)
-    {
-        $locations = Location::all();
-    	return view('frontend.women_health', compact('locations'));
-    }
-
-    public function newsblog($id)
-    {
- 
-        $blogs = Blog::where([
-                    ['type', '=', $id],
-                    ['status', '=', 1],
-                ])->paginate(6);   
-       /* $blogs = Blog::orderBy('id', 'ASC')->where('status', 1)->where('type', $id)->paginate(6);*/
-        if($id == 17) {
-            return view('frontend.press_release', compact('blogs'));
-        } else {
-            return view('frontend.health_blogs', compact('blogs'));
-        }
-    }
 
     public function ourservices() 
     {
         $locations = Location::all();
-
-        // $ourservices = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', NULL)->get();   
-        $gp = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', NULL)->where('type', 11)->get();//GP Service   
-        $hs = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', NULL)->where('type', 12)->get();//Health Assessment  
-        $other = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', NULL)->where('type', 13)->get(); //other 
-        return view('frontend.our_services',compact('locations', 'gp','hs','other'));
+        $ourservices = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', NULL)->get();   
+        return view('frontend.our_services',compact('locations', 'ourservices'));
     }
 
-    public function miniservices($id)
+    public function gp_services($id)
     {
-        $ourservices = Service::find($id);
-        $miniservices = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', '!=', NULL)->where('type', 11)->get();
+        $gp_service = Service::find($id);
+        $gpminiservices = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', '!=', NULL)->where('type', 11)->get();
         $locations = Location::all();
+        return view('frontend.gp_services', compact('gpminiservices', 'locations', 'gp_service'));  
+    }
 
-        return view('frontend.gp_services', compact('miniservices', 'locations', 'ourservices'));
-        
+    public function healthassessments($id)
+    {
+        $health_assessment = Service::find($id);
+        $hsminiservices = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', '!=', NULL)->where('type', 12)->get();
+        $locations = Location::all();
+        return view('frontend.health_assessments', compact('health_assessment', 'hsminiservices', 'locations'));
+    }
+
+    public function other($id)
+    {
+        $otherservice = Service::find($id);
+        $otherminiservices = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', '!=', NULL)->where('type', 13)->get();
+        $locations = Location::all();
+        $health_assessment = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', '=', NULL)->where('type', 12)->first();
+        return view('frontend.mini_pharmacies', compact('otherservice', 'otherminiservices', 'locations', 'health_assessment'));
     }
     
     public function gp_detail($id)
@@ -202,33 +176,29 @@ class HomeController extends Controller
         return view('frontend.news_blogs', compact('newsblogs', 'locations'));
     }
 
-
-    public function blogs_details(Request $request, $id) 
+    public function blogs_details($id) 
     {
         $blog = Blog::find($id);
-        $blog_details = Blog::orderBy('id', 'DESC')->where('status', '=', 1)->take(3)->get();
         $locations = Location::all();
-        if (empty($blog)) {
-            Flash::error('blogs not found!');
-            return redirect(route('blogs_detail'));
-        }
-        return view('frontend.blogs_detail', compact('blog', 'blog_details', 'locations'));
+        $blog_details =  Blog::where([
+                    ['type', '=', 18],
+                    ['status', '=', 1],
+                ])->take(3)->get();
+         
+            return view('frontend.blogs_detail', compact('blog_details','blog','locations'));
     }
 
-    // public function men_health() 
-    // {
-    //     $locations = Location::all();
+    public function pressreleasedetails($id)
+    {
+        $blog = Blog::find($id);
+        $locations = Location::all();
+        $pressreleasedetails = BLog::where([
+                    ['type', '=', 17],
+                    ['status', '=', 1],
+                ])->get();
 
-    //     return view('frontend.men_health', compact('locations'));
-    // }
-
-    // public function menhealth_detail(Request $request, $id) 
-    // {
-    //     $locations = Location::all();
-    //     $detail = Service::find($id);
-        
-    //     return view('frontend.men_health', compact('locations', 'detail'));
-    // }
+        return view('frontend.press_release_details', compact('pressreleasedetails', 'blog', 'locations'));
+    }
 
     public function location_detail($id)
     {
@@ -237,7 +207,8 @@ class HomeController extends Controller
         return view('frontend.location_detail', compact('location', 'locations'));
     }
 
-    public function search($id){
+    public function search($id)
+    {
       $blogs= DB::table('blogs')->select('blogs.*')->where('blogs.id', $id);
         return $blogs;
     }
@@ -247,4 +218,5 @@ class HomeController extends Controller
         $locations = DB::table('locations')->get();
         return view('frontend.gmaps', compact('locations'));
     }
+        
 }

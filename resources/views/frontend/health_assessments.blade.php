@@ -26,10 +26,10 @@
                                     <li>
                                         <a href=""><b class="h-bold">Health assessments</b></a>
                                     </li>
-                                    @foreach($hs_li as $h)
+                                    @foreach($hsminiservices as $hsminiservice)
                                     <li>
                                         <a href="#">
-                                            <i class="fa fa-caret-right" aria-hidden="true"></i> <span class="title">{{ $h->title }}</span>
+                                            <i class="fa fa-caret-right" aria-hidden="true"></i> <span class="title">{{ $hsminiservice->title }}</span>
                                         </a>
                                     </li>
                                     @endforeach

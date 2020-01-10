@@ -6,14 +6,9 @@
         @include('frontend.layouts.nav')
 
         <!-- breadcrumbs -->
-
+        @if($detail != null)
         <section class="intro ui-title-page">
-            @if($detail->media_id != null)
-            <?php
-                $image = $detail->media->file_path . '/' . $detail->media->file_name;
-            ?>
-            <img src="{{ asset($image) }}"  class="img-responsive" width="100%">
-             @endif
+         <img src="{{ asset('frontend/img/medical-banner.png') }}" class="img-responsive" width="100%">
             <div class="breadcrumbs-title">
                 <div class="container">
                     <div class="wow fadeInDown" data-wow-delay="0.1s">
@@ -23,7 +18,7 @@
                 </div>
             </div>
         </section>
-
+        @endif
 
         <!-- Section: boxes -->
         <section id="boxes" class="home-section paddingtop-10 paddingbot-50">
@@ -32,7 +27,7 @@
                     <div>
                         <div class="col-sm-9 col-md-9 paddingbot-30 wow fadeInLeft" data-wow-delay="0.1s">
                             <p>
-                                {!! $detail->description !!}
+                                {!! $detail->content_one !!}
                             </p>
                         </div>
                         <div class="col-sm-3 col-md-3 text-center paddingbot-50 wow fadeInRight" data-wow-delay="0.2s">
@@ -55,27 +50,24 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-7 col-md-7 col-lg-7">
-                         <h3 class="h-bold">We cover a wide range of male focused healthcare concerns including:</h3>
                          <p>
-                             <ul>  
-                                <li>Erectile dysfunction</li>
-                                <li>Testicular lumps </li>
-                                <li>Testicular pain</li>
-                                <li>Bladder or prostate symptoms </li>
-                                <li>Testicular examination and advice/demonstration of self-examination techniques</li>
-                                <li>Prostate examination and PSA testing (screening for prostate cancer) </li>
-                                 
-                                <li>Pre-pregnancy advice </li>
-                                <li>Osteoporosis and assessment of osteoporosis risk </li>
-                            </ul>
+                            {!! $detail->content_two !!}
                         </p>
                     </div>
                     <div class="col-sm-5 col-md-5 col-lg-5 paddingtop-30">
-                         <img src="{{ asset('frontend/img/men-health-des.png') }}" class="img-responsive">
+                         @if($detail->media_id != null)
+                            <?php
+                                $image = $detail->media->file_path . '/' . $detail->media->file_name;
+                            ?>
+                            <img src="{{ asset($image) }}"  class="img-responsive">
+                        @endif
+                         
                     </div>
                 </div>
             </div>
         </section>
+
+        @if($hs != null)
         <section id="boxes" class="home-section paddingtop-50 paddingbot-50">
             <div class="container">
                 <div class="row">    
@@ -83,7 +75,7 @@
                         <div class="col-sm-7 col-md-7 paddingbot-30 wow fadeInLeft" data-wow-delay="0.1s">
                             <h3 class="h-bold">{{ $hs->title }}</h3>
                             <p>
-                                {!! $hs->description !!}
+                                {!! $hs->content_one !!}
                             </p>
                             <br>
                             <a href="{{ url($hs->id, 'health_assessments')}}" class="btn btn-skin btn-lg">Learn more</a>
@@ -100,6 +92,7 @@
                 </div>
             </div>
         </section>
+        @endif
         <hr>
         <!-- CLinic Center Locations -->
 
