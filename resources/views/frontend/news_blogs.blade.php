@@ -24,20 +24,12 @@
                         <div class="col-md-2">
                             <div class="form-group">
                             <form>
-                            <?php $array = json_decode(BLOG, TRUE); ?>  
                                 <select id="inputStat" class="newblog form-control">
                                     <option value="0">Please Select</option>
                                     <option value="17" @if(!empty($type)) @if($type == 17) selected @endif @endif>Press Releases</option>
                                     <option value="18"  @if(!empty($type)) @if($type == 18) selected @endif @endif>Health Blogs</option>
-                                    <option value="0" class="blog">Please Select</option>
-                                    @foreach ($array as $key => $blogtype) 
-                                       <option value="{{ $key }}">
-                                        {{ $blogtype }}
-                                        </option>
-                                    @endforeach
                                 </select>
                                 <input type="hidden" name="url" id="url" value="{{ url('news_blogs') }}">
-
                             </div>
                         </div>
                     </div>
@@ -55,7 +47,7 @@
                                         <img src="{{ asset($image) }}" class="img-responsive">
                                     @endif
                                     <br>
-                                    <a title="" href="#">{{ $newsblog->title }}</a>
+                                    <a title="" href="@if($newsblog->type == 17) {{ url($newsblog->id, 'press_release_details') }} @else {{ url($newsblog->id, 'blogs_detail') }} @endif">{{ $newsblog->title }}</a>
                                     <p>{{ str_limit(strip_tags($newsblog->content), 200) }}
                                     @if (strlen(strip_tags($newsblog->content)) > 200)
                                         <a href="@if($newsblog->type == 17) {{ url($newsblog->id, 'press_release_details') }} @else {{ url($newsblog->id, 'blogs_detail') }} @endif" class="btn-pink-box">Read More<i class="fa fa-chevron-right" aria-hidden="true"></i> </a>
@@ -97,6 +89,5 @@
             window.location.href = url;
         })
     });
-
 </script>
 

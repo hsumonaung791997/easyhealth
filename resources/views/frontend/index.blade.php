@@ -107,7 +107,7 @@
                         </div>
                     </div>
                 </div> 
-                  @endforeach
+                @endforeach
             </div>
         </section>
         <section class="home-section paddingbot-60">

@@ -160,20 +160,20 @@ class HomeController extends Controller
 
     public function newsblogs(Request $request)
     {
+
         $data = $request->all();
         $locations = Location::all();
         if (!empty($data)) {
             if (0 == $data['type']) {
                 return redirect(url('news_blogs'));
             }
-            $type = $data['type'];
-            $newsblogs = Blog::where('type', $type)->get();
-            return view('frontend.news_blogs', compact('newsblogs', 'locations', 'type'));
 
+            $newsblogs = Blog::where('type', $data['type'])->get();
         } else {
             $newsblogs = Blog::where('status', 1)->get();
-            return view('frontend.news_blogs', compact('newsblogs', 'locations'));
-        }   
+        }
+
+        return view('frontend.news_blogs', compact('newsblogs', 'locations'));
     }
 
     public function blogs_details($id) 
