@@ -89,13 +89,13 @@
                             <img src="{{ asset('frontend/img/medical-services.png') }}" class="img-responsive" alt="" />
                         </div>
                     </div>
-                    @foreach($ourservices as $ourservice)
+                    @if($ourservices != null)
+                    @foreach($ourservices as $key => $ourservice)
                     <div class="col-sm-4 col-md-4">
-                       
                         <div class="wow fadeInLeft" data-wow-delay="0.1s">
                             <div class="service-box">
                                 <div class="service-icon">
-                                <span class="fa fa-stethoscope fa-3x"></span>
+                                <span class="fa fa-service-icon-{{$key}} fa-3x"></span>
                             </div>
                             <div class="service-desc">
                                 <h5 class="h-light">{{ $ourservice->title }}</h5>
@@ -108,6 +108,7 @@
                     </div>
                 </div> 
                 @endforeach
+                @endif
             </div>
         </section>
         <section class="home-section paddingbot-60">
@@ -126,6 +127,7 @@
             </div>
             <div class="container">
                 <div class="row">
+                    @if($partners != null)
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <div class="wow FadeInUp" data-wow-delay="0.2s">
                             @foreach($partners as $partner)
@@ -140,7 +142,7 @@
                             @endforeach
                         </div>
                     </div>
-                    
+                    @endif
                 </div>
             </div>
         </section>  
@@ -159,78 +161,33 @@
                         </div>
                     </div>
                 </div>
-                <div class="container">
-                    <div class="row">
-                        <div id="carousel-reviews" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="item active">
-                                    <div class="col-md-4 col-sm-6">
-                                        <div class="block-text rel zmin">
-                                            <img src="http://bestjquery.com/tutorial/news-slider/demo19/images/img-1.jpg" alt="">
-                                            <br>
-                                            <a title="" href="#">Latest News Post </a>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad magni, nesciunt obcaecati possimus quasi quibusdam quos ratione sequi sit veritatis....</p>
-                                            <a href="#" class="btn-pink-box">Read More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-6">
-                                        <div class="block-text rel zmin">
-                                            <img src="http://bestjquery.com/tutorial/news-slider/demo19/images/img-2.jpg" alt="">
-                                            <br>
-                                            <a title="" href="#">Latest News Post</a>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad magni, nesciunt obcaecati possimus quasi quibusdam quos ratione sequi sit veritatis....</p>
-                                            <a href="#" class="btn-pink-box">Read More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-6">
-                                        <div class="block-text rel zmin">
-                                            <img src="http://bestjquery.com/tutorial/news-slider/demo19/images/img-3.jpg" alt="">
-                                            <br>
-                                            <a title="" href="#">Latest News Post</a>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad magni, nesciunt obcaecati possimus quasi quibusdam quos ratione sequi sit veritatis....</p>
-                                            <a href="#" class="btn-pink-box">Read More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="col-md-4 col-sm-6">
-                                        <div class="block-text rel zmin">
-                                            <img src="http://bestjquery.com/tutorial/news-slider/demo33/images/img-1.jpg" alt="">
-                                            <br>
-                                            <a title="" href="#">Latest News Post</a>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad magni, nesciunt obcaecati possimus quasi quibusdam quos ratione sequi sit veritatis....</p>
-                                            <a href="#" class="btn-pink-box">Read More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-6">
-                                        <div class="block-text rel zmin">
-                                            <img src="http://bestjquery.com/tutorial/news-slider/demo33/images/img-2.jpg" alt="">
-                                            <br>
-                                            <a title="" href="#">Latest News Post</a>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad magni, nesciunt obcaecati possimus quasi quibusdam quos ratione sequi sit veritatis....</p>
-                                            <a href="#" class="btn-pink-box">Read More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-6">
-                                        <div class="block-text rel zmin">
-                                            <img src="http://bestjquery.com/tutorial/news-slider/demo33/images/img-3.jpg" alt="">
-                                            <br>
-                                            <a title="" href="#">Latest News Post</a>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad magni, nesciunt obcaecati possimus quasi quibusdam quos ratione sequi sit veritatis....</p>
-                                            <a href="#" class="btn-pink-box">Read More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a>
-                                        </div>
-                                    </div>
-                                </div>
+                @if($blogs != null)
+                <div class="container">                   
+                    <div class="row">                      
+                        <div class="owl-carousel">
+                             @foreach($blogs as $blog)
+                            <div class="item">
+                                @if($blog->media_id != null)
+                                        <?php
+                                            $image = $blog->media->file_path . '/' . $blog->media->file_name;
+                                        ?>
+                                        <img src="{{ asset($image) }}" class="img-responsive" width="100%" height="100%">
+                                    @endif
+                                <br>
+                                <h4><a  href="@if($blog->type == 17) {{ url($blog->id, 'press_release_details' ) }} @else {{ url( $blog->id, 'blogs_detail') }} @endif ">{{ $blog->title}} </a></h4>
+                                <p>
+                                    {{ str_limit(strip_tags($blog->content), 100) }}
+                                        @if (strlen(strip_tags($blog->content)) > 100)
+                                          ... 
+                                          <a href="@if($blog->type == 17) {{ url($blog->id, 'press_release_details') }} @else {{ url($blog->id, 'blogs_detail') }} @endif" class="btn-pink-box">Read More<i class="fa fa-chevron-right" aria-hidden="true"></i> </a>
+                                        @endif
+                                </p>
                             </div>
-                            <a class="left carousel-control" href="#carousel-reviews" role="button" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left"></span>
-                            </a>
-                            <a class="right carousel-control" href="#carousel-reviews" role="button" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right"></span>
-                            </a>
-                        </div>
-                    </div>
+                            @endforeach
+                        </div> 
+                   </div>                    
                 </div>
+                @endif
             </div>
         </section>
     </div> 

@@ -44,7 +44,7 @@
                     @foreach($ourservices as $key => $ourservice)
                     <div class="col-sm-6 col-md-6 svbox">
                         <div class="bg-colour-{{$key}} wow fadeInLeft" data-wow-delay="0.3s">
-                            <span class="fa fa-stethoscope fa-4x"></span>
+                            <span class="fa fa-service-icon-{{$key}} fa-4x"></span>
                             <br>
                             <h3 class="h-light">{{ $ourservice->title }}</h3>
                             <p style="font-size: 14px;">

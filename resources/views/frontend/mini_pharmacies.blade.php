@@ -17,15 +17,17 @@
             </div>
         </section>
         <!-- Section: boxes -->
+
+        @if($otherminiservices != null)
         <section id="boxes" class="home-section paddingtop-10 paddingbot-50">
             <div class="container">
                 <div class="row">
                     <div>
-                        @if($otherservice != null)
+                        
                         <div class="col-sm-9 col-md-9 paddingbot-30 wow fadeInLeft" data-wow-delay="0.1s">
-                            <p>{!! $otherservice->content_one !!}</p>
+                            <p>{!! $otherminiservices->content_one !!}</p>
                         </div>
-                        @endif
+                        
                         <div class="col-sm-3 col-md-3 text-center paddingbot-50 wow fadeInRight" data-wow-delay="0.2s">
                             <a href="#" class="ph-call-btn btn btn-lg ">CALL NOW</a>
                             <br><br> 
@@ -44,15 +46,16 @@
         <section class="home-section bg-gray paddingbot-60">
             <div class="container">
                 <div class="row">
+
                     <div class="col-sm-7 col-md-7 col-lg-7">
                         <p>
-                            {!! $otherservice->content_two !!}
+                            {!! $otherminiservices->content_two !!}
                         </p>
                     </div>
                     <div class="col-sm-5 col-md-5 col-lg-5 paddingtop-30">
-                        @if($otherservice->media_id != null)
+                        @if($otherminiservices->media_id != null)
                             <?php
-                                $image = $otherservice->media->file_path . '/' . $otherservice->media->file_name;
+                                $image = $otherminiservices->media->file_path . '/' . $otherminiservices->media->file_name;
                             ?>
                             <img src="{{ asset($image) }}" class="img-responsive">
                         @endif
@@ -68,7 +71,7 @@
                         <div class="col-sm-7 col-md-7 paddingbot-30 wow fadeInLeft" data-wow-delay="0.1s">
                             <h3 class="h-bold">{{ $health_assessment->title }}</h3>
                             <p>
-                                {!! $health_assessment->description !!}
+                                {!! $health_assessment->content_one !!}
                             </p>
                             <br>
                             <a href="{{ url($health_assessment->id, 'health_assessments') }}" class="btn btn-skin btn-lg">Learn more</a>
@@ -85,6 +88,7 @@
                 </div>
             </div>
         </section>
+        @endif
         <hr>
         <!-- CLinic Center Locations -->
 

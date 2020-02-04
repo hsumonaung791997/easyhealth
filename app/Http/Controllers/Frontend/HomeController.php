@@ -22,8 +22,8 @@ class HomeController extends Controller
         $locations = Location::all();
         $ourservices = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', NULL)->get();
         $partners = Partner::all();
-        $blogs = Blog::where('status', 1)->orderBy('id','DESC')->take(3)->get();
-        $slide = Blog::where('status', 1)->orderBy('id','ASC')->take(3)->get();
+        $blogs = Blog::where('status', 1)->orderBy('id','DESC')->get();
+        //$slide = Blog::where('status', 1)->orderBy('id','ASC')->take(3)->get();
         $whyus = Whyus::where('status', 1)->first();
 
 		return view('frontend.index', compact('whyus','blogs','locations','partners','ourservices'));
@@ -143,7 +143,7 @@ class HomeController extends Controller
     public function other($id)
     {
         $otherservice = Service::find($id);
-        $otherminiservices = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', '!=', NULL)->where('type', 13)->get();
+        $otherminiservices = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', '!=', NULL)->where('type', 13)->first();
         $locations = Location::all();
         $health_assessment = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', '=', NULL)->where('type', 12)->first();
         return view('frontend.mini_pharmacies', compact('otherservice', 'otherminiservices', 'locations', 'health_assessment'));

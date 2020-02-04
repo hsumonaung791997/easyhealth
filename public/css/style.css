@@ -1,11 +1,12 @@
 body {
     width: 100%;
     height: 100%;
-    font-family: "gotham 5r","gotham a","gotham b",Arial,Helvetica,sans-serif;
-	font-weight: 300;
-    color: #666;
+    font-family: 'Open Sans Condensed', sans-serif !important;
+	font-weight: bold;
+    color: #333;
     background-color: #ddd;
-	font-size: 17px;
+	 
+  letter-spacing: 0.5px;
     line-height: 1.6em;
 }
 
@@ -15,7 +16,43 @@ html {
 }
 
 /*News BLog*/
+.carousel-wrap {
+  margin: 90px auto;
+  padding: 0 5%;
+  width: 80%;
+  position: relative;
+}
 
+/* fix blank or flashing items on carousel */
+.owl-carousel .item {
+  position: relative;
+  z-index: 100;
+  background-color: #fff;
+  padding: 4%;
+  border-radius: 3px;
+  -webkit-backface-visibility: hidden; 
+}
+
+/* end fix */
+.owl-nav > div {
+  margin-top: -26px;
+  position: absolute;
+  top: 50%;
+  color: #cdcbcd;
+}
+
+.owl-nav i {
+  font-size: 52px;
+  color: #333;
+}
+
+.owl-nav .owl-prev {
+  left: -30px;
+}
+
+.owl-nav .owl-next {
+  right: -30px;
+}
 
 /**/
 
@@ -66,15 +103,16 @@ html {
 
 .serv-section-2 h4 {
     color: #EB72A5;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 500;
     line-height: 1;
+    font-weight: bold;
 }
 
 .serv-section-2 h5 {
     color: #333;
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 600;
     line-height: 1;
     margin-top: 0px;
     letter-spacing: 1px;
@@ -410,7 +448,7 @@ opacity: .1;}}
     background: #f7f7f7;  
     float:left;
     width:100%;
-   font-family: "gotham 5r","gotham a","gotham b",Arial,Helvetica,sans-serif;
+   font-family: 'Open Sans Condensed', sans-serif;
     border: 2px solid #e7ebeb;
         margin-top: -117px;     
 }
@@ -742,7 +780,7 @@ input,
 button,
 select,
 textarea {
-  font-family: "gotham 5r","gotham a","gotham b",Arial,Helvetica,sans-serif;
+  font-family: 'Open Sans Condensed', sans-serif;
   font-size: inherit;
   line-height: inherit;
 }
@@ -793,10 +831,10 @@ textarea {
 .box > .icon:hover > .image > i { color: white !important; }
 .box > .icon > .info { margin-top: -24px; background: rgba(0, 0, 0, 0.04); border: 1px solid #e0e0e0; padding: 15px 0 10px 0; }
 .box > .icon:hover > .info { background: rgba(0, 0, 0, 0.04); border-color: #e0e0e0; color: white; }
-.box > .icon > .info > h3.title { font-family: "gotham 5r","gotham a","gotham b",Arial,Helvetica,sans-serif !important; font-size: 16px; color: #222; font-weight: 500; }
-.box > .icon > .info > p { font-family: "gotham 5r","gotham a","gotham b",Arial,Helvetica,sans-serif !important; font-size: 13px; color: #666; line-height: 1.5em; margin: 20px;}
+.box > .icon > .info > h3.title { font-family: 'Open Sans Condensed', sans-serif; font-size: 16px; color: #111; font-weight: 500; }
+.box > .icon > .info > p { font-family: 'Open Sans Condensed', sans-serif; font-size: 13px; color: #111; line-height: 1.5em; margin: 20px;}
 .box > .icon:hover > .info > h3.title, .box > .icon:hover > .info > p, .box > .icon:hover > .info > .more > a { color: #222; }
-.box > .icon > .info > .more a { font-family: "gotham 5r","gotham a","gotham b",Arial,Helvetica,sans-serif !important; font-size: 12px; color: #222; line-height: 12px; text-transform: uppercase; text-decoration: none; }
+.box > .icon > .info > .more a { font-family: 'Open Sans Condensed', sans-serif; font-size: 12px; color: #222; line-height: 12px; text-transform: uppercase; text-decoration: none; }
 .box > .icon:hover > .info > .more > a { color: #fff; padding: 6px 8px; background-color: #63B76C; }
 .box .space { height: 30px; }
 .form-control{
@@ -999,7 +1037,7 @@ a.box_btn:hover::before {
 .ui-title-page {
     position: relative;
     padding: 12px 0 0;
-    font-family: "gotham 5r","gotham a","gotham b",Arial,Helvetica,sans-serif;
+    font-family: 'Open Sans Condensed', sans-serif;
     color: #fff;
     margin-top: 90px;
 }
@@ -1091,12 +1129,12 @@ a.box_btn:hover::before {
     margin: 0;
     padding-top: 25px;
     color: #fff;
-    font-family: "gotham 5r","gotham a","gotham b",Arial,Helvetica,sans-serif;
+    font-family: 'Open Sans Condensed', sans-serif;
 }
 .hero h3 {
      
     color: #151717;
-    font-family: "gotham 5r","gotham a","gotham b",Arial,Helvetica,sans-serif;
+    font-family: 'Open Sans Condensed', sans-serif;
 }
 
 .fade-carousel .carousel-inner .item .hero {
@@ -1254,7 +1292,7 @@ h4,
 h5,
 h6 {
     margin: 0 0 30px;
-    font-family: "gotham 5r","gotham a","gotham b",Arial,Helvetica,sans-serif;
+    font-family: 'Open Sans Condensed', sans-serif;
     font-weight: 400;
 	color: #444;
 	line-height: 1em;
@@ -1494,9 +1532,9 @@ Navigation
 }
 
 .navbar-custom ul.nav li a {
-	font-size: 16px;
-	letter-spacing: 1px;
-    color: #222;
+	font-size: 18px;
+ 
+    color: #111;
 	/*text-transform: uppercase;*/
 	font-weight: 400;
 	background: transparent;
@@ -1518,7 +1556,7 @@ Navigation
 	-webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
-	color: #444;
+	color: #111;
 }
 
 .navbar-custom ul.nav ul.dropdown-menu {
@@ -1856,11 +1894,12 @@ hr.bold {
 	margin-bottom: 10px;
 	/*color: #3fbbc0;*/
   color: #000;
+  font-size: 25px;
 }
 
 .section-heading p {
-	font-weight: 300;
 	font-size: 16px;
+  font-weight: bold;
 	line-height: 1.6em;
 
 }
@@ -2441,8 +2480,8 @@ Testimonial
     padding: 15px 18px;
 }
 .block-text a {
-    font-size: 17px;
-    font-weight: 400;
+    font-size: 16px;
+    font-weight: bold;
     text-decoration: none;
 }
 .mark {
@@ -2639,9 +2678,10 @@ footer .widget ul li a:hover{
 footer .widget h5 {
 	font-size: 20px;
 	margin-bottom: 25px;
+  font-weight: bold;
 	/*text-transform: uppercase;*/
 	color: #fff;
-	font-family: "gotham 5r","gotham a","gotham b",Arial,Helvetica,sans-serif;
+	font-family: 'Open Sans Condensed', sans-serif;
 	letter-spacing: 1px;
 }
 
@@ -3032,7 +3072,7 @@ a.scrollup i:hover {
     transition: all .3s;
     vertical-align: middle;
     line-height: 1;
-    font-family: "gotham 5r","gotham a","gotham b",Arial,Helvetica,sans-serif;
+    font-family: 'Open Sans Condensed', sans-serif;
 }
 .btn_small {
     margin-top: 20px;
@@ -3128,7 +3168,7 @@ a.btn:focus{
 	-o-box-shadow: 0 1px 6px rgba(0,0,0,.2); 
     z-index: 5000;
     font-size: 11px;
-    font-family: "gotham 5r","gotham a","gotham b",Arial,Helvetica,sans-serif;
+    font-family: 'Open Sans Condensed', sans-serif;
 }
 
 #t_options hr {

@@ -19,6 +19,7 @@
         <!-- Section: boxes -->
         <section class="home-section paddingtop-50 paddingbot-50">
             <div class="container">
+                @if($whyus != null )
                 <div class="row">
                     <div class="col-sm-7 col-md-7">
                         <div class="wow fadeInUp" data-wow-delay="0.2s">
@@ -26,6 +27,7 @@
                             <div class="box">
                                 <div class="wow fadeInLeft" data-wow-delay="0.1s">
                                     <div class="section-heading">
+
                                         <h2 class="h-bold"> {{ $whyus->title }}</h2>
                                         <p>Myanmar’s First & Only Convenient-Care Clinic Chain</p>
                                     </div>
@@ -51,6 +53,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
             </div>
         </section>
         <!-- /Section: boxes -->

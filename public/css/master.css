@@ -2,8 +2,8 @@
 @import url('bootstrap.min.css');
 @import url('nivo-lightbox.css');
 @import url('nivo-lightbox-theme/default/default.css');
-@import url('owl.carousel.css');
-@import url('owl.theme.css');
+
+@import url('owl.carousel.min.css');
 @import url('animate.css');
 @import url('style.css');
 /*template color skin*/
