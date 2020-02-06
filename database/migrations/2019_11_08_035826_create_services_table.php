@@ -22,6 +22,7 @@ class CreateServicesTable extends Migration
             $table->integer('parent')->nullable();
             $table->smallInteger('type')->length(2);
             $table->text('content_two');
+            $table->text('content_three')->nullable();
             $table->timestamps();
         });
     }

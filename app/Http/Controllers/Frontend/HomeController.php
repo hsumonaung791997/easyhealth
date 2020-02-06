@@ -12,6 +12,7 @@ use App\Model\Service;
 use App\Model\Partner;
 use App\Model\Team;
 use App\Model\ValueProposition;
+use App\Model\Teamcover;
 use DB;
 
 
@@ -34,9 +35,11 @@ class HomeController extends Controller
         $locations = Location::all();
         $whyus = Whyus::where('status', 1)->first();
         $doctors = Doctor::where('status', 1)->orderBy('id','DESC')->take(3)->get();
+        $teamcover = Teamcover::orderBy('id','DESC')->first();
+        //dd($teamcover);
         $values = ValueProposition::all();
 
-        return view('frontend.whyus', compact('locations', 'whyus', 'doctors','values'));
+        return view('frontend.whyus', compact('locations', 'whyus', 'doctors','values', 'teamcover'));
     }
 
     public function appointment_form() 
@@ -120,8 +123,9 @@ class HomeController extends Controller
     public function ourservices() 
     {
         $locations = Location::all();
-        $ourservices = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', NULL)->get();   
-        return view('frontend.our_services',compact('locations', 'ourservices'));
+        $servicedescrption = Service::first();
+        $ourservices = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', NULL)->take(6)->get();   
+        return view('frontend.our_services',compact('locations', 'ourservices', 'servicedescrption'));
     }
 
     public function gp_services($id)
@@ -135,9 +139,22 @@ class HomeController extends Controller
     public function healthassessments($id)
     {
         $health_assessment = Service::find($id);
-        $hsminiservices = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', '!=', NULL)->where('type', 12)->get();
+        $hsminiservicestitle = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', '!=', NULL)->where('type', 12)->get();
+       $healthassessment = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', NULL)->where('type', 12)->first();
         $locations = Location::all();
-        return view('frontend.health_assessments', compact('health_assessment', 'hsminiservices', 'locations'));
+        return view('frontend.hstitle', compact('health_assessment', 'hsminiservicestitle', 'locations','healthassessment'));
+    }
+
+
+
+    public function healthassessmentsdetail($id)
+    {
+        $health_assessment = Service::find($id);
+        $locations = Location::all();
+        $hsminiservicestitle = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', '!=', NULL)->where('type', 12)->get();
+        $health_assessmentdetail = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', '!=', NULL)->where('type', 12)->get();
+         return view('frontend.health_assessments_detail', compact('health_assessment', 'hsminiservicestitle', 'locations'));
+
     }
 
     public function other($id)

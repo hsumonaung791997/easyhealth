@@ -28,7 +28,7 @@
                                 <i class="title-bg"></i>
                             </div>
                             <p class="wow fadeInUp" data-wow-delay="0.1s">
-                                {!! $gp_service->description !!}
+                                {!! $gp_service->content_one !!}
                             </p>
                         </div>
                     </div>    
@@ -47,17 +47,8 @@
                         </div>     
                     </div>
                     <div class="col-sm-6 col-md-6 gp-frame-right paddingbot-20 paddingtop-20 gp-frame wow fadeInRight" data-wow-delay="0.2s">
-                        <h4 class="h-bold">Why should I choose private GP services with easy health?</h4>
-                        <br>
                         <p>
-                            <ul>
-                                <li>  You don’t need to be a Bupa member to book a private GP appointment </li>
-                                <li> You can normally see a doctor on the same day if you need an urgent GP appointment  </li>
-                                <li> All of our costs are up front so you’ll have no hidden surprises </li>
-                                <li> You can book your appointment online or via a dedicated telephone booking team at a time convenient to you </li>
-                                <li> We have experienced doctors and offer a high quality and professional service </li>
-                                <li> Our customers love our service </li>                 
-                            </ul>    
+                             {!! $gp_service->content_two !!}
                         </p>  
                     </div>
                 </div>

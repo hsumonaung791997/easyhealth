@@ -31,6 +31,10 @@
     <a href="{{ route('company_profile.index') }}"><i class="fa fa-edit"></i><span>Company Profile</span></a>
  </li>
 
+<li class="{{ Request::is('teamcover*') ? 'active' : '' }}">
+    <a href="{{ route('teamcover.index') }}"><i class="fa fa-edit"></i><span>Team Cover</span></a>
+</li>
+
 <li class="{{ Request::is('team*') ? 'active' : '' }}">
     <a href="{{ route('team.index') }}"><i class="fa fa-edit"></i><span>Team Management</span></a>
 </li>

@@ -8,7 +8,7 @@ class Service extends Model
 {
     //
     protected $fillable = [
-    	'title', 'content_one', 'media_id', 'status','parent', 'type', 'content_two',
+    	'title', 'content_one', 'media_id', 'status','parent', 'type', 'content_two', 'content_three',
     ];
 
     

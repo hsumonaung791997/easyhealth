@@ -27,6 +27,7 @@ Route::group(['namespace' => 'Frontend'], function() {
 	Route::get('contact', 'HomeController@contact')->name('frontend.contact');
 	 
 	Route::get('health_assessments', 'HomeController@health_assessments')->name('frontend.health_assessments');
+
 	Route::get('management_team', 'HomeController@management_team')->name('frontend.management_team');
 	// Route::get('men_health', 'HomeController@men_health')->name('frontend.men_health');
 	// Route::get('{id}/menhealth_detail', 'HomeController@menhealth_detail')->name('frontend.men_health');
@@ -50,6 +51,7 @@ Route::group(['namespace' => 'Frontend'], function() {
 	Route::get('{id}/press_release_details', 'HomeController@pressreleasedetails')->name('frontend.press_release_details');
 	Route::get('{id}/gp_services', 'HomeController@gp_services')->name('frontend.gp_services');
 	Route::get('{id}/health_assessments', 'HomeController@healthassessments')->name('frontend.health_assessments');
+	Route::get('{id}/health_assessments_detail', 'HomeController@healthassessmentsdetail')->name('frontend.health_assessments_detail');
 	Route::get('{id}/other', 'HomeController@other')->name('frontend.mini_pharmacies');
 
 	Route::get('gmaps', 'HomeController@gmaps');
@@ -72,5 +74,6 @@ Route::group(['prefix'=>'admin'],function(){
 		Route::resource('company_profile', 'CompanyProfileController');
 		Route::resource('team', 'TeamController');
 		Route::resource('value', 'ValuePropositionController');
+		Route::resource('teamcover', 'TeamcoverController');
 	});
 });

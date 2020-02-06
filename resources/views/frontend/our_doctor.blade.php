@@ -31,15 +31,9 @@
                                         <h2 class="h-bold">{{ $doctor->name }}</h2>
                                     </div>
                                 </div>
-                                <h4 class="h-bold">Education</h4>
-                                <p>
-                                    {{ $doctor->education }}
-                                </p>
-                                <h4 class="h-bold">Position</h4>
                                 <p>
                                     {{ $doctor->position }}
                                 </p>
-                                <h4 class="h-bold">Description</h4>
                                 <p>
                                     {!! $doctor->description !!}
                                 </p>

@@ -34,12 +34,15 @@ a:focus {
   /*background-color: #4ACCD1;
   border-color: #4ACCD1;*/
 }
-
+.navbar-brand{
+    padding: 8px 15px !important;
+}
 
 /* top */
 .top-area {
 	/*background: #3fbbc0;*/
     background-color: #A0D5D7;
+    border-top: 2px solid #A0D5D7;
 }
 
 /* menu */

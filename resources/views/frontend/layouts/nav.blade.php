@@ -1,14 +1,15 @@
 <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
     <div class="top-area">
-        <div class="container">
+        <!-- <div class="container">
             <div class="row">
                 <div class="col-sm-6 col-md-6"></div>
                 <div class="col-sm-6 col-md-6">
                     <p class="bold text-right"><a href="#"><img src="{{ asset('frontend/img/eng.png') }}"></a> &nbsp; <a href="#"><img src="{{ asset('frontend/img/mm.png') }}"></a></p>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
+    
     <div class="container navigation">
         <div class="navbar-header page-scroll">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">

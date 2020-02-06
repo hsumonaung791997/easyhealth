@@ -10,9 +10,9 @@
     <div class="content">
         <div class="box box-primary">
             <div class="box-body">
-                <div class="row">
+                <div class="">
                     {!! Form::open(['route' => 'service.store', 'files' => 'true']) !!}
-                        <div class="row" style="margin: 0">
+                        <div class="row" >
                             <div class="form-group col-sm-6 mmtext">
                                 {!! Form::label('title', 'Title:') !!} <span class="text-danger">*</span>
                                 {!! Form::text('title', null, ['class' => 'form-control']) !!}
@@ -31,67 +31,84 @@
                                           {{ $parent->title }}
                                         </option>
                                     @endforeach
+                                </option>
                                 </select>
                             </div>
                         </div> 
-                        <div class="form-group col-sm-6 mmtext">                      
-                            {!! Form::label('service_type', 'Service Type:') !!}<span class="text-danger">*</span><br>
-                            <?php $array = json_decode(SERVICE_TYPE, TRUE); ?>
-                            <select name="type" id="type" class="form-control">
-                                <option selected="selected"></option>
-                                @foreach ($array as $key => $a) 
-                                    <option value="{{ $key }}">
-                                      {{ $a }}
-                                    </option>
-                                @endforeach
-                            </select>
-                            @if ($errors->has('type'))
-                                <span class="text-danger">
-                                    <strong>{{ $errors->first('type') }}</strong>
-                                </span>
-                            @endif
-                        </div>                                                                          
-                        <div class="form-group col-sm-6 mmtext pull-right">
-                            {!! Form::label('content_one', 'Content_One:') !!} <span class="text-danger">*</span>
-                            <textarea id="content_one" class="editor" name="content_one" rows="10" cols="50"></textarea>
-                            @if ($errors->has('content_one'))
-                               <span class="text-danger">
-                                   <strong>{{ $errors->first('content_one') }}</strong>
-                               </span>
-                            @endif
-                        </div>
-
-                        <div class="form-group col-sm-6 mmtext">
-                            {!! Form::label('file', 'Upload Service Photo :') !!}
-                            {{ Form::hidden('media_path', SERVICE_MEDIA_UPLOAD) }}
-                                <div class="file-loading">
-                                    <input type="file" id="image_media" name="image_media" accept="image/*">
-                                </div>
-                            <div class="kv-avatar-hint">
-                                <small>Select file < 1500 KB</small>
+                        <div class="row">
+                            <div class="form-group col-sm-6 mmtext">                      
+                                {!! Form::label('service_type', 'Service Type:') !!}<span class="text-danger">*</span><br>
+                                <?php $array = json_decode(SERVICE_TYPE, TRUE); ?>
+                                <select name="type" id="type" class="form-control">
+                                    <option selected="selected"></option>
+                                    @foreach ($array as $key => $a) 
+                                        <option value="{{ $key }}">
+                                          {{ $a }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                @if ($errors->has('type'))
+                                    <span class="text-danger">
+                                        <strong>{{ $errors->first('type') }}</strong>
+                                    </span>
+                                @endif
                             </div>
-                            <div id="kv-avatar-errors-1" class="center-block" style="width:800px;display:none"></div>
-                        </div>
+                        </div>                                                           
+                        <div class="row">
+                            <div class="form-group col-sm-6 mmtext pull-right">
+                                {!! Form::label('content_one', 'Content_One:') !!} <span class="text-danger">*</span>
+                                <textarea id="content_one" class="editor" name="content_one" rows="10" cols="50"></textarea>
+                                @if ($errors->has('content_one'))
+                                   <span class="text-danger">
+                                       <strong>{{ $errors->first('content_one') }}</strong>
+                                   </span>
+                                @endif
+                            </div>
 
-                         <div class="form-group col-sm-6 mmtext pull-right">
-                            {!! Form::label('content_two', 'Content_Two:') !!} <span class="text-danger">*</span>
-                            <textarea id="content_two" class="editor" name="content_two" rows="10" cols="50"></textarea>
-                            @if ($errors->has('content_two'))
-                               <span class="text-danger">
-                                   <strong>{{ $errors->first('content_two') }}</strong>
-                               </span>
-                            @endif
+                            <div class="form-group col-sm-6 mmtext">
+                                {!! Form::label('file', 'Upload Service Photo :') !!}
+                                {{ Form::hidden('media_path', SERVICE_MEDIA_UPLOAD) }}
+                                    <div class="file-loading">
+                                        <input type="file" id="image_media" name="image_media" accept="image/*">
+                                    </div>
+                                <div class="kv-avatar-hint">
+                                    <small>Select file < 1500 KB</small>
+                                </div>
+                                <div id="kv-avatar-errors-1" class="center-block" style="width:800px;display:none"></div>
+                            </div>
                         </div>
+                        <div class="row">
+                            <div class="form-group col-sm-6 mmtext pull-right">
+                                {!! Form::label('content_two', 'Content_Two:') !!} <span class="text-danger">*</span>
+                                <textarea id="content_two" class="editor" name="content_two" rows="10" cols="50"></textarea>
+                                @if ($errors->has('content_two'))
+                                   <span class="text-danger">
+                                       <strong>{{ $errors->first('content_two') }}</strong>
+                                   </span>
+                                @endif
+                            </div>
 
-                        <div class="form-group col-sm-6 mmtext">
-                            {!! Form::label('status', 'Status:') !!} <span class="text-danger">*</span><br>
-                            <label class="radio radio-inline">{!! Form::radio('status', 1, true) !!} Active </label>
-                            <label class="radio radio-inline">{!! Form::radio('status', 0) !!} Inactive </label>
-                            @if ($errors->has('status'))
-                                <span class="text-danger">
-                                    <strong>{{ $errors->first('status') }}</strong>
-                                </span>
-                            @endif
+                            <div class="form-group col-sm-6 mmtext pull-right">
+                                {!! Form::label('content_three', 'Need For Health Accessment:') !!} <span class="text-danger">*</span>
+                                <textarea id="content_three" class="editor" name="content_three" rows="10" cols="50"></textarea>
+                                @if ($errors->has('content_three'))
+                                   <span class="text-danger">
+                                       <strong>{{ $errors->first('content_three') }}</strong>
+                                   </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-6 mmtext">
+                                {!! Form::label('status', 'Status:') !!} <span class="text-danger">*</span><br>
+                                <label class="radio radio-inline">{!! Form::radio('status', 1, true) !!} Active </label>
+                                <label class="radio radio-inline">{!! Form::radio('status', 0) !!} Inactive </label>
+                                @if ($errors->has('status'))
+                                    <span class="text-danger">
+                                        <strong>{{ $errors->first('status') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
                         </div>
                        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.1/css/fileinput.min.css" media="all"
                              rel="stylesheet" type="text/css"/>

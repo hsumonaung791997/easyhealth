@@ -17,34 +17,28 @@
             </div>
         </section>
         <!-- Section: team -->
+        @if($teams != null)
         <section class="home-section paddingbot-60">   
-            <div class="container">
-                <div class="row">
-                    <div id="grid-container" class="cbp-l-grid-team">
-                        <ul>
-                            @foreach($teams as $team)
-                            <li class="cbp-item text-center">
-                                <a href="#" class="cbp-caption ">
-                                    <div class="cbp-caption-defaultWrap">
-                                        @if($team->media_id != null)
-                                        <?php 
-                                        $image = $team->media->file_path. '/' .$team->media->file_name;
-                                        ?>
-                                        <img src="{{ asset($image) }}" alt="" width="100%">
-                                        @endif
-                                    </div>
-                                </a>
-                                <h4 class="h-bold">{{ $team->title }}</h4>
-                                <div class="cbp-l-grid-team-position">{{ $team->position }}</div>
-
-                            </li>
-                            @endforeach
-                        </ul>
+               <div class="container">
+                    <div class="row">
+                        @foreach($teams as $team)
+                        <div class="col-md-4 col-sm-4">
+                            @if($team->media_id != null)
+                                <?php
+                                    $image = $team->media->file_path . '/' . $team->media->file_name;
+                                ?>
+                                <img src="{{ asset($image)}}" alt="" width="100%">
+                            @endif
+                            <br><br>
+                             <div class="cbp-l-grid-team-position">{{ $team->title }}</div>
+                            <div class="cbp-l-grid-team-position">{{ $team->position }}</div>
+                            <br><br>
+                        </div>
+                        @endforeach
                     </div>
                 </div>
-                 
-            </div>
         </section>
+        @endif
         <!-- /Section: team -->
 
         <hr>
@@ -71,7 +65,6 @@
         </section>
 
     </div>
-    
 </body>
 @endsection
-</html>
+

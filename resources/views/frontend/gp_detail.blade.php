@@ -21,7 +21,7 @@
         @endif
 
         <!-- Section: boxes -->
-        <section id="boxes" class="home-section paddingtop-10 paddingbot-50">
+        <section id="boxes" class="home-section paddingtop-40 paddingbot-40">
             <div class="container">
                 <div class="row">
                     <div>
@@ -60,8 +60,7 @@
                                 $image = $detail->media->file_path . '/' . $detail->media->file_name;
                             ?>
                             <img src="{{ asset($image) }}"  class="img-responsive">
-                        @endif
-                         
+                        @endif 
                     </div>
                 </div>
             </div>
@@ -93,7 +92,7 @@
             </div>
         </section>
         @endif
-        <hr>
+         
         <!-- CLinic Center Locations -->
 
         <section class="home-section bg-gray paddingbot-60">

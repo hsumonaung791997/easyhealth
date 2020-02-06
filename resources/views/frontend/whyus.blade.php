@@ -58,6 +58,7 @@
         </section>
         <!-- /Section: boxes -->
         <!-- Section: team -->
+        @if($teamcover != null)
         <section class="home-section bg-gray paddingbot-60">
             <div class="container">
                 <div class="row">
@@ -72,11 +73,17 @@
                     </div>
                 </div>
             </div>
+            
             <div class="container">
                 <div class="row">
-                    <img src="{{ asset('frontend/img/medical-management.jpg') }}" class="img-responsive" width="100%">
+                    @if($teamcover->media_id != null)
+                    <?php
+                        $image = $teamcover->media->file_path . '/' . $teamcover->media->file_name;
+                    ?>
+                    <img src="{{ asset($image) }}" class="img-responsive" width="100%">
+                    @endif
                     <br>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </p>
+                    <p> {!! $teamcover->description !!} </p>
                     <br> 
                     <center>
                         <a href="{{ url('management_team')}}" class="btn-pink-box">Learn More <i class="fa fa-chevron-right" aria-hidden="true"></i> </a>
@@ -84,6 +91,7 @@
                 </div>
             </div>
         </section>
+         @endif
         <!-- /Section: team -->
 
         <!-- Section: team -->
@@ -100,35 +108,34 @@
                         <i class="title-bg"></i>
                     </div>
                 </div>
+            </div>
 
+            @if($doctors != null)   
                 <div class="container">
-                <div class="row">
-                    <div id="grid-container" class="cbp-l-grid-team">
-                        <ul>
-                            @foreach($doctors as $doctor)
-                            <li class="cbp-item psychiatrist">
-                                <a href="{{ url('our_doctor')}}">
-                                    @if($doctor->media_id != null)
-                                        <?php
-                                            $image = $doctor->media->file_path . '/' . $doctor->media->file_name;
-                                        ?>
-                                        <img src="{{ asset($image) }}" class="img-responsive">
-                                    @endif 
-                                </a>
-                                <a href="#" class="cbp-singlePage cbp-l-grid-team-name">{{ $doctor->name }}</a>
-                                <div class="cbp-l-grid-team-position">{{ $doctor->position }}</div>
-                            </li>
-                            @endforeach
-                        </ul>
+                    <div class="row">
+                        @foreach($doctors as $doctor)
+                        <div class="col-md-4 col-sm-4">
+                            @if($doctor->media_id != null)
+                                <?php
+                                    $image = $doctor->media->file_path . '/' . $doctor->media->file_name;
+                                ?>
+                                <img src="{{ asset($image)}}" alt="" width="100%">
+                            @endif
+                            <br><br>
+                            <a href="{{ url('our_doctor')}}" class="cbp-singlePage cbp-l-grid-team-name">{{ $doctor->name }}</a>
+                            <div class="cbp-l-grid-team-position">{{ $doctor->position }}</div>
+                            <br><br>
+                        </div>
+                        @endforeach
                     </div>
-                    <br><br>
-                    <center>
-                        <a href="{{ url('our_doctor')}}" class="btn btn-skin btn-lg">Learn more</a>
-                    </center>
+                    <div class="row">
+                        <center>
+                            <br><br>
+                            <a href="{{url('our_doctor')}}" class="btn btn-skin btn-lg">Learn more</a>
+                        </center>
+                    </div>
                 </div>
-            </div>
-
-            </div>
+            @endif
         </section>
 
         <section class="home-section bg-gray paddingbot-60">
@@ -145,21 +152,18 @@
                     </div>
                 </div>
             </div>
-            <div class="container">
+             <div class="container">
                 <div class="row">
-                    <?php $id = 0; ?>
-                    @foreach($values as $v)
                     <div class="col-md-4 col-sm-12 col-12 paddingtop-10">
                         <div class="serv-section-2">
                             <div class="serv-section-2-icon"> <i class="fa fa-line-chart" aria-hidden="true"></i>  </div>
                             <div class="serv-section-desc">
-                                <h4>{{ $id++ }}</h4>
-                                <h5>{{ $v->title }}</h5> </div>
+                                <h4>01.</h4>
+                                <h5>Quality</h5> </div>
                             <div class="section-heading-line-left"></div>
                         </div>
                     </div>
-                    @endforeach
-                    <!-- <div class="col-md-4 col-sm-12 col-12 paddingtop-10">
+                    <div class="col-md-4 col-sm-12 col-12 paddingtop-10">
                         <div class="serv-section-2 serv-section-2-act">
                             <div class="serv-section-2-icon serv-section-2-icon-act"> <i class="fa fa-comment-o" aria-hidden="true"></i> </div>
                             <div class="serv-section-desc">
@@ -178,9 +182,9 @@
                             <div class="section-heading-line-left"></div>
                             
                         </div>
-                    </div> -->
+                    </div>
                 </div>
-                <!-- <div class="row paddingtop-20">
+                <div class="row paddingtop-20">
                     <div class="col-md-4 col-sm-12 col-12 paddingtop-10">
                         <div class="serv-section-2">
                             <div class="serv-section-2-icon"> <i class="fa fa-cube" aria-hidden="true"></i> </div>
@@ -211,7 +215,7 @@
                             
                         </div>
                     </div>
-                </div> -->
+                </div>
             </div>
         </section>
 

@@ -26,9 +26,9 @@
                                     <li>
                                         <a href=""><b class="h-bold">Health assessments</b></a>
                                     </li>
-                                    @foreach($hsminiservices as $hsminiservice)
+                                    @foreach($hsminiservicestitle as $hsminiservice)
                                     <li>
-                                        <a href="#">
+                                        <a href="{{url($hsminiservice->id,'health_assessments')}}">
                                             <i class="fa fa-caret-right" aria-hidden="true"></i> <span class="title">{{ $hsminiservice->title }}</span>
                                         </a>
                                     </li>
@@ -37,9 +37,9 @@
                             </nav>    
                         </div>
                         <div class="col-sm-8 col-md-8 paddingbot-30 wow fadeInLeft" data-wow-delay="0.1s">
-                            <h4 class="h-bold">Our Health Core assessment provides a key set of tests and measures to give you a view on your current health and any future health risks.</h4>
+                            <h4 class="h-bold">{{$healthassessment->title}} </h4>
                             <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                 {!!$healthassessment->content_one!!} 
                                  
                             </p>
                             <br>
@@ -62,15 +62,12 @@
                     <br><br>
                     <div class="col-sm-6 col-md-6 col-lg-6 wow fadeInLeft" data-wow-delay="0.1s" >
                         <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                            {!!$healthassessment->content_two!!} 
                         </p>
                     </div>
                     <div class="col-sm-6 col-md-6 col-lg-6 wow fadeInRight" data-wow-delay="0.1s" >
                         <p>
-                            <i class="fa fa-check" aria-hidden="true"></i> Total assessment time - 60 minutes <br>
-                            <i class="fa fa-check" aria-hidden="true"></i> Test time - 30 minutes <br>
-                            <i class="fa fa-check" aria-hidden="true"></i> Review time - 30 minutes with a health adviser <br>
-                            <i class="fa fa-check" aria-hidden="true"></i> Age range - Designed with those under 40 in mind, but available to everyone over 18 <br>
+                              {!!$healthassessment->content_three!!} 
                         </p>
                     </div>
                 </div>
