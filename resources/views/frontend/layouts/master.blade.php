@@ -68,12 +68,12 @@
                             <div class="widget" style="color: #fff;">
                                 <h5>Our Services</h5>
                                 <ul>
-                                    <li><a href="ourservices"><i class="fa fa-caret-right" aria-hidden="true"></i> Private GP services </a></li>
-                                    <li><a href="mini_pharmacies"><i class="fa fa-caret-right" aria-hidden="true"></i> Mini pharmacies </a></li>
-                                    <li><a href="health_assessments"><i class="fa fa-caret-right" aria-hidden="true"></i> Health screenings and diagnostics </a></li>
-                                    <li><a href="our_services"><i class="fa fa-caret-right" aria-hidden="true"></i> Home services</a></li>
-                                    <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Telemedicine services</a></li>
-                                    <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Corporate B2B healthcare</a></li>
+                                    <li><a href="{{url(11,'gp_services')}}"><i class="fa fa-caret-right" aria-hidden="true"></i> Private GP services </a></li>
+                                    <li><a href="{{url(13,'other')}}"><i class="fa fa-caret-right" aria-hidden="true"></i> Mini pharmacies </a></li>
+                                    <li><a href="{{url(12,'health_assessments')}}"><i class="fa fa-caret-right" aria-hidden="true"></i> Health screenings and diagnostics </a></li>
+                                    <li><a href="{{url(13,'other')}}"><i class="fa fa-caret-right" aria-hidden="true"></i> Home services</a></li>
+                                    <li><a href="{{url(13,'other')}}"><i class="fa fa-caret-right" aria-hidden="true"></i> Telemedicine services</a></li>
+                                    <li><a href="{{url(12,'health_assessments')}}"><i class="fa fa-caret-right" aria-hidden="true"></i> Corporate B2B healthcare</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -84,10 +84,10 @@
                                 <h5>Corporate Info</h5>
                                 <ul>
                                     <li><a href="contact"><i class="fa fa-caret-right" aria-hidden="true"></i> Our Locations</a></li>
-                                    <li><a href="our_doctor"><i class="fa fa-caret-right" aria-hidden="true"></i> Our Doctors </a></li>
+                                    <li><a href="{{url('our_doctor')}}"><i class="fa fa-caret-right" aria-hidden="true"></i> Our Doctors </a></li>
 
-                                    <li><a href="whyus"><i class="fa fa-caret-right" aria-hidden="true"></i> Company Profile </a></li>
-                                    <li><a href="management_team"><i class="fa fa-caret-right" aria-hidden="true"></i> Management Team</a></li>
+                                    <li><a href="{{url('whyus')}}"><i class="fa fa-caret-right" aria-hidden="true"></i> Company Profile </a></li>
+                                    <li><a href="{{url('management_team')}}"><i class="fa fa-caret-right" aria-hidden="true"></i> Management Team</a></li>
                                     <li><a href="privacy_policy"><i class="fa fa-caret-right" aria-hidden="true"></i> Privacy Poilcy </a></li>
                                 </ul>
                             </div>
@@ -99,8 +99,8 @@
                             <div class="widget" style="color: #fff;">
                                 <h5>News Blog</h5>
                                 <ul>
-                                    <li><a href="news_blogs"><i class="fa fa-caret-right" aria-hidden="true"></i> Press Releases</a></li>
-                                    <li><a href="new_blogs"><i class="fa fa-caret-right" aria-hidden="true"></i> Health Blogs </a></li>
+                                    <li><a href="{{url('news_blogs')}}"><i class="fa fa-caret-right" aria-hidden="true"></i> Press Releases</a></li>
+                                    <li><a href="{{url('news_blogs')}}"><i class="fa fa-caret-right" aria-hidden="true"></i> Health Blogs </a></li>
                                 </ul>
                             </div>
                         </div>

@@ -18,7 +18,8 @@
         <section class="home-section paddingtop-10 paddingbot-50">
             <div class="container">
                 <div class="row">
-                    <div>    
+                    <div>
+                    @if($hsminiservicestitle != null)    
                         <div class="col-sm-4 col-md-4 paddingbot-50 wow fadeInRight" data-wow-delay="0.2s">
                             <nav>
                                 <ul class="ace-responsive-menu" data-menu-style="vertical">
@@ -36,6 +37,9 @@
                                 </ul>   
                             </nav>    
                         </div>
+                        @endif
+
+                        @if($health_assessment !=null )
                         <div class="col-sm-8 col-md-8 paddingbot-30 wow fadeInLeft" data-wow-delay="0.1s">
                             <h4 class="h-bold"> {{$health_assessment->title}}</h4>
                             <p>
@@ -47,12 +51,14 @@
                             <h4 class="h-bold">Ask us a question on +959 123456789</h4>
                             <a href="#" class="ph-call-btn btn btn-lg ">CALL NOW</a>
                         </div>
+                        @endif
                     </div> 
                 </div>
             </div>
         </section>
         <section class="home-section bg-gray paddingbot-60">
             <div class="container">
+                @if($health_assessment != null)
                 <div class="row">
                     <div class="wow fadeInDown" data-wow-delay="0.1s" >
                         <div class="section-heading text-center">
@@ -72,6 +78,7 @@
                         </p>
                     </div>
                 </div>
+                @endif
             </div>
         </section>
         <section class="home-section paddingbot-60">

@@ -44,7 +44,9 @@ class HomeController extends Controller
 
     public function appointment_form() 
     {
-    	return view('frontend.appointment_form');
+    	
+        $locations = Location::all();
+        return view('frontend.appointment_form',compact('locations'));
     }
 
     public function blogs_detail(Request $request, $id) 
