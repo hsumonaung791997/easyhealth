@@ -31,7 +31,7 @@ Route::group(['namespace' => 'Frontend'], function() {
 	Route::get('press_release', 'HomeController@press_release')->name('frontend.press_release'); 
 	Route::get('privacy_policy', 'HomeController@privacy_policy')->name('frontend.privacy_policy');
 	Route::get('whyus', 'HomeController@whyus')->name('frontend.whyus');
-	Route::get('women_health', 'HomeController@women_health')->name('frontend.women_health');
+	
 	Route::get('{id}/newsblog', 'HomeController@newsblog')->name('frontend.press_release');
 	Route::get('{id}/blogs_detail', 'HomeController@blogs_details')->name('frontend.blogs_detail');
 	Route::get('{id}/services', 'HomeController@services')->name('frontend.gp_services');

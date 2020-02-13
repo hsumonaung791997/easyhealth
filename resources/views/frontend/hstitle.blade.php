@@ -18,7 +18,7 @@
         <section class="home-section paddingtop-10 paddingbot-50">
             <div class="container">
                 <div class="row">
-                    <div> 
+                    <div>
                     @if($hsminiservicestitle != null)   
                         <div class="col-sm-4 col-md-4 paddingbot-50 wow fadeInRight" data-wow-delay="0.2s">
                             <nav>
