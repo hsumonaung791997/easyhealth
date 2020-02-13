@@ -74,12 +74,6 @@
                                     <li><a href="our_services"><i class="fa fa-caret-right" aria-hidden="true"></i> Home services</a></li>
                                     <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Telemedicine services</a></li>
                                     <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Corporate B2B healthcare</a></li>
-                                    <li><a href="{{url(11,'gp_services')}}"><i class="fa fa-caret-right" aria-hidden="true"></i> Private GP services </a></li>
-                                    <li><a href="{{url(13,'other')}}"><i class="fa fa-caret-right" aria-hidden="true"></i> Mini pharmacies </a></li>
-                                    <li><a href="{{url(12,'health_assessments')}}"><i class="fa fa-caret-right" aria-hidden="true"></i> Health screenings and diagnostics </a></li>
-                                    <li><a href="{{url(13,'other')}}"><i class="fa fa-caret-right" aria-hidden="true"></i> Home services</a></li>
-                                    <li><a href="{{url(13,'other')}}"><i class="fa fa-caret-right" aria-hidden="true"></i> Telemedicine services</a></li>
-                                    <li><a href="{{url(12,'health_assessments')}}"><i class="fa fa-caret-right" aria-hidden="true"></i> Corporate B2B healthcare</a></li>
                                 </ul>
                             </div>
                         </div>
