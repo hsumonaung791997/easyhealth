@@ -33,7 +33,7 @@
                         </div>
                     </div>    
                 </div>
-                @endif
+               
                 <div class="row">
                     <div class="col-sm-6 col-md-6 gp-frame-left paddingbot-20 paddingtop-20 wow fadeInLeft" data-wow-delay="0.2s">     
                         <div class="section-heading">
@@ -52,6 +52,7 @@
                         </p>  
                     </div>
                 </div>
+                @endif
                 <div class="row paddingtop-50">
                     <div class="wow fadeInDown" data-wow-delay="0.1s">
                         <div class="section-heading text-center paddingbot-50">

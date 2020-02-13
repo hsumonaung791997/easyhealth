@@ -68,7 +68,7 @@
                             <div class="widget" style="color: #fff;">
                                 <h5>Our Services</h5>
                                 <ul>
-                                    <li><a href="ourservices"><i class="fa fa-caret-right" aria-hidden="true"></i> Private GP services </a></li>
+                                    <li><a href="{{ url('11/gp_services') }}"><i class="fa fa-caret-right" aria-hidden="true"></i> Private GP services </a></li>
                                     <li><a href="mini_pharmacies"><i class="fa fa-caret-right" aria-hidden="true"></i> Mini pharmacies </a></li>
                                     <li><a href="health_assessments"><i class="fa fa-caret-right" aria-hidden="true"></i> Health screenings and diagnostics </a></li>
                                     <li><a href="our_services"><i class="fa fa-caret-right" aria-hidden="true"></i> Home services</a></li>
