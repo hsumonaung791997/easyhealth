@@ -87,7 +87,7 @@
                                     <li><a href="{{url('our_doctor')}}"><i class="fa fa-caret-right" aria-hidden="true"></i> Our Doctors </a></li>
                                     <li><a href="{{url('whyus')}}"><i class="fa fa-caret-right" aria-hidden="true"></i> Company Profile </a></li>
                                     <li><a href="{{url('management_team')}}"><i class="fa fa-caret-right" aria-hidden="true"></i> Management Team</a></li>
-                                    <li><a href="privacy_policy"><i class="fa fa-caret-right" aria-hidden="true"></i> Privacy Poilcy </a></li>
+                                    <li><a href="{{url('privacy_policy')}}"><i class="fa fa-caret-right" aria-hidden="true"></i> Privacy Poilcy </a></li>
                                 </ul>
                             </div>
                         </div>
