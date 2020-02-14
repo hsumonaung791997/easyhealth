@@ -83,7 +83,7 @@
                             <div class="widget">
                                 <h5>Corporate Info</h5>
                                 <ul>
-                                    <li><a href="contact"><i class="fa fa-caret-right" aria-hidden="true"></i> Our Locations</a></li>
+                                    <li><a href="{{url('contact')}}"><i class="fa fa-caret-right" aria-hidden="true"></i> Our Locations</a></li>
                                     <li><a href="{{url('our_doctor')}}"><i class="fa fa-caret-right" aria-hidden="true"></i> Our Doctors </a></li>
 
                                     <li><a href="{{url('whyus')}}"><i class="fa fa-caret-right" aria-hidden="true"></i> Company Profile </a></li>

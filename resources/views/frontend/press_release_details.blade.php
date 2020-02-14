@@ -20,11 +20,11 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12 wow fadeInLeft" data-wow-delay="0.2s">
                         <!-- Single Blog -->
-                        @foreach($pressreleasedetails as $pressreleasedetail)
+                        @if($blog !=null )
                         <div class="single-blog">
                             <div class="blog-content">
                                 <div class="blog-title">
-                                    <h4 class="h-bold">{{ $pressreleasedetail->title }}</h4>
+                                    <h4 class="h-bold">{{ $blog->title }}</h4>
                                     <div class="meta">
                                         <ul>
                                             <li><i class="fa fa-user" aria-hidden="true"></i> Admin &nbsp;&nbsp;| &nbsp;&nbsp; <i class="fa fa-calendar" aria-hidden="true"></i> 04 June 2018</li>
@@ -32,24 +32,19 @@
                                     </div>
                                 </div>
                                 <p>
-                                @if($pressreleasedetail->media_id != null)
+                                @if($blog->media_id != null)
                                     <?php
-                                        $image = $pressreleasedetail->media->file_path . '/' . $pressreleasedetail->media->file_name;
+                                        $image = $blog->media->file_path . '/' . $blog->media->file_name;
                                     ?>
                                     <img src="{{ asset($image) }}" class="img-responsive" width="100%" height="100%">
                                 @endif
-                                    <br><br>
-                                    {!! $pressreleasedetail->content !!}
+                                
+                                    {!! $blog->content !!}
                                 </p>
                                 <br>
-                                <div class="meta">
-                                    <ul>
-                                        <li><i class="fa fa-tags" aria-hidden="true"></i> Healthcare | Fitness </li>
-                                    </ul>
-                                </div>
                             </div>
                         </div>
-                        @endforeach
+                        @endif
                     </div>  
                 </div>
             </div>

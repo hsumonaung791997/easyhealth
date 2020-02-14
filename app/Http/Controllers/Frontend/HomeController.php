@@ -211,10 +211,10 @@ class HomeController extends Controller
     {
         $blog = Blog::find($id);
         $locations = Location::all();
-        $pressreleasedetails = BLog::where([
+        /*$pressreleasedetails = BLog::where([
                     ['type', '=', 17],
                     ['status', '=', 1],
-                ])->get();
+                ])->get();*/
 
         return view('frontend.press_release_details', compact('pressreleasedetails', 'blog', 'locations'));
     }
