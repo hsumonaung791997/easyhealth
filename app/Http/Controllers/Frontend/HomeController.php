@@ -215,7 +215,7 @@ class HomeController extends Controller
                     ['type', '=', 17],
                     ['status', '=', 1],
                 ])->get();*/
-
+ 
         return view('frontend.press_release_details', compact('pressreleasedetails', 'blog', 'locations'));
     }
 

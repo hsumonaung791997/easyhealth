@@ -19,7 +19,7 @@
             <div class="container">
                 <div class="row">
                     <div>
-                    @if($hsminiservicestitle != null)    
+                    @if($hsminiservicestitle != null)   
                         <div class="col-sm-4 col-md-4 paddingbot-50 wow fadeInRight" data-wow-delay="0.2s">
                             <nav>
                                 <ul class="ace-responsive-menu" data-menu-style="vertical">
@@ -39,7 +39,7 @@
                         </div>
                         @endif
 
-                        @if($health_assessment !=null )
+                        @if($health_assessment != null)
                         <div class="col-sm-8 col-md-8 paddingbot-30 wow fadeInLeft" data-wow-delay="0.1s">
                             <h4 class="h-bold"> {{$health_assessment->title}}</h4>
                             <p>
@@ -58,7 +58,7 @@
         </section>
         <section class="home-section bg-gray paddingbot-60">
             <div class="container">
-                @if($health_assessment != null)
+                @if($health_assessment !=null)
                 <div class="row">
                     <div class="wow fadeInDown" data-wow-delay="0.1s" >
                         <div class="section-heading text-center">
@@ -67,6 +67,7 @@
                         <i class="title-bg"></i>
                     </div>
                     <br><br>
+                    
                     <div class="col-sm-6 col-md-6 col-lg-6 wow fadeInLeft" data-wow-delay="0.1s" >
                         <p>
                            {!!$health_assessment->content_two!!} 
@@ -81,6 +82,7 @@
                 @endif
             </div>
         </section>
+        
         <section class="home-section paddingbot-60">
             <div class="container">
                 <div class="row">
