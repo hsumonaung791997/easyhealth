@@ -257,12 +257,16 @@
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <div class="wow bounceInUp" data-wow-delay="0.2s">
                             <div id="owl-works" class="owl-carousel">
-                                <div class="item"><img src="{{ asset('frontend/img/photo/1.jpg') }}" class="img-responsive" alt="img"></div>
-                                <div class="item"><img src="{{ asset('frontend/img/photo/2.jpg') }}" class="img-responsive" alt="img"></div>
-                                <div class="item"><img src="{{ asset('frontend/img/photo/3.jpg') }}" class="img-responsive" alt="img"></div>
-                                <div class="item"><img src="{{ asset('frontend/img/photo/4.jpg') }}" class="img-responsive" alt="img"></div>
-                                <div class="item"><img src="{{ asset('frontend/img/photo/5.jpg') }}" class="img-responsive" alt="img"></div>
-                                <div class="item"><img src="{{ asset('frontend/img/photo/6.jpg') }}" class="img-responsive" alt="img"></div>
+                                 @foreach($facilities as $facility)
+                                    <div class="item"> 
+                                        @if($facility->media_id != null)
+                                            <?php
+                                                $image = $facility->media->file_path . '/' . $facility->media->file_name;
+                                            ?>
+                                            <img src="{{ asset($image) }}" class="img-responsive" alt="img">
+                                        @endif
+                                    </div>
+                                  @endforeach
                             </div>
                         </div>
                     </div>

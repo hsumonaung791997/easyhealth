@@ -26,6 +26,7 @@ define('PROFILE_MEDIA_UPLOAD', 27);
 define('TEAM_MEDIA_UPLOAD', 30);
 define('VALUE_PROPOSITION_MEDIA_UPLOAD', 31);
 define('TEAMCOVER_MEDIA_UPLOAD', 32);
+define('FACILITY_MEDIA_UPLOAD', 33);
 
 define('PAGINATE', 25);
 
@@ -42,6 +43,7 @@ define('MEDIA_PATH', json_encode(
         30 => 'upload/teams',
         31 => 'upload/value_proposition',
         32 =>  'upload/teamcover',
+        33 =>  'upload/ourfacility',
     )
 ));
 

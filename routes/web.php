@@ -71,5 +71,6 @@ Route::group(['prefix'=>'admin'],function(){
 		Route::resource('team', 'TeamController');
 		Route::resource('value', 'ValuePropositionController');
 		Route::resource('teamcover', 'TeamcoverController');
+		Route::resource('facilities', 'OurFacilitiesController');
 	});
 });

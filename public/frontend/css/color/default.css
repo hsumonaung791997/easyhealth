@@ -53,13 +53,13 @@ a:focus {
 .navbar-custom.top-nav-collapse .nav li a:hover,
 .navbar-custom .nav li a:hover,
 .navbar-custom .nav li.active a,.navbar-custom.top-nav-collapse .nav li.active a  {
-    color: #3fbbc0;
+    color: #3fbbc0 !important;
 }
 
 
 .owl-theme .owl-controls .owl-page.active span,
 .owl-theme .owl-controls.clickable .owl-page:hover span {
-    background-color: #eb72a5;
+    background-color: #eb72a5 !important;
 }
 
 
