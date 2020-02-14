@@ -214,7 +214,7 @@ class HomeController extends Controller
         $pressreleasedetails = BLog::where([
                     ['type', '=', 17],
                     ['status', '=', 1],
-                ])->get();
+                ])->take(3)->get();
 
         return view('frontend.press_release_details', compact('pressreleasedetails', 'blog', 'locations'));
     }
