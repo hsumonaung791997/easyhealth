@@ -35,10 +35,14 @@
     <a href="{{ route('teamcover.index') }}"><i class="fa fa-edit"></i><span>Team Cover</span></a>
 </li>
 
+<li class="{{ Request::is('facilities*') ? 'active' : '' }}">
+    <a href="{{ route('facilities.index') }}"><i class="fa fa-edit"></i><span>Our Facilities</span></a>
+</li>
+
 <li class="{{ Request::is('team*') ? 'active' : '' }}">
     <a href="{{ route('team.index') }}"><i class="fa fa-edit"></i><span>Team Management</span></a>
 </li>
 
-<li class="{{ Request::is('value*') ? 'active' : '' }}">
+<!-- <li class="{{ Request::is('value*') ? 'active' : '' }}">
     <a href="{{ route('value.index') }}"><i class="fa fa-edit"></i><span>Value Proposition</span></a>
-</li>
+</li> -->

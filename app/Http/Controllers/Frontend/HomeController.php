@@ -13,6 +13,7 @@ use App\Model\Partner;
 use App\Model\Team;
 use App\Model\ValueProposition;
 use App\Model\Teamcover;
+use App\Model\Facilities;
 use DB;
 
 
@@ -21,10 +22,9 @@ class HomeController extends Controller
 	public function index()
 	{
         $locations = Location::all();
-        $ourservices = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', NULL)->get();
+        $ourservices = Service::orderBy('id', 'DESC')->where('status', 1)->where('parent', NULL)->take(6)->get();
         $partners = Partner::all();
         $blogs = Blog::where('status', 1)->orderBy('id','DESC')->get();
-        //$slide = Blog::where('status', 1)->orderBy('id','ASC')->take(3)->get();
         $whyus = Whyus::where('status', 1)->first();
 
 		return view('frontend.index', compact('whyus','blogs','locations','partners','ourservices'));
@@ -36,10 +36,10 @@ class HomeController extends Controller
         $whyus = Whyus::where('status', 1)->first();
         $doctors = Doctor::where('status', 1)->orderBy('id','DESC')->take(3)->get();
         $teamcover = Teamcover::orderBy('id','DESC')->first();
-        //dd($teamcover);
+        $facilities = Facilities::orderBy('id', 'DESC')->get();
         $values = ValueProposition::all();
 
-        return view('frontend.whyus', compact('locations', 'whyus', 'doctors','values', 'teamcover'));
+        return view('frontend.whyus', compact('locations', 'whyus', 'doctors','values', 'teamcover','facilities'));
     }
 
     public function appointment_form() 
@@ -95,7 +95,6 @@ class HomeController extends Controller
     public function contact()
 	{
 		$locations = Location::all();
-        
         return view('frontend.contact', compact('locations'));
 	}
 
@@ -147,8 +146,6 @@ class HomeController extends Controller
         return view('frontend.hstitle', compact('health_assessment', 'hsminiservicestitle', 'locations','healthassessment'));
     }
 
-
-
     public function healthassessmentsdetail($id)
     {
         $health_assessment = Service::find($id);
@@ -179,7 +176,6 @@ class HomeController extends Controller
 
     public function newsblogs(Request $request)
     {
-
         $data = $request->all();
         $locations = Location::all();
         if (!empty($data)) {
@@ -211,11 +207,6 @@ class HomeController extends Controller
     {
         $blog = Blog::find($id);
         $locations = Location::all();
-        /*$pressreleasedetails = BLog::where([
-                    ['type', '=', 17],
-                    ['status', '=', 1],
-                ])->get();*/
- 
         return view('frontend.press_release_details', compact('pressreleasedetails', 'blog', 'locations'));
     }
 
@@ -237,5 +228,7 @@ class HomeController extends Controller
         $locations = DB::table('locations')->get();
         return view('frontend.gmaps', compact('locations'));
     }
+
+
         
 }
