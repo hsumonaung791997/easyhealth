@@ -11,11 +11,11 @@ use App\Model\Location;
 class SendEmailController extends Controller
 {
     //
-    function index()
+    /*function index()
     {
     	$locactions = Location::all();
     	return view('frontend.contact',compact('locations'));
-    }
+    }*/
 
     function send(MailRequest $request)
     {

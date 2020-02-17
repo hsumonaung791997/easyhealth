@@ -10,9 +10,9 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['namespace' => 'Frontend'], function() {
@@ -51,7 +51,7 @@ Route::group(['namespace' => 'Frontend'], function() {
 	Route::get('{id}/other', 'HomeController@other')->name('frontend.mini_pharmacies');
 
 	Route::get('gmaps', 'HomeController@gmaps');
-	Route::get('/sendmail','SendEmailController@index');
+	//Route::get('/sendmail','SendEmailController@index');
 	Route::post('/sendmail/send', 'SendEmailController@send');
 });
 
