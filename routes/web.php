@@ -51,6 +51,8 @@ Route::group(['namespace' => 'Frontend'], function() {
 	Route::get('{id}/other', 'HomeController@other')->name('frontend.mini_pharmacies');
 
 	Route::get('gmaps', 'HomeController@gmaps');
+	Route::get('/sendmail','SendEmailController@index');
+	Route::post('/sendmail/send', 'SendEmailController@send');
 });
 
 Route::group(['prefix'=>'admin'],function(){
@@ -72,5 +74,6 @@ Route::group(['prefix'=>'admin'],function(){
 		Route::resource('value', 'ValuePropositionController');
 		Route::resource('teamcover', 'TeamcoverController');
 		Route::resource('facilities', 'OurFacilitiesController');
+		Route::resource('users', 'UserController');
 	});
 });

@@ -15,7 +15,7 @@
 </li>
 
 <li class="{{ Request::is('doctor*') ? 'active' : '' }}">
-    <a href="{{ route('doctor.index') }}"><i class="fa fa-edit"></i><span>Doctor</span></a>
+    <a href="{{ route('doctor.index') }}"><i class="fa fa-user"></i><span>Doctor</span></a>
 </li>
 
 <li class="{{ Request::is('whyus*') ? 'active' : '' }}">
@@ -24,7 +24,7 @@
 
  
 <li class="{{ Request::is('partner*') ? 'active' : '' }}">
-    <a href="{{ route('partner.index') }}"><i class="fa fa-edit"></i><span>Partner</span></a>
+    <a href="{{ route('partner.index') }}"><i class="fa fa-users"></i><span>Partner</span></a>
 </li>
 
 <li class="{{ Request::is('company_profile*') ? 'active' : '' }}">
@@ -32,7 +32,7 @@
  </li>
 
 <li class="{{ Request::is('teamcover*') ? 'active' : '' }}">
-    <a href="{{ route('teamcover.index') }}"><i class="fa fa-edit"></i><span>Team Cover</span></a>
+    <a href="{{ route('teamcover.index') }}"><i class="fa fa-users"></i><span>Team Cover</span></a>
 </li>
 
 <li class="{{ Request::is('facilities*') ? 'active' : '' }}">
@@ -40,7 +40,11 @@
 </li>
 
 <li class="{{ Request::is('team*') ? 'active' : '' }}">
-    <a href="{{ route('team.index') }}"><i class="fa fa-edit"></i><span>Team Management</span></a>
+    <a href="{{ route('team.index') }}"><i class="fa fa-users"></i><span>Team Management</span></a>
+</li>
+
+<li class="{{ Request::is('team*') ? 'active' : '' }}">
+    <a href="{{ route('users.index') }}"><i class="fa fa-user"></i><span>Users</span></a>
 </li>
 
 <!-- <li class="{{ Request::is('value*') ? 'active' : '' }}">

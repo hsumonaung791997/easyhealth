@@ -85,7 +85,7 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $('#inputStat').on('change',function () {
-            var url = $('#url').val() + '?type=' + $(this).val();
+            var url = $('#url').val() + '?type=' + $(this).attr();
             window.location.href = url;
         })
     });

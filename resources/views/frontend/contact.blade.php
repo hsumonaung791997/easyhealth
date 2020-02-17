@@ -81,23 +81,41 @@
                     </div>
                 </div>
                 <div class="container contact-form wow fadeInUp" data-wow-delay="0.1s">
-                    <form method="post" action="{{ url('sendemail/send') }}">
+                    @if($message = Session::get('success'))
+                    <center>
+                        <div class="row alert alert-success alert-block" style="width: 72%;text-align: center;">
+                            <button type="button" class="close" data-dismiss="alert">x</button>
+                            <strong>{{ $message }}</strong>
+                        </div>
+                    </center>
+                    @endif
+                    <form method="post" action="{{ url('sendmail/send') }}">
                         @csrf
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" name="txtName" class="form-control" placeholder="Your Name *" value="" />
+                                    <input type="text" name="name" class="form-control" placeholder="Your Name *" value="" />
+                                    @if ($errors->has('name'))
+                                    <span class="text-danger">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                    @endif
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="txtEmail" class="form-control" placeholder="Your Email *" value="" />
+                                    <input type="text" name="email" class="form-control" placeholder="Your Email *" value="" />
+                                     @if ($errors->has('email'))
+                                    <span class="text-danger">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                    @endif
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="txtPhone" class="form-control" placeholder="Your Phone Number " value="" />
+                                    <input type="text" name="phone" class="form-control" placeholder="Your Phone Number " value="" />
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <textarea name="txtMsg" class="form-control" placeholder="Your Message " style="width: 100%; height: 170px !important;"></textarea>
+                                    <textarea name="message" class="form-control" placeholder="Your Message " style="width: 100%; height: 170px !important;"></textarea>
                                 </div>
                             </div>
                             <center>

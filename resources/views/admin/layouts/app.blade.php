@@ -43,6 +43,7 @@
 
             <!-- Logo -->
             <a href="#" class="logo">
+                <img src="{{ asset('frontend/img/logo.png') }}" alt="" width="210" height="" />
                 <b>Easy Health</b>
             </a>
 
@@ -68,7 +69,7 @@
                             <ul class="dropdown-menu">
                                 <!-- The user image in the menu -->
                                 <li class="user-header">
-                                    <img src="{{ asset('/images/user.png') }}"
+                                    <img src="{{ asset('img/user.jpeg') }}"
                                          class="img-circle" alt="User Image"/>
                                     <p>
                                         {!! Auth::user()->name !!}
