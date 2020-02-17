@@ -35,7 +35,7 @@
 <div class="login-box">
     @include('flash::message')
     <div class="login-logo">
-        <b>Easy </b><i>Health</i>
+       <img src="{{ asset('frontend/img/logo.png') }}" alt="" width="210" height="" />
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">

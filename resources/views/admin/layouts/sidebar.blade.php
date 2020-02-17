@@ -15,7 +15,7 @@
                 @else
                     <p>{{ Auth::user()->name}}</p>
                 @endif
-                <!-- Status -->
+                 
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
