@@ -5,7 +5,7 @@
         @include('frontend.layouts.nav')
         <!-- breadcrumbs -->
         <section class="intro ui-title-page">
-            <img src="{{ asset('frontend/img/health-assessments-title.png') }}" class="img-responsive" width="100%">
+            <img src="https://akkclvuato.cloudimg.io/v7/{{ asset('frontend/img/health-assessments-title.png') }}?operations&filters" class="img-responsive" width="100%">
             <div class="breadcrumbs-title">
                 <div class="container">
                     <div class="wow fadeInDown" data-wow-delay="0.1s">
@@ -27,7 +27,7 @@
                                         <?php
                                             $image = $blog->media->file_path . '/' . $blog->media->file_name;
                                         ?>
-                                        <img src="{{ asset($image) }}" class="img-responsive" width="100%" height="100%">
+                                        <img src="https://akkclvuato.cloudimg.io/v7/{{ asset($image) }}?operations&filters" class="img-responsive" width="100%" height="100%">
                                     @endif
                                     <div class="post-category">
                                        <a href="{{ url($blog->id, 'blogs_detail') }}"><i class="fa fa-folder-open-o" aria-hidden="true"></i> Health &amp; Care</a>

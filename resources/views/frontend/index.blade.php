@@ -86,7 +86,7 @@
                 <div class="row">
                     <div class="col-sm-4 col-md-4 paddingtop-10">
                         <div class="wow fadeInUp" data-wow-delay="0.2s">
-                            <img src="{{ asset('frontend/img/medical-services.png') }}" class="img-responsive" alt="" />
+                            <img src="https://akkclvuato.cloudimg.io/v7/{{ asset('frontend/img/medical-services.png') }}?operations&filters" class="img-responsive" alt="" />
                         </div>
                     </div>
                     @if($ourservices != null)
@@ -136,7 +136,7 @@
                                 <?php
                                    $image = $partner->media->file_path . '/' . $partner->media->file_name;
                                 ?>
-                                <img src="{{ asset($image) }}" class="img-responsive" alt="img"> 
+                                <img src="https://akkclvuato.cloudimg.io/v7/{{ asset($image) }}?operations&filters" class="img-responsive" alt="img"> 
                                 @endif 
                             </div>
                             @endforeach
@@ -171,7 +171,7 @@
                                         <?php
                                             $image = $blog->media->file_path . '/' . $blog->media->file_name;
                                         ?>
-                                        <img src="{{ asset($image) }}" class="img-responsive" width="100%" height="100%">
+                                        <img src="https://akkclvuato.cloudimg.io/v7/{{ asset($image) }}?operations&filters" class="img-responsive" width="100%" height="100%">
                                     @endif
                                 <br>
                                 <h4><a  href="@if($blog->type == 17) {{ url($blog->id, 'press_release_details' ) }} @else {{ url( $blog->id, 'blogs_detail') }} @endif ">{{ $blog->title}} </a></h4>

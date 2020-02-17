@@ -5,7 +5,7 @@
         @include('frontend.layouts.nav')
         <!-- breadcrumbs -->
         <section class="intro ui-title-page">
-            <img src="{{ asset('frontend/img/about-bg.png') }}" class="img-responsive">
+            <img src="https://akkclvuato.cloudimg.io/v7/{{ asset('frontend/img/about-bg.png') }}?operations&filters" class="img-responsive">
             <div class="breadcrumbs-title">
                 <div class="container">
                     <div class="wow fadeInDown" data-wow-delay="0.1s">
@@ -41,7 +41,7 @@
                                   <?php
                                         $image = $location->media->file_path . '/' . $location->media->file_name;
                                     ?>
-                                <img src="{{ asset($image)}}" class="img-responsive" width="90%" height="60%">
+                                <img src="https://akkclvuato.cloudimg.io/v7/{{ asset($image)}}?operations&filters" class="img-responsive" width="90%" height="60%">
                             </div>
                         </div>
                     </div>
@@ -71,12 +71,12 @@
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <div class="wow bounceInUp" data-wow-delay="0.2s">
                             <div id="owl-works" class="owl-carousel">
-                                <div class="item"><img src="{{ asset('frontend/img/photo/1.jpg') }}" class="img-responsive" alt="img"></div>
-                                <div class="item"><img src="{{ asset('frontend/img/photo/2.jpg') }}" class="img-responsive" alt="img"></div>
-                                <div class="item"><img src="{{ asset('frontend/img/photo/3.jpg') }}" class="img-responsive" alt="img"></div>
-                                <div class="item"><img src="{{ asset('frontend/img/photo/4.jpg') }}" class="img-responsive" alt="img"></div>
-                                <div class="item"><img src="{{ asset('frontend/img/photo/5.jpg') }}" class="img-responsive" alt="img"></div>
-                                <div class="item"><img src="{{ asset('frontend/img/photo/6.jpg') }}" class="img-responsive" alt="img"></div>
+                                <div class="item"><img src="https://akkclvuato.cloudimg.io/v7/{{ asset('frontend/img/photo/1.jpg') }}?operations&filters" class="img-responsive" alt="img"></div>
+                                <div class="item"><img src="https://akkclvuato.cloudimg.io/v7/{{ asset('frontend/img/photo/2.jpg') }}?operations&filters" class="img-responsive" alt="img"></div>
+                                <div class="item"><img src="https://akkclvuato.cloudimg.io/v7/{{ asset('frontend/img/photo/3.jpg') }}?operations&filters" class="img-responsive" alt="img"></div>
+                                <div class="item"><img src="https://akkclvuato.cloudimg.io/v7/{{ asset('frontend/img/photo/4.jpg') }}?operations&filters" class="img-responsive" alt="img"></div>
+                                <div class="item"><img src="https://akkclvuato.cloudimg.io/v7/{{ asset('frontend/img/photo/5.jpg') }}?operations&filters" class="img-responsive" alt="img"></div>
+                                <div class="item"><img src="https://akkclvuato.cloudimg.io/v7/{{ asset('frontend/img/photo/6.jpg') }}?operations&filters" class="img-responsive" alt="img"></div>
                             </div>
                         </div>
                     </div>

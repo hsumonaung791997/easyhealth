@@ -5,7 +5,7 @@
     <div id="wrapper">
         @include('frontend.layouts.nav')
         <section class="intro ui-title-page">
-            <img src="{{ asset('frontend/img/services-details.png') }}" class="img-responsive" width="100%">
+            <img src="https://akkclvuato.cloudimg.io/v7/{{ asset('frontend/img/services-details.png') }}?operations&filters" class="img-responsive" width="100%">
             <div class="breadcrumbs-title">
                 <div class="container">
                     <div class="wow fadeInDown" data-wow-delay="0.1s">
@@ -41,7 +41,7 @@
                             <br><br>
                             <a href="#" class="btn btn-skin btn-lg">CALL US</a>
                             <br><br> 
-                            <h4 class="h-bold"><i class="fa fa-phone" aria-hidden="true"></i> 09 123456789</h4>
+                            <h4 class="h-bold"><i class="fa fa-phone" aria-hidden="true"></i> 09 772 317388</h4>
                             <p>For more information or to make a booking, please call us.</p>
                             <p><b>Lines are open Daily 7am to 11pm</b></p>
                         </div>     
@@ -69,7 +69,7 @@
                                  <?php
                                     $image = $gpminiservice->media->file_path . '/' . $gpminiservice->media->file_name;
                                 ?>
-                                <img src="{{ asset($image) }}" class="img-responsive">
+                                <img src="https://akkclvuato.cloudimg.io/v7/{{ asset($image) }}?operations&filters" class="img-responsive">
                                 @endif                    
                                 <h4 class="h-bold">{{ $gpminiservice->title }}</h4>
                                 <i class="title-bg"></i>
@@ -107,12 +107,12 @@
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <div class="wow bounceInUp" data-wow-delay="0.2s">
                             <div id="owl-works" class="owl-carousel">
-                                <div class="item"><img src="{{ asset('frontend/img/photo/1.jpg') }}" class="img-responsive" alt="img"></div>
-                                <div class="item"><img src="{{ asset('frontend/img/photo/2.jpg') }}" class="img-responsive" alt="img"></div>
-                                <div class="item"><img src="{{ asset('frontend/img/photo/3.jpg') }}" class="img-responsive" alt="img"></div>
-                                <div class="item"><img src="{{ asset('frontend/img/photo/4.jpg') }}" class="img-responsive" alt="img"></div>
-                                <div class="item"><img src="{{ asset('frontend/img/photo/5.jpg') }}" class="img-responsive" alt="img"></div>
-                                <div class="item"><img src="{{ asset('frontend/img/photo/6.jpg') }}" class="img-responsive" alt="img"></div>
+                                <div class="item"><img src="https://akkclvuato.cloudimg.io/v7/{{ asset('frontend/img/photo/1.jpg') }}?operations&filters" class="img-responsive" alt="img"></div>
+                                <div class="item"><img src="https://akkclvuato.cloudimg.io/v7/{{ asset('frontend/img/photo/2.jpg') }}?operations&filters" class="img-responsive" alt="img"></div>
+                                <div class="item"><img src="https://akkclvuato.cloudimg.io/v7/{{ asset('frontend/img/photo/3.jpg') }}?operations&filters" class="img-responsive" alt="img"></div>
+                                <div class="item"><img src="https://akkclvuato.cloudimg.io/v7/{{ asset('frontend/img/photo/4.jpg') }}?operations&filters" class="img-responsive" alt="img"></div>
+                                <div class="item"><img src="https://akkclvuato.cloudimg.io/v7/{{ asset('frontend/img/photo/5.jpg') }}?operations&filters" class="img-responsive" alt="img"></div>
+                                <div class="item"><img src="https://akkclvuato.cloudimg.io/v7/{{ asset('frontend/img/photo/6.jpg') }}?operations&filters" class="img-responsive" alt="img"></div>
                             </div>
                         </div>
                     </div>
@@ -129,7 +129,7 @@
                                 <h2 class="h-bold">Call us</h2>
                                 <p>For more information or to make a booking, please call us.</p>
                                 <i class="fa fa-phone fa-2x" aria-hidden="true"></i>
-                                <h2 class="h-bold">09 123456789</h2>
+                                <h2 class="h-bold">09 772 317388</h2>
                                 <p>Lines are open Daily 7am to 11pm</p>
                             </div>
                         </div>

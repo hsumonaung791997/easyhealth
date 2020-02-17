@@ -21,7 +21,7 @@
                     <div class="wow fadeInDown" data-wow-delay="0.1s">
                         <div class="section-heading text-center">
                             <h2 class="h-bold">Find a private GP near me</h2>
-                            <p>View our health centre pages below or call us for advice on +959 123456789</p>
+                            <p>View our health centre pages below or call us for advice on +959 772 317388</p>
                         </div>
                     </div>
                     <i class="title-bg"></i>
@@ -114,7 +114,7 @@
                         <div class="col-sm-4 col-md-4 col-lg-4">
                             <div class="wow fadeInLeft" data-wow-delay="0.1s">
                                 <div class="text-left">
-                                    <p><img src="{{ asset('frontend/img/footer-eh-logo.png') }}"></p>
+                                    <p><img src="https://akkclvuato.cloudimg.io/v7/{{ asset('frontend/img/footer-eh-logo.png') }}?operations&filters"></p>
                                 </div>
                             </div>
                         </div>

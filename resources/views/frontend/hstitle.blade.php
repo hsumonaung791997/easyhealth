@@ -5,7 +5,7 @@
         @include('frontend.layouts.nav')
         <!-- breadcrumbs -->
         <section class="intro ui-title-page">
-            <img src="{{ asset('frontend/img/health-assessments-title.png') }}" class="img-responsive" width="100%">
+            <img src="https://akkclvuato.cloudimg.io/v7/{{ asset('frontend/img/health-assessments-title.png') }}?operations&filters" class="img-responsive" width="100%">
             <div class="breadcrumbs-title">
                 <div class="container">
                     <div class="wow fadeInDown" data-wow-delay="0.1s">
@@ -48,7 +48,7 @@
                                  
                             </p>
                             <br>
-                            <h4 class="h-bold">Ask us a question on +959 123456789</h4>
+                            <h4 class="h-bold">Ask us a question on +959 772 317388</h4>
                             <a href="#" class="ph-call-btn btn btn-lg ">CALL NOW</a>
                         </div>
                         @endif
@@ -97,7 +97,7 @@
                             <div id="owl-works" class="owl-carousel">
                                 <div class="item text-center">
                                     <a href="#" title="This is an image title">
-                                        <img src="{{ asset('frontend/img/health-icon1.png') }}" class="img-responsive" alt="img" width="100px">
+                                        <img src="https://akkclvuato.cloudimg.io/v7/{{ asset('frontend/img/health-icon1.png') }}?operations&filters" class="img-responsive" alt="img" width="100px">
                                         <b>Lifestyle</b>
                                     </a>
                                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
@@ -105,21 +105,21 @@
                                 </div>
                                 <div class="item text-center">
                                     <a href="#" title="This is an image title">
-                                        <img src="{{ asset('frontend/img/health-icon2.png') }}" class="img-responsive" alt="img">
+                                        <img src="https://akkclvuato.cloudimg.io/v7/{{ asset('frontend/img/health-icon2.png') }}?operations&filters" class="img-responsive" alt="img">
                                         <b>Health</b>
                                     </a>
                                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
                                 </div>
                                 <div class="item text-center">
                                     <a href="#" title="This is an image title">
-                                        <img src="{{ asset('frontend/img/health-icon3.png') }}" class="img-responsive" alt="img">
+                                        <img src="https://akkclvuato.cloudimg.io/v7/{{ asset('frontend/img/health-icon3.png') }}?operations&filters" class="img-responsive" alt="img">
                                         <b>Body composition</b>
                                     </a>
                                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
                                 </div>
                                 <div class="item text-center">
                                     <a href="#" title="This is an image title">
-                                        <img src="{{ asset('frontend/img/health-icon4.png') }}" class="img-responsive" alt="img">
+                                        <img src="https://akkclvuato.cloudimg.io/v7/{{ asset('frontend/img/health-icon4.png') }}?operations&filters" class="img-responsive" alt="img">
                                         <b>Blood and urine tests</b>
                                     </a>
                                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
@@ -141,7 +141,7 @@
                                 <h2 class="h-bold">Call us</h2>
                                 <p>For more information or to make a booking, please call us.</p>
                                 <i class="fa fa-phone fa-2x" aria-hidden="true"></i>
-                                <h2 class="h-bold">09 123456789</h2>
+                                <h2 class="h-bold">09 772 317388</h2>
                                 <p>Lines are open Daily 7am to 11pm</p>
                             </div>
                         </div>

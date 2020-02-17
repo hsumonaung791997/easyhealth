@@ -7,7 +7,7 @@
 
         <!-- breadcrumbs -->
         <section class="intro ui-title-page">
-            <img src="{{ asset('frontend/img/about-bg.png') }}" class="img-responsive">
+            <img src="https://akkclvuato.cloudimg.io/v7/{{ asset('frontend/img/about-bg.png') }}?operations&filters" class="img-responsive">
             <div class="breadcrumbs-title">
                 <div class="container">
                     <div class="wow fadeInDown" data-wow-delay="0.1s">
@@ -48,7 +48,7 @@
                                     <?php
                                         $image = $doctor->media->file_path . '/' . $doctor->media->file_name;
                                     ?>
-                                    <img src="{{ asset($image) }}" class="img-responsive" width="100%" height="100%">
+                                    <img src="https://akkclvuato.cloudimg.io/v7/{{ asset($image) }}?operations&filters" class="img-responsive" width="100%" height="100%">
                                 @endif
                             </div>
                         </div>

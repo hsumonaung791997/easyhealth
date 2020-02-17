@@ -5,7 +5,7 @@
         @include('frontend.layouts.nav')
         <!-- breadcrumbs -->
         <section class="intro ui-title-page">
-            <img src="img/about-bg.png" class="img-responsive" width="100%">
+            <img src="https://akkclvuato.cloudimg.io/v7/{{ asset('frontend/img/about-bg.png') }}?operations&filters" class="img-responsive" width="100%">
             <div class="breadcrumbs-title">
                 <div class="container">
                     <div class="wow fadeInDown" data-wow-delay="0.1s">
@@ -44,7 +44,7 @@
                                         <?php
                                             $image = $newsblog->media->file_path . '/' . $newsblog->media->file_name;
                                         ?>
-                                        <img src="{{ asset($image) }}" class="img-responsive">
+                                        <img src="https://akkclvuato.cloudimg.io/v7/{{ asset($image) }}?operations&filters" class="img-responsive">
                                     @endif
                                     <br>
                                     <a title="" href="@if($newsblog->type == 17) {{ url($newsblog->id, 'press_release_details') }} @else {{ url($newsblog->id, 'blogs_detail') }} @endif">{{ $newsblog->title }}</a>
@@ -71,7 +71,7 @@
                                 <h2 class="h-bold">Call us</h2>
                                 <p>For more information or to make a booking, please call us.</p>
                                 <i class="fa fa-phone fa-2x" aria-hidden="true"></i>
-                                <h2 class="h-bold">09 123456789</h2>
+                                <h2 class="h-bold">09 772 317388</h2>
                                 <b>Open Daily 7am to 11pm</b>
                             </div>
                         </div>

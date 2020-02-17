@@ -7,7 +7,7 @@
 
         <!-- breadcrumbs -->
         <section class="intro ui-title-page">
-            <img src="{{ asset('frontend/img/about-bg.png') }}" class="img-responsive">
+            <img src="https://akkclvuato.cloudimg.io/v7/{{ asset('frontend/img/about-bg.png') }}?operations&filters" class="img-responsive">
             <div class="breadcrumbs-title">
                 <div class="container">
                     <div class="wow fadeInDown" data-wow-delay="0.1s">

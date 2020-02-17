@@ -5,7 +5,7 @@
         @include('frontend.layouts.nav')
         <!-- breadcrumbs -->
         <section class="intro ui-title-page">
-            <img src="{{ asset('frontend/img/press-release.png') }}" class="img-responsive" width="100%">
+            <img src="https://akkclvuato.cloudimg.io/v7/{{ asset('frontend/img/press-release.png') }}?operations&filters" class="img-responsive" width="100%">
             <div class="breadcrumbs-title">
                 <div class="container">
                     <div class="wow fadeInDown" data-wow-delay="0.1s">
