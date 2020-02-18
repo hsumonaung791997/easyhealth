@@ -81,7 +81,7 @@
                                     <div class="pull-left">
                                     </div>
                                     <div class="pull-right">
-                                        <form action="{{ asset('logout') }}" method="POST">
+                                        <form action="{{ asset('admin/login') }}" method="POST">
                                             {{ csrf_field() }}
                                             <button type="submit" class="btn btn-default">Sign out</button>
                                         </form>
