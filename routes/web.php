@@ -10,6 +10,13 @@
 |
 */
 
+<<<<<<< HEAD
+=======
+/*Route::get('/', function () {
+    return view('welcome');
+});*/
+Auth::routes();
+>>>>>>> fce51a75847fd4ce1778bb09fb1635aa1e0e36a7
 Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['namespace' => 'Frontend'], function() {
 	Route::get('/', 'HomeController@index')->name('frontend.index');
@@ -47,7 +54,7 @@ Route::group(['namespace' => 'Frontend'], function() {
 	Route::get('{id}/other', 'HomeController@other')->name('frontend.mini_pharmacies');
 
 	Route::get('gmaps', 'HomeController@gmaps');
-	Route::get('/sendmail','SendEmailController@index');
+	//Route::get('/sendmail','SendEmailController@index');
 	Route::post('/sendmail/send', 'SendEmailController@send');
 });
 

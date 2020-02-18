@@ -31,15 +31,16 @@
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body class="hold-transition login-page">
+<body class="hold-transition login-page" style="background: #f1efeb;">
 <div class="login-box">
     @include('flash::message')
+    <br><br><br><br>
     <div class="login-logo">
        <img src="{{ asset('frontend/img/logo.png') }}" alt="" width="210" height="" />
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
-        <p class="login-box-msg">Sign in to start your session</p>
+        <center><h3>ADMIN LOGIN</h3></center><br>
 
         <form method="POST" action="{{ route('login') }}">
             @csrf
