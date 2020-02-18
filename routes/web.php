@@ -10,13 +10,6 @@
 |
 */
 
-<<<<<<< HEAD
-=======
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
-Auth::routes();
->>>>>>> fce51a75847fd4ce1778bb09fb1635aa1e0e36a7
 Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['namespace' => 'Frontend'], function() {
 	Route::get('/', 'HomeController@index')->name('frontend.index');
